@@ -11,6 +11,7 @@ class themeColor {
   static const Color colorAccentPrimary = Color(0xFFf39505);
   static const Color colorAccentSecondory = Color(0xffFF0101);
   static const Color colorWhite = Color(0xffFFFFFF);
+  static const Color colorBorder = Color(0xffD1D1D1);
 }
 
 class globalPadding {
