@@ -1,4 +1,4 @@
-package com.example.wannoo
+package com.wannoo.wannoo
 
 import io.flutter.embedding.android.FlutterActivity
 

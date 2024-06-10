@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "623201882335",
+    "project_id": "wannaoo",
+    "storage_bucket": "wannaoo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:623201882335:android:064718276631d077e8996a",
+        "android_client_info": {
+          "package_name": "com.wannoo.wannoo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "623201882335-v27u9i2t4v1gpbvbh1f11reh2a0di5s7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wannoo.wannoo",
+            "certificate_hash": "c51e68aa124fd1a2db938f620a7ebea2b8ebbd85"
+          }
+        },
+        {
+          "client_id": "623201882335-hlpafebli69kl3mcr5osjtmubfse48nm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjG_ULtXk-_9JVgqRgyuuIKnS46Lptp7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "623201882335-hlpafebli69kl3mcr5osjtmubfse48nm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

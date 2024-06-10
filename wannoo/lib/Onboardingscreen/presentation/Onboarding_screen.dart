@@ -2,11 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
-import 'package:intro_screen_onboarding_flutter/introscreenonboarding.dart';
 import 'package:wannoo/Constants.dart';
 import 'package:wannoo/routes.dart';
 
 
+import '../../Components/introscreen/introscreenonboarding.dart';
 import 'Onboarding_Controller.dart';
 
 class OnBoardingScreen extends StatelessWidget {
@@ -16,7 +16,7 @@ class OnBoardingScreen extends StatelessWidget {
     OnBoardingController controller = Get.put(OnBoardingController());
     return Scaffold(
     body: IntroScreenOnboarding(
-
+backgroudColor: themeColor.colorBgPrimary,
       foregroundColor: themeColor.colorBgSecondory,
     introductionList: controller.list,
 onTapSkipButton: () {
