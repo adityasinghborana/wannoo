@@ -2,7 +2,9 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:wannoo/Constants.dart';
 import 'package:wannoo/routes.dart';
 
 void main() async {
@@ -25,9 +27,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-
+      theme: ThemeData(
+        fontFamily: GoogleFonts.inter().fontFamily,
+        // Sets Inter as the default font family
+        scaffoldBackgroundColor: themeColor.colorscafold,
+        appBarTheme: AppBarTheme(color: themeColor.colorBgPrimary,),
+      ),
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.splash, // Set splash screen as the initialroute
+      initialRoute: AppRoutes.home, // Set splash screen as the initialroute
       getPages: AppRoutes.routes,
     );
   }

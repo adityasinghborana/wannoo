@@ -7,6 +7,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wannoo/routes.dart';
 
+import '../../../utilities/dialog.dart';
+
 class LoginController extends GetxController {
   final RxBool obsecureText = true.obs;
 
@@ -82,7 +84,5 @@ class LoginController extends GetxController {
     }
   }
 
-  void showSnackBar(BuildContext context, String text) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
-  }
+
 }

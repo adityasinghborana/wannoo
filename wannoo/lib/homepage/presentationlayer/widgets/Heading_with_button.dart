@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:wannoo/Components/text_button.dart';
 import 'package:wannoo/Constants.dart';
+import 'package:wannoo/routes.dart';
 import 'package:wannoo/styles.dart';
 
 class HeadingwithButton extends StatelessWidget {
@@ -15,7 +17,10 @@ class HeadingwithButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(label,style: TypographyStyle.l2Font.copyWith(fontWeight: FontWeight.w600),),
-          CustomTextButton(onpressed: (){}, label: 'See All')
+          CustomTextButton(onpressed: (){
+
+            Get.toNamed(AppRoutes.allcategories);
+          }, label: 'See All')
         ],
       ),
     );

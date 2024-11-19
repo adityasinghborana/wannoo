@@ -5,6 +5,7 @@ import 'package:wannoo/Components/Textfield.dart';
 import 'package:wannoo/Constants.dart';
 import '../../../Components/large_button.dart';
 import '../../../Components/sociallogin_buttons.dart';
+import '../../../Components/text_button.dart';
 import '../../../routes.dart';
 
 
@@ -57,6 +58,7 @@ class SignUpPage extends StatelessWidget {
               hideText: true, hintText: staticText.loginPassword,
             ),
           ),
+          SizedBox(height: Height.heightl,),
           Padding(
             padding: const EdgeInsets.symmetric(
                 horizontal: globalPadding.buttonSmallpx),
@@ -69,6 +71,7 @@ class SignUpPage extends StatelessWidget {
               },
             ),
           ),
+          SizedBox(height: Height.heightl,),
           RichText(
             text: TextSpan(
               text: staticText.loginToSignup,
@@ -91,8 +94,16 @@ class SignUpPage extends StatelessWidget {
               ],
             ),
           ),
-          SocialLoginButton(onpressed: (){null;},imagepath: image.googleIcon,label: staticText.signupGoogle,),
-          SocialLoginButton(onpressed: (){null;},imagepath: image.facebookIcon,label: staticText.signupFacebook,),
+          SizedBox(height: Height.heightl,),
+          Text("or"),
+          SizedBox(height: Height.heightl,),
+          SocialLoginButton(onpressed: (){ signupController.googleSignUp(context);},imagepath: image.googleIcon,label: staticText.signupGoogle,),
+          SizedBox(height: Height.heightl,),
+          // SocialLoginButton(onpressed: (){null;},imagepath: image.facebookIcon,label: staticText.signupFacebook,),
+          // SizedBox(height: Height.heightl,),
+          //Text("or"),
+          SizedBox(height: Height.heightl,),
+          CustomTextButton(onpressed: (){}, label: 'forgot password')
         ],
       ),
     );

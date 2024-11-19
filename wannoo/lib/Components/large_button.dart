@@ -14,7 +14,7 @@ class LargeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-     height: Height.heightButtonLarge,
+      height: Height.heightButtonLarge,
       width: double.infinity, // Full width
       child: ElevatedButton(
         onPressed: onPressed,
@@ -23,7 +23,8 @@ class LargeButton extends StatelessWidget {
           foregroundColor: themeColor.colorWhite, // Text color
           elevation: 5, // Elevation/shadow
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(globalRadius.borderRadius_m), // Border radius
+            borderRadius: BorderRadius.circular(
+                globalRadius.borderRadius_m), // Border radius
           ),
         ),
         child: Text(label),

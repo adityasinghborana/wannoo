@@ -30,8 +30,7 @@ class LoginPage extends StatelessWidget {
               image.logoOrange,
             ),
             const Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: globalPadding.px_l),
+              padding: EdgeInsets.symmetric(horizontal: globalPadding.px_l),
               child: Row(
                 children: [Text(staticText.loginEmail)],
               ),
@@ -41,7 +40,8 @@ class LoginPage extends StatelessWidget {
                   horizontal: globalPadding.px_l,
                   vertical: globalPadding.buttonSmallpy),
               child: TextFieldCustom(
-                  textController: loginController.emailController,hintText:staticText.loginEmail),
+                  textController: loginController.emailController,
+                  hintText: staticText.loginEmail),
             ),
             const Padding(
               padding: EdgeInsets.symmetric(
@@ -56,14 +56,16 @@ class LoginPage extends StatelessWidget {
                   horizontal: globalPadding.px_l,
                   vertical: globalPadding.buttonSmallpy),
               child: TextFieldCustom(
-                textController: loginController.passwordController,
-                hideText: true,hintText:staticText.loginPassword
-              ),
+                  textController: loginController.passwordController,
+                  hideText: true,
+                  hintText: staticText.loginPassword),
             ),
-            SizedBox(height: Height.heightl,),
+            SizedBox(
+              height: Height.heightl,
+            ),
             Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: globalPadding.px_l),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: globalPadding.px_l),
               child: LargeButton(
                 label: 'Login',
                 onPressed: () {
@@ -71,7 +73,9 @@ class LoginPage extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(height: Height.heightl,),
+            SizedBox(
+              height: Height.heightl,
+            ),
             RichText(
               text: TextSpan(
                 text: staticText.signUpToLogin,
@@ -94,16 +98,35 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: Height.heightl,),
+            SizedBox(
+              height: Height.heightl,
+            ),
             Text("or"),
-            SizedBox(height: Height.heightl,),
-            SocialLoginButton(onpressed: (){null;},imagepath: image.googleIcon,label: staticText.loginGoogle,),
-            SizedBox(height: Height.heightl,),
-            SocialLoginButton(onpressed: (){null;},imagepath: image.facebookIcon,label: staticText.loginFacebook,),
-            Text("or"),
-            SizedBox(height: Height.heightl,),
-            CustomTextButton(onpressed: (){}, label: 'forgot password')
-        
+            SizedBox(
+              height: Height.heightl,
+            ),
+            SocialLoginButton(
+              onpressed: () {
+                null;
+              },
+              imagepath: image.googleIcon,
+              label: staticText.loginGoogle,
+            ),
+            // SizedBox(
+            //   height: Height.heightl,
+            // ),
+            // SocialLoginButton(
+            //   onpressed: () {
+            //     null;
+            //   },
+            //   imagepath: image.facebookIcon,
+            //   label: staticText.loginFacebook,
+            // ),
+           // Text("or"),
+            SizedBox(
+              height: Height.heightl,
+            ),
+            CustomTextButton(onpressed: () {}, label: 'forgot password')
           ],
         ),
       ),

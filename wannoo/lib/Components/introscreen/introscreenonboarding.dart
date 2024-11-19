@@ -57,19 +57,17 @@ class _IntroScreenOnboardingState extends State<IntroScreenOnboarding> {
                     ),
                   ],
                 ),
-                Expanded(
-                  child: Container(
-                    height: 550.0,
-                    child: PageView(
-                      physics: ClampingScrollPhysics(),
-                      controller: _pageController,
-                      onPageChanged: (int page) {
-                        setState(() {
-                          _currentPage = page;
-                        });
-                      },
-                      children: widget.introductionList!,
-                    ),
+                Flexible(
+
+                  child: PageView(
+                    physics: ClampingScrollPhysics(),
+                    controller: _pageController,
+                    onPageChanged: (int page) {
+                      setState(() {
+                        _currentPage = page;
+                      });
+                    },
+                    children: widget.introductionList!,
                   ),
                 ),
 
@@ -88,8 +86,8 @@ class _IntroScreenOnboardingState extends State<IntroScreenOnboarding> {
       alignment: Alignment.center,
       children: [
         Container(
-          width: 80,
-          height: 80,
+          width: 70,
+          height: 70,
           child: CircleProgressBar(
             backgroundColor: Colors.white,
             foregroundColor:

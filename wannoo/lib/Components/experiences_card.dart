@@ -3,16 +3,20 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/Constants.dart';
 
+import '../utilities/dialog.dart';
+
 class ExperiencesCard extends StatelessWidget {
   final String imagePath;
   final String title;
   final String location;
+  final bool isfav;
 
   const ExperiencesCard({
     Key? key,
     required this.imagePath,
     required this.title,
     required this.location,
+    required this.isfav
   }) : super(key: key);
 
   @override
@@ -26,7 +30,13 @@ class ExperiencesCard extends StatelessWidget {
           child: Stack(
             children: [
               Image.asset(
-                imagePath,
+                image.experiencesimages,
+                errorBuilder: (context, error, stackTrace) {
+                  return Image.asset(
+                    image.experiencesimages, width: double.infinity,
+                    height: double.infinity,
+                    fit: BoxFit.cover,); // Replace with a local default image
+                },
                 width: double.infinity,
                 height: double.infinity,
                 fit: BoxFit.cover,
@@ -34,21 +44,25 @@ class ExperiencesCard extends StatelessWidget {
               Align(
                 alignment: Alignment.topRight,
                 child: Padding(
-                  padding: const EdgeInsets.all( globalPadding.px_xs),
+                  padding: const EdgeInsets.all(globalPadding.px_xs),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: themeColor.colorBgPrimary,
-                        ),
-                        child: Icon(
-                          Icons.bookmark,
-                          color: themeColor.colorTextPrimary,
-                        ),
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: themeColor.colorTextSecondry.withOpacity(0.4),
+                          ),
+                          child: InkWell(
+                              onTap: () {
+                                showMyModalBottomSheet(context, ['List 1', 'List 2', 'List 3','List 4','List 5' ,'List 6','List 1', 'List 2', 'List 3','List 4','List 5' ,'List 6','List 1', 'List 2', 'List 3','List 4','List 5' ,'List 6','List 1', 'List 2', 'List 3','List 4','List 5' ,'List 6',]);
+                              },
+                              child: Icon(
+                                Icons.add,
+                                color: themeColor.colorBgSecondory,
+                              ))
                       ),
                     ],
                   ),
@@ -60,9 +74,10 @@ class ExperiencesCard extends StatelessWidget {
                 right: 0,
                 child: Container(
                   height: 50,
-                  color: Colors.black.withOpacity(0.5),
+                  color: themeColor.colorTextPrimary .withOpacity(0.6),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal:globalPadding.px_sm),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: globalPadding.px_sm),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -83,7 +98,7 @@ class ExperiencesCard extends StatelessWidget {
                                   Icon(
                                     FontAwesomeIcons.locationDot,
                                     color: themeColor.colorBgPrimary,
-                                    size:15,
+                                    size: 15,
 
                                   ),
                                   Text(
