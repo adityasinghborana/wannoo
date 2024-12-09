@@ -12,12 +12,14 @@ AllBlogsModel _$AllBlogsModelFromJson(Map<String, dynamic> json) =>
       title: json['title'] as String?,
       content: json['content'] as String?,
       createdAt: json['createdAt'] as String?,
+      image: json['image'] as String?,
     );
 
 Map<String, dynamic> _$AllBlogsModelToJson(AllBlogsModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
+      'image': instance.image,
       'content': instance.content,
       'createdAt': instance.createdAt,
     };

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/Categoryplaces/presentationlayer/categoryplacesscreen.dart';
+import 'package:wannoo/Components/largeButton2.dart';
 import 'package:wannoo/Constants.dart';
 import 'package:wannoo/utilities/extension.dart';
+
+import '../homepage/presentationlayer/homepage_controller.dart';
 
 Future<void> showMyDialog(BuildContext context, List<String> items) async {
   // A list to keep track of checkbox states
@@ -51,52 +54,62 @@ void showSnackBar(BuildContext context, String text) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
 }
 
-
-
-
-Future<void> showMyModalBottomSheet(BuildContext context, List<String> items) async {
+Future<void> showMyModalBottomSheet(
+    BuildContext context, int selectedTourId) async {
   // Initialize a list of bool values to track the checked state of each item.
-  List<bool> checkedStates = List<bool>.filled(items.length, false);
 
   await showModalBottomSheet(
     backgroundColor: themeColor.colorscafold,
     context: context,
-    isScrollControlled: true,  // Ensures the bottom sheet can expand
+    isScrollControlled: true, // Ensures the bottom sheet can expand
     builder: (BuildContext context) {
+      final HomePageController homePageController = Get.find();
       return StatefulBuilder(
         builder: (BuildContext context, StateSetter setState) {
           return ConstrainedBox(
-              constraints: BoxConstraints(
-              maxHeight: Get.height * 0.75,),
+            constraints: BoxConstraints(
+              maxHeight: Get.height * 0.75,
+            ),
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                   Text(
+                  Text(
                     'Add To Itinerary',
-                    style:CustomTextStyles.fontXlSemiBold,
+                    style: CustomTextStyles.fontXlSemiBold,
                   ),
                   const SizedBox(height: 16),
                   // Wrap ListView.builder inside an Expanded to allow scrolling
                   Expanded(
                     child: ListView.builder(
                       shrinkWrap: true,
-                      itemCount: items.length,
+                      itemCount: homePageController.itinararyList.length,
                       itemBuilder: (context, index) {
-                        return CheckboxListTile(
-                          title: Text(items[index],style: CustomTextStyles.fontMdMedium,),
-                          value: checkedStates[index],
-                          onChanged: (bool? value) {
-                            setState(() {
-                              checkedStates[index] = value ?? false;
-                            });
-                          },
+                        var items = homePageController.itinararyList;
+                        return Container(
+                          height: 50,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("${items[index].name}"),
+                              SizedBox(
+                                height: 30,
+                                width: 100,
+                                child: LargeButton2(
+                                    label: "Add ",
+                                    height: 90,
+                                    onPressed: () {
+                                      print(selectedTourId);
+                                      return null;
+                                    }),
+                              )
+                            ],
+                          ),
                         );
                       },
                     ),
                   ),
-
                 ],
               ),
             ),
@@ -106,4 +119,3 @@ Future<void> showMyModalBottomSheet(BuildContext context, List<String> items) as
     },
   );
 }
-

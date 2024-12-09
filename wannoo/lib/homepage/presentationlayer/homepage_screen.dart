@@ -17,9 +17,13 @@ import 'package:wannoo/homepage/datalayer/service/alltours_remote.dart';
 import 'package:wannoo/homepage/datalayer/usecase/getalltoursUsecase.dart';
 import 'package:wannoo/homepage/presentationlayer/homepage_controller.dart';
 import 'package:wannoo/homepage/presentationlayer/Screens/home_screen.dart';
+import 'package:wannoo/itinarary/datalayer/repository/itinarary_repository.dart';
+import 'package:wannoo/itinarary/datalayer/service/itinarary_remote.dart';
+import 'package:wannoo/itinarary/datalayer/usecase/get_itinarary_usecase.dart';
 import 'package:wannoo/profile/presentationlayer/profilescreen.dart';
 import 'package:wannoo/utilities/extension.dart';
 
+import '../../itinarary/datalayer/usecase/create_itinarary_usecase.dart';
 import 'Screens/Saved.dart';
 
 class HomepageScreen extends StatefulWidget {
@@ -36,6 +40,16 @@ class _HomepageScreenState extends State<HomepageScreen> {
   Widget build(BuildContext context) {
     final HomePageController homePageController = Get.put(
       HomePageController(
+        getitinararyUseCase: GetitinararyUseCase(
+          itinararyRepoImpl(
+            itinararyRemote(Dio()),
+          ),
+        ),
+        createItinararyUseCase: CreateItinararyUseCase(
+          itinararyRepoImpl(
+            itinararyRemote(Dio()),
+          ),
+        ),
         getAllCategoriesUseCase: GetAllCategoriesUseCase(
           AllCategoriesRepoImpl(
             AllCategoriesRemote(Dio()),
@@ -67,11 +81,11 @@ class _HomepageScreenState extends State<HomepageScreen> {
         children: [
           HomeScreen(),
           Saved(),
-        BlogsScreen(),
-         // BookingsScreen(),
-       //PaymentFailure()
+          BlogsScreen(),
+          // BookingsScreen(),
+          //PaymentFailure()
 //PaymentSuccess()
-        PreviousBookings()
+          PreviousBookings()
         ],
       ).fadeIn(duration: Duration(seconds: 1)),
     );

@@ -19,7 +19,8 @@ class ExperiencesListview extends StatelessWidget {
       height: Get.height / 5,
       width: Get.width,
       child: Obx(() {
-        List<ExperiencesModel> filteredTours = homePageController.experiences.where((tour) {
+        List<ExperiencesModel> filteredTours =
+            homePageController.experiences.where((tour) {
           // Check if filterProperty is empty and return all tours
           if (!isFilteredList) {
             return true; // Show all tours if no filter is applied
@@ -42,7 +43,7 @@ class ExperiencesListview extends StatelessWidget {
 
         // Check if filteredTours is empty, show "dataNotFound" if true
         if (filteredTours.isEmpty) {
-          return dataNotFound(width: Get.width , height: 150.00);
+          return dataNotFound(width: Get.width, height: 150.00);
         }
 
         return ListView.builder(
@@ -56,6 +57,7 @@ class ExperiencesListview extends StatelessWidget {
                 });
               },
               child: ExperiencesCard(
+                selectedTourId: filteredTours[index].internaTourid,
                 isfav: true,
                 title: filteredTours[index].title,
                 imagePath: filteredTours[index].imagepath,
@@ -68,4 +70,3 @@ class ExperiencesListview extends StatelessWidget {
     );
   }
 }
-

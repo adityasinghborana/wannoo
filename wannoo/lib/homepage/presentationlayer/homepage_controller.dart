@@ -1,5 +1,3 @@
-
-
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -12,54 +10,57 @@ import 'package:wannoo/homepage/datalayer/model/category_model.dart';
 import 'package:wannoo/homepage/datalayer/model/experiences_model.dart';
 import 'package:wannoo/homepage/datalayer/model/services_model.dart';
 import 'package:wannoo/homepage/datalayer/usecase/getalltoursUsecase.dart';
+import 'package:wannoo/itinarary/datalayer/model/request/create_itinarary_request.dart';
+import 'package:wannoo/itinarary/datalayer/model/response/itinarary_model.dart';
+import 'package:wannoo/itinarary/datalayer/usecase/create_itinarary_usecase.dart';
 import '../../categories/presentationlayer/categorycontroller.dart';
+import '../../itinarary/datalayer/usecase/get_itinarary_usecase.dart';
 
 class HomePageController extends GetxController {
   final GetAllToursUseCase getAllToursUseCase;
   final GetAllCategoriesUseCase getAllCategoriesUseCase;
+  final GetitinararyUseCase getitinararyUseCase;
+  final CreateItinararyUseCase createItinararyUseCase;
   final CategoryController categoryController = Get.put(CategoryController());
 
   var currentImage = Rx<File?>(null);
 
-
-  HomePageController(
-      {required this.getAllToursUseCase,
-      required this.getAllCategoriesUseCase});
+  HomePageController({
+    required this.getAllToursUseCase,
+    required this.getitinararyUseCase,
+    required this.getAllCategoriesUseCase,
+    required this.createItinararyUseCase,
+  });
 
   @override
   void onInit() {
     super.onInit();
-
+    getItinarary();
     getAllCategories();
     getAllTours();
   }
 
+  final TextEditingController itinararyController = TextEditingController();
   final List<Widget> navigationItems = [
     Icon(
       FontAwesomeIcons.house,
       color: themeColor.colorBgSecondory,
-
     ),
     Icon(
       FontAwesomeIcons.plane,
       color: themeColor.colorBgSecondory,
-
     ),
     Icon(
       FontAwesomeIcons.blog,
       color: themeColor.colorBgSecondory,
-
     ),
     Icon(
       FontAwesomeIcons.ticket,
       color: themeColor.colorBgSecondory,
-
     ),
-
-
   ];
   final RxList<CategoryModel> category = <CategoryModel>[].obs;
-
+  final RxList<ItinararyModel> itinararyList = <ItinararyModel>[].obs;
 
   final RxList<ExperiencesModel> experiences = <ExperiencesModel>[].obs;
   final List<ServicesModel> services = [
@@ -91,17 +92,17 @@ class HomePageController extends GetxController {
       // Map the response to a list of ExperiencesModel objects
       experiences.value = response.map((tour) {
         return ExperiencesModel(
-          id: tour.tourId ?? 0,
-          title: tour.tourName ?? "No name",
-          // Replace `title` with the actual property from `tour`
-          imagepath: '${baseurl}/${tour.imagePath ?? ""}',
-          // Adjust the path as per your model structure
-          location: tour.cityName ?? "",
-          Category: tour.cityTourType ?? "", // Replace `location` with the actual property
-            Country:tour.countryName,
-          Continent: tour.continent
-
-        );
+            id: tour.tourId ?? 0,
+            title: tour.tourName ?? "No name",
+            // Replace `title` with the actual property from `tour`
+            imagepath: '${baseurl}/${tour.imagePath ?? ""}',
+            // Adjust the path as per your model structure
+            location: tour.cityName ?? "",
+            Category: tour.cityTourType ?? "",
+            // Replace `location` with the actual property
+            Country: tour.countryName,
+            Continent: tour.continent,
+            internaTourid: tour.id ?? 0);
       }).toList();
 
       // Print the list of tours
@@ -112,8 +113,28 @@ class HomePageController extends GetxController {
     }
   }
 
-
   void updateImage(File? newImage) {
     currentImage.value = newImage;
+  }
+
+  void getItinarary() async {
+    await getitinararyUseCase.execute().then((response) {
+      print("response:${response}");
+      itinararyList.assignAll(response);
+    });
+  }
+
+  void postItinarary() async {
+    try {
+      String req = itinararyController.text.toString();
+      print(req);
+      await createItinararyUseCase
+          .execute(CreateItinararyRequest(name: req))
+          .then((response) {
+        itinararyList.add(response);
+      });
+    } catch (e) {
+      print(e);
+    }
   }
 }

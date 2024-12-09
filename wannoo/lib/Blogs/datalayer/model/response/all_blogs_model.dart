@@ -6,15 +6,13 @@ part 'all_blogs_model.g.dart';
 class AllBlogsModel {
   final int? id;
   final String? title;
+  final String? image;
+
   final String? content;
   final String? createdAt;
 
-  const AllBlogsModel({
-    this.id,
-    this.title,
-    this.content,
-    this.createdAt,
-  });
+  const AllBlogsModel(
+      {this.id, this.title, this.content, this.createdAt, this.image});
 
   factory AllBlogsModel.fromJson(Map<String, dynamic> json) =>
       _$AllBlogsModelFromJson(json);

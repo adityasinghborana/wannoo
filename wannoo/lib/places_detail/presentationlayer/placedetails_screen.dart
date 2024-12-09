@@ -41,7 +41,6 @@ class PlaceDetailsScreen extends StatelessWidget {
     final String? id = Get.parameters['id'];
     placedetailsController.getPlaceData(id ?? "");
 
-
     return Scaffold(
       backgroundColor: themeColor.colorBgPrimary,
       body: SingleChildScrollView(
@@ -52,8 +51,7 @@ class PlaceDetailsScreen extends StatelessWidget {
                 Obx(() {
                   return AuraUICarousel(
                     images: placedetailsController.imagePaths.value.map((img) {
-                      return '${baseurl}/${img
-                          .imagepath}'; // Concatenating baseurl and imagepath
+                      return '${baseurl}/${img.imagepath}'; // Concatenating baseurl and imagepath
                     }).toList(),
                     pageController: pageController,
                     showButtons: false,
@@ -74,7 +72,9 @@ class PlaceDetailsScreen extends StatelessWidget {
                 tourname: placedetailsController.demoData.value.title,
                 Country: placedetailsController.demoData.value.country,
                 rating: placedetailsController.demoData.value.rating ?? 4.2,
-                reviews: placedetailsController.demoData.value.reviews,price: placedetailsController.demoData.value.price ,);
+                reviews: placedetailsController.demoData.value.reviews,
+                price: placedetailsController.demoData.value.price,
+              );
             }),
             Obx(() {
               return DetailsExapansionTile(
@@ -95,7 +95,7 @@ class PlaceDetailsScreen extends StatelessWidget {
                 isExpanded: false,
                 Title: 'Example Itinerary',
                 Description:
-                placedetailsController.demoData.value.exampleItinerary,
+                    placedetailsController.demoData.value.exampleItinerary,
               );
             }),
             Obx(() {
@@ -125,7 +125,7 @@ class PlaceDetailsScreen extends StatelessWidget {
                 isExpanded: false,
                 Title: 'Accomodation & Facilities',
                 Description:
-                placedetailsController.demoData.value.accommodation,
+                    placedetailsController.demoData.value.accommodation,
               );
             }),
             Obx(() {
@@ -146,14 +146,18 @@ class PlaceDetailsScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingButton(onpressed: (){
-        if(placedetailsController.demoData.value.bookable == true){
-          Get.toNamed(AppRoutes.booking);
-        }
-        else{
-          Get.toNamed(AppRoutes.ExternalSite);
-        }
-      },),
+      floatingActionButton: FloatingButton(
+        onpressed: () {
+          if (placedetailsController.demoData.value.bookable == true) {
+            Get.toNamed(AppRoutes.booking, arguments: {
+              "tourid": placedetailsController.demoData.value.id,
+              "price": placedetailsController.demoData.value.price,
+            });
+          } else {
+            Get.toNamed(AppRoutes.ExternalSite);
+          }
+        },
+      ),
     );
   }
 }
