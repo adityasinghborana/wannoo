@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/Components/EmptyState.dart';
+import 'package:wannoo/Constants.dart';
 import 'package:wannoo/itinarary/datalayer/repository/itinarary_repository.dart';
 import 'package:wannoo/itinarary/datalayer/service/itinarary_remote.dart';
 import 'package:wannoo/itinarary/datalayer/usecase/getfavtour_usecase.dart';
@@ -46,10 +47,14 @@ class ItinararyScreen extends StatelessWidget {
                         'id': "${items[index].id}",
                       });
                     },
-                    child: SizedBox(
-                      height: 200,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: globalPadding.px_sm,
+                          vertical: globalPadding.py_xxs),
+                      height: 220,
                       width: Get.width,
                       child: ExperiencesCard(
+                        isAddIcon: false,
                         selectedTourId: items[index].internaTourid,
                         isfav: true,
                         title: items[index].title,

@@ -94,9 +94,9 @@ class _itinararyRemote implements itinararyRemote {
   }
 
   @override
-  Future<List<ALLTours>> getFavTours() async {
+  Future<List<ALLTours>> getFavTours({required String id}) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'id': id};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<List<ALLTours>>(Options(

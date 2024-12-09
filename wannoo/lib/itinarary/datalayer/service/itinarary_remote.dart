@@ -17,5 +17,8 @@ abstract class itinararyRemote {
   @POST('/createitinarary')
   Future<ItinararyModel> createData(@Body() CreateItinararyRequest data);
   @GET('/favtours')
-  Future<List<ALLTours>> getFavTours();
+  Future<List<ALLTours>> getFavTours({
+    @Query('id', encoded: false)
+    required String id, // Use @Path for path parameter
+  });
 }

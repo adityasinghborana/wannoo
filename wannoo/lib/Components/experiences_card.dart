@@ -11,12 +11,14 @@ class ExperiencesCard extends StatelessWidget {
   final String title;
   final String location;
   final bool isfav;
+  final bool isAddIcon;
   final int selectedTourId;
 
   const ExperiencesCard(
       {Key? key,
       required this.imagePath,
       required this.title,
+      this.isAddIcon = true,
       required this.selectedTourId,
       required this.location,
       required this.isfav})
@@ -53,22 +55,24 @@ class ExperiencesCard extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Container(
-                          height: 30,
-                          width: 30,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color:
-                                themeColor.colorTextSecondry.withOpacity(0.4),
-                          ),
-                          child: InkWell(
-                              onTap: () {
-                                showMyModalBottomSheet(context, selectedTourId);
-                              },
-                              child: Icon(
-                                Icons.add,
-                                color: themeColor.colorBgSecondory,
-                              ))),
+                      if (isAddIcon)
+                        Container(
+                            height: 30,
+                            width: 30,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color:
+                                  themeColor.colorTextSecondry.withOpacity(0.4),
+                            ),
+                            child: InkWell(
+                                onTap: () {
+                                  showMyModalBottomSheet(
+                                      context, selectedTourId);
+                                },
+                                child: Icon(
+                                  Icons.add,
+                                  color: themeColor.colorBgSecondory,
+                                ))),
                     ],
                   ),
                 ),

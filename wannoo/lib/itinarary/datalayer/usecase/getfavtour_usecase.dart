@@ -1,4 +1,5 @@
 import 'package:wannoo/homepage/datalayer/model/response/alltours.dart';
+import 'package:wannoo/itinarary/datalayer/model/request/favtourrequest.dart';
 
 import '../repository/itinarary_repository.dart';
 
@@ -7,7 +8,7 @@ class GetFavToursUseCase {
 
   GetFavToursUseCase(this.repository);
 
-  Future<List<ALLTours>> execute() {
-    return repository.getFavTours();
+  Future<List<ALLTours>> execute(FavTourRequest data) {
+    return repository.getFavTours(data);
   }
 }

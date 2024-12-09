@@ -54,6 +54,8 @@ class Saved extends StatelessWidget {
                                 "title": homePageController
                                         .itinararyList[index].name ??
                                     "",
+                                "id": homePageController.itinararyList[index].id
+                                    .toString(),
                               });
                             },
                             child: Container(
