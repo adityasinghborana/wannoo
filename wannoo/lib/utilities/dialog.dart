@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:wannoo/Categoryplaces/presentationlayer/categoryplacesscreen.dart';
 import 'package:wannoo/Components/largeButton2.dart';
 import 'package:wannoo/Constants.dart';
+import 'package:wannoo/itinarary/datalayer/model/request/post_fav_tour.dart';
 import 'package:wannoo/utilities/extension.dart';
 
 import '../homepage/presentationlayer/homepage_controller.dart';
@@ -56,7 +57,7 @@ void showSnackBar(BuildContext context, String text) {
 
 Future<void> showMyModalBottomSheet(
     BuildContext context, int selectedTourId) async {
-  // Initialize a list of bool values to track the checked state of each item.
+  print(selectedTourId);
 
   await showModalBottomSheet(
     backgroundColor: themeColor.colorscafold,
@@ -100,8 +101,11 @@ Future<void> showMyModalBottomSheet(
                                     label: "Add ",
                                     height: 90,
                                     onPressed: () {
-                                      print(selectedTourId);
-                                      return null;
+                                      homePageController.postFavTours(
+                                          data: PostFavTourRequest(
+                                              itineraryId: items[index].id ?? 0,
+                                              tourId: selectedTourId,
+                                              userId: 1));
                                     }),
                               )
                             ],

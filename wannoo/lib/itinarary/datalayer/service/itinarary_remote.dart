@@ -3,6 +3,8 @@ import 'package:retrofit/retrofit.dart';
 import 'package:wannoo/Constants.dart';
 import 'package:wannoo/homepage/datalayer/model/response/alltours.dart';
 import 'package:wannoo/itinarary/datalayer/model/request/create_itinarary_request.dart';
+import 'package:wannoo/itinarary/datalayer/model/request/post_fav_tour.dart';
+import 'package:wannoo/itinarary/datalayer/model/response/post_fav_tour_response.dart';
 
 import '../model/response/itinarary_model.dart';
 
@@ -21,4 +23,6 @@ abstract class itinararyRemote {
     @Query('id', encoded: false)
     required String id, // Use @Path for path parameter
   });
+  @POST('/addfavtours')
+  Future<PostFavTourResponse> addFavTour(@Body() PostFavTourRequest data);
 }

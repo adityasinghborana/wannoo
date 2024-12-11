@@ -20,6 +20,7 @@ import 'package:wannoo/homepage/presentationlayer/Screens/home_screen.dart';
 import 'package:wannoo/itinarary/datalayer/repository/itinarary_repository.dart';
 import 'package:wannoo/itinarary/datalayer/service/itinarary_remote.dart';
 import 'package:wannoo/itinarary/datalayer/usecase/get_itinarary_usecase.dart';
+import 'package:wannoo/itinarary/datalayer/usecase/post_fav_tour.dart';
 import 'package:wannoo/profile/presentationlayer/profilescreen.dart';
 import 'package:wannoo/utilities/extension.dart';
 
@@ -40,6 +41,11 @@ class _HomepageScreenState extends State<HomepageScreen> {
   Widget build(BuildContext context) {
     final HomePageController homePageController = Get.put(
       HomePageController(
+        postFavUseCase: PostFavUseCase(
+          itinararyRepoImpl(
+            itinararyRemote(Dio()),
+          ),
+        ),
         getitinararyUseCase: GetitinararyUseCase(
           itinararyRepoImpl(
             itinararyRemote(Dio()),

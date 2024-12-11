@@ -11,8 +11,12 @@ import 'package:wannoo/homepage/datalayer/model/experiences_model.dart';
 import 'package:wannoo/homepage/datalayer/model/services_model.dart';
 import 'package:wannoo/homepage/datalayer/usecase/getalltoursUsecase.dart';
 import 'package:wannoo/itinarary/datalayer/model/request/create_itinarary_request.dart';
+import 'package:wannoo/itinarary/datalayer/model/request/post_fav_tour.dart';
 import 'package:wannoo/itinarary/datalayer/model/response/itinarary_model.dart';
 import 'package:wannoo/itinarary/datalayer/usecase/create_itinarary_usecase.dart';
+import 'package:wannoo/itinarary/datalayer/usecase/post_fav_tour.dart';
+import 'package:wannoo/itinarary/presentationlayer/itinararyController.dart';
+import 'package:wannoo/utilities/dialog.dart';
 import '../../categories/presentationlayer/categorycontroller.dart';
 import '../../itinarary/datalayer/usecase/get_itinarary_usecase.dart';
 
@@ -22,11 +26,13 @@ class HomePageController extends GetxController {
   final GetitinararyUseCase getitinararyUseCase;
   final CreateItinararyUseCase createItinararyUseCase;
   final CategoryController categoryController = Get.put(CategoryController());
+  final PostFavUseCase postFavUseCase;
 
   var currentImage = Rx<File?>(null);
 
   HomePageController({
     required this.getAllToursUseCase,
+    required this.postFavUseCase,
     required this.getitinararyUseCase,
     required this.getAllCategoriesUseCase,
     required this.createItinararyUseCase,
@@ -135,6 +141,17 @@ class HomePageController extends GetxController {
       });
     } catch (e) {
       print(e);
+    }
+  }
+
+  void postFavTours({required PostFavTourRequest data}) async {
+    try {
+      postFavUseCase.execute(PostFavTourRequest(
+          itineraryId: data.itineraryId,
+          tourId: data.tourId,
+          userId: data.userId));
+    } catch (e) {
+      showSnackBar(Get.context!, e.toString());
     }
   }
 }

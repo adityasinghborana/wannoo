@@ -7,6 +7,7 @@ import '../datalayer/usecase/getfavtour_usecase.dart';
 
 class ItinararyController extends GetxController {
   final GetFavToursUseCase getFavToursUseCase;
+
   @override
   void onInit() {
     final String? id = Get.parameters["id"];

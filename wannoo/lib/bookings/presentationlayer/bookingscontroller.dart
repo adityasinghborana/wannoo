@@ -10,6 +10,11 @@ import '../datalayer/usecase/intentusecase.dart';
 
 class BookingsController extends GetxController {
   final IntentUseCase intentUseCase;
+
+  BookingsController({
+    required this.intentUseCase,
+  });
+
   var price = Get.arguments["price"];
   RxInt noOfGuest = 0.obs;
   RxString date = "".obs;
@@ -66,6 +71,7 @@ class BookingsController extends GetxController {
           ),
         );
 
+        ///TODO create Bookings and Get Bookings of the USER
         // Step 3: Present the Payment Sheet
         await Stripe.instance.presentPaymentSheet();
 
@@ -89,8 +95,4 @@ class BookingsController extends GetxController {
       }
     }
   }
-
-  BookingsController({
-    required this.intentUseCase,
-  });
 }
