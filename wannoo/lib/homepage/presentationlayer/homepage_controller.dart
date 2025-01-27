@@ -15,7 +15,6 @@ import 'package:wannoo/itinarary/datalayer/model/request/post_fav_tour.dart';
 import 'package:wannoo/itinarary/datalayer/model/response/itinarary_model.dart';
 import 'package:wannoo/itinarary/datalayer/usecase/create_itinarary_usecase.dart';
 import 'package:wannoo/itinarary/datalayer/usecase/post_fav_tour.dart';
-import 'package:wannoo/itinarary/presentationlayer/itinararyController.dart';
 import 'package:wannoo/utilities/dialog.dart';
 import '../../categories/presentationlayer/categorycontroller.dart';
 import '../../itinarary/datalayer/usecase/get_itinarary_usecase.dart';

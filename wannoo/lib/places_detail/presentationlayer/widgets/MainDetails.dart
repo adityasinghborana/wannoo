@@ -5,14 +5,19 @@ import 'package:wannoo/Constants.dart';
 import 'package:wannoo/styles.dart';
 
 class MainDetails extends StatelessWidget {
-
   final String tourname;
   final String Country;
-  final double rating ;
+  final double rating;
   final int reviews;
   final double price;
 
-  const MainDetails({required this.tourname,required this.Country,required this.rating,required this.reviews, required this.price ,super.key});
+  const MainDetails(
+      {required this.tourname,
+      required this.Country,
+      required this.rating,
+      required this.reviews,
+      required this.price,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +30,17 @@ class MainDetails extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Flexible(
-              flex: 1,
+              flex: 2,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Row(
                     children: [
-                      Text(
-                        tourname,
-                        style: TypographyStyle.xlFont,
+                      Container(
+                        child: Text(
+                          tourname,
+                          style: TypographyStyle.xlFont,
+                        ),
                       ),
                     ],
                   ),
@@ -70,7 +77,6 @@ class MainDetails extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-
                   Text(
                     "\$ $price",
                     style: TypographyStyle.xxlFont

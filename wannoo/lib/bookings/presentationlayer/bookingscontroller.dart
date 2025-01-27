@@ -3,7 +3,6 @@ import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:wannoo/routes.dart';
-
 import '../../utilities/dialog.dart';
 import '../datalayer/model/request/intent_request.dart';
 import '../datalayer/usecase/intentusecase.dart';
@@ -16,6 +15,7 @@ class BookingsController extends GetxController {
   });
 
   var price = Get.arguments["price"];
+
   RxInt noOfGuest = 0.obs;
   RxString date = "".obs;
   final TextEditingController nameController = TextEditingController();
@@ -49,13 +49,14 @@ class BookingsController extends GetxController {
       //bookingsController.initiateCheckout();
 
       try {
+        print("hello $price");
         // Step 1: Fetch the payment intent client secret
         final intent = await intentUseCase.execute(IntentRequest(
             name: nameController.text.toString(),
             email: 'aditya@ogresto.com',
-            amount: price));
+            amount: price * noOfGuest.value));
         if (intent != null && intent.clientSecret != null) {
-          stripeclientkey.value = intent.clientSecret!;
+          stripeclientkey.value = intent.clientSecret;
           print("Client Secret: ${stripeclientkey.value}");
         } else {
           print("Error getting client secret");
