@@ -10,6 +10,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:wannoo/Constants.dart';
 import 'package:wannoo/homepage/presentationlayer/homepage_controller.dart';
 import 'package:wannoo/profile/presentationlayer/items.dart';
+import 'package:wannoo/routes.dart';
 
 class ProfileScreenController extends GetxController {
   final HomePageController homePageController = Get.find();
@@ -18,18 +19,24 @@ class ProfileScreenController extends GetxController {
 
   List<Item> items = [
     Item(
-      title: "EditProfile",
-      icon: SvgPicture.asset(CustomIcons.edit),
-      onpressed:(){}),
+        title: "EditProfile",
+        icon: SvgPicture.asset(CustomIcons.edit),
+        onpressed: () {
+          Get.toNamed(AppRoutes.editProfile);
+        }),
     Item(
         title: "Track My Bookings ",
-        icon: SvgPicture.asset(CustomIcons.track,),
+        icon: SvgPicture.asset(
+          CustomIcons.track,
+        ),
         onpressed: () {
           return null;
         }),
     Item(
         title: "My Itenanry",
-        icon: SvgPicture.asset(CustomIcons.history,),
+        icon: SvgPicture.asset(
+          CustomIcons.history,
+        ),
         onpressed: () {
           return null;
         }),
@@ -37,62 +44,68 @@ class ProfileScreenController extends GetxController {
         title: "Help Center",
         icon: SvgPicture.asset(CustomIcons.help),
         onpressed: () {
-          return null;
+          Get.toNamed(AppRoutes.helpScreen);
         }),
     Item(
         title: "Legal Info",
         icon: SvgPicture.asset(CustomIcons.legal),
         onpressed: () {
-          return null;
+          Get.toNamed(AppRoutes.legalScreen);
         }),
   ];
-
-
 
   void showImagePicker(BuildContext context) {
     showModalBottomSheet(
       context: context,
       builder: (builder) {
-        return Card(
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height / 5.2,
-            margin: const EdgeInsets.only(top: 8.0),
-            padding: const EdgeInsets.all(12),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: InkWell(
-                    child: Column(
-                      children: const [
-                        Icon(Icons.image, size: 60.0),
-                        SizedBox(height: 12.0),
-                        Text("Gallery", textAlign: TextAlign.center, style: TextStyle(fontSize: 16, color: Colors.black)),
-                      ],
+        return SafeArea(
+          child: Card(
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height / 5.2,
+              margin: const EdgeInsets.only(top: 8.0),
+              padding: const EdgeInsets.all(12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: InkWell(
+                      child: Column(
+                        children: const [
+                          Icon(Icons.image, size: 60.0),
+                          SizedBox(height: 12.0),
+                          Text("Gallery",
+                              textAlign: TextAlign.center,
+                              style:
+                                  TextStyle(fontSize: 16, color: Colors.black)),
+                        ],
+                      ),
+                      onTap: () {
+                        _imgFromGallery();
+                        Navigator.pop(context);
+                      },
                     ),
-                    onTap: () {
-                      _imgFromGallery();
-                      Navigator.pop(context);
-                    },
                   ),
-                ),
-                Expanded(
-                  child: InkWell(
-                    child: Column(
-                      children: const [
-                        Icon(Icons.camera_alt, size: 60.0),
-                        SizedBox(height: 12.0),
-                        Text("Camera", textAlign: TextAlign.center, style: TextStyle(fontSize: 16, color: Colors.black)),
-                      ],
+                  Expanded(
+                    child: InkWell(
+                      child: Column(
+                        children: const [
+                          Icon(Icons.camera_alt, size: 60.0),
+                          SizedBox(height: 12.0),
+                          Text("Camera",
+                              textAlign: TextAlign.center,
+                              style:
+                                  TextStyle(fontSize: 16, color: Colors.black)),
+                        ],
+                      ),
+                      onTap: () {
+                        _imgFromCamera();
+                        Navigator.pop(context);
+                      },
                     ),
-                    onTap: () {
-                      _imgFromCamera();
-                      Navigator.pop(context);
-                    },
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         );
@@ -102,7 +115,8 @@ class ProfileScreenController extends GetxController {
 
   // Method to pick an image from the gallery
   Future<void> _imgFromGallery() async {
-    final pickedFile = await picker.pickImage(source: ImageSource.gallery, imageQuality: 50);
+    final pickedFile =
+        await picker.pickImage(source: ImageSource.gallery, imageQuality: 50);
     if (pickedFile != null) {
       _cropImage(File(pickedFile.path));
     }
@@ -110,7 +124,8 @@ class ProfileScreenController extends GetxController {
 
   // Method to pick an image from the camera
   Future<void> _imgFromCamera() async {
-    final pickedFile = await picker.pickImage(source: ImageSource.camera, imageQuality: 50);
+    final pickedFile =
+        await picker.pickImage(source: ImageSource.camera, imageQuality: 50);
     if (pickedFile != null) {
       _cropImage(File(pickedFile.path));
     }
@@ -120,11 +135,13 @@ class ProfileScreenController extends GetxController {
   Future<void> _cropImage(File imgFile) async {
     final croppedFile = await ImageCropper().cropImage(
       sourcePath: imgFile.path,
-      aspectRatio: Platform.isAndroid ? CropAspectRatio(ratioX: 1, ratioY: 1) : null,
+      aspectRatio:
+          Platform.isAndroid ? CropAspectRatio(ratioX: 1, ratioY: 1) : null,
       uiSettings: [
         AndroidUiSettings(
+          hideBottomControls: true,
           toolbarTitle: "Image Cropper",
-          toolbarColor: Colors.deepOrange,
+          toolbarColor: Colors.yellow,
           toolbarWidgetColor: Colors.white,
           initAspectRatio: CropAspectRatioPreset.original,
           lockAspectRatio: false,
@@ -139,5 +156,4 @@ class ProfileScreenController extends GetxController {
       homePageController.updateImage(imageFile.value);
     }
   }
-
 }

@@ -1,8 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
+import 'package:wannoo/bookings/datalayer/model/request/booking_request.dart';
 
 import '../../../Constants.dart';
 import '../model/request/intent_request.dart';
+import '../model/response/booking_response.dart';
 import '../model/response/intent_response.dart';
 
 part 'remote.g.dart';
@@ -15,5 +17,9 @@ abstract class StripeRemoteService {
   @POST('/create-payment-intent')
   Future<IntentResponse> getIntent(
     @Body() IntentRequest requestBody,
+  );
+  @POST('/bookings')
+  Future<BookingResponse> createBooking(
+    @Body() BookingRequest requestBody,
   );
 }

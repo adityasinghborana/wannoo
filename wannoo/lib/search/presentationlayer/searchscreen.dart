@@ -84,8 +84,6 @@ class SearchScreen extends StatelessWidget {
               dropdownlist: searchPageController.cityList,
               onchanged: (value) {
                 searchPageController.SelectedCity.value = value;
-
-                // Call the API related to continent selection here
               },
             ),
             SizedBox(height: Height.heightMd),
@@ -97,7 +95,7 @@ class SearchScreen extends StatelessWidget {
               icon: Icon(Icons.category),
               dropdownlist: searchPageController.categoryList,
               onchanged: (value) {
-                searchPageController.SelectedCategory.value = "Landmark Tour";
+                searchPageController.SelectedCategory.value = value;
                 print("Continent selected: $value");
                 // Call the API related to continent selection here
               },

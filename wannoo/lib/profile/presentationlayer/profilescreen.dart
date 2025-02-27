@@ -19,12 +19,14 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Profile"),),
+      appBar: AppBar(
+        title: Text("Profile"),
+      ),
       body: SafeArea(
         child: Column(children: [
           Expanded(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
@@ -40,13 +42,13 @@ class ProfileScreen extends StatelessWidget {
                         backgroundImage: profileScreenController
                                     .imageFile.value !=
                                 null
-                            ? FileImage(profileScreenController.imageFile.value!)
+                            ? FileImage(
+                                    profileScreenController.imageFile.value!)
                                 as ImageProvider
                             : AssetImage(
                                 image.experiencesimages), // Placeholder image
                       ),
                     ),
-
                     Align(
                       alignment: Alignment.bottomRight,
                       child: InkWell(
@@ -67,10 +69,14 @@ class ProfileScreen extends StatelessWidget {
                   ],
                 ),
               ),
-Gap(30),
-              Text("Aditya Singh ",style: CustomTextStyles.fontXlSemiBold,),
-              Text("aditya@ogresto.com",style: CustomTextStyles.fontL1SemiBold.copyWith(color: themeColor.colorTextSecondry))
-
+              Gap(30),
+              Text(
+                "Aditya Singh ",
+                style: CustomTextStyles.fontXlSemiBold,
+              ),
+              Text("aditya@ogresto.com",
+                  style: CustomTextStyles.fontL1SemiBold
+                      .copyWith(color: themeColor.colorTextSecondry))
             ],
           )),
           Flexible(
@@ -81,15 +87,18 @@ Gap(30),
                 children: List.generate(profileScreenController.items.length,
                     (int index) {
                   final item = profileScreenController.items[index];
-                  return Card(
-                    elevation: 3,
-                    color: themeColor.colorWhite,
-                    shadowColor: themeColor.colorBorder,
-                    surfaceTintColor: themeColor.colorWhite,
-                    child: ListTile(
-                        leading: item.icon,
-                        trailing: Icon(Icons.keyboard_arrow_right),
-                        title: Text(item.title)),
+                  return InkWell(
+                    onTap: item.onpressed,
+                    child: Card(
+                      elevation: 3,
+                      color: themeColor.colorWhite,
+                      shadowColor: themeColor.colorBorder,
+                      surfaceTintColor: themeColor.colorWhite,
+                      child: ListTile(
+                          leading: item.icon,
+                          trailing: Icon(Icons.keyboard_arrow_right),
+                          title: Text(item.title)),
+                    ),
                   );
                 }),
               ),

@@ -29,6 +29,9 @@ ALLTours _$ALLToursFromJson(Map<String, dynamic> json) => ALLTours(
       json['isSlot'] as bool?,
       json['isVendorTour'] as bool?,
       json['vendorUid'] as String?,
+      json['tourpricing'] == null
+          ? null
+          : Tourpricing.fromJson(json['tourpricing'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$ALLToursToJson(ALLTours instance) => <String, dynamic>{
@@ -54,4 +57,18 @@ Map<String, dynamic> _$ALLToursToJson(ALLTours instance) => <String, dynamic>{
       'isSlot': instance.isSlot,
       'isVendorTour': instance.isVendorTour,
       'vendorUid': instance.vendorUid,
+      'tourpricing': instance.tourpricing,
+    };
+
+Tourpricing _$TourpricingFromJson(Map<String, dynamic> json) => Tourpricing(
+      id: (json['id'] as num?)?.toInt(),
+      tourId: (json['tourId'] as num?)?.toInt(),
+      amount: (json['amount'] as num?)?.toDouble(),
+    );
+
+Map<String, dynamic> _$TourpricingToJson(Tourpricing instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'tourId': instance.tourId,
+      'amount': instance.amount,
     };

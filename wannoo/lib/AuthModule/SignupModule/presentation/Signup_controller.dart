@@ -1,16 +1,25 @@
+import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
+import 'package:wannoo/AuthModule/SignupModule/usersdatalayer/model/request/create_user_request.dart';
+import 'package:wannoo/AuthModule/SignupModule/usersdatalayer/repository/user_repository.dart';
+import 'package:wannoo/AuthModule/SignupModule/usersdatalayer/usecase/create_user_usecase.dart';
 
 import '../../../routes.dart';
+import '../../../utilities/Authclass.dart';
+import '../usersdatalayer/service/create_user_remote.dart';
 
 class SignUpController extends GetxController {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final RxBool obscureText = true.obs;
   final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+  final CreateUserUseCase createUserUseCase =
+      CreateUserUseCase(UserRepositoryImpl(createUserRemoteService(Dio())));
 
   @override
   void onInit() {
@@ -28,8 +37,10 @@ class SignUpController extends GetxController {
       final user = authResult.user;
       if (user != null) {
         final token = await user.getIdToken() ?? '';
-        //await saveUser(user.uid, user.email!); // to be implemented with backend
-        //createCart(user.uid);
+        final uid = await user.uid ?? '';
+        await createUserUseCase
+            .execute(UserModel(uid: uid, email: user.email ?? ""));
+        await saveUserUID(uid);
         Get.toNamed(AppRoutes.congratulations);
       }
     } catch (e) {
@@ -38,16 +49,15 @@ class SignUpController extends GetxController {
     }
   }
 
-  // Future<void> saveUser(String uid, String email) async {
-  //   try {
-  //     final user = UserData.User(uid: uid, email: email);
-  //     await createUserUseCase.execute(user);
-  //   } catch (e) {
-  //     if (kDebugMode) {
-  //       print(e);
-  //     }
-  //   }
-  // }
+  Future<void> saveUser(String uid, String email) async {
+    try {
+      await createUserUseCase.execute(UserModel(uid: uid, email: email));
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    }
+  }
 
   // void createCart(String uid) async {
   //   try {
@@ -63,12 +73,12 @@ class SignUpController extends GetxController {
   Future<void> googleSignUp(BuildContext context) async {
     try {
       final GoogleSignInAccount? googleSignInAccount =
-      await _googleSignIn.signIn();
+          await _googleSignIn.signIn();
       if (googleSignInAccount == null)
         throw 'Google sign-in process canceled by user.';
 
       final GoogleSignInAuthentication googleSignInAuthentication =
-      await googleSignInAccount.authentication;
+          await googleSignInAccount.authentication;
       final AuthCredential credential = GoogleAuthProvider.credential(
         accessToken: googleSignInAuthentication.accessToken,
         idToken: googleSignInAuthentication.idToken,
@@ -80,7 +90,9 @@ class SignUpController extends GetxController {
       final user = userCredential.user;
       if (user != null) {
         final token = await user.getIdToken() ?? '';
-       // await saveUser(user.uid, user.email!);
+        final uid = await user.uid ?? '';
+        await saveUserUID(uid);
+        await saveUser(user.uid, user.email!);
         Get.toNamed(AppRoutes.congratulations);
       }
     } catch (e) {
@@ -93,5 +105,4 @@ class SignUpController extends GetxController {
   void showSnackBar(BuildContext context, String text) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
   }
-
 }

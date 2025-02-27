@@ -56,8 +56,8 @@ class BookingsScreen extends StatelessWidget {
                       BorderRadius.circular(globalRadius.borderRadius_m),
                 ),
                 child: CalendarDatePicker(
-                  initialDate: DateTime(2024, 12, 1),
-                  firstDate: DateTime(2024, 12, 1),
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime.now(),
                   lastDate: DateTime(2026, 12, 1),
                   onDateChanged: (value) {
                     bookingsController.date.value =

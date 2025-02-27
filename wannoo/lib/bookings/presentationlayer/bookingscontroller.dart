@@ -1,20 +1,30 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:wannoo/bookings/datalayer/model/request/booking_request.dart';
+import 'package:wannoo/bookings/datalayer/repo/bookings_repo.dart';
+import 'package:wannoo/bookings/datalayer/service/bookings_remote.dart';
+
 import 'package:wannoo/routes.dart';
+import 'package:wannoo/utilities/Authclass.dart';
 import '../../utilities/dialog.dart';
 import '../datalayer/model/request/intent_request.dart';
+import '../datalayer/usecase/booking_request.dart';
 import '../datalayer/usecase/intentusecase.dart';
 
 class BookingsController extends GetxController {
   final IntentUseCase intentUseCase;
+  CreateBookingUseCase bookingsUseCase =
+      CreateBookingUseCase(BookingsRepoImpl(BookingsRemote(Dio())));
 
   BookingsController({
     required this.intentUseCase,
   });
 
   var price = Get.arguments["price"];
+  var tourid = Get.arguments["tourid"];
 
   RxInt noOfGuest = 0.obs;
   RxString date = "".obs;
@@ -50,6 +60,7 @@ class BookingsController extends GetxController {
 
       try {
         print("hello $price");
+        print("$tourid");
         // Step 1: Fetch the payment intent client secret
         final intent = await intentUseCase.execute(IntentRequest(
             name: nameController.text.toString(),
@@ -72,17 +83,30 @@ class BookingsController extends GetxController {
           ),
         );
 
-        ///TODO create Bookings and Get Bookings of the USER
-        // Step 3: Present the Payment Sheet
         await Stripe.instance.presentPaymentSheet();
 
         // Step 4: Confirm payment success
         final paymentIntent =
             await Stripe.instance.retrievePaymentIntent(stripeclientkey.value);
         if (paymentIntent.status == PaymentIntentsStatus.Succeeded) {
+          var uid = await getUserUID();
+          var r = BookingRequest(
+            fullName: nameController.text,
+            email: "aditya@ogresto.com",
+            status: 'Success',
+            passengers: noOfGuest.value,
+            tourDate: date.value,
+            serviceTotal: price * noOfGuest.value,
+            userId: uid ?? "",
+            roleId: 'Vendor123',
+            tourId: tourid,
+          );
+          print(r.toJson());
           nameController.clear();
-          print("Payment successful");
-          Get.toNamed(AppRoutes.paymentSuccess);
+          bookingsUseCase.execute(r).then((response) {
+            print("Payment successful");
+            Get.toNamed(AppRoutes.paymentSuccess);
+          });
         } else {
           nameController.clear();
 

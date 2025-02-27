@@ -50,7 +50,7 @@ class ItinararyScreen extends StatelessWidget {
                     child: Container(
                       padding: EdgeInsets.symmetric(
                           horizontal: globalPadding.px_sm,
-                          vertical: globalPadding.py_xxs),
+                          vertical: globalPadding.py_xs),
                       height: 220,
                       width: Get.width,
                       child: ExperiencesCard(
@@ -60,6 +60,7 @@ class ItinararyScreen extends StatelessWidget {
                         title: items[index].title,
                         imagePath: items[index].imagepath,
                         location: items[index].location,
+                        price: items[index].price ?? 0.0,
                       ),
                     ),
                   );

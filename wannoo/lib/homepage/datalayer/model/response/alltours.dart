@@ -25,6 +25,7 @@ class ALLTours {
   bool? isSlot;
   bool? isVendorTour;
   String? vendorUid;
+  Tourpricing? tourpricing;
   ALLTours(
       this.id,
       this.tourId,
@@ -48,9 +49,27 @@ class ALLTours {
       this.isSlot,
       this.isVendorTour,
       this.vendorUid,
-      );
+      this.tourpricing);
 
   factory ALLTours.fromJson(Map<String, dynamic> json) =>
       _$ALLToursFromJson(json);
   Map<String, dynamic> toJson() => _$ALLToursToJson(this);
+}
+
+@JsonSerializable()
+class Tourpricing {
+  final int? id;
+  final int? tourId;
+  final double? amount;
+
+  const Tourpricing({
+    this.id,
+    this.tourId,
+    this.amount,
+  });
+
+  factory Tourpricing.fromJson(Map<String, dynamic> json) =>
+      _$TourpricingFromJson(json);
+
+  Map<String, dynamic> toJson() => _$TourpricingToJson(this);
 }

@@ -7,6 +7,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wannoo/routes.dart';
 
+import '../../../utilities/Authclass.dart';
 import '../../../utilities/dialog.dart';
 
 class LoginController extends GetxController {
@@ -27,21 +28,11 @@ class LoginController extends GetxController {
       final uid = userCredential.user?.uid;
       if (uid != null) {
         await saveUserUID(uid).then((value) {
-          Get.toNamed(AppRoutes.congratulations); // later change it to home
+          Get.toNamed(AppRoutes.home); // later change it to home
         });
       }
     } catch (e) {
       Get.snackbar("Error", e.toString());
-    }
-  }
-
-
-
-  Future<void> saveUserUID(String uid) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('userUID', uid);
-    if (kDebugMode) {
-      print("userid saved");
     }
   }
 
@@ -64,7 +55,7 @@ class LoginController extends GetxController {
       final String uid = userCredential.user!.uid;
       final String name = userCredential.user!.displayName!;
       await saveUserUID(uid);
-      Get.toNamed(AppRoutes.congratulations);
+      Get.toNamed(AppRoutes.home);
     } catch (e) {
       showSnackBar(context, e.toString());
       Get.toNamed(AppRoutes.login);
@@ -75,6 +66,7 @@ class LoginController extends GetxController {
     try {
       await firebaseAuth.signOut();
       await _googleSignIn.signOut();
+      await clearUserUID();
       Get.toNamed(AppRoutes.login);
 
       showSnackBar(context, 'Sign-out successful.');
@@ -84,5 +76,34 @@ class LoginController extends GetxController {
     }
   }
 
+  void deleteUser(BuildContext context) async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
 
+      if (user != null) {
+        await user.delete(); // Deletes the user from Firebase Authentication
+        // Sign out from Firebase and Google (if logged in via Google)
+        await firebaseAuth.signOut();
+        await _googleSignIn.signOut();
+
+        // Clear locally stored user UID or data
+        await clearUserUID();
+        // Show success message
+        Get.snackbar("Success", "Account deleted successfully",
+            snackPosition: SnackPosition.BOTTOM);
+
+        // Navigate to the login or onboarding screen after deletion
+        Get.offAllNamed('/login'); // Change to your login screen route
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'requires-recent-login') {
+        // If user needs to re-authenticate
+        Get.snackbar("Error", "Please re-authenticate before deleting account.",
+            snackPosition: SnackPosition.BOTTOM);
+      } else {
+        Get.snackbar("Error", e.message ?? "Something went wrong",
+            snackPosition: SnackPosition.BOTTOM);
+      }
+    }
+  }
 }

@@ -1,5 +1,3 @@
-
-
 class Faq {
   final int id;
   final String question;
@@ -8,8 +6,7 @@ class Faq {
   Faq({required this.id, required this.question, required this.answer});
 }
 
-class ImageModel{
-
+class ImageModel {
   final String imagepath;
   ImageModel({required this.imagepath});
 }
@@ -22,6 +19,7 @@ class PlacedetailsModel {
   final double price;
   final String title;
   final String country;
+  final int tourId;
   final String description;
   final String facilities;
   final String exampleItinerary;
@@ -51,7 +49,7 @@ class PlacedetailsModel {
     this.entryInfo = '',
     this.accommodation = '',
     this.budget = '',
+    this.tourId = 0,
     this.faq = const [],
-
   });
 }

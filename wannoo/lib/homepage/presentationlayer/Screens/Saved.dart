@@ -59,7 +59,7 @@ class Saved extends StatelessWidget {
                               });
                             },
                             child: Container(
-                              margin: EdgeInsets.symmetric(vertical: 10),
+                              margin: EdgeInsets.symmetric(vertical: 5),
                               padding: EdgeInsets.symmetric(
                                   horizontal: globalPadding.px_sm),
                               height: 50,

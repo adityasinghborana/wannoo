@@ -35,7 +35,8 @@ class ItinararyController extends GetxController {
             // Replace `location` with the actual property
             Country: tour.countryName,
             Continent: tour.continent,
-            internaTourid: tour.id ?? 0)));
+            internaTourid: tour.id ?? 0,
+            price: tour.tourpricing?.amount ?? 0)));
       });
     } catch (e) {
       print(e);

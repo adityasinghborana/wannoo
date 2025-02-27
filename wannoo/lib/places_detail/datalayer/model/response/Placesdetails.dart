@@ -2,7 +2,6 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'Placesdetails.g.dart';
 
-
 @JsonSerializable()
 class PlaceDetails {
   final int? id;
@@ -32,7 +31,7 @@ class PlaceDetails {
   final String? meal;
   final String? googleMapUrl;
   final String? tourExclusion;
-  final int? tourId;
+  final int? TourId;
   final int? cutOffhrs;
   final String? vendorUid;
   final bool? isVendorTour;
@@ -40,42 +39,41 @@ class PlaceDetails {
   final List<TourOption>? tourOption;
   final List<Faq>? faq;
 
-  PlaceDetails({
-    this.id,
-    this.countryId,
-    this.countryName,
-    this.continent,
-    this.cityId,
-    this.cityName,
-    this.Bookable,
-    this.tourName,
-    this.duration,
-    this.imagePath,
-    this.cityTourTypeId,
-    this.cityTourType,
-    this.tourDescription,
-    this.tourInclusion,
-    this.tourShortDescription,
-    this.importantInformation,
-    this.itenararyDescription,
-    this.usefulInformation,
-    this.childAge,
-    this.infantAge,
-    this.infantCount,
-    this.isSlot,
-    this.onlyChild,
-    this.startTime,
-    this.meal,
-    this.googleMapUrl,
-    this.tourExclusion,
-    this.tourId,
-    this.cutOffhrs,
-    this.vendorUid,
-    this.isVendorTour,
-    this.tourImages,
-    this.tourOption,
-    this.faq
-  });
+  PlaceDetails(
+      {this.id,
+      this.countryId,
+      this.countryName,
+      this.continent,
+      this.cityId,
+      this.cityName,
+      this.Bookable,
+      this.tourName,
+      this.duration,
+      this.imagePath,
+      this.cityTourTypeId,
+      this.cityTourType,
+      this.tourDescription,
+      this.tourInclusion,
+      this.tourShortDescription,
+      this.importantInformation,
+      this.itenararyDescription,
+      this.usefulInformation,
+      this.childAge,
+      this.infantAge,
+      this.infantCount,
+      this.isSlot,
+      this.onlyChild,
+      this.startTime,
+      this.meal,
+      this.googleMapUrl,
+      this.tourExclusion,
+      this.TourId,
+      this.cutOffhrs,
+      this.vendorUid,
+      this.isVendorTour,
+      this.tourImages,
+      this.tourOption,
+      this.faq});
 
   factory PlaceDetails.fromJson(Map<String, dynamic> json) =>
       _$PlaceDetailsFromJson(json);
@@ -84,7 +82,6 @@ class PlaceDetails {
 
 @JsonSerializable()
 class TourImage {
-
   final int? id;
   final int? tourId;
   final String? imagePath;
@@ -95,16 +92,13 @@ class TourImage {
     this.imagePath,
   });
 
-
   factory TourImage.fromJson(Map<String, dynamic> json) =>
       _$TourImageFromJson(json);
   Map<String, dynamic> toJson() => _$TourImageToJson(this);
 }
 
-
 @JsonSerializable()
 class TourOption {
-
   final int? id;
   final int? tourId;
   final String? optionName;
@@ -141,16 +135,14 @@ class TourOption {
   Map<String, dynamic> toJson() => _$TourOptionToJson(this);
 }
 
-
 @JsonSerializable()
-class Faq{
-final int id;
-final String question;
-final String answer;
+class Faq {
+  final int id;
+  final String question;
+  final String answer;
 
-Faq(this.id, this.question,  this.answer);
+  Faq(this.id, this.question, this.answer);
 
-  factory Faq.fromJson(Map<String, dynamic> json) =>
-      _$FaqFromJson(json);
+  factory Faq.fromJson(Map<String, dynamic> json) => _$FaqFromJson(json);
   Map<String, dynamic> toJson() => _$FaqToJson(this);
 }

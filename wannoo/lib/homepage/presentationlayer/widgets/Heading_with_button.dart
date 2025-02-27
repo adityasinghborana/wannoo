@@ -6,8 +6,10 @@ import 'package:wannoo/routes.dart';
 import 'package:wannoo/styles.dart';
 
 class HeadingwithButton extends StatelessWidget {
-  final String label ;
-  const HeadingwithButton({super.key,required this.label});
+  final String label;
+  final bool isVisible;
+  const HeadingwithButton(
+      {super.key, required this.label, this.isVisible = false});
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +18,17 @@ class HeadingwithButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label,style: TypographyStyle.l2Font.copyWith(fontWeight: FontWeight.w600),),
-          CustomTextButton(onpressed: (){
-
-            Get.toNamed(AppRoutes.allcategories);
-          }, label: 'See All')
+          Text(
+            label,
+            style: TypographyStyle.l2Font.copyWith(fontWeight: FontWeight.w600),
+          ),
+          isVisible
+              ? CustomTextButton(
+                  onpressed: () {
+                    Get.toNamed(AppRoutes.allcategories);
+                  },
+                  label: 'See All')
+              : Container(),
         ],
       ),
     );

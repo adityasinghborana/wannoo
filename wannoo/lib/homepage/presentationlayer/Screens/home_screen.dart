@@ -24,33 +24,49 @@ class HomeScreen extends StatelessWidget {
 
           HeadingwithButton(
             label: 'Categories',
+            isVisible: true,
           ),
           CustomListCategory(),
           HeadingwithButton(
             label: 'Most Visited',
           ),
-          ExperiencesListview(filterProperty: 'Landmark Tour',isFilteredList: true,),
+          ExperiencesListview(
+            filterProperty: 'Landmark Tour',
+            isFilteredList: true,
+          ),
 
           HeadingwithButton(
             label: 'Recommended tours',
           ),
-          ExperiencesListview(filterProperty: 'Trek',isFilteredList: true,),
+          ExperiencesListview(
+            filterProperty: 'Trek',
+            isFilteredList: true,
+          ),
           CTA(),
           HeadingwithButton(
             label: 'Hiking ',
           ),
 
-          ExperiencesListview(filterProperty: 'Hiking',isFilteredList: true,),
+          ExperiencesListview(
+            filterProperty: 'Hiking',
+            isFilteredList: true,
+          ),
 
           HeadingwithButton(
             label: 'Desert Safari',
           ),
 
-          ExperiencesListview(filterProperty: 'Landscape',isFilteredList: true,),
+          ExperiencesListview(
+            filterProperty: 'Hiking',
+            isFilteredList: true,
+          ),
           HeadingwithButton(
             label: 'Top Events',
           ),
-          ExperiencesListview(filterProperty: 'Hiking',isFilteredList: true,),
+          ExperiencesListview(
+            filterProperty: 'Hiking',
+            isFilteredList: true,
+          ),
 
           // Add more widgets below as needed
         ],

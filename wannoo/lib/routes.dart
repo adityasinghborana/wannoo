@@ -10,6 +10,9 @@ import 'package:wannoo/congratulations/presentationlayer/congratulation_Screen.d
 import 'package:wannoo/homepage/presentationlayer/homepage_screen.dart';
 import 'package:wannoo/itinarary/presentationlayer/ItinararyScreen.dart';
 import 'package:wannoo/places_detail/presentationlayer/placedetails_screen.dart';
+import 'package:wannoo/profile/editprofilescreen.dart';
+import 'package:wannoo/profile/helpscreen.dart';
+import 'package:wannoo/profile/legalscreen.dart';
 import 'package:wannoo/profile/presentationlayer/profilescreen.dart';
 import 'package:wannoo/search/presentationlayer/searchresultscreen.dart';
 import 'package:wannoo/search/presentationlayer/searchscreen.dart';
@@ -35,6 +38,9 @@ class AppRoutes {
   static const String paymentSuccess = '/paymentsucess';
   static const String paymentFailure = '/paymentfailure';
   static const String savedList = '/savedlist';
+  static const String legalScreen = '/legal';
+  static const String helpScreen = '/help';
+  static const String editProfile = '/editprofile';
 
   static List<GetPage> routes = [
     GetPage(
@@ -104,6 +110,18 @@ class AppRoutes {
     GetPage(
       name: savedList,
       page: () => ItinararyScreen(),
+    ),
+    GetPage(
+      name: legalScreen,
+      page: () => LegalScreen(),
+    ),
+    GetPage(
+      name: helpScreen,
+      page: () => HelpScreen(),
+    ),
+    GetPage(
+      name: editProfile,
+      page: () => EditProfile(),
     ),
   ];
 }

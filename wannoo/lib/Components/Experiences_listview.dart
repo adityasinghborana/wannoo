@@ -54,9 +54,11 @@ class ExperiencesListview extends StatelessWidget {
               onTap: () {
                 Get.toNamed(AppRoutes.placedetails, parameters: {
                   'id': "${filteredTours[index].id}",
+                  'amount': "${filteredTours[index].price.toString()}",
                 });
               },
               child: ExperiencesCard(
+                price: filteredTours[index].price ?? 0.0,
                 selectedTourId: filteredTours[index].internaTourid,
                 isfav: true,
                 title: filteredTours[index].title,

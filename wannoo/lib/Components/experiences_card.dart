@@ -13,6 +13,7 @@ class ExperiencesCard extends StatelessWidget {
   final bool isfav;
   final bool isAddIcon;
   final int selectedTourId;
+  final double price;
 
   const ExperiencesCard(
       {Key? key,
@@ -21,6 +22,7 @@ class ExperiencesCard extends StatelessWidget {
       this.isAddIcon = true,
       required this.selectedTourId,
       required this.location,
+      required this.price,
       required this.isfav})
       : super(key: key);
 
@@ -103,17 +105,39 @@ class ExperiencesCard extends StatelessWidget {
                               ),
                               Row(
                                 children: [
-                                  Icon(
-                                    FontAwesomeIcons.locationDot,
-                                    color: themeColor.colorBgPrimary,
-                                    size: 15,
-                                  ),
-                                  Text(
-                                    location,
-                                    style: TextStyle(
-                                      color: themeColor.colorWhite,
-                                    ),
-                                  ),
+                                  Flexible(
+                                      child: Row(
+                                    children: [
+                                      Icon(
+                                        FontAwesomeIcons.locationDot,
+                                        color: themeColor.colorBgPrimary,
+                                        size: 15,
+                                      ),
+                                      Text(
+                                        location,
+                                        style: TextStyle(
+                                          color: themeColor.colorWhite,
+                                        ),
+                                      ),
+                                    ],
+                                  )),
+                                  Flexible(
+                                      child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Icon(
+                                        FontAwesomeIcons.dollarSign,
+                                        color: themeColor.colorBgPrimary,
+                                        size: 15,
+                                      ),
+                                      Text(
+                                        "$price",
+                                        style: TextStyle(
+                                          color: themeColor.colorWhite,
+                                        ),
+                                      ),
+                                    ],
+                                  ))
                                 ],
                               ),
                             ],

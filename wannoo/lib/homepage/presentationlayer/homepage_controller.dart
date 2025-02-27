@@ -107,6 +107,7 @@ class HomePageController extends GetxController {
             // Replace `location` with the actual property
             Country: tour.countryName,
             Continent: tour.continent,
+            price: tour.tourpricing?.amount?.toDouble(),
             internaTourid: tour.id ?? 0);
       }).toList();
 

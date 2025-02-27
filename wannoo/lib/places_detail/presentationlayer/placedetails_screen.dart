@@ -39,6 +39,8 @@ class PlaceDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String? id = Get.parameters['id'];
+    final String? amount = Get.parameters['amount'];
+
     placedetailsController.getPlaceData(id ?? "");
 
     return Scaffold(
@@ -73,7 +75,7 @@ class PlaceDetailsScreen extends StatelessWidget {
                 Country: placedetailsController.demoData.value.country,
                 rating: placedetailsController.demoData.value.rating ?? 4.2,
                 reviews: placedetailsController.demoData.value.reviews,
-                price: placedetailsController.demoData.value.price,
+                price: double.parse(amount ?? ""),
               );
             }),
             Obx(() {
@@ -150,7 +152,7 @@ class PlaceDetailsScreen extends StatelessWidget {
         onpressed: () {
           if (placedetailsController.demoData.value.bookable == true) {
             Get.toNamed(AppRoutes.booking, arguments: {
-              "tourid": placedetailsController.demoData.value.id,
+              "tourid": placedetailsController.demoData.value.tourId,
               "price": placedetailsController.demoData.value.price,
             });
           } else {

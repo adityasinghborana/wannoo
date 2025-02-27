@@ -14,35 +14,34 @@ class SearchResultController extends GetxController {
     super.onInit();
   }
 
-  final RxList<ExperiencesModel>  searchedPlaces =<ExperiencesModel> [].obs;
+  final RxList<ExperiencesModel> searchedPlaces = <ExperiencesModel>[].obs;
   void getFilteredExperiences(
     String SelectedContinent,
     String SelectedCountry,
     String SelectedCity,
     String SelectedCategory,
   ) {
-
     print(SelectedCity);
     final HomePageController homePageController = Get.find();
     // Apply filtering based on multiple fields
     List<ExperiencesModel> filteredList =
         homePageController.experiences.where((experience) {
-        print("City ${  experience.location.toLowerCase().trim()}");
+      print("City ${experience.location.toLowerCase().trim()}");
+      print("City ${SelectedCategory.trim().toLowerCase()}");
       return (experience.Continent?.toLowerCase() ==
-              SelectedContinent.toLowerCase())
-          &&
+              SelectedContinent.toLowerCase()) &&
           (experience.Country!.toLowerCase() ==
-              SelectedCountry.toLowerCase())
-          &&
-          (experience.location.toLowerCase().trim() == SelectedCity.toLowerCase().trim())
-           &&
-          (experience.Category.trim().toLowerCase() ==
-              SelectedCategory.trim().toLowerCase()
-          );
+              SelectedCountry.toLowerCase()) &&
+          (experience.location.toLowerCase().trim() ==
+              SelectedCity.toLowerCase().trim());
+      //  &&
+      // (experience.Category.trim().toLowerCase() ==
+      //     SelectedCategory.trim().toLowerCase()
+      //  );
     }).toList();
     print(homePageController.experiences);
     print(searchedPlaces.toList());
-searchedPlaces.assignAll(filteredList);
+    searchedPlaces.assignAll(filteredList);
     print("Filtered list: $filteredList");
   }
 }

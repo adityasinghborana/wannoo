@@ -13,13 +13,14 @@ class SearchResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final SearchResultController searchResultController =
-    Get.put(SearchResultController());
+        Get.put(SearchResultController());
     return Scaffold(
       appBar: AppBar(
         title: Text("Searched Places"),
         centerTitle: true,
       ),
       body: Obx(() {
+        print(searchResultController.searchedPlaces.length);
         return ListView.builder(
             itemCount: searchResultController.searchedPlaces.length,
             itemBuilder: (context, index) {
@@ -29,10 +30,11 @@ class SearchResultScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(globalPadding.px_sm),
                 child: Container(
                     height: 150,
-                    child: PlacesCards(title: item.title,
+                    child: PlacesCards(
+                      title: item.title,
                       image: item.imagepath,
-                      Location: item.location,)
-                ).fadeIn(duration: Duration(seconds: 1)),
+                      Location: item.location,
+                    )).fadeIn(duration: Duration(seconds: 1)),
               );
             });
       }),

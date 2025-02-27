@@ -7,6 +7,7 @@ class ExperiencesModel {
   final String Category;
   final String? Country;
   final String? Continent;
+  final double? price;
 
   ExperiencesModel(
       {required this.title,
@@ -15,6 +16,7 @@ class ExperiencesModel {
       required this.location,
       required this.id,
       required this.Category,
+      required this.price,
       this.Country,
       this.Continent});
 
