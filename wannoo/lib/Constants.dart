@@ -101,8 +101,7 @@ class staticText {
   static const String congoScreenButtonText = "Let's Begin";
 }
 
-class CustomIcons{
-
+class CustomIcons {
   static const String help = 'asset/icons/customicon/help.svg';
   static const String bulb = 'asset/icons/customicon/bulb.svg';
   static const String dollar = 'asset/icons/customicon/dollar.svg';
@@ -111,7 +110,6 @@ class CustomIcons{
   static const String track = 'asset/icons/customicon/track.svg';
   static const String history = 'asset/icons/customicon/history.svg';
   static const String editpic = 'asset/icons/customicon/editpic.svg';
-
 }
 
 class Height {

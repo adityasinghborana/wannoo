@@ -16,15 +16,15 @@ class MobileHeader extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: isBackButton,
       leading: isBackButton
           ? IconButton(
-        onPressed: () {
-          Get.back();
-        },
-        icon: const Icon(Icons.arrow_back),
-      )
+              onPressed: () {
+                Get.back();
+              },
+              icon: const Icon(Icons.arrow_back),
+            )
           : IconButton(
-        onPressed: () => Scaffold.of(context).openDrawer(),
-        icon: const Icon(Icons.menu),
-      ),
+              onPressed: () => Scaffold.of(context).openDrawer(),
+              icon: const Icon(Icons.menu),
+            ),
       backgroundColor: themeColor.colorWhite.withOpacity(0.5),
       surfaceTintColor: Colors.transparent,
       title: Padding(
