@@ -14,13 +14,14 @@ class HeadingwithButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: globalPadding.px_md),
+      padding: const EdgeInsets.symmetric(
+          horizontal: globalPadding.px_md, vertical: globalPadding.py_md),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             label,
-            style: TypographyStyle.l2Font.copyWith(fontWeight: FontWeight.w600),
+            style: CustomTextStyles.fontXxlMedium,
           ),
           isVisible
               ? CustomTextButton(

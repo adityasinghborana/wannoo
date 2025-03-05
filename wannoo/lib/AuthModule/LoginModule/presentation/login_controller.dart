@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
@@ -5,10 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:wannoo/AuthModule/datalayer/model/request/delete_user_request.dart';
+import 'package:wannoo/AuthModule/datalayer/repo/repo.dart';
+import 'package:wannoo/AuthModule/datalayer/usecase/deleteuserusecase.dart';
 import 'package:wannoo/routes.dart';
 
 import '../../../utilities/Authclass.dart';
 import '../../../utilities/dialog.dart';
+import '../../datalayer/services/remote.dart';
 
 class LoginController extends GetxController {
   final RxBool obsecureText = true.obs;
@@ -77,10 +82,19 @@ class LoginController extends GetxController {
   }
 
   void deleteUser(BuildContext context) async {
+    final DeleteUserUseCase deleteUserUseCase =
+        DeleteUserUseCase(DeleteUserRepoImpl(DeleteUser(Dio())));
     try {
       User? user = FirebaseAuth.instance.currentUser;
 
       if (user != null) {
+        try {
+          print("hello Delete Uid ${user.uid}");
+          await deleteUserUseCase
+              .execute(DeleteUserRequest(uid: user.uid.toString()));
+        } catch (e) {
+          print(e);
+        }
         await user.delete(); // Deletes the user from Firebase Authentication
         // Sign out from Firebase and Google (if logged in via Google)
         await firebaseAuth.signOut();

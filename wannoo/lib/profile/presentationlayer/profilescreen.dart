@@ -7,8 +7,11 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
 import 'package:permission_handler/permission_handler.dart';
+import 'package:wannoo/AuthModule/LoginModule/presentation/login_controller.dart';
 import 'package:wannoo/Constants.dart';
 import 'package:wannoo/profile/presentationlayer/profilescreencontroller.dart';
+
+import '../../Components/largeButton2.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key});
@@ -18,6 +21,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final LoginController loginController = Get.put(LoginController());
     return Scaffold(
       appBar: AppBar(
         title: Text("Profile"),
@@ -103,7 +107,16 @@ class ProfileScreen extends StatelessWidget {
                 }),
               ),
             ),
-          )
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: LargeButton2(
+                label: "Logout",
+                height: 50,
+                onPressed: () {
+                  loginController.signOut(context: context);
+                }),
+          ),
         ]),
       ),
     );

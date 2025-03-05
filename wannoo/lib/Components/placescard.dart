@@ -1,21 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
 import '../../../Constants.dart';
 
 class PlacesCards extends StatelessWidget {
-  final String title ;
-  final String image ;
-  final String Location ;
-  final double rating ;
-  final double price ;
-  const PlacesCards({super.key,required this.title,required this.image,required this.Location , this.rating =4.7,this.price =250});
+  final String title;
+
+  final String image;
+
+  final String Location;
+
+  final double rating;
+
+  final double price;
+
+  const PlacesCards(
+      {super.key,
+      required this.title,
+      required this.image,
+      required this.Location,
+      this.rating = 4.7,
+      this.price = 250});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-
       height: Get.height / 8,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(globalRadius.borderRadius_s),
@@ -39,12 +50,15 @@ class PlacesCards extends StatelessWidget {
                     child: Container(
                       height: 150,
                       child: ClipRRect(
-                        borderRadius:BorderRadius.only(topLeft:Radius.circular(globalRadius.borderRadius_s),bottomLeft:Radius.circular(globalRadius.borderRadius_s) ) ,
+                        borderRadius: BorderRadius.only(
+                            topLeft:
+                                Radius.circular(globalRadius.borderRadius_s),
+                            bottomLeft:
+                                Radius.circular(globalRadius.borderRadius_s)),
                         child: Image.network(
                           image,
                           width: double.infinity,
                           fit: BoxFit.cover,
-
                         ),
                       ),
                     ),
@@ -54,7 +68,8 @@ class PlacesCards extends StatelessWidget {
           Flexible(
             flex: 2,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(
+                  horizontal: 8.0, vertical: globalPadding.px_md),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,27 +77,14 @@ class PlacesCards extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(title),
+                      Text(
+                        title,
+                        style: CustomTextStyles.fontMdMedium,
+                      ),
                       Icon(
                         FontAwesomeIcons.bookmark,
                         color: themeColor.colorTextSecondry,
                         size: 15,
-                      ),
-                    ],
-                  ),
-
-                  Row(
-                    children: [
-                      Icon(
-                        FontAwesomeIcons.star,
-                        color: themeColor.colorTextSecondry,
-                        size: 15,
-                      ),
-                      Text(
-                        "$rating",
-                        style: TextStyle(
-                          color: themeColor.colorTextPrimary,
-                        ),
                       ),
                     ],
                   ),
@@ -91,11 +93,12 @@ class PlacesCards extends StatelessWidget {
                       children: [
                         Icon(
                           FontAwesomeIcons.locationDot,
-                          color: themeColor.colorTextSecondry,
+                          color: themeColor.colorBgSecondory,
                           size: 15,
                         ),
+                        Gap(10),
                         Text(
-                        Location,
+                          Location,
                           style: TextStyle(
                             color: themeColor.colorTextPrimary,
                           ),
@@ -103,7 +106,30 @@ class PlacesCards extends StatelessWidget {
                       ],
                     ),
                   ),
-
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            FontAwesomeIcons.star,
+                            color: themeColor.colorBgSecondory,
+                            size: 15,
+                          ),
+                          Gap(10),
+                          Text(
+                            "$rating",
+                            style: TextStyle(
+                              color: themeColor.colorTextPrimary,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [Text("Price"), Gap(10), Text("\$ $price")],
+                      )
+                    ],
+                  ),
                 ],
               ),
             ),

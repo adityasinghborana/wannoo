@@ -24,13 +24,14 @@ class _itinararyRemote implements itinararyRemote {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<List<ItinararyModel>> getData() async {
+  Future<List<ItinararyModel>> getData(UserItinararyRequest uid) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final _data = <String, dynamic>{};
+    _data.addAll(uid.toJson());
     final _options = _setStreamType<List<ItinararyModel>>(Options(
-      method: 'GET',
+      method: 'POST',
       headers: _headers,
       extra: _extra,
     )

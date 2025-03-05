@@ -47,24 +47,22 @@ class _EditProfileState extends State<EditProfile> {
                 ),
                 Gap(20),
                 TextFieldCustom(
-                  textController: editProfileController.nameController,
+                  textController: editProfileController.phoneController,
                   hintText: 'Mobile Number',
                 ),
                 Gap(20),
-                LargeButton2(label: "Save", height: 50, onPressed: () {})
+                LargeButton2(
+                    label: "Save",
+                    height: 50,
+                    onPressed: () {
+                      editProfileController.updateUserDetail();
+                    })
               ],
             )),
             Expanded(
                 child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                LargeButton2(
-                    label: "Logout",
-                    height: 50,
-                    onPressed: () {
-                      loginController.signOut(context: context);
-                    }),
-                Gap(20),
                 InvertedButton(
                   text: 'Delete Account ',
                   onPressed: () {

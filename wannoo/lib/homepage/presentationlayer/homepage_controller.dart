@@ -12,9 +12,11 @@ import 'package:wannoo/homepage/datalayer/model/services_model.dart';
 import 'package:wannoo/homepage/datalayer/usecase/getalltoursUsecase.dart';
 import 'package:wannoo/itinarary/datalayer/model/request/create_itinarary_request.dart';
 import 'package:wannoo/itinarary/datalayer/model/request/post_fav_tour.dart';
+import 'package:wannoo/itinarary/datalayer/model/request/user_itinarary_request.dart';
 import 'package:wannoo/itinarary/datalayer/model/response/itinarary_model.dart';
 import 'package:wannoo/itinarary/datalayer/usecase/create_itinarary_usecase.dart';
 import 'package:wannoo/itinarary/datalayer/usecase/post_fav_tour.dart';
+import 'package:wannoo/utilities/Authclass.dart';
 import 'package:wannoo/utilities/dialog.dart';
 import '../../categories/presentationlayer/categorycontroller.dart';
 import '../../itinarary/datalayer/usecase/get_itinarary_usecase.dart';
@@ -124,7 +126,13 @@ class HomePageController extends GetxController {
   }
 
   void getItinarary() async {
-    await getitinararyUseCase.execute().then((response) {
+    var uid = await getUserUID();
+    print("itinarary $uid");
+
+    ///TODO add req in this function
+    await getitinararyUseCase
+        .execute(UserItinararyRequest(uid: uid.toString()))
+        .then((response) {
       print("response:${response}");
       itinararyList.assignAll(response);
     });
@@ -133,9 +141,10 @@ class HomePageController extends GetxController {
   void postItinarary() async {
     try {
       String req = itinararyController.text.toString();
+      var userUid = await getUserUID();
       print(req);
       await createItinararyUseCase
-          .execute(CreateItinararyRequest(name: req))
+          .execute(CreateItinararyRequest(name: req, uid: userUid.toString()))
           .then((response) {
         itinararyList.add(response);
       });

@@ -19,35 +19,39 @@ class CategoryPlacesScreen extends StatelessWidget {
     final CategoryPlacesController categoryPlacesController =
         Get.put(CategoryPlacesController());
     return Scaffold(
-      appBar: AppBar(
-        title: Text(category ?? ""),
-      ),
-      body: categoryPlacesController.places.isNotEmpty?
-      ListView.builder(
-          itemCount: categoryPlacesController.places.length,
-          itemBuilder: (context, index) {
-            final item = categoryPlacesController.places[index];
-            print(item.title);
-            return Padding(
-              padding: EdgeInsets.all(globalPadding.px_sm),
-              child: Container(
-                  height: 150,
-                  child: InkWell(
-                    onTap: () {
-                      Get.toNamed(AppRoutes.placedetails, parameters: {
-                        'id': "${categoryPlacesController.places[index].id}"
-                      });
-                    },
+        appBar: AppBar(
+          title: Text(category ?? ""),
+        ),
+        body: categoryPlacesController.places.isNotEmpty
+            ? ListView.builder(
+                itemCount: categoryPlacesController.places.length,
+                itemBuilder: (context, index) {
+                  final item = categoryPlacesController.places[index];
+                  print(item.title);
+                  return Padding(
+                    padding: EdgeInsets.all(globalPadding.px_sm),
                     child: Container(
-                      child: PlacesCards(
-                        title: item.title,
-                        image: item.imagepath,
-                        Location: item.location,
+                      height: 150,
+                      child: InkWell(
+                        onTap: () {
+                          Get.toNamed(AppRoutes.placedetails, parameters: {
+                            'amount':
+                                "${categoryPlacesController.places[index].price.toString()}",
+                            'id': "${categoryPlacesController.places[index].id}"
+                          });
+                        },
+                        child: Container(
+                          child: PlacesCards(
+                            title: item.title,
+                            image: item.imagepath,
+                            Location: item.location,
+                          ),
+                        ),
                       ),
                     ),
-                  ),),
-            );
-          }).fadeIn(duration: Duration(seconds: 1)):Center(child: dataNotFound(width:double.infinity , height: 300.00))
-    );
+                  );
+                }).fadeIn(duration: Duration(seconds: 1))
+            : Center(
+                child: dataNotFound(width: double.infinity, height: 300.00)));
   }
 }

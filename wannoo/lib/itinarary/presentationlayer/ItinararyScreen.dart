@@ -45,6 +45,7 @@ class ItinararyScreen extends StatelessWidget {
                     onTap: () {
                       Get.toNamed(AppRoutes.placedetails, parameters: {
                         'id': "${items[index].id}",
+                        'amount': "${items[index].price.toString()}",
                       });
                     },
                     child: Container(
@@ -54,13 +55,13 @@ class ItinararyScreen extends StatelessWidget {
                       height: 220,
                       width: Get.width,
                       child: ExperiencesCard(
+                        isPriceVisible: false,
                         isAddIcon: false,
                         selectedTourId: items[index].internaTourid,
                         isfav: true,
                         title: items[index].title,
-                        imagePath: items[index].imagepath,
+                        imagePath: image.homeimage,
                         location: items[index].location,
-                        price: items[index].price ?? 0.0,
                       ),
                     ),
                   );

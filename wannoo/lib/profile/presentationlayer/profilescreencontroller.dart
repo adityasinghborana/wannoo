@@ -25,22 +25,6 @@ class ProfileScreenController extends GetxController {
           Get.toNamed(AppRoutes.editProfile);
         }),
     Item(
-        title: "Track My Bookings ",
-        icon: SvgPicture.asset(
-          CustomIcons.track,
-        ),
-        onpressed: () {
-          return null;
-        }),
-    Item(
-        title: "My Itenanry",
-        icon: SvgPicture.asset(
-          CustomIcons.history,
-        ),
-        onpressed: () {
-          return null;
-        }),
-    Item(
         title: "Help Center",
         icon: SvgPicture.asset(CustomIcons.help),
         onpressed: () {

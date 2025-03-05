@@ -5,10 +5,6 @@ import 'package:get/get.dart';
 import 'package:wannoo/Blogs/presentationlayer/blogsscreen.dart';
 import 'package:wannoo/Constants.dart';
 import 'package:wannoo/bookings/presentationlayer/Previousbookings.dart';
-import 'package:wannoo/bookings/presentationlayer/bookingsscreen.dart';
-import 'package:wannoo/bookings/presentationlayer/externalSite.dart';
-import 'package:wannoo/bookings/presentationlayer/paymentfailure.dart';
-import 'package:wannoo/bookings/presentationlayer/paymentsucess.dart';
 import 'package:wannoo/categories/datalayer/repository/allcategoriesrepo.dart';
 import 'package:wannoo/categories/datalayer/service/remote.dart';
 import 'package:wannoo/categories/datalayer/usecase/allcategoriesusecase.dart';
@@ -21,7 +17,6 @@ import 'package:wannoo/itinarary/datalayer/repository/itinarary_repository.dart'
 import 'package:wannoo/itinarary/datalayer/service/itinarary_remote.dart';
 import 'package:wannoo/itinarary/datalayer/usecase/get_itinarary_usecase.dart';
 import 'package:wannoo/itinarary/datalayer/usecase/post_fav_tour.dart';
-import 'package:wannoo/profile/presentationlayer/profilescreen.dart';
 import 'package:wannoo/utilities/extension.dart';
 
 import '../../itinarary/datalayer/usecase/create_itinarary_usecase.dart';

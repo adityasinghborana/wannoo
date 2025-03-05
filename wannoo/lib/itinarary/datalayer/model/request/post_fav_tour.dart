@@ -5,7 +5,7 @@ part 'post_fav_tour.g.dart';
 class PostFavTourRequest {
   final int itineraryId;
   final int tourId;
-  final int userId;
+  final String userId;
   PostFavTourRequest(
       {required this.itineraryId, required this.tourId, required this.userId});
 

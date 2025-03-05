@@ -4,6 +4,7 @@ import 'package:wannoo/Constants.dart';
 import 'package:wannoo/homepage/datalayer/model/response/alltours.dart';
 import 'package:wannoo/itinarary/datalayer/model/request/create_itinarary_request.dart';
 import 'package:wannoo/itinarary/datalayer/model/request/post_fav_tour.dart';
+import 'package:wannoo/itinarary/datalayer/model/request/user_itinarary_request.dart';
 import 'package:wannoo/itinarary/datalayer/model/response/post_fav_tour_response.dart';
 
 import '../model/response/itinarary_model.dart';
@@ -14,10 +15,11 @@ part 'itinarary_remote.g.dart';
 abstract class itinararyRemote {
   factory itinararyRemote(Dio dio, {String? baseUrl}) = _itinararyRemote;
 
-  @GET('/itinarary')
-  Future<List<ItinararyModel>> getData();
+  @POST('/itinarary')
+  Future<List<ItinararyModel>> getData(@Body() UserItinararyRequest uid);
   @POST('/createitinarary')
   Future<ItinararyModel> createData(@Body() CreateItinararyRequest data);
+
   @GET('/favtours')
   Future<List<ALLTours>> getFavTours({
     @Query('id', encoded: false)

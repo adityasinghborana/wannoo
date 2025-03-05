@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/Components/Experiences_listview.dart';
 import 'package:wannoo/Components/Services%20_listview.dart';
@@ -26,6 +27,7 @@ class HomeScreen extends StatelessWidget {
             label: 'Categories',
             isVisible: true,
           ),
+
           CustomListCategory(),
           HeadingwithButton(
             label: 'Most Visited',
@@ -67,6 +69,7 @@ class HomeScreen extends StatelessWidget {
             filterProperty: 'Hiking',
             isFilteredList: true,
           ),
+          Gap(30)
 
           // Add more widgets below as needed
         ],

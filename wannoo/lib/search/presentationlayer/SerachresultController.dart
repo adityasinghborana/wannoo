@@ -33,11 +33,9 @@ class SearchResultController extends GetxController {
           (experience.Country!.toLowerCase() ==
               SelectedCountry.toLowerCase()) &&
           (experience.location.toLowerCase().trim() ==
-              SelectedCity.toLowerCase().trim());
-      //  &&
-      // (experience.Category.trim().toLowerCase() ==
-      //     SelectedCategory.trim().toLowerCase()
-      //  );
+              SelectedCity.toLowerCase().trim()) &&
+          (experience.Category.trim().toLowerCase() ==
+              SelectedCategory.trim().toLowerCase());
     }).toList();
     print(homePageController.experiences);
     print(searchedPlaces.toList());

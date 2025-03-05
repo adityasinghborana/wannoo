@@ -10,7 +10,7 @@ PostFavTourRequest _$PostFavTourRequestFromJson(Map<String, dynamic> json) =>
     PostFavTourRequest(
       itineraryId: (json['itineraryId'] as num).toInt(),
       tourId: (json['tourId'] as num).toInt(),
-      userId: (json['userId'] as num).toInt(),
+      userId: json['userId'] as String,
     );
 
 Map<String, dynamic> _$PostFavTourRequestToJson(PostFavTourRequest instance) =>

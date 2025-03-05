@@ -4,6 +4,7 @@ import 'package:wannoo/Categoryplaces/presentationlayer/categoryplacesscreen.dar
 import 'package:wannoo/Components/largeButton2.dart';
 import 'package:wannoo/Constants.dart';
 import 'package:wannoo/itinarary/datalayer/model/request/post_fav_tour.dart';
+import 'package:wannoo/utilities/Authclass.dart';
 import 'package:wannoo/utilities/extension.dart';
 
 import '../homepage/presentationlayer/homepage_controller.dart';
@@ -100,12 +101,14 @@ Future<void> showMyModalBottomSheet(
                                 child: LargeButton2(
                                     label: "Add ",
                                     height: 90,
-                                    onPressed: () {
+                                    onPressed: () async {
+                                      var User = await getUserUID();
+
                                       homePageController.postFavTours(
                                           data: PostFavTourRequest(
                                               itineraryId: items[index].id ?? 0,
                                               tourId: selectedTourId,
-                                              userId: 1));
+                                              userId: User ?? ""));
                                     }),
                               )
                             ],
