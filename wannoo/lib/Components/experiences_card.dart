@@ -38,8 +38,8 @@ class ExperiencesCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(globalRadius.borderRadius_m),
           child: Stack(
             children: [
-              Image.asset(
-                image.experiencesimages,
+              Image.network(
+                "$imagePath",
                 errorBuilder: (context, error, stackTrace) {
                   return Image.asset(
                     image.experiencesimages,

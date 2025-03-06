@@ -50,6 +50,7 @@ class ExperiencesListview extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: filteredTours.length,
           itemBuilder: (context, index) {
+            print("imagepath ${filteredTours[6].imagepath}");
             return InkWell(
               onTap: () {
                 Get.toNamed(AppRoutes.placedetails, parameters: {
