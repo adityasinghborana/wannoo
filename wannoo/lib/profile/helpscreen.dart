@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/Components/large_button.dart';
 import 'package:wannoo/Constants.dart';
+import 'package:wannoo/profile/presentationlayer/helpscreencontroller.dart';
 
 import '../Components/Textfield.dart';
 
@@ -11,16 +12,40 @@ class HelpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final HelpScreenController helpScreenController =
+        Get.put(HelpScreenController());
     return Scaffold(
         appBar: AppBar(
           title: Text("Help And Support"),
           centerTitle: true,
         ),
-        body: InfoCard());
+        body: Obx(
+          () => InfoCard(
+            helpScreenController.email.value,
+            helpScreenController.mobile.value,
+            helpScreenController.address.value,
+            name: helpScreenController.name,
+            emailController: helpScreenController.emailController,
+            message: helpScreenController.message,
+            onPressed: helpScreenController.sendData,
+          ),
+        ));
   }
 }
 
 class InfoCard extends StatelessWidget {
+  final TextEditingController name;
+  final TextEditingController emailController;
+  final TextEditingController message;
+  var email;
+  var mobile;
+  var address;
+  final VoidCallback onPressed;
+  InfoCard(this.email, this.mobile, this.address,
+      {required this.name,
+      required this.emailController,
+      required this.message,
+      required this.onPressed});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -43,30 +68,23 @@ class InfoCard extends StatelessWidget {
                   )
                 ],
               ),
-              child: _buildReplySection()),
-          ContactInfo()
+              child: _buildReplySection(
+                  name: name,
+                  email: emailController,
+                  message: message,
+                  onPressed: onPressed)),
+          ContactInfo(email, mobile, address)
         ],
       ),
     );
   }
 }
 
-Widget _buildReplySection() {
-  final TextEditingController name = TextEditingController();
-  // final ContactUsController controller = Get.put(
-  //   ContactUsController(
-  //     getContactUsDataUseCase: GetContactUsDataUseCase(
-  //       ContactUsRepositoryImpl(
-  //         ContactusRemote(Dio()),
-  //       ),
-  //     ),
-  //     postFormUsecase: PostFormUseCase(
-  //       ContactUsRepositoryImpl(
-  //         ContactusRemote(Dio()),
-  //       ),
-  //     ),
-  //   ),
-  // );
+Widget _buildReplySection(
+    {required TextEditingController name,
+    required TextEditingController email,
+    required TextEditingController message,
+    required VoidCallback onPressed}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
@@ -76,20 +94,21 @@ Widget _buildReplySection() {
       SizedBox(
         height: 30,
       ),
-      TextFieldCustom(textController: name, hideText: false, hintText: "Email"),
+      TextFieldCustom(
+          textController: email, hideText: false, hintText: "Email"),
       SizedBox(
         height: 30,
       ),
       TextFieldCustom(
-          textController: name, hideText: false, hintText: "Message"),
+          textController: message, hideText: false, hintText: "Message"),
       Expanded(child: Container()),
       SizedBox(
-          width: 400, child: LargeButton(label: "Submit", onPressed: () => {}))
+          width: 400, child: LargeButton(label: "Submit", onPressed: onPressed))
     ],
   );
 }
 
-Widget ContactInfo() {
+Widget ContactInfo(email, mobilenumber, address) {
   return Expanded(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -100,13 +119,13 @@ Widget ContactInfo() {
             CardFb1(
               text: 'Email Us',
               icon: Icons.mail,
-              subtitle: 'Contact@wanno.com',
+              subtitle: email,
             ),
             Gap(20),
             CardFb1(
               text: 'Call Us',
               icon: Icons.phone,
-              subtitle: '+91999999999',
+              subtitle: mobilenumber,
             ),
           ],
         ),
@@ -114,7 +133,7 @@ Widget ContactInfo() {
         CardFb1(
           text: 'Reach Us',
           icon: Icons.pin_drop,
-          subtitle: '23 street block 2 Nottingham South Hempstead',
+          subtitle: address,
         ),
       ],
     ),

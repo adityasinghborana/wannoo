@@ -33,7 +33,7 @@ class BlogsScreen extends StatelessWidget {
                 tag: "blog-${item.id}", // Use a unique tag for each blog
                 child: SavedCards(
                   title: item.title!,
-                  imagePath: item.image ?? "",
+                  imagePath: item.imagePath ?? "",
                   Date: item.createdAt!,
                   Body: item.content!,
                 ),

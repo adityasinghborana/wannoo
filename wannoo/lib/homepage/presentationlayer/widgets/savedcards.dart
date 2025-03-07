@@ -18,7 +18,6 @@ class SavedCards extends StatelessWidget {
     required this.Body,
   });
 
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -44,7 +43,7 @@ class SavedCards extends StatelessWidget {
               flex: 2,
               child: CircleAvatar(
                 radius: 30,
-                backgroundImage: AssetImage(image.homeimage),
+                backgroundImage: NetworkImage("$baseurl/$imagePath"),
               ),
             ),
             Flexible(
@@ -55,41 +54,37 @@ class SavedCards extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Text(title, style: CustomTextStyles.fontMdSemiBold,)
+                      Text(
+                        title,
+                        style: CustomTextStyles.fontMdSemiBold,
+                      )
                     ],
                   ),
                   Container(
                     child: Row(
                       children: [
-
                         Flexible(
                           child: HtmlWidget(
-textStyle: CustomTextStyles.fontSMedium,
-                              Body.substring(0,50),
-
-                              ),
-                            ),
-
+                            textStyle: CustomTextStyles.fontSMedium,
+                            Body.substring(0, 50),
+                          ),
+                        ),
                       ],
                     ),
                   ),
                   Row(
                     children: [
-
-                      Text(
-                     Date.substring(0,10),
-                        style: CustomTextStyles.fontSMedium.copyWith(color: themeColor.colorTextSecondry)
-                      ),
+                      Text(Date.substring(0, 10),
+                          style: CustomTextStyles.fontSMedium
+                              .copyWith(color: themeColor.colorTextSecondry)),
                     ],
                   ),
                 ],
               ),
             ),
-
           ],
         ),
       ),
     );
   }
-
 }
