@@ -20,8 +20,8 @@ class BlogDetailScreen extends StatelessWidget {
         children: [
           Hero(
             tag: "blog-${blog.id}", // Same tag as in BlogsScreen
-            child: Image.asset(
-              image.experiencesimages, // Display blog image
+            child: Image.network(
+              "$baseurl/${blog.imagePath!}", // Display blog image
               width: double.infinity,
               height: 250,
               fit: BoxFit.cover,
