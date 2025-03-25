@@ -1,21 +1,32 @@
 import 'dart:io';
 
+import 'package:dio/dio.dart' as dio;
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:permission_handler/permission_handler.dart';
+import 'package:wannoo/Components/snackbar.dart';
 import 'package:wannoo/Constants.dart';
 import 'package:wannoo/homepage/presentationlayer/homepage_controller.dart';
 import 'package:wannoo/profile/presentationlayer/items.dart';
 import 'package:wannoo/routes.dart';
+import 'package:wannoo/utilities/Authclass.dart';
 
 class ProfileScreenController extends GetxController {
+  @override
+  void onInit() {
+    setEmailAndName();
+    super.onInit();
+  }
+
   final HomePageController homePageController = Get.find();
   final picker = ImagePicker();
   final Rx<File?> imageFile = Rx<File?>(null);
+
+  var email = "".obs;
+  var name = "".obs;
 
   List<Item> items = [
     Item(
@@ -123,7 +134,7 @@ class ProfileScreenController extends GetxController {
           Platform.isAndroid ? CropAspectRatio(ratioX: 1, ratioY: 1) : null,
       uiSettings: [
         AndroidUiSettings(
-          hideBottomControls: true,
+          hideBottomControls: false,
           toolbarTitle: "Image Cropper",
           toolbarColor: Colors.yellow,
           toolbarWidgetColor: Colors.white,
@@ -137,7 +148,64 @@ class ProfileScreenController extends GetxController {
     );
     if (croppedFile != null) {
       imageFile.value = File(croppedFile.path);
-      homePageController.updateImage(imageFile.value);
+      uploadImage(File(croppedFile.path));
     }
+  }
+
+  Future<void> uploadImage(File imageFile) async {
+    final dio.Dio client = dio.Dio();
+
+    try {
+      String fileName = imageFile.path.split('/').last;
+      dio.FormData formData = dio.FormData.fromMap({
+        "image": await dio.MultipartFile.fromFile(imageFile.path,
+            filename: fileName),
+      });
+
+      dio.Response response = await client.post(
+        "$baseurl/upload",
+        data: formData,
+        options: dio.Options(
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        ),
+      );
+
+      print(response.data);
+      var uid = await getUserUID();
+      updateProfileImage(uid, response.data["path"]);
+    } catch (e) {
+      print("Error uploading image: $e");
+    }
+  }
+
+  updateProfileImage(String? uid, String profileImageUrl) async {
+    final dio.Dio client = dio.Dio();
+
+    try {
+      dio.Response response = await client.patch(
+        "$baseurl/updateimage",
+        data: {"uid": uid, "profileImageUrl": profileImageUrl},
+        options: dio.Options(
+          headers: {
+            "Content-Type": "application/json",
+          },
+        ),
+      );
+      if (response.statusCode == 200) {
+        openIconSnackBar(Get.context, "Image Uploaded", Icon(Icons.check));
+        homePageController.currentImage.value = response.data["profileImage"];
+      }
+      print("Response: ${response.data}");
+    } catch (e) {
+      print("Error updating profile image: $e");
+    }
+  }
+
+  void setEmailAndName() {
+    email.value = homePageController.email.value ?? "Not Set";
+    name.value =
+        homePageController.name.value ?? email.value.toString().split("@")[0];
   }
 }

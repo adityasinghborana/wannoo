@@ -72,7 +72,8 @@ class LoginController extends GetxController {
       await firebaseAuth.signOut();
       await _googleSignIn.signOut();
       await clearUserUID();
-      Get.toNamed(AppRoutes.login);
+
+      Get.offAllNamed(AppRoutes.login);
 
       showSnackBar(context, 'Sign-out successful.');
     } catch (e) {

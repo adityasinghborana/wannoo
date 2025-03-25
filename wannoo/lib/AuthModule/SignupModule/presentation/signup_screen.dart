@@ -25,6 +25,8 @@ class SignUpPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
+              width: 250,
+              height: 200,
               image.logoOrange,
             ),
             const Padding(

@@ -14,7 +14,7 @@ class _itinararyRemote implements itinararyRemote {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'http://10.0.2.2:3000';
+    baseUrl ??= 'http://68.66.251.170/api';
   }
 
   final Dio _dio;
@@ -156,6 +156,76 @@ class _itinararyRemote implements itinararyRemote {
     late PostFavTourResponse _value;
     try {
       _value = PostFavTourResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<DeleteItinararyResponse> deleteItinarary(
+      DeleteItinararyRequest data) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(data.toJson());
+    final _options = _setStreamType<DeleteItinararyResponse>(Options(
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/deleteitinarary',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeleteItinararyResponse _value;
+    try {
+      _value = DeleteItinararyResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<DeleteUserFavTourResponse> deleteFavTour(
+      DeleteUserFavTourRequest data) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(data.toJson());
+    final _options = _setStreamType<DeleteUserFavTourResponse>(Options(
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/deletefavtours',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DeleteUserFavTourResponse _value;
+    try {
+      _value = DeleteUserFavTourResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

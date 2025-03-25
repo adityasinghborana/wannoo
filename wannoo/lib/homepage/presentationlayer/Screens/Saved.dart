@@ -76,9 +76,16 @@ class Saved extends StatelessWidget {
                                     children: [
                                       Text(
                                           "${homePageController.itinararyList[index].name}"),
-                                      Icon(
-                                        Icons.delete,
+                                      IconButton(
                                         color: Colors.red.shade700,
+                                        onPressed: () {
+                                          homePageController.deleteItinarary(
+                                              homePageController
+                                                      .itinararyList[index]
+                                                      .id ??
+                                                  0);
+                                        },
+                                        icon: Icon(Icons.delete),
                                       )
                                     ],
                                   )

@@ -1,8 +1,13 @@
+import 'package:wannoo/AuthModule/datalayer/model/request/delete_user_request.dart';
 import 'package:wannoo/homepage/datalayer/model/response/alltours.dart';
 import 'package:wannoo/itinarary/datalayer/model/request/create_itinarary_request.dart';
+import 'package:wannoo/itinarary/datalayer/model/request/delete_itinarary_request.dart';
+import 'package:wannoo/itinarary/datalayer/model/request/delete_user_fav_tour_request.dart';
 import 'package:wannoo/itinarary/datalayer/model/request/favtourrequest.dart';
 import 'package:wannoo/itinarary/datalayer/model/request/post_fav_tour.dart';
 import 'package:wannoo/itinarary/datalayer/model/request/user_itinarary_request.dart';
+import 'package:wannoo/itinarary/datalayer/model/response/delete_itinarary_response.dart';
+import 'package:wannoo/itinarary/datalayer/model/response/delete_user_fav_tour_response.dart';
 import 'package:wannoo/itinarary/datalayer/model/response/post_fav_tour_response.dart';
 
 import '../model/response/itinarary_model.dart';
@@ -13,6 +18,9 @@ abstract class itinararyRepo {
   Future<ItinararyModel> createItinarary(CreateItinararyRequest data);
   Future<List<ALLTours>> getFavTours(FavTourRequest data);
   Future<PostFavTourResponse> addFavTour(PostFavTourRequest data);
+  Future<DeleteItinararyResponse> deleteItinarary(DeleteItinararyRequest data);
+  Future<DeleteUserFavTourResponse> deleteFavTour(
+      DeleteUserFavTourRequest data);
 }
 
 @override
@@ -39,5 +47,16 @@ class itinararyRepoImpl implements itinararyRepo {
   @override
   Future<PostFavTourResponse> addFavTour(PostFavTourRequest data) {
     return remote.addFavTour(data);
+  }
+
+  @override
+  Future<DeleteUserFavTourResponse> deleteFavTour(
+      DeleteUserFavTourRequest data) {
+    return remote.deleteFavTour(data);
+  }
+
+  @override
+  Future<DeleteItinararyResponse> deleteItinarary(DeleteItinararyRequest data) {
+    return remote.deleteItinarary(data);
   }
 }

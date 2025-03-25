@@ -59,8 +59,6 @@ class BookingsController extends GetxController {
       //bookingsController.initiateCheckout();
 
       try {
-        print("hello $price");
-        print("$tourid");
         // Step 1: Fetch the payment intent client secret
         final intent = await intentUseCase.execute(IntentRequest(
             name: nameController.text.toString(),
@@ -101,7 +99,7 @@ class BookingsController extends GetxController {
             roleId: 'Vendor123',
             tourId: tourid,
           );
-          print(r.toJson());
+
           nameController.clear();
           bookingsUseCase.execute(r).then((response) {
             print("Payment successful");

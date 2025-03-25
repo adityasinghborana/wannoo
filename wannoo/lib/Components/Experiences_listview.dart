@@ -28,8 +28,8 @@ class ExperiencesListview extends StatelessWidget {
 
           // Apply filtering logic based on filterProperty
           switch (filterProperty) {
-            case 'Landmark Tour':
-              return tour.Category == "Landmark Tour";
+            case 'Festivals':
+              return tour.Category == "Festivals";
             case 'Hiking':
               return tour.Category == "Hiking";
             case 'Beach Tour':
@@ -50,7 +50,6 @@ class ExperiencesListview extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: filteredTours.length,
           itemBuilder: (context, index) {
-            print("imagepath ${filteredTours[6].imagepath}");
             return InkWell(
               onTap: () {
                 Get.toNamed(AppRoutes.placedetails, parameters: {

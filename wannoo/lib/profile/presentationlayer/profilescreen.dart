@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:wannoo/AuthModule/LoginModule/presentation/login_controller.dart';
 import 'package:wannoo/Constants.dart';
+import 'package:wannoo/homepage/presentationlayer/homepage_controller.dart';
 import 'package:wannoo/profile/presentationlayer/profilescreencontroller.dart';
 
 import '../../Components/largeButton2.dart';
@@ -22,6 +23,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final LoginController loginController = Get.put(LoginController());
+    final HomePageController homePageController = Get.find();
     return Scaffold(
       appBar: AppBar(
         title: Text("Profile"),
@@ -40,18 +42,18 @@ class ProfileScreen extends StatelessWidget {
                   children: [
                     Obx(
                       () => CircleAvatar(
-                        radius: 90, // You can adjust the radius as needed
-                        foregroundColor: themeColor.colorBgSecondory,
-                        backgroundColor: themeColor.colorBgSecondory,
-                        backgroundImage: profileScreenController
-                                    .imageFile.value !=
-                                null
-                            ? FileImage(
-                                    profileScreenController.imageFile.value!)
-                                as ImageProvider
-                            : AssetImage(
-                                image.experiencesimages), // Placeholder image
-                      ),
+                          radius: 90, // You can adjust the radius as needed
+                          foregroundColor: themeColor.colorBgSecondory,
+                          backgroundColor: themeColor.colorBgSecondory,
+                          backgroundImage: homePageController
+                                      .currentImage.value !=
+                                  null
+                              ? NetworkImage(
+                                  "$baseurl/${homePageController.currentImage.value!}")
+                              : AssetImage(image.person) as ImageProvider
+
+                          // Placeholder image
+                          ),
                     ),
                     Align(
                       alignment: Alignment.bottomRight,
@@ -74,13 +76,17 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
               Gap(30),
-              Text(
-                "Aditya Singh ",
-                style: CustomTextStyles.fontXlSemiBold,
+              Obx(
+                () => Text(
+                  "${profileScreenController.name.value}",
+                  style: CustomTextStyles.fontXlSemiBold,
+                ),
               ),
-              Text("aditya@ogresto.com",
-                  style: CustomTextStyles.fontL1SemiBold
-                      .copyWith(color: themeColor.colorTextSecondry))
+              Obx(
+                () => Text("${profileScreenController.email.value}",
+                    style: CustomTextStyles.fontL1SemiBold
+                        .copyWith(color: themeColor.colorTextSecondry)),
+              )
             ],
           )),
           Flexible(

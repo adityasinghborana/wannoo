@@ -26,8 +26,14 @@ class LoginPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              image.logoOrange,
+            Container(
+              height: 200,
+              width: 250,
+              child: Image.asset(
+                width: 250,
+                height: 250,
+                image.logoOrange,
+              ),
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: globalPadding.px_l),
@@ -107,7 +113,7 @@ class LoginPage extends StatelessWidget {
             ),
             SocialLoginButton(
               onpressed: () {
-                null;
+                loginController.googleSignIn(context);
               },
               imagepath: image.googleIcon,
               label: staticText.loginGoogle,
@@ -122,7 +128,7 @@ class LoginPage extends StatelessWidget {
             //   imagepath: image.facebookIcon,
             //   label: staticText.loginFacebook,
             // ),
-           // Text("or"),
+            // Text("or"),
             SizedBox(
               height: Height.heightl,
             ),

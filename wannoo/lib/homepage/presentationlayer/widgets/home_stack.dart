@@ -12,14 +12,13 @@ import '../../../Components/Textfield.dart';
 import '../../../Constants.dart';
 
 class HomeStack extends StatelessWidget {
-
   const HomeStack({super.key});
 
   @override
   Widget build(BuildContext context) {
     final HomePageController homePageController = Get.find();
 
-    final TextEditingController searchController =  TextEditingController();
+    final TextEditingController searchController = TextEditingController();
     return Container(
       width: double.infinity,
       height: 220,
@@ -62,15 +61,19 @@ class HomeStack extends StatelessWidget {
                         ),
                       ),
                       child: InkWell(
-                        onTap: (){
+                        onTap: () {
                           Get.toNamed(AppRoutes.profile);
                         },
                         child: Obx(() {
                           return CircleAvatar(
                             backgroundColor: Colors.grey, // Customize as needed
-                            foregroundImage: homePageController.currentImage.value != null
-                                ? FileImage(homePageController.currentImage.value!) // Show FileImage if available
-                                : AssetImage(image.person) as ImageProvider, // Default asset image
+                            foregroundImage: homePageController
+                                        .currentImage.value !=
+                                    null
+                                ? NetworkImage(
+                                    "$baseurl/${homePageController.currentImage.value!}") // Show FileImage if available
+                                : AssetImage(image.person)
+                                    as ImageProvider, // Default asset image
                           );
                         }),
                       ),
@@ -81,12 +84,7 @@ class HomeStack extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                    height: 50,
-                    width: Get.width,
-                    child: SearchWidget()
-
-                    ),
-
+                      height: 50, width: Get.width, child: SearchWidget()),
                 ],
               ),
             ],

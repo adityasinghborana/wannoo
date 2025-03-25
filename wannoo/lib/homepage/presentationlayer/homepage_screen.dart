@@ -20,6 +20,7 @@ import 'package:wannoo/itinarary/datalayer/usecase/post_fav_tour.dart';
 import 'package:wannoo/utilities/extension.dart';
 
 import '../../itinarary/datalayer/usecase/create_itinarary_usecase.dart';
+import '../../itinarary/datalayer/usecase/delete_itinarary_usecase.dart';
 import 'Screens/Saved.dart';
 
 class HomepageScreen extends StatefulWidget {
@@ -59,6 +60,11 @@ class _HomepageScreenState extends State<HomepageScreen> {
         getAllToursUseCase: GetAllToursUseCase(
           AlltoursRepositoryImpl(
             GetAllTours(Dio()),
+          ),
+        ),
+        deleteItinararyUseCase: DeleteItinararyUseCase(
+          itinararyRepoImpl(
+            itinararyRemote(Dio()),
           ),
         ),
       ),

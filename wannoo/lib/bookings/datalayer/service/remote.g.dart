@@ -14,7 +14,7 @@ class _StripeRemoteService implements StripeRemoteService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'http://10.0.2.2:3000';
+    baseUrl ??= 'http://68.66.251.170/api';
   }
 
   final Dio _dio;

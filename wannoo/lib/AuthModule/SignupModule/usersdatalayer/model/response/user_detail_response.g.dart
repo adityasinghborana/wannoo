@@ -15,6 +15,7 @@ UserDetail _$UserDetailFromJson(Map<String, dynamic> json) => UserDetail(
       address: json['address'] as String?,
       age: (json['age'] as num?)?.toInt(),
       dob: json['dob'] as String?,
+      profileImage: json['profileImage'] as String?,
     );
 
 Map<String, dynamic> _$UserDetailToJson(UserDetail instance) =>
@@ -27,4 +28,5 @@ Map<String, dynamic> _$UserDetailToJson(UserDetail instance) =>
       'address': instance.address,
       'age': instance.age,
       'dob': instance.dob,
+      'profileImage': instance.profileImage,
     };

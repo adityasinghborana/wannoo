@@ -36,7 +36,7 @@ class PlacedetailsController extends GetxController {
                     ))
                 .toList() ??
             []);
-        print("hello place tourid ${response.TourId}");
+
         demoData.value = PlacedetailsModel(
           tourId: response.TourId ?? 0,
           country: response.countryName ?? "",

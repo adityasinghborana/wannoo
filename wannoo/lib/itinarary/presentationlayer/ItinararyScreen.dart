@@ -10,9 +10,11 @@ import 'package:wannoo/itinarary/presentationlayer/itinararyController.dart';
 import 'package:wannoo/routes.dart';
 
 import '../../Components/experiences_card.dart';
+import '../datalayer/usecase/delete_fav_tour.dart';
 
 class ItinararyScreen extends StatelessWidget {
   final String? title = Get.parameters["title"];
+  final String? itinararyId = Get.parameters["id"];
 
   ItinararyScreen({super.key});
 
@@ -25,8 +27,15 @@ class ItinararyScreen extends StatelessWidget {
             itinararyRemote(Dio()),
           ),
         ),
+        deleteFavTourUseCase: DeleteFavTourUseCase(
+          itinararyRepoImpl(
+            itinararyRemote(Dio()),
+          ),
+        ),
       ),
     );
+
+    itinararyController.itinaryid.value = itinararyId ?? "";
     var items = itinararyController.savedTours;
     return Scaffold(
       appBar: AppBar(
@@ -54,14 +63,42 @@ class ItinararyScreen extends StatelessWidget {
                           vertical: globalPadding.py_xs),
                       height: 220,
                       width: Get.width,
-                      child: ExperiencesCard(
-                        isPriceVisible: false,
-                        isAddIcon: false,
-                        selectedTourId: items[index].internaTourid,
-                        isfav: true,
-                        title: items[index].title,
-                        imagePath: image.homeimage,
-                        location: items[index].location,
+                      child: Stack(
+                        children: [
+                          Container(
+                            width: Get.width,
+                            child: ExperiencesCard(
+                              isPriceVisible: false,
+                              isAddIcon: false,
+                              selectedTourId: items[index].internaTourid,
+                              isfav: true,
+                              title: items[index].title,
+                              imagePath: items[index].imagepath,
+                              location: items[index].location,
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.topRight,
+                            child: Container(
+                                width: 40,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: themeColor.colorAccentSecondory
+                                      .withOpacity(0.5),
+                                ),
+                                margin: EdgeInsets.only(right: 10, top: 10),
+                                child: IconButton(
+                                    color: themeColor.colorBgPrimary,
+                                    onPressed: () {
+                                      itinararyController.deleteFavTour(
+                                          itinararyId:
+                                              int.parse(itinararyId ?? ""),
+                                          tourId: items[index].id);
+                                    },
+                                    icon: Icon(Icons.delete_outline))),
+                          )
+                        ],
                       ),
                     ),
                   );

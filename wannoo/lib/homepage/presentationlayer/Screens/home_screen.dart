@@ -33,8 +33,8 @@ class HomeScreen extends StatelessWidget {
             label: 'Most Visited',
           ),
           ExperiencesListview(
-            filterProperty: 'Landmark Tour',
-            isFilteredList: true,
+            filterProperty: ' Festivals',
+            isFilteredList: false,
           ),
 
           HeadingwithButton(
@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
           ),
           ExperiencesListview(
             filterProperty: 'Trek',
-            isFilteredList: true,
+            isFilteredList: false,
           ),
           CTA(),
           HeadingwithButton(
@@ -51,7 +51,7 @@ class HomeScreen extends StatelessWidget {
 
           ExperiencesListview(
             filterProperty: 'Hiking',
-            isFilteredList: true,
+            isFilteredList: false,
           ),
 
           HeadingwithButton(
@@ -60,14 +60,14 @@ class HomeScreen extends StatelessWidget {
 
           ExperiencesListview(
             filterProperty: 'Hiking',
-            isFilteredList: true,
+            isFilteredList: false,
           ),
           HeadingwithButton(
             label: 'Top Events',
           ),
           ExperiencesListview(
             filterProperty: 'Hiking',
-            isFilteredList: true,
+            isFilteredList: false,
           ),
           Gap(30)
 

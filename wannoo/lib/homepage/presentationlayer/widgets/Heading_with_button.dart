@@ -21,7 +21,7 @@ class HeadingwithButton extends StatelessWidget {
         children: [
           Text(
             label,
-            style: CustomTextStyles.fontXxlMedium,
+            style: CustomTextStyles.fontXlMedium,
           ),
           isVisible
               ? CustomTextButton(

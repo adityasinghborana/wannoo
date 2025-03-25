@@ -150,13 +150,16 @@ class PlaceDetailsScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingButton(
         onpressed: () {
+          print("${placedetailsController.demoData.value.bookable}");
           if (placedetailsController.demoData.value.bookable == true) {
+            Get.toNamed(AppRoutes.ExternalSite, arguments: {
+              "price": placedetailsController.demoData.value.price,
+            });
+          } else {
             Get.toNamed(AppRoutes.booking, arguments: {
               "tourid": placedetailsController.demoData.value.tourId,
               "price": placedetailsController.demoData.value.price,
             });
-          } else {
-            Get.toNamed(AppRoutes.ExternalSite);
           }
         },
       ),

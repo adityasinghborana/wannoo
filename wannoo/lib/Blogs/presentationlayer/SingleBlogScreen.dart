@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../Constants.dart';
 import '../datalayer/model/response/all_blogs_model.dart';
@@ -38,6 +39,16 @@ class BlogDetailScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: HtmlWidget(
+                onTapUrl: (url) async {
+                  print("Clicked URL: $url");
+                  if (await canLaunchUrl(Uri.parse(url))) {
+                    await launchUrl(Uri.parse(url),
+                        mode: LaunchMode.externalApplication);
+                  } else {
+                    print("Could not launch $url");
+                  }
+                  return true;
+                },
                 blog.content!,
                 textStyle: CustomTextStyles.fontL1Medium,
               ),

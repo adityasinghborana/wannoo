@@ -8,6 +8,7 @@ import 'package:wannoo/profile/datalayer/repo/contact_us_repo.dart';
 import 'package:wannoo/profile/datalayer/services/remote.dart';
 import 'package:wannoo/profile/datalayer/usecase/contact_us_usecase.dart';
 
+import '../../Components/snackbar.dart';
 import '../datalayer/usecase/send_form_usecase.dart';
 
 class HelpScreenController extends GetxController {
@@ -64,26 +65,4 @@ class HelpScreenController extends GetxController {
       print(e);
     }
   }
-}
-
-openIconSnackBar(
-  context,
-  String text,
-  Widget icon,
-) {
-  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-    backgroundColor: Colors.green,
-    content: Container(
-      child: Row(
-        children: [
-          icon,
-          SizedBox(
-            width: 5,
-          ),
-          Text(text)
-        ],
-      ),
-    ),
-    duration: const Duration(milliseconds: 2500),
-  ));
 }

@@ -121,7 +121,7 @@ class Height {
   static const double heightxl = 30;
 }
 
-const String baseurl = "http://10.0.2.2:3000";
+const String baseurl = "http://68.66.251.170/api";
 
 final BoxShadow globalShadow =
     BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 15);
