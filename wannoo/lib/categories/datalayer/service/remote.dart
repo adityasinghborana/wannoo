@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import '../../../Constants.dart';
+import '../../../constants.dart';
 import '../model/response/categoriesresponse.dart';
 part 'remote.g.dart';
 

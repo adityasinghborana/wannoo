@@ -8,7 +8,7 @@ import 'package:wannoo/bookings/datalayer/repo/bookings_repo.dart';
 import 'package:wannoo/bookings/datalayer/service/bookings_remote.dart';
 
 import 'package:wannoo/routes.dart';
-import 'package:wannoo/utilities/Authclass.dart';
+import 'package:wannoo/utilities/auth_class.dart';
 import '../../utilities/dialog.dart';
 import '../datalayer/model/request/intent_request.dart';
 import '../datalayer/usecase/booking_request.dart';
@@ -64,14 +64,8 @@ class BookingsController extends GetxController {
             name: nameController.text.toString(),
             email: 'aditya@ogresto.com',
             amount: price * noOfGuest.value));
-        if (intent != null && intent.clientSecret != null) {
-          stripeclientkey.value = intent.clientSecret;
-          print("Client Secret: ${stripeclientkey.value}");
-        } else {
-          print("Error getting client secret");
-          Get.toNamed('/paymentFailure');
-          return;
-        }
+        stripeclientkey.value = intent.clientSecret;
+        debugPrint("Client Secret: ${stripeclientkey.value}");
 
         // Step 2: Initialize the Payment Sheet
         await Stripe.instance.initPaymentSheet(
@@ -102,18 +96,18 @@ class BookingsController extends GetxController {
 
           nameController.clear();
           bookingsUseCase.execute(r).then((response) {
-            print("Payment successful");
+            debugPrint("Payment successful");
             Get.toNamed(AppRoutes.paymentSuccess);
           });
         } else {
           nameController.clear();
 
-          print("Payment not successful: ${paymentIntent.status}");
+          debugPrint("Payment not successful: ${paymentIntent.status}");
           Get.toNamed(AppRoutes.paymentFailure);
         }
       } catch (e) {
         nameController.clear();
-        print("Error during payment: $e");
+        debugPrint("Error during payment: $e");
         Get.toNamed(AppRoutes.paymentFailure);
       }
     }

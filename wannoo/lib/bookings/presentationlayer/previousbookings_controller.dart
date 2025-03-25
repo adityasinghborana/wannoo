@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:wannoo/bookings/datalayer/model/request/previousBooking_req.dart';
+import 'package:wannoo/bookings/datalayer/model/request/previous_booking_req.dart';
 import 'package:wannoo/bookings/datalayer/model/response/previous_bookings.dart';
-import 'package:wannoo/utilities/Authclass.dart';
+import 'package:wannoo/utilities/auth_class.dart';
 
 import '../datalayer/repo/bookings_repo.dart';
 import '../datalayer/service/bookings_remote.dart';
@@ -23,13 +24,13 @@ class PreviousBookingsController extends GetxController {
     try {
       var uid = await getUserUID();
       await getUserBookingsUseCase
-          .execute(PreviousbookingReq(id: uid ?? ""))
+          .execute(PreviousBookingReq(id: uid ?? ""))
           .then((response) {
-        print("hello uid $uid");
+        debugPrint("hello uid $uid");
         previousBookings.assignAll(response);
       });
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
     }
   }
 }

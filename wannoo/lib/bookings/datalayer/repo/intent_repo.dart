@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 import '../model/request/intent_request.dart';
 import '../model/response/intent_response.dart';
 import '../service/remote.dart';
@@ -15,15 +17,10 @@ class StripeIntentRepositoryImpl implements StripeIntentRepository {
   Future<IntentResponse> getIntent(IntentRequest requestBody) async {
     try {
       IntentResponse response = await remoteService.getIntent(requestBody);
-
-      if (response != null) {
-        return response;
-      } else {
-        throw Exception("Failed to get intentid");
-      }
+      return response;
     } catch (error) {
       // Handle any errors that might occur during the process
-      print("Error get intent: $error");
+      debugPrint("Error get intent: $error");
       rethrow; // Rethrow the error to let the caller handle it
     }
   }

@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/Components/text_button.dart';
-import 'package:wannoo/Constants.dart';
+import 'package:wannoo/constants.dart';
 import 'package:wannoo/routes.dart';
-import 'package:wannoo/styles.dart';
 
 class HeadingwithButton extends StatelessWidget {
   final String label;
@@ -15,7 +14,7 @@ class HeadingwithButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-          horizontal: globalPadding.px_md, vertical: globalPadding.py_md),
+          horizontal: GlobalPadding.px_md, vertical: GlobalPadding.py_md),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

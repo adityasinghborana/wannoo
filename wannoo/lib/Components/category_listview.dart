@@ -9,14 +9,15 @@ class CustomListCategory extends StatelessWidget {
   final HomePageController homePageController = Get.find();
   final String? category = Get.parameters["category"];
 
+  CustomListCategory({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      return Container(
+      return SizedBox(
         height: 100,
         width: Get.width,
         child: ListView.builder(
-
           scrollDirection: Axis.horizontal,
           itemCount: homePageController.category.length,
           itemBuilder: (context, index) {
@@ -29,7 +30,8 @@ class CustomListCategory extends StatelessWidget {
                 },
                 child: CategoryCard(
                   title: homePageController.category[index].title,
-                  imagePath: homePageController.category[index].imagepath,),
+                  imagePath: homePageController.category[index].imagepath,
+                ),
               );
             });
           },

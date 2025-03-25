@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wannoo/Constants.dart';
 import 'package:wannoo/routes.dart';
-import 'package:wannoo/utilities/Authclass.dart';
+import 'package:wannoo/utilities/auth_class.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,12 +23,14 @@ void main() async {
   );
   SharedPreferences prefs = await SharedPreferences.getInstance();
   Get.put(prefs);
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
-  _MyAppState createState() => _MyAppState();
+  State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
@@ -47,7 +49,7 @@ class _MyAppState extends State<MyApp> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           // Show loading screen while fetching user data
-          return MaterialApp(
+          return const MaterialApp(
             home: Scaffold(
               body: Center(child: CircularProgressIndicator()),
             ),
@@ -55,14 +57,14 @@ class _MyAppState extends State<MyApp> {
         }
 
         String? savedUser = snapshot.data;
-        print("Hello, saved UID: ${savedUser ?? 'No UID found'}");
+        debugPrint("Hello, saved UID: ${savedUser ?? 'No UID found'}");
 
         return GetMaterialApp(
           theme: ThemeData(
             fontFamily: GoogleFonts.inter().fontFamily,
-            scaffoldBackgroundColor: themeColor.colorscafold,
-            appBarTheme: AppBarTheme(
-              color: themeColor.colorBgPrimary,
+            scaffoldBackgroundColor: ThemeColor.colorscafold,
+            appBarTheme: const AppBarTheme(
+              color: ThemeColor.colorBgPrimary,
             ),
           ),
           debugShowCheckedModeBanner: false,

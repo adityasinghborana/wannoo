@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:wannoo/Constants.dart';
+import 'package:wannoo/constants.dart';
 import 'package:wannoo/styles.dart';
 
 class DetailsExapansionTile extends StatelessWidget {
@@ -8,7 +7,8 @@ class DetailsExapansionTile extends StatelessWidget {
   final String Title;
   final String Description;
 
-  DetailsExapansionTile({
+  const DetailsExapansionTile({
+    super.key,
     required this.isExpanded,
     required this.Title,
     required this.Description,
@@ -17,12 +17,12 @@ class DetailsExapansionTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: globalPadding.px_md),
+      padding: const EdgeInsets.symmetric(horizontal: GlobalPadding.px_md),
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           border: Border(
             top: BorderSide(
-              color: themeColor.colorBorder,
+              color: ThemeColor.colorBorder,
               // Change the color to your desired color
               width: 1.0, // Adjust the width of the border as needed
             ),
@@ -40,7 +40,7 @@ class DetailsExapansionTile extends StatelessWidget {
           tilePadding: EdgeInsets.zero,
           // Remove default padding
           childrenPadding:
-              EdgeInsets.symmetric(horizontal: globalPadding.px_sm),
+              const EdgeInsets.symmetric(horizontal: GlobalPadding.px_sm),
           title: Text(
             Title,
             textAlign: TextAlign.left,
@@ -49,7 +49,7 @@ class DetailsExapansionTile extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.centerLeft, // Align children to the left
-              padding: EdgeInsets.all(8.0), // Optional: add some padding
+              padding: const EdgeInsets.all(8.0), // Optional: add some padding
               child: Wrap(
                 spacing: 2.0,
                 runSpacing: 2.0,

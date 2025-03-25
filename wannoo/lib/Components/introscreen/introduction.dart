@@ -9,7 +9,7 @@ class Introduction extends StatefulWidget {
   final TextStyle titleTextStyle;
   final TextStyle subTitleTextStyle;
 
-  Introduction({
+  const Introduction({super.key, 
     required this.imageUrl,
     required this.title,
     required this.subTitle,
@@ -21,16 +21,16 @@ class Introduction extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return new IntroductionState();
+    return IntroductionState();
   }
 }
 
 class IntroductionState extends State<Introduction> {
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      child: Padding(
-        padding: EdgeInsets.all(40),
+    return 
+   Padding(
+        padding: const EdgeInsets.all(40),
         child: Column(
           //crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -42,7 +42,7 @@ class IntroductionState extends State<Introduction> {
                 width: widget.imageWidth,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20.0,
             ),
             Row(
@@ -56,7 +56,7 @@ class IntroductionState extends State<Introduction> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
             Text(
@@ -67,7 +67,7 @@ class IntroductionState extends State<Introduction> {
             ),
           ],
         ),
-      ),
+      
     );
   }
 }

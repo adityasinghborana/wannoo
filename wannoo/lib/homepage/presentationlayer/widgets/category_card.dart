@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:wannoo/Constants.dart';
+import 'package:wannoo/constants.dart';
 
 class CategoryCard extends StatelessWidget {
   final String imagePath;
@@ -12,11 +11,11 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding:
-          EdgeInsets.symmetric(horizontal: globalPadding.px_md, vertical: 12),
+          const EdgeInsets.symmetric(horizontal: GlobalPadding.px_md, vertical: 12),
       child: Container(
         decoration: BoxDecoration(
-            color: themeColor.colorWhite,
-            borderRadius: BorderRadius.circular(globalRadius.borderRadius_m),
+            color: ThemeColor.colorWhite,
+            borderRadius: BorderRadius.circular(GlobalRadius.borderRadius_m),
             boxShadow: [
               globalShadow,
             ]),
@@ -25,9 +24,9 @@ class CategoryCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.network(
-              '${baseurl}/$imagePath' ,
+              '$baseurl/$imagePath' ,
               errorBuilder: (context, error, stackTrace) {
-                return Container(
+                return SizedBox(
                   width: MediaQuery.of(context)
                       .size
                       .width, // Ensures it takes up available width

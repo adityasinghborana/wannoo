@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -7,12 +5,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/AuthModule/datalayer/repo/userdeatils_repo.dart';
 import 'package:wannoo/AuthModule/datalayer/services/get_user_details.dart';
-import 'package:wannoo/Constants.dart';
+import 'package:wannoo/constants.dart';
 import 'package:wannoo/categories/datalayer/usecase/allcategoriesusecase.dart';
 import 'package:wannoo/homepage/datalayer/model/category_model.dart';
 import 'package:wannoo/homepage/datalayer/model/experiences_model.dart';
 import 'package:wannoo/homepage/datalayer/model/services_model.dart';
-import 'package:wannoo/homepage/datalayer/usecase/getalltoursUsecase.dart';
+import 'package:wannoo/homepage/datalayer/usecase/get_all_tours_usecase.dart';
 import 'package:wannoo/itinarary/datalayer/model/request/create_itinarary_request.dart';
 import 'package:wannoo/itinarary/datalayer/model/request/delete_itinarary_request.dart';
 import 'package:wannoo/itinarary/datalayer/model/request/post_fav_tour.dart';
@@ -20,9 +18,9 @@ import 'package:wannoo/itinarary/datalayer/model/request/user_itinarary_request.
 import 'package:wannoo/itinarary/datalayer/model/response/itinarary_model.dart';
 import 'package:wannoo/itinarary/datalayer/usecase/create_itinarary_usecase.dart';
 import 'package:wannoo/itinarary/datalayer/usecase/post_fav_tour.dart';
-import 'package:wannoo/utilities/Authclass.dart';
+import 'package:wannoo/utilities/auth_class.dart';
 import 'package:wannoo/utilities/dialog.dart';
-import '../../AuthModule/datalayer/usecase/getuserdetailUsecase.dart';
+import '../../AuthModule/datalayer/usecase/get_user_detail_usecase.dart';
 import '../../Components/snackbar.dart';
 import '../../categories/presentationlayer/categorycontroller.dart';
 import '../../itinarary/datalayer/usecase/delete_itinarary_usecase.dart';
@@ -62,21 +60,21 @@ class HomePageController extends GetxController {
       GetUserDetailUseCase(UserDetailsRepoImpl(UserDetailsRemote(Dio())));
   final TextEditingController itinararyController = TextEditingController();
   final List<Widget> navigationItems = [
-    Icon(
+    const Icon(
       FontAwesomeIcons.house,
-      color: themeColor.colorBgSecondory,
+      color: ThemeColor.colorBgSecondory,
     ),
-    Icon(
+    const Icon(
       FontAwesomeIcons.plane,
-      color: themeColor.colorBgSecondory,
+      color: ThemeColor.colorBgSecondory,
     ),
-    Icon(
+    const Icon(
       FontAwesomeIcons.blog,
-      color: themeColor.colorBgSecondory,
+      color: ThemeColor.colorBgSecondory,
     ),
-    Icon(
+    const Icon(
       FontAwesomeIcons.ticket,
-      color: themeColor.colorBgSecondory,
+      color: ThemeColor.colorBgSecondory,
     ),
   ];
   final RxList<CategoryModel> category = <CategoryModel>[].obs;
@@ -115,13 +113,13 @@ class HomePageController extends GetxController {
             id: tour.tourId ?? 0,
             title: tour.tourName ?? "No name",
             // Replace `title` with the actual property from `tour`
-            imagepath: '${baseurl}/${tour.imagePath ?? ""}',
+            imagepath: '$baseurl/${tour.imagePath ?? ""}',
             // Adjust the path as per your model structure
             location: tour.cityName ?? "",
-            Category: tour.cityTourType ?? "",
+            category: tour.cityTourType ?? "",
             // Replace `location` with the actual property
-            Country: tour.countryName,
-            Continent: tour.continent,
+            country: tour.countryName,
+            continent: tour.continent,
             price: tour.tourpricing?.amount?.toDouble(),
             internaTourid: tour.id ?? 0);
       }).toList();
@@ -142,7 +140,7 @@ class HomePageController extends GetxController {
     await getitinararyUseCase
         .execute(UserItinararyRequest(uid: uid.toString()))
         .then((response) {
-      print("response:${response}");
+      print("response:$response");
       itinararyList.assignAll(response);
     });
   }
@@ -177,24 +175,14 @@ class HomePageController extends GetxController {
     await deleteItinararyUseCase
         .execute(DeleteItinararyRequest(id: id))
         .then((e) {
-      if (e != null) {
-        openIconSnackBar(
-            Get.context,
-            "Itinarary Deleted",
-            Icon(
-              Icons.check_circle_outline,
-              color: themeColor.colorBgPrimary,
-            ));
-        getItinarary();
-      } else {
-        openIconSnackBar(
-            Get.context,
-            "Something Went Wrong",
-            Icon(
-              Icons.cancel_outlined,
-              color: themeColor.colorBgPrimary,
-            ));
-      }
+      openIconSnackBar(
+          Get.context,
+          "Itinarary Deleted",
+          const Icon(
+            Icons.check_circle_outline,
+            color: ThemeColor.colorBgPrimary,
+          ));
+      getItinarary();
     });
   }
 
@@ -204,7 +192,7 @@ class HomePageController extends GetxController {
     try {
       await getUserDetailUseCase.execute(uid ?? "").then((res) {
         currentImage.value = res.profileImage ?? "";
-        email.value = res.email ?? "Not Set";
+        email.value = res.email;
         name.value = res.username ?? "Not Set";
       });
     } catch (e) {

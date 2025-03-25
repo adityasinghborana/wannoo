@@ -3,8 +3,8 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/routes.dart';
 
-import '../../Components/largeButton2.dart';
-import '../../Constants.dart';
+import '../../Components/large_button_2.dart';
+import '../../constants.dart';
 
 class PaymentFailure extends StatelessWidget {
   const PaymentFailure({super.key});
@@ -13,24 +13,24 @@ class PaymentFailure extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(globalPadding.px_xxl),
+        padding: const EdgeInsets.all(GlobalPadding.px_xxl),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(image.paymentfailure),
-            Gap(Height.heightxl),
+            const Gap(Height.heightxl),
             Text(
               'Payment Failure',
               style: CustomTextStyles.fontXxlSemiBold,
             ),
-            Gap(Height.heightMd),
+            const Gap(Height.heightMd),
             Text(
               "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
               style: CustomTextStyles.fontMdMedium,
               textAlign: TextAlign.center,
             ),
-            Gap(Height.heightMd),
+            const Gap(Height.heightMd),
             LargeButton2(
                 label: "Go Home",
                 height: Height.heightButtonXLarge,

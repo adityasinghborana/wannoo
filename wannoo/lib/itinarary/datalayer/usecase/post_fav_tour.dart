@@ -3,7 +3,7 @@ import 'package:wannoo/itinarary/datalayer/model/response/post_fav_tour_response
 import 'package:wannoo/itinarary/datalayer/repository/itinarary_repository.dart';
 
 class PostFavUseCase {
-  final itinararyRepo repository;
+  final ItinararyRepo repository;
 
   PostFavUseCase(this.repository);
 

@@ -1,14 +1,9 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:wannoo/Components/custom_icon.dart';
 import 'package:wannoo/homepage/presentationlayer/homepage_controller.dart';
-import 'package:wannoo/homepage/presentationlayer/widgets/serach.dart';
+import 'package:wannoo/homepage/presentationlayer/widgets/search.dart';
 import 'package:wannoo/routes.dart';
 
-import '../../../Components/Textfield.dart';
 import '../../../Constants.dart';
 
 class HomeStack extends StatelessWidget {
@@ -17,9 +12,7 @@ class HomeStack extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final HomePageController homePageController = Get.find();
-
-    final TextEditingController searchController = TextEditingController();
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 220,
       child: Stack(
@@ -38,25 +31,14 @@ class HomeStack extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    // Container(
-                    //     height: 50,
-                    //     width: 50,
-                    //     decoration: BoxDecoration(
-                    //         color:
-                    //         themeColor.colorBorder.withOpacity(0.7),
-                    //         borderRadius: BorderRadius.circular(
-                    //             globalRadius.borderRadius_s)),
-                    //     child: Icon(
-                    //       Icons.menu_rounded,
-                    //       color: themeColor.colorTextPrimary,
-                    //     )),
                     Container(
-                      padding: EdgeInsets.all(2.0), // Adjust padding as needed
+                      padding:
+                          const EdgeInsets.all(2.0), // Adjust padding as needed
                       decoration: BoxDecoration(
-                        color: themeColor.colorBgSecondory, // Border color
+                        color: ThemeColor.colorBgSecondory, // Border color
                         shape: BoxShape.circle,
                         border: Border.all(
-                          color: themeColor.colorBgSecondory, // Border color
+                          color: ThemeColor.colorBgSecondory, // Border color
                           width: 2.0, // Border width
                         ),
                       ),
@@ -67,13 +49,8 @@ class HomeStack extends StatelessWidget {
                         child: Obx(() {
                           return CircleAvatar(
                             backgroundColor: Colors.grey, // Customize as needed
-                            foregroundImage: homePageController
-                                        .currentImage.value !=
-                                    null
-                                ? NetworkImage(
-                                    "$baseurl/${homePageController.currentImage.value!}") // Show FileImage if available
-                                : AssetImage(image.person)
-                                    as ImageProvider, // Default asset image
+                            foregroundImage: NetworkImage(
+                                "$baseurl/${homePageController.currentImage.value}"), // Default asset image
                           );
                         }),
                       ),
@@ -83,8 +60,10 @@ class HomeStack extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Container(
-                      height: 50, width: Get.width, child: SearchWidget()),
+                  SizedBox(
+                      height: 50,
+                      width: Get.width,
+                      child: const SearchWidget()),
                 ],
               ),
             ],

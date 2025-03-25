@@ -1,6 +1,5 @@
 import 'package:auraa_ui/aura_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:wannoo/Constants.dart';
 
 class CTA extends StatelessWidget {
@@ -10,12 +9,12 @@ class CTA extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final PageController _pageController = PageController();
+    final PageController pageController = PageController();
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 0),
-       child:Container(
+      padding: const EdgeInsets.symmetric(horizontal: 0),
+       child:SizedBox(
          height: 250,
-         child: AuraUICarousel( images: [image.homeimage,image.experiencesimages,], pageController:_pageController ,
+         child: AuraUICarousel( images: const [image.homeimage,image.experiencesimages,], pageController:pageController ,
 
 
 

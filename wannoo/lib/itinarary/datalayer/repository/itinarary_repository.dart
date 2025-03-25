@@ -1,4 +1,3 @@
-import 'package:wannoo/AuthModule/datalayer/model/request/delete_user_request.dart';
 import 'package:wannoo/homepage/datalayer/model/response/alltours.dart';
 import 'package:wannoo/itinarary/datalayer/model/request/create_itinarary_request.dart';
 import 'package:wannoo/itinarary/datalayer/model/request/delete_itinarary_request.dart';
@@ -13,7 +12,7 @@ import 'package:wannoo/itinarary/datalayer/model/response/post_fav_tour_response
 import '../model/response/itinarary_model.dart';
 import '../service/itinarary_remote.dart';
 
-abstract class itinararyRepo {
+abstract class ItinararyRepo {
   Future<List<ItinararyModel>> function(UserItinararyRequest id);
   Future<ItinararyModel> createItinarary(CreateItinararyRequest data);
   Future<List<ALLTours>> getFavTours(FavTourRequest data);
@@ -24,10 +23,10 @@ abstract class itinararyRepo {
 }
 
 @override
-class itinararyRepoImpl implements itinararyRepo {
-  final itinararyRemote remote;
+class ItinararyRepoImpl implements ItinararyRepo {
+  final ItinararyRemote remote;
 
-  itinararyRepoImpl(this.remote);
+  ItinararyRepoImpl(this.remote);
 
   @override
   Future<List<ItinararyModel>> function(UserItinararyRequest id) {

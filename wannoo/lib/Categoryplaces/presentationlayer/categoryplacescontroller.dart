@@ -17,9 +17,8 @@ class CategoryPlacesController extends GetxController {
   void getlist() {
     final List<ExperiencesModel> list =
         homePageController.experiences.where((item) {
-      return item.Category == category;
+      return item.category == category;
     }).toList();
     places.assignAll(list);
-
   }
 }

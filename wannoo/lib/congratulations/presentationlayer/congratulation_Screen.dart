@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/Components/large_button.dart';
-import 'package:wannoo/Constants.dart';
+import 'package:wannoo/constants.dart';
 import 'package:wannoo/routes.dart';
 import 'package:wannoo/styles.dart';
 
@@ -15,27 +15,34 @@ class CongratultionsPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Image.asset(image.congo),
-          SizedBox(height: Height.heightButtonLarge,),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: globalPadding.buttonSmallpx,vertical: globalPadding.buttonSmallpy),
-            child: Text(staticText.congoScreenText,style: TypographyStyle.l2Font,),
+          const SizedBox(
+            height: Height.heightButtonLarge,
           ),
-          SizedBox(height: Height.heightButtonLarge,),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: globalPadding.buttonSmallpx,vertical: globalPadding.buttonSmallpy),
+            padding: const EdgeInsets.symmetric(
+                horizontal: GlobalPadding.buttonSmallpx,
+                vertical: GlobalPadding.buttonSmallpy),
+            child: Text(
+              staticText.congoScreenText,
+              style: TypographyStyle.l2Font,
+            ),
+          ),
+          const SizedBox(
+            height: Height.heightButtonLarge,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+                horizontal: GlobalPadding.buttonSmallpx,
+                vertical: GlobalPadding.buttonSmallpy),
             child: LargeButton(
               label: staticText.congoScreenButtonText,
               onPressed: () {
                 Get.toNamed(AppRoutes.home);
-              },),
+              },
+            ),
           )
-
-
         ],
       ),
     );
   }
 }
-
-
-

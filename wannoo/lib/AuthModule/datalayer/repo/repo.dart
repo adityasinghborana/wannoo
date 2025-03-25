@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:wannoo/AuthModule/datalayer/services/remote.dart';
 
 import '../model/request/delete_user_request.dart';
@@ -18,8 +19,8 @@ class DeleteUserRepoImpl implements DeleteUserRepo {
     try {
       return await remote.deleteUser(uid);
     } catch (e) {
-      print("Error deleting user: $e");
-      return DeleteUserResponse(message: "Failed to delete user");
+      debugPrint("Error deleting user: $e");
+      return const DeleteUserResponse(message: "Failed to delete user");
     }
   }
 }

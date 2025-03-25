@@ -11,10 +11,9 @@ class AllCategoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(categoryController.category);
     return Scaffold(
         appBar: AppBar(
-          title: Text("Categories"),
+          title: const Text("Categories"),
           centerTitle: true,
         ),
         body: GridView.builder(
@@ -30,8 +29,7 @@ class AllCategoryScreen extends StatelessWidget {
                     });
                   },
                   child: CategoryCard(
-                      imagePath:
-                          categoryController.category[index].imagepath ?? "",
+                      imagePath: categoryController.category[index].imagepath,
                       title: categoryController.category[index].title),
                 );
               });

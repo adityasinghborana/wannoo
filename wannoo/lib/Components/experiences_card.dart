@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:wannoo/Constants.dart';
-import 'package:wannoo/homepage/presentationlayer/homepage_controller.dart';
+import 'package:wannoo/constants.dart';
 
 import '../utilities/dialog.dart';
 
@@ -31,15 +30,15 @@ class ExperiencesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: globalPadding.px_xs),
-      child: Container(
+      padding: const EdgeInsets.symmetric(horizontal: GlobalPadding.px_xs),
+      child: SizedBox(
         width: Get.width / 1.7,
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(globalRadius.borderRadius_m),
+          borderRadius: BorderRadius.circular(GlobalRadius.borderRadius_m),
           child: Stack(
             children: [
               Image.network(
-                "$imagePath",
+                imagePath,
                 errorBuilder: (context, error, stackTrace) {
                   return Image.asset(
                     image.experiencesimages,
@@ -55,7 +54,7 @@ class ExperiencesCard extends StatelessWidget {
               Align(
                 alignment: Alignment.topRight,
                 child: Padding(
-                  padding: const EdgeInsets.all(globalPadding.px_xs),
+                  padding: const EdgeInsets.all(GlobalPadding.px_xs),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -65,17 +64,17 @@ class ExperiencesCard extends StatelessWidget {
                             width: 30,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color:
-                                  themeColor.colorTextSecondry.withOpacity(0.4),
+                              color: ThemeColor.colorTextSecondry
+                                  .withValues(alpha: 0.4),
                             ),
                             child: InkWell(
                                 onTap: () {
                                   showMyModalBottomSheet(
                                       context, selectedTourId);
                                 },
-                                child: Icon(
+                                child: const Icon(
                                   Icons.add,
-                                  color: themeColor.colorBgSecondory,
+                                  color: ThemeColor.colorBgSecondory,
                                 ))),
                     ],
                   ),
@@ -87,10 +86,10 @@ class ExperiencesCard extends StatelessWidget {
                 right: 0,
                 child: Container(
                   height: 50,
-                  color: themeColor.colorTextPrimary.withOpacity(0.6),
+                  color: ThemeColor.colorTextPrimary.withValues(alpha: 0.6),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: globalPadding.px_sm),
+                        horizontal: GlobalPadding.px_sm),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -100,7 +99,7 @@ class ExperiencesCard extends StatelessWidget {
                             children: [
                               Text(
                                 title,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -110,15 +109,15 @@ class ExperiencesCard extends StatelessWidget {
                                   Flexible(
                                       child: Row(
                                     children: [
-                                      Icon(
+                                      const Icon(
                                         FontAwesomeIcons.locationDot,
-                                        color: themeColor.colorBgPrimary,
+                                        color: ThemeColor.colorBgPrimary,
                                         size: 15,
                                       ),
                                       Text(
                                         location,
-                                        style: TextStyle(
-                                          color: themeColor.colorWhite,
+                                        style: const TextStyle(
+                                          color: ThemeColor.colorWhite,
                                         ),
                                       ),
                                     ],
@@ -129,17 +128,17 @@ class ExperiencesCard extends StatelessWidget {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
-                                                Icon(
+                                                const Icon(
                                                   FontAwesomeIcons.dollarSign,
                                                   color:
-                                                      themeColor.colorBgPrimary,
+                                                      ThemeColor.colorBgPrimary,
                                                   size: 15,
                                                 ),
                                                 Text(
                                                   "$price",
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                     color:
-                                                        themeColor.colorWhite,
+                                                        ThemeColor.colorWhite,
                                                   ),
                                                 ),
                                               ],

@@ -3,7 +3,7 @@ import '../model/response/itinarary_model.dart';
 import '../repository/itinarary_repository.dart';
 
 class GetitinararyUseCase {
-  final itinararyRepo repository;
+  final ItinararyRepo repository;
 
   GetitinararyUseCase(this.repository);
 

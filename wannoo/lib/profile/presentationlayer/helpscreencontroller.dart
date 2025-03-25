@@ -1,8 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wannoo/Constants.dart';
+import 'package:wannoo/constants.dart';
 import 'package:wannoo/profile/datalayer/model/request/form_request.dart';
 import 'package:wannoo/profile/datalayer/repo/contact_us_repo.dart';
 import 'package:wannoo/profile/datalayer/services/remote.dart';
@@ -34,9 +33,9 @@ class HelpScreenController extends GetxController {
   Future<void> getData() async {
     try {
       await getContactUsUsecase.execute().then((res) {
-        email.value = res.Email ?? "";
+        email.value = res.email ?? "";
         mobile.value = res.mobilenumber ?? "";
-        address.value = res.Address ?? "";
+        address.value = res.address ?? "";
       });
     } catch (e) {
       print(e);
@@ -55,9 +54,9 @@ class HelpScreenController extends GetxController {
           openIconSnackBar(
               Get.context,
               "Form Submitted Successfully",
-              Icon(
+              const Icon(
                 Icons.check_circle_outline,
-                color: themeColor.colorBgPrimary,
+                color: ThemeColor.colorBgPrimary,
               ));
         }
       });

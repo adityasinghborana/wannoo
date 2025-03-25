@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:wannoo/AuthModule/datalayer/model/request/delete_user_request.dart';
-import 'package:wannoo/Constants.dart';
+import 'package:wannoo/constants.dart';
 import 'package:wannoo/homepage/datalayer/model/response/alltours.dart';
 import 'package:wannoo/itinarary/datalayer/model/request/create_itinarary_request.dart';
 import 'package:wannoo/itinarary/datalayer/model/request/delete_itinarary_request.dart';
@@ -17,8 +16,8 @@ import '../model/response/itinarary_model.dart';
 part 'itinarary_remote.g.dart';
 
 @RestApi(baseUrl: baseurl)
-abstract class itinararyRemote {
-  factory itinararyRemote(Dio dio, {String? baseUrl}) = _itinararyRemote;
+abstract class ItinararyRemote {
+  factory ItinararyRemote(Dio dio, {String? baseUrl}) = _ItinararyRemote;
 
   @POST('/itinarary')
   Future<List<ItinararyModel>> getData(@Body() UserItinararyRequest uid);

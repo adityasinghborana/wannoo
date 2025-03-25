@@ -4,9 +4,9 @@ class ExperiencesModel {
   final String title;
   final String imagepath;
   final String location;
-  final String Category;
-  final String? Country;
-  final String? Continent;
+  final String category;
+  final String? country;
+  final String? continent;
   final double? price;
 
   ExperiencesModel(
@@ -15,10 +15,10 @@ class ExperiencesModel {
       required this.imagepath,
       required this.location,
       required this.id,
-      required this.Category,
+      required this.category,
       required this.price,
-      this.Country,
-      this.Continent});
+      this.country,
+      this.continent});
 
   get city => null;
 }

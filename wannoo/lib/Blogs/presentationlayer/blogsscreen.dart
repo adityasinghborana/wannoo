@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/Blogs/presentationlayer/blogscontroller.dart';
-import 'package:wannoo/Constants.dart';
-import 'package:wannoo/homepage/presentationlayer/widgets/savedcards.dart';
+import 'package:wannoo/constants.dart';
+import 'package:wannoo/homepage/presentationlayer/widgets/saved_cards.dart';
 
-import 'SingleBlogScreen.dart';
+import 'single_blog_screen.dart';
 
 class BlogsScreen extends StatelessWidget {
   const BlogsScreen({super.key});
@@ -18,7 +18,7 @@ class BlogsScreen extends StatelessWidget {
       ),
       body: Obx(() {
         if (blogsController.allBlogsList.isEmpty) {
-          return Center(child: Text("No blogs available"));
+          return const Center(child: Text("No blogs available"));
         }
         return ListView.builder(
           itemCount: blogsController.allBlogsList.length,
@@ -34,8 +34,8 @@ class BlogsScreen extends StatelessWidget {
                 child: SavedCards(
                   title: item.title!,
                   imagePath: item.imagePath ?? "",
-                  Date: item.createdAt!,
-                  Body: item.content!,
+                  date: item.createdAt!,
+                  body: item.content!,
                 ),
               ),
             );

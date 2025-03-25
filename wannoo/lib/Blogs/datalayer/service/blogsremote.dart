@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
-import '../../../Constants.dart';
+import '../../../constants.dart';
 import '../model/response/all_blogs_model.dart';
 part 'blogsremote.g.dart';
 

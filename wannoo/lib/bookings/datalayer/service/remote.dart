@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:wannoo/bookings/datalayer/model/request/booking_request.dart';
 
-import '../../../Constants.dart';
+import '../../../constants.dart';
 import '../model/request/intent_request.dart';
 import '../model/response/booking_response.dart';
 import '../model/response/intent_response.dart';

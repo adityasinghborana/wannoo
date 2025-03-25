@@ -1,17 +1,15 @@
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wannoo/AuthModule/datalayer/model/request/delete_user_request.dart';
 import 'package:wannoo/AuthModule/datalayer/repo/repo.dart';
 import 'package:wannoo/AuthModule/datalayer/usecase/deleteuserusecase.dart';
 import 'package:wannoo/routes.dart';
 
-import '../../../utilities/Authclass.dart';
+import '../../../utilities/auth_class.dart';
 import '../../../utilities/dialog.dart';
 import '../../datalayer/services/remote.dart';
 
@@ -45,8 +43,9 @@ class LoginController extends GetxController {
     try {
       final GoogleSignInAccount? googleSignInAccount =
           await _googleSignIn.signIn();
-      if (googleSignInAccount == null)
+      if (googleSignInAccount == null) {
         throw 'Google sign-in process canceled by user.';
+      }
 
       final GoogleSignInAuthentication googleSignInAuthentication =
           await googleSignInAccount.authentication;
@@ -58,10 +57,10 @@ class LoginController extends GetxController {
       final UserCredential userCredential =
           await firebaseAuth.signInWithCredential(credential);
       final String uid = userCredential.user!.uid;
-      final String name = userCredential.user!.displayName!;
       await saveUserUID(uid);
       Get.toNamed(AppRoutes.home);
     } catch (e) {
+      if (!context.mounted) return;
       showSnackBar(context, e.toString());
       Get.toNamed(AppRoutes.login);
     }
@@ -74,10 +73,10 @@ class LoginController extends GetxController {
       await clearUserUID();
 
       Get.offAllNamed(AppRoutes.login);
-
+      if (!context.mounted) return;
       showSnackBar(context, 'Sign-out successful.');
     } catch (e) {
-      print("Sign-out error: $e");
+      debugPrint("Sign-out error: $e");
       showSnackBar(context, e.toString());
     }
   }
@@ -90,11 +89,11 @@ class LoginController extends GetxController {
 
       if (user != null) {
         try {
-          print("hello Delete Uid ${user.uid}");
+          debugPrint("hello Delete Uid ${user.uid}");
           await deleteUserUseCase
               .execute(DeleteUserRequest(uid: user.uid.toString()));
         } catch (e) {
-          print(e);
+          debugPrint(e.toString());
         }
         await user.delete(); // Deletes the user from Firebase Authentication
         // Sign out from Firebase and Google (if logged in via Google)

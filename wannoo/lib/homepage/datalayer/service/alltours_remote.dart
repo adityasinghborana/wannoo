@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:wannoo/utilities/dio_interceptor.dart';
-import '../../../Constants.dart';
+import '../../../constants.dart';
 import '../model/response/alltours.dart';
 // Import the Dio client
 

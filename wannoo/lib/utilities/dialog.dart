@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wannoo/Categoryplaces/presentationlayer/categoryplacesscreen.dart';
-import 'package:wannoo/Components/largeButton2.dart';
-import 'package:wannoo/Constants.dart';
+import 'package:wannoo/Components/large_button_2.dart';
+import 'package:wannoo/constants.dart';
 import 'package:wannoo/itinarary/datalayer/model/request/post_fav_tour.dart';
-import 'package:wannoo/utilities/Authclass.dart';
-import 'package:wannoo/utilities/extension.dart';
+import 'package:wannoo/utilities/auth_class.dart';
 
 import '../homepage/presentationlayer/homepage_controller.dart';
 
@@ -61,7 +59,7 @@ Future<void> showMyModalBottomSheet(
   print(selectedTourId);
 
   await showModalBottomSheet(
-    backgroundColor: themeColor.colorscafold,
+    backgroundColor: ThemeColor.colorscafold,
     context: context,
     isScrollControlled: true, // Ensures the bottom sheet can expand
     builder: (BuildContext context) {
@@ -89,7 +87,7 @@ Future<void> showMyModalBottomSheet(
                       itemCount: homePageController.itinararyList.length,
                       itemBuilder: (context, index) {
                         var items = homePageController.itinararyList;
-                        return Container(
+                        return SizedBox(
                           height: 50,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -102,13 +100,12 @@ Future<void> showMyModalBottomSheet(
                                     label: "Add ",
                                     height: 90,
                                     onPressed: () async {
-                                      var User = await getUserUID();
-
+                                      var user = await getUserUID();
                                       homePageController.postFavTours(
                                           data: PostFavTourRequest(
                                               itineraryId: items[index].id ?? 0,
                                               tourId: selectedTourId,
-                                              userId: User ?? ""));
+                                              userId: user ?? ""));
                                     }),
                               )
                             ],

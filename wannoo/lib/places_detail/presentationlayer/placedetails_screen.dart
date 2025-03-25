@@ -3,24 +3,18 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:wannoo/Components/large_button.dart';
-import 'package:wannoo/Constants.dart';
+import 'package:wannoo/constants.dart';
 import 'package:wannoo/places_detail/datalayer/repository/placeDetailsrepo.dart';
 import 'package:wannoo/places_detail/datalayer/service/remote.dart';
 import 'package:wannoo/places_detail/datalayer/usecase/getplacesdetailsusecase.dart';
 import 'package:wannoo/places_detail/presentationlayer/placedetails_controller.dart';
-import 'package:wannoo/places_detail/presentationlayer/placedetails_controller.dart';
-import 'package:wannoo/places_detail/presentationlayer/placedetails_controller.dart';
-import 'package:wannoo/places_detail/presentationlayer/widgets/Faq.dart';
-import 'package:wannoo/places_detail/presentationlayer/widgets/Floating%20Button.dart';
-import 'package:wannoo/places_detail/presentationlayer/widgets/MainDetails.dart';
+import 'package:wannoo/places_detail/presentationlayer/widgets/floating_button.dart';
+import 'package:wannoo/places_detail/presentationlayer/widgets/main_details.dart';
 import 'package:wannoo/places_detail/presentationlayer/widgets/faq_section.dart';
 
-import '../../Components/Appbar.dart';
-import '../../Components/Experiences_listview.dart';
-import '../../homepage/presentationlayer/widgets/Heading_with_button.dart';
+import '../../Components/experiences_list_view.dart';
+import '../../homepage/presentationlayer/widgets/heading_with_button.dart';
 import '../../routes.dart';
-import '../../styles.dart';
 import 'widgets/Expansion_listtile.dart';
 
 class PlaceDetailsScreen extends StatelessWidget {
@@ -36,6 +30,8 @@ class PlaceDetailsScreen extends StatelessWidget {
     ),
   );
 
+  PlaceDetailsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final String? id = Get.parameters['id'];
@@ -44,7 +40,7 @@ class PlaceDetailsScreen extends StatelessWidget {
     placedetailsController.getPlaceData(id ?? "");
 
     return Scaffold(
-      backgroundColor: themeColor.colorBgPrimary,
+      backgroundColor: ThemeColor.colorBgPrimary,
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
@@ -53,7 +49,7 @@ class PlaceDetailsScreen extends StatelessWidget {
                 Obx(() {
                   return AuraUICarousel(
                     images: placedetailsController.imagePaths.value.map((img) {
-                      return '${baseurl}/${img.imagepath}'; // Concatenating baseurl and imagepath
+                      return '$baseurl/${img.imagepath}'; // Concatenating baseurl and imagepath
                     }).toList(),
                     pageController: pageController,
                     showButtons: false,
@@ -72,7 +68,7 @@ class PlaceDetailsScreen extends StatelessWidget {
             Obx(() {
               return MainDetails(
                 tourname: placedetailsController.demoData.value.title,
-                Country: placedetailsController.demoData.value.country,
+                country: placedetailsController.demoData.value.country,
                 rating: placedetailsController.demoData.value.rating ?? 4.2,
                 reviews: placedetailsController.demoData.value.reviews,
                 price: double.parse(amount ?? ""),
@@ -140,19 +136,19 @@ class PlaceDetailsScreen extends StatelessWidget {
             Obx(() {
               return FaqSection(placedetailsController.demoData.value.faq);
             }),
-            HeadingwithButton(
+            const HeadingwithButton(
               label: 'Recommended Tours',
             ),
             ExperiencesListview(),
-            Gap(100)
+            const Gap(100)
           ],
         ),
       ),
       floatingActionButton: FloatingButton(
         onpressed: () {
-          print("${placedetailsController.demoData.value.bookable}");
+          debugPrint("${placedetailsController.demoData.value.bookable}");
           if (placedetailsController.demoData.value.bookable == true) {
-            Get.toNamed(AppRoutes.ExternalSite, arguments: {
+            Get.toNamed(AppRoutes.externalSite, arguments: {
               "price": placedetailsController.demoData.value.price,
             });
           } else {

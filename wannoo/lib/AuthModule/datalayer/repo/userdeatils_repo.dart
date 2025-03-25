@@ -1,6 +1,6 @@
 import 'package:wannoo/AuthModule/datalayer/services/get_user_details.dart';
 
-import '../../SignupModule/usersdatalayer/model/response/user_detail_response.dart';
+import '../../signup_module/usersdatalayer/model/response/user_detail_response.dart';
 
 abstract class UserDetailsRepo {
   Future<UserDetail> getUserDetails(String uid);

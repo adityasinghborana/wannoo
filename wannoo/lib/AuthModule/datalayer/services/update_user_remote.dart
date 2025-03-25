@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:wannoo/AuthModule/datalayer/model/request/update_user_model.dart';
 
-import '../../../Constants.dart';
+import '../../../constants.dart';
 import '../model/response/update_user_response.dart';
 part 'update_user_remote.g.dart';
 

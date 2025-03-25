@@ -1,55 +1,55 @@
 import 'package:get/get.dart';
 import 'package:wannoo/AuthModule/LoginModule/presentation/login_screen.dart';
-import 'package:wannoo/AuthModule/SignupModule/presentation/signup_screen.dart';
+import 'package:wannoo/AuthModule/signup_module/presentation/signup_screen.dart';
 import 'package:wannoo/Categoryplaces/presentationlayer/categoryplacesscreen.dart';
 import 'package:wannoo/bookings/presentationlayer/bookingsscreen.dart';
-import 'package:wannoo/bookings/presentationlayer/externalSite.dart';
+import 'package:wannoo/bookings/presentationlayer/external_site.dart';
 import 'package:wannoo/bookings/presentationlayer/paymentfailure.dart';
 import 'package:wannoo/categories/presentationlayer/categoryscreen.dart';
-import 'package:wannoo/congratulations/presentationlayer/congratulation_Screen.dart';
+import 'package:wannoo/congratulations/presentationlayer/congratulation_screen.dart';
 import 'package:wannoo/homepage/presentationlayer/homepage_screen.dart';
-import 'package:wannoo/itinarary/presentationlayer/ItinararyScreen.dart';
+import 'package:wannoo/itinarary/presentationlayer/Itinarary_screen.dart';
 import 'package:wannoo/places_detail/presentationlayer/placedetails_screen.dart';
-import 'package:wannoo/profile/editprofilescreen.dart';
-import 'package:wannoo/profile/helpscreen.dart';
-import 'package:wannoo/profile/legalscreen.dart';
+import 'package:wannoo/profile/edit_profile_screen.dart';
+import 'package:wannoo/profile/help_screen.dart';
+import 'package:wannoo/profile/legal_screen.dart';
 import 'package:wannoo/profile/presentationlayer/profilescreen.dart';
 import 'package:wannoo/search/presentationlayer/searchresultscreen.dart';
 import 'package:wannoo/search/presentationlayer/searchscreen.dart';
 import 'package:wannoo/splash_screen.dart';
-import 'Onboardingscreen/presentation/Onboarding_screen.dart';
+import 'Onboardingscreen/presentation/onboarding_screen.dart';
 import 'bookings/presentationlayer/paymentsucess.dart'; // Splash screen widget
 
 class AppRoutes {
-  static const String splash = '/';
-  static const String onboarding = '/onboarding';
-  static const String login = '/login';
-  static const String signup = '/signup';
-  static const String home = '/home';
-  static const String congratulations = '/congratulations';
-  static const String placedetails = '/placedetails';
-  static const String allcategories = '/allcategories';
-  static const String search = '/search';
-  static const String searchresult = '/searchresult';
-  static const String categoryplaces = '/categoryplaces';
-  static const String profile = '/profile';
-  static const String booking = '/booking';
-  static const String ExternalSite = '/externalsite';
-  static const String paymentSuccess = '/paymentsucess';
-  static const String paymentFailure = '/paymentfailure';
-  static const String savedList = '/savedlist';
-  static const String legalScreen = '/legal';
-  static const String helpScreen = '/help';
-  static const String editProfile = '/editprofile';
+  static const splash = '/';
+  static const onboarding = '/onboarding';
+  static const login = '/login';
+  static const signup = '/signup';
+  static const home = '/home';
+  static const congratulations = '/congratulations';
+  static const placedetails = '/placedetails';
+  static const allcategories = '/allcategories';
+  static const search = '/search';
+  static const searchresult = '/searchresult';
+  static const categoryplaces = '/categoryplaces';
+  static const profile = '/profile';
+  static const booking = '/booking';
+  static const externalSite = '/externalsite';
+  static const paymentSuccess = '/paymentsucess';
+  static const paymentFailure = '/paymentfailure';
+  static const savedList = '/savedlist';
+  static const legalScreen = '/legal';
+  static const helpScreen = '/help';
+  static const editProfile = '/editprofile';
 
   static List<GetPage> routes = [
     GetPage(
       name: splash,
-      page: () => SplashScreen(), // Reference to your SplashScreen widget
+      page: () => const SplashScreen(), // Reference to your SplashScreen widget
     ),
     GetPage(
       name: onboarding,
-      page: () => OnBoardingScreen(),
+      page: () => const OnBoardingScreen(),
     ),
     GetPage(
       name: login,
@@ -61,11 +61,11 @@ class AppRoutes {
     ),
     GetPage(
       name: congratulations,
-      page: () => CongratultionsPage(),
+      page: () => const CongratultionsPage(),
     ),
     GetPage(
       name: home,
-      page: () => HomepageScreen(),
+      page: () => const HomepageScreen(),
     ),
     GetPage(
       name: placedetails,
@@ -77,11 +77,11 @@ class AppRoutes {
     ),
     GetPage(
       name: search,
-      page: () => SearchScreen(),
+      page: () => const SearchScreen(),
     ),
     GetPage(
       name: searchresult,
-      page: () => SearchResultScreen(),
+      page: () => const SearchResultScreen(),
     ),
     GetPage(
       name: categoryplaces,
@@ -96,16 +96,16 @@ class AppRoutes {
       page: () => BookingsScreen(),
     ),
     GetPage(
-      name: ExternalSite,
+      name: externalSite,
       page: () => ExternalWebsite(),
     ),
     GetPage(
       name: paymentSuccess,
-      page: () => PaymentSuccess(),
+      page: () => const PaymentSuccess(),
     ),
     GetPage(
       name: paymentFailure,
-      page: () => PaymentFailure(),
+      page: () => const PaymentFailure(),
     ),
     GetPage(
       name: savedList,
@@ -113,15 +113,15 @@ class AppRoutes {
     ),
     GetPage(
       name: legalScreen,
-      page: () => LegalScreen(),
+      page: () => const LegalScreen(),
     ),
     GetPage(
       name: helpScreen,
-      page: () => HelpScreen(),
+      page: () => const HelpScreen(),
     ),
     GetPage(
       name: editProfile,
-      page: () => EditProfile(),
+      page: () => const EditProfile(),
     ),
   ];
 }

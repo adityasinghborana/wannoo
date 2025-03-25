@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:wannoo/bookings/datalayer/model/request/booking_request.dart';
-import 'package:wannoo/bookings/datalayer/model/request/previousBooking_req.dart';
+import 'package:wannoo/bookings/datalayer/model/request/previous_booking_req.dart';
 import 'package:wannoo/bookings/datalayer/model/response/previous_bookings.dart';
-import '../../../Constants.dart';
+import '../../../constants.dart';
 import '../model/response/booking_response.dart';
 
 part 'bookings_remote.g.dart';
@@ -18,6 +18,6 @@ abstract class BookingsRemote {
   );
   @POST('/userbookings')
   Future<List<PreviousBookings>> getUserBooking(
-    @Body() PreviousbookingReq requestBody,
+    @Body() PreviousBookingReq requestBody,
   );
 }

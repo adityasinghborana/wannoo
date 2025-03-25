@@ -4,7 +4,7 @@ import 'package:wannoo/itinarary/datalayer/model/request/favtourrequest.dart';
 import '../repository/itinarary_repository.dart';
 
 class GetFavToursUseCase {
-  final itinararyRepo repository;
+  final ItinararyRepo repository;
 
   GetFavToursUseCase(this.repository);
 

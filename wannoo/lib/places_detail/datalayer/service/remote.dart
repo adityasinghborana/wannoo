@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:wannoo/places_detail/datalayer/model/response/Placesdetails.dart';
 
-import '../../../Constants.dart';
+import '../../../constants.dart';
 part 'remote.g.dart';
 
 

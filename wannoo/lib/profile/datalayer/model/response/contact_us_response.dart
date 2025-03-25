@@ -5,15 +5,15 @@ part 'contact_us_response.g.dart';
 @JsonSerializable()
 class ContactUsResponse {
   final int? id;
-  final String? Address;
+  final String? address;
   final String? mobilenumber;
-  final String? Email;
+  final String? email;
 
   const ContactUsResponse({
     this.id,
-    this.Address,
+    this.address,
     this.mobilenumber,
-    this.Email,
+    this.email,
   });
 
   factory ContactUsResponse.fromJson(Map<String, dynamic> json) =>

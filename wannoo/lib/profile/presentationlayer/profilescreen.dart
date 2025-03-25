@@ -1,18 +1,15 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
 import 'package:permission_handler/permission_handler.dart';
 import 'package:wannoo/AuthModule/LoginModule/presentation/login_controller.dart';
-import 'package:wannoo/Constants.dart';
+import 'package:wannoo/constants.dart';
 import 'package:wannoo/homepage/presentationlayer/homepage_controller.dart';
 import 'package:wannoo/profile/presentationlayer/profilescreencontroller.dart';
 
-import '../../Components/largeButton2.dart';
+import '../../Components/large_button_2.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key});
@@ -26,7 +23,7 @@ class ProfileScreen extends StatelessWidget {
     final HomePageController homePageController = Get.find();
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile"),
+        title: const Text("Profile"),
       ),
       body: SafeArea(
         child: Column(children: [
@@ -35,25 +32,19 @@ class ProfileScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
+              SizedBox(
                 width: 150,
                 height: 150,
                 child: Stack(
                   children: [
                     Obx(
                       () => CircleAvatar(
-                          radius: 90, // You can adjust the radius as needed
-                          foregroundColor: themeColor.colorBgSecondory,
-                          backgroundColor: themeColor.colorBgSecondory,
-                          backgroundImage: homePageController
-                                      .currentImage.value !=
-                                  null
-                              ? NetworkImage(
-                                  "$baseurl/${homePageController.currentImage.value!}")
-                              : AssetImage(image.person) as ImageProvider
-
-                          // Placeholder image
-                          ),
+                        radius: 90, // You can adjust the radius as needed
+                        foregroundColor: ThemeColor.colorBgSecondory,
+                        backgroundColor: ThemeColor.colorBgSecondory,
+                        backgroundImage: NetworkImage(
+                            "$baseurl/${homePageController.currentImage.value}"),
+                      ),
                     ),
                     Align(
                       alignment: Alignment.bottomRight,
@@ -75,24 +66,24 @@ class ProfileScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Gap(30),
+              const Gap(30),
               Obx(
                 () => Text(
-                  "${profileScreenController.name.value}",
+                  profileScreenController.name.value,
                   style: CustomTextStyles.fontXlSemiBold,
                 ),
               ),
               Obx(
-                () => Text("${profileScreenController.email.value}",
+                () => Text(profileScreenController.email.value,
                     style: CustomTextStyles.fontL1SemiBold
-                        .copyWith(color: themeColor.colorTextSecondry)),
+                        .copyWith(color: ThemeColor.colorTextSecondry)),
               )
             ],
           )),
           Flexible(
             flex: 2,
             child: Padding(
-              padding: const EdgeInsets.all(globalPadding.px_md),
+              padding: const EdgeInsets.all(GlobalPadding.px_md),
               child: Column(
                 children: List.generate(profileScreenController.items.length,
                     (int index) {
@@ -101,12 +92,12 @@ class ProfileScreen extends StatelessWidget {
                     onTap: item.onpressed,
                     child: Card(
                       elevation: 3,
-                      color: themeColor.colorWhite,
-                      shadowColor: themeColor.colorBorder,
-                      surfaceTintColor: themeColor.colorWhite,
+                      color: ThemeColor.colorWhite,
+                      shadowColor: ThemeColor.colorBorder,
+                      surfaceTintColor: ThemeColor.colorWhite,
                       child: ListTile(
                           leading: item.icon,
-                          trailing: Icon(Icons.keyboard_arrow_right),
+                          trailing: const Icon(Icons.keyboard_arrow_right),
                           title: Text(item.title)),
                     ),
                   );

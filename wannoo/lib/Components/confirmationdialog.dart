@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wannoo/Constants.dart';
+import 'package:wannoo/constants.dart';
 
 class CustomAlertDialog extends StatelessWidget {
   final String title;
@@ -17,7 +17,7 @@ class CustomAlertDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: themeColor.colorBgPrimary,
+      backgroundColor: ThemeColor.colorBgPrimary,
       title: Text(title),
       content: Text(description),
       actions: actions,

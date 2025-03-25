@@ -9,15 +9,15 @@ part of 'contact_us_response.dart';
 ContactUsResponse _$ContactUsResponseFromJson(Map<String, dynamic> json) =>
     ContactUsResponse(
       id: (json['id'] as num?)?.toInt(),
-      Address: json['Address'] as String?,
+      address: json['Address'] as String?,
       mobilenumber: json['mobilenumber'] as String?,
-      Email: json['Email'] as String?,
+      email: json['Email'] as String?,
     );
 
 Map<String, dynamic> _$ContactUsResponseToJson(ContactUsResponse instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'Address': instance.Address,
+      'Address': instance.address,
       'mobilenumber': instance.mobilenumber,
-      'Email': instance.Email,
+      'Email': instance.email,
     };

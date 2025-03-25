@@ -4,7 +4,7 @@ import 'package:wannoo/itinarary/datalayer/model/response/delete_itinarary_respo
 import '../repository/itinarary_repository.dart';
 
 class DeleteItinararyUseCase {
-  final itinararyRepo repository;
+  final ItinararyRepo repository;
 
   DeleteItinararyUseCase(this.repository);
 

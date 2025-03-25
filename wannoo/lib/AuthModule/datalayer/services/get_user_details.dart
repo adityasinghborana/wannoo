@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:wannoo/AuthModule/SignupModule/usersdatalayer/model/response/user_detail_response.dart';
+import 'package:wannoo/AuthModule/signup_module/usersdatalayer/model/response/user_detail_response.dart';
 
-import '../../../Constants.dart';
+import '../../../constants.dart';
 part 'get_user_details.g.dart';
 
 @RestApi(baseUrl: baseurl)
