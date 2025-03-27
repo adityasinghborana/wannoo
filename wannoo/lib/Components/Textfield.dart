@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wannoo/Constants.dart';
 
@@ -11,7 +10,8 @@ class TextFieldCustom extends StatelessWidget {
   final IconData? suffixIcon;
   final Color? fillColor;
 
-  TextFieldCustom({
+  const TextFieldCustom({
+    super.key,
     this.hideText = false,
     required this.textController,
     required this.hintText,
@@ -29,12 +29,12 @@ class TextFieldCustom extends StatelessWidget {
         // Only fill if fillColor is not null
         fillColor: fillColor,
         // Background color of the TextFormField
-        enabledBorder: OutlineInputBorder(
+        enabledBorder: const OutlineInputBorder(
           borderRadius:
               BorderRadius.all(Radius.circular(globalRadius.borderRadius_m)),
           borderSide: BorderSide(width: 1, color: themeColor.colorBorder),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius:
               BorderRadius.all(Radius.circular(globalRadius.borderRadius_m)),
           borderSide: BorderSide(width: 1, color: themeColor.colorBgSecondory),

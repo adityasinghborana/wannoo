@@ -16,11 +16,7 @@ class StripeIntentRepositoryImpl implements StripeIntentRepository {
     try {
       IntentResponse response = await remoteService.getIntent(requestBody);
 
-      if (response != null) {
-        return response;
-      } else {
-        throw Exception("Failed to get intentid");
-      }
+      return response;
     } catch (error) {
       // Handle any errors that might occur during the process
       print("Error get intent: $error");

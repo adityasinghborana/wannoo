@@ -15,7 +15,7 @@ class CongratultionsPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Image.asset(image.congo),
-          SizedBox(
+          const SizedBox(
             height: Height.heightButtonLarge,
           ),
           Padding(
@@ -27,7 +27,7 @@ class CongratultionsPage extends StatelessWidget {
               style: TypographyStyle.l2Font,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: Height.heightButtonLarge,
           ),
           Padding(

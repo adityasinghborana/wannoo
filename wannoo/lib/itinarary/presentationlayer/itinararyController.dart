@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/Components/snackbar.dart';
@@ -36,7 +35,7 @@ class ItinararyController extends GetxController {
         savedTours.assignAll(response.map((tour) => ExperiencesModel(
             id: tour.tourId ?? 0,
             title: tour.tourName ?? "No name",
-            imagepath: '${baseurl}/${tour.imagePath ?? ""}',
+            imagepath: '$baseurl/${tour.imagePath ?? ""}',
             location: tour.cityName ?? "",
             Category: tour.cityTourType ?? "",
             Country: tour.countryName,
@@ -62,7 +61,7 @@ class ItinararyController extends GetxController {
           openIconSnackBar(
               Get.context,
               "Fav Tour Deleted",
-              Icon(
+              const Icon(
                 Icons.check_circle_outline,
                 color: themeColor.colorBgPrimary,
               ));

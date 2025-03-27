@@ -2,10 +2,22 @@ import 'package:flutter/material.dart';
 
 Container dataNotFound({required double width, required var height}) {
   return Container(
-    margin: EdgeInsets.only(left: 10, right: 10, bottom: 0, top: 0),
+    margin: const EdgeInsets.only(left: 10, right: 10, bottom: 0, top: 0),
     width: width,
     height: height,
-    child: Column(
+    decoration: ShapeDecoration(
+      color: Colors.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shadows: const [
+        BoxShadow(
+          color: Color(0x0C000000),
+          blurRadius: 6,
+          offset: Offset(0, 2),
+          spreadRadius: 0,
+        )
+      ],
+    ),
+    child: const Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -21,27 +33,15 @@ Container dataNotFound({required double width, required var height}) {
         )
       ],
     ),
-    decoration: ShapeDecoration(
-      color: Colors.white,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      shadows: [
-        BoxShadow(
-          color: Color(0x0C000000),
-          blurRadius: 6,
-          offset: Offset(0, 2),
-          spreadRadius: 0,
-        )
-      ],
-    ),
   );
 }
 
 Container emptyStateColumn({required var width, required var height}) {
   return Container(
-    margin: EdgeInsets.all(10),
+    margin: const EdgeInsets.all(10),
     width: width * 1.25,
     height: height,
-    child: Column(
+    child: const Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -62,14 +62,14 @@ Container emptyStateColumn({required var width, required var height}) {
 
 Container loadingStateColumn({required var width, required var height}) {
   return Container(
-    margin: EdgeInsets.all(10),
+    margin: const EdgeInsets.all(10),
     width: width * 1.25,
     height: height,
-    child: Column(
+    child: const Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
+        SizedBox(
           width: 30,
           height: 30,
           child: CircularProgressIndicator(color: Color(0xff7A992D)),
@@ -81,10 +81,10 @@ Container loadingStateColumn({required var width, required var height}) {
 
 Container errorStateColumn({required var width, required var height}) {
   return Container(
-    margin: EdgeInsets.all(10),
+    margin: const EdgeInsets.all(10),
     width: width * 1.25,
     height: height,
-    child: Column(
+    child: const Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [

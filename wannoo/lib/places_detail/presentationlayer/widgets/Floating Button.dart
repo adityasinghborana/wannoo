@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:wannoo/routes.dart';
 
 import '../../../Components/large_button.dart';
 import '../../../Constants.dart';
 
 class FloatingButton extends StatelessWidget {
   final VoidCallback onpressed;
-  const FloatingButton({required this.onpressed});
+  const FloatingButton({super.key, required this.onpressed});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +23,7 @@ class FloatingButton extends StatelessWidget {
             ),
             elevation: 10,
             color: themeColor.colorBgPrimary,
-            child: Container(
+            child: SizedBox(
               height: 80,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -36,17 +34,17 @@ class FloatingButton extends StatelessWidget {
                     child: Container(
                       height: 40,
                       width: 40,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: themeColor.colorBgPrimary,
                       ),
-                      child: Icon(
+                      child: const Icon(
                         Icons.bookmark,
                         color: themeColor.colorAccentPrimary,
                       ),
                     ),
                   ),
-                  Container(
+                  SizedBox(
                       width: 240,
                       child: LargeButton(
                         label: 'Book Now',

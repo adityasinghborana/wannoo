@@ -14,7 +14,7 @@ class AllCategoryScreen extends StatelessWidget {
     print(categoryController.category);
     return Scaffold(
         appBar: AppBar(
-          title: Text("Categories"),
+          title: const Text("Categories"),
           centerTitle: true,
         ),
         body: GridView.builder(

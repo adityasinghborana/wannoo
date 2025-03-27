@@ -11,11 +11,12 @@ class ExperiencesListview extends StatelessWidget {
   final bool isFilteredList;
   final String filterProperty;
 
-  ExperiencesListview({this.filterProperty = '', this.isFilteredList = false});
+  ExperiencesListview(
+      {super.key, this.filterProperty = '', this.isFilteredList = false});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: Get.height / 5,
       width: Get.width,
       child: Obx(() {
@@ -54,7 +55,7 @@ class ExperiencesListview extends StatelessWidget {
               onTap: () {
                 Get.toNamed(AppRoutes.placedetails, parameters: {
                   'id': "${filteredTours[index].id}",
-                  'amount': "${filteredTours[index].price.toString()}",
+                  'amount': filteredTours[index].price.toString(),
                 });
               },
               child: ExperiencesCard(

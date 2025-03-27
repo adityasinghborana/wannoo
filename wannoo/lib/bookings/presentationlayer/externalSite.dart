@@ -25,10 +25,10 @@ class ExternalWebsite extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Bookings"),
+        title: const Text("Bookings"),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: globalPadding.px_md),
+        padding: const EdgeInsets.symmetric(horizontal: globalPadding.px_md),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -37,13 +37,13 @@ class ExternalWebsite extends StatelessWidget {
               'Notice',
               style: CustomTextStyles.fontL1SemiBold,
             ),
-            Gap(Height.heightSm),
+            const Gap(Height.heightSm),
             Text(
               "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
               style: CustomTextStyles.fontMdMedium,
               textAlign: TextAlign.center,
             ),
-            Gap(Height.heightSm),
+            const Gap(Height.heightSm),
             LargeButton2(
                 label: "Visit Website",
                 height: Height.heightButtonXLarge,

@@ -6,6 +6,7 @@ class SvgIcon extends StatelessWidget {
   final double size;
 
   const SvgIcon({
+    super.key,
     required this.assetName,
     this.size = 24.0,
   });

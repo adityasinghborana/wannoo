@@ -1,8 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/categories/presentationlayer/categorycontroller.dart';
-import 'package:wannoo/homepage/datalayer/model/experiences_model.dart';
-import 'package:wannoo/homepage/presentationlayer/homepage_controller.dart';
 import 'package:wannoo/routes.dart';
 import 'package:wannoo/search/datalayer/model/request/city_request.dart';
 import 'package:wannoo/search/datalayer/model/request/countryrequest.dart';
@@ -106,10 +103,10 @@ class SearchPageController extends GetxController {
 
   void moveTo() {
     Get.toNamed(AppRoutes.searchresult, parameters: {
-      'continent': "${SelectedContinent}",
-      'country': "${SelectedCountry}",
-      'city': "${SelectedCity}",
-      'category': "${SelectedCategory}",
+      'continent': "$SelectedContinent",
+      'country': "$SelectedCountry",
+      'city': "$SelectedCity",
+      'category': "$SelectedCategory",
     });
   }
 }

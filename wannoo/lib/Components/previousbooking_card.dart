@@ -18,12 +18,12 @@ class PreviousBookingCard extends StatelessWidget {
       required this.bookedat,
       required this.amount,
       this.subIcon = const CircleAvatar(
+        backgroundColor: Colors.orange,
+        radius: 25,
         child: Icon(
           Icons.calendar_month_rounded,
           color: Colors.white,
         ),
-        backgroundColor: Colors.orange,
-        radius: 25,
       ),
       required this.subInfoText,
       this.subInfoTitle = "Tour Date ",
@@ -33,18 +33,18 @@ class PreviousBookingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(25.0),
+      padding: const EdgeInsets.all(25.0),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25.0),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(.05),
-              offset: Offset(0, 10),
+              offset: const Offset(0, 10),
               blurRadius: 0,
               spreadRadius: 0,
             )
           ],
-          gradient: RadialGradient(
+          gradient: const RadialGradient(
             colors: [Colors.orangeAccent, Colors.orange],
             focal: Alignment.topCenter,
             radius: .85,
@@ -58,7 +58,7 @@ class PreviousBookingCard extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.white,
                     fontSize: 26,
                     fontWeight: FontWeight.bold),
@@ -68,7 +68,7 @@ class PreviousBookingCard extends StatelessWidget {
                 height: 30,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(100.0),
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                       colors: [Colors.white, Colors.white],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter),
@@ -76,12 +76,12 @@ class PreviousBookingCard extends StatelessWidget {
                 child: Center(
                     child: Text(
                   "\$$amount",
-                  style: TextStyle(color: Colors.orange),
+                  style: const TextStyle(color: Colors.orange),
                 )),
               ),
             ],
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -107,7 +107,7 @@ class PreviousBookingCard extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Container(
             width: double.infinity,
             height: 75,
@@ -120,7 +120,7 @@ class PreviousBookingCard extends StatelessWidget {
               child: Row(
                 children: [
                   subIcon,
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -128,7 +128,7 @@ class PreviousBookingCard extends StatelessWidget {
                       Text(subInfoTitle),
                       Text(
                         subInfoText,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.orange,
                           fontSize: 22,
                           fontWeight: FontWeight.bold,

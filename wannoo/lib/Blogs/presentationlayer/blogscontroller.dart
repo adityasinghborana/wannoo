@@ -25,7 +25,7 @@ class BlogsController extends GetxController {
           .then((res) => allBlogsList.assignAll(res));
       print(allBlogsList.toList());
     } catch (e) {
-      showToast(state: StateType.Error, message: "${e.toString()}");
+      showToast(state: StateType.Error, message: e.toString());
     }
   }
 }

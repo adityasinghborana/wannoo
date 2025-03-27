@@ -22,12 +22,6 @@ class SignUpController extends GetxController {
   final CreateUserUseCase createUserUseCase =
       CreateUserUseCase(UserRepositoryImpl(createUserRemoteService(Dio())));
 
-  @override
-  void onInit() {
-    super.onInit();
-    // Initialization code here
-  }
-
   void signUp() async {
     try {
       final authResult = await firebase_auth.FirebaseAuth.instance
@@ -38,7 +32,7 @@ class SignUpController extends GetxController {
       final user = authResult.user;
       if (user != null) {
         final token = await user.getIdToken() ?? '';
-        final uid = await user.uid ?? '';
+        final uid = user.uid ?? '';
         await createUserUseCase
             .execute(UserModel(uid: uid, email: user.email ?? ""));
         await saveUserUID(uid);
@@ -66,8 +60,9 @@ class SignUpController extends GetxController {
     try {
       final GoogleSignInAccount? googleSignInAccount =
           await _googleSignIn.signIn();
-      if (googleSignInAccount == null)
+      if (googleSignInAccount == null) {
         throw 'Google sign-in process canceled by user.';
+      }
 
       final GoogleSignInAuthentication googleSignInAuthentication =
           await googleSignInAccount.authentication;
@@ -82,7 +77,7 @@ class SignUpController extends GetxController {
       final user = userCredential.user;
       if (user != null) {
         final token = await user.getIdToken() ?? '';
-        final uid = await user.uid ?? '';
+        final uid = user.uid ?? '';
         await saveUserUID(uid);
         await saveUser(user.uid, user.email!);
         Get.toNamed(AppRoutes.congratulations);

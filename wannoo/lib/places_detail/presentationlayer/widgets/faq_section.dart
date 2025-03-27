@@ -9,7 +9,7 @@ import 'Faq.dart';
 
 class FaqSection extends StatelessWidget {
   final List<Faq> list;
-  FaqSection(this.list);
+  const FaqSection(this.list, {super.key});
   @override
   Widget build(BuildContext context) {
     final PlacedetailsController placedetailsController = Get.find();
@@ -27,7 +27,7 @@ class FaqSection extends StatelessWidget {
             ListView.builder(
               shrinkWrap: true,
               // Ensure that the ListView takes only the space it needs
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               // Disable scrolling of the ListView
               itemCount: list.length,
               itemBuilder: (context, index) {

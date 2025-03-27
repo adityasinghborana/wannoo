@@ -9,10 +9,12 @@ class CustomListCategory extends StatelessWidget {
   final HomePageController homePageController = Get.find();
   final String? category = Get.parameters["category"];
 
+  CustomListCategory({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      return Container(
+      return SizedBox(
         height: 100,
         width: Get.width,
         child: ListView.builder(

@@ -19,18 +19,18 @@ class PaymentFailure extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(image.paymentfailure),
-            Gap(Height.heightxl),
+            const Gap(Height.heightxl),
             Text(
               'Payment Failure',
               style: CustomTextStyles.fontXxlSemiBold,
             ),
-            Gap(Height.heightMd),
+            const Gap(Height.heightMd),
             Text(
               "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
               style: CustomTextStyles.fontMdMedium,
               textAlign: TextAlign.center,
             ),
-            Gap(Height.heightMd),
+            const Gap(Height.heightMd),
             LargeButton2(
                 label: "Go Home",
                 height: Height.heightButtonXLarge,

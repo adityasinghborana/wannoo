@@ -5,12 +5,14 @@ import 'Onboardingscreen/presentation/Onboarding_screen.dart';
 // Import your constants
 
 class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
       splashIconSize: 300,
       splash: 'asset/images/logo.png',
-      nextScreen: OnBoardingScreen(),
+      nextScreen: const OnBoardingScreen(),
       splashTransition: SplashTransition.scaleTransition,
       backgroundColor: themeColor.colorBgSecondory,
     );

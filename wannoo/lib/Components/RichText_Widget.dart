@@ -12,14 +12,14 @@ class RichTextWidget extends StatelessWidget {
     return RichText(
       text: TextSpan(
         text: staticText.signUpToLogin,
-        style: TextStyle(color: themeColor.colorTextPrimary),
+        style: const TextStyle(color: themeColor.colorTextPrimary),
         children: [
           WidgetSpan(
             child: InkWell(
               onTap: () {
                 Get.toNamed(AppRoutes.signup);
               },
-              child: Text(
+              child: const Text(
                 staticText.signUpLinkText,
                 style: TextStyle(
                   color: themeColor.colorLink, // Change color if needed

@@ -6,11 +6,8 @@ import 'package:wannoo/Components/large_button.dart';
 import 'package:wannoo/Constants.dart';
 import 'package:wannoo/homepage/presentationlayer/homepage_controller.dart';
 import 'package:wannoo/routes.dart';
-import 'package:wannoo/utilities/dialog.dart';
-import 'package:wannoo/utilities/extension.dart';
 
 import '../../../Components/Textfield.dart';
-import '../widgets/savedcards.dart';
 
 class Saved extends StatelessWidget {
   const Saved({super.key});
@@ -24,14 +21,15 @@ class Saved extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(child: Container()),
-            Gap(20),
+            const Gap(20),
             Text(
               "Your Itinarary List",
               style: CustomTextStyles.fontL2SemiBold,
             ),
             Expanded(child: Container()),
-            InkWell(onTap: () => openDialog(), child: Icon(Icons.add_circle)),
-            Gap(20)
+            InkWell(
+                onTap: () => openDialog(), child: const Icon(Icons.add_circle)),
+            const Gap(20)
           ],
         ),
         centerTitle: true,
@@ -47,7 +45,7 @@ class Saved extends StatelessWidget {
                     itemCount: homePageController.itinararyList
                         .length, // Set the number of items you want
                     itemBuilder: (BuildContext context, int index) => Padding(
-                          padding: EdgeInsets.all(2),
+                          padding: const EdgeInsets.all(2),
                           child: InkWell(
                             onTap: () {
                               Get.toNamed(AppRoutes.savedList, parameters: {
@@ -59,8 +57,8 @@ class Saved extends StatelessWidget {
                               });
                             },
                             child: Container(
-                              margin: EdgeInsets.symmetric(vertical: 5),
-                              padding: EdgeInsets.symmetric(
+                              margin: const EdgeInsets.symmetric(vertical: 5),
+                              padding: const EdgeInsets.symmetric(
                                   horizontal: globalPadding.px_sm),
                               height: 50,
                               decoration: BoxDecoration(
@@ -85,7 +83,7 @@ class Saved extends StatelessWidget {
                                                       .id ??
                                                   0);
                                         },
-                                        icon: Icon(Icons.delete),
+                                        icon: const Icon(Icons.delete),
                                       )
                                     ],
                                   )

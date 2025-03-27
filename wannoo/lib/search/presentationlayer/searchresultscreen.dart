@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/Components/EmptyState.dart';
-import 'package:wannoo/Components/experiences_card.dart';
 import 'package:wannoo/Components/placescard.dart';
 import 'package:wannoo/Constants.dart';
 import 'package:wannoo/search/presentationlayer/SerachresultController.dart';
-import 'package:wannoo/utilities/dialog.dart';
 import 'package:wannoo/utilities/extension.dart';
 
 import '../../routes.dart';
@@ -19,7 +17,7 @@ class SearchResultScreen extends StatelessWidget {
         Get.put(SearchResultController());
     return Scaffold(
       appBar: AppBar(
-        title: Text("Searched Places"),
+        title: const Text("Searched Places"),
         centerTitle: true,
       ),
       body: Obx(() {
@@ -34,12 +32,12 @@ class SearchResultScreen extends StatelessWidget {
                   print(item.title);
                   return Padding(
                     padding: const EdgeInsets.all(globalPadding.px_sm),
-                    child: Container(
+                    child: SizedBox(
                         height: 150,
                         child: InkWell(
                           onTap: () {
                             Get.toNamed(AppRoutes.placedetails, parameters: {
-                              'amount': "${item.price.toString()}",
+                              'amount': item.price.toString(),
                               'id': "${item.id}"
                             });
                           },
@@ -48,7 +46,7 @@ class SearchResultScreen extends StatelessWidget {
                             image: item.imagepath,
                             Location: item.location,
                           ),
-                        )).fadeIn(duration: Duration(seconds: 1)),
+                        )).fadeIn(duration: const Duration(seconds: 1)),
                   );
                 });
       }),

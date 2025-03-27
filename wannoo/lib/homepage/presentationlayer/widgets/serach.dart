@@ -13,12 +13,12 @@ class SearchWidget extends StatelessWidget {
         Get.toNamed(AppRoutes.search);
       },
       child: Container(
-        padding: EdgeInsets.all(globalPadding.px_sm),
+        padding: const EdgeInsets.all(globalPadding.px_sm),
         decoration: BoxDecoration(
             color: themeColor.colorBgPrimary,
             borderRadius: BorderRadius.circular(globalRadius.borderRadius_m)),
         width: double.infinity,
-        child: Row(
+        child: const Row(
           children: [
             Icon(Icons.search),
             SizedBox(

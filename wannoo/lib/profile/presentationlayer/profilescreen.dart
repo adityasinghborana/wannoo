@@ -1,8 +1,5 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
@@ -26,7 +23,7 @@ class ProfileScreen extends StatelessWidget {
     final HomePageController homePageController = Get.find();
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile"),
+        title: const Text("Profile"),
       ),
       body: SafeArea(
         child: Column(children: [
@@ -35,7 +32,7 @@ class ProfileScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
+              SizedBox(
                 width: 150,
                 height: 150,
                 child: Stack(
@@ -49,8 +46,8 @@ class ProfileScreen extends StatelessWidget {
                                       .currentImage.value !=
                                   null
                               ? NetworkImage(
-                                  "$baseurl/${homePageController.currentImage.value!}")
-                              : AssetImage(image.person) as ImageProvider
+                                  "$baseurl/${homePageController.currentImage.value}")
+                              : const AssetImage(image.person) as ImageProvider
 
                           // Placeholder image
                           ),
@@ -75,15 +72,15 @@ class ProfileScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Gap(30),
+              const Gap(30),
               Obx(
                 () => Text(
-                  "${profileScreenController.name.value}",
+                  profileScreenController.name.value,
                   style: CustomTextStyles.fontXlSemiBold,
                 ),
               ),
               Obx(
-                () => Text("${profileScreenController.email.value}",
+                () => Text(profileScreenController.email.value,
                     style: CustomTextStyles.fontL1SemiBold
                         .copyWith(color: themeColor.colorTextSecondry)),
               )
@@ -106,7 +103,7 @@ class ProfileScreen extends StatelessWidget {
                       surfaceTintColor: themeColor.colorWhite,
                       child: ListTile(
                           leading: item.icon,
-                          trailing: Icon(Icons.keyboard_arrow_right),
+                          trailing: const Icon(Icons.keyboard_arrow_right),
                           title: Text(item.title)),
                     ),
                   );

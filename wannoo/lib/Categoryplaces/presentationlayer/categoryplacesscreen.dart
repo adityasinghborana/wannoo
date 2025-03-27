@@ -29,14 +29,15 @@ class CategoryPlacesScreen extends StatelessWidget {
                   final item = categoryPlacesController.places[index];
                   print(item.title);
                   return Padding(
-                    padding: EdgeInsets.all(globalPadding.px_sm),
-                    child: Container(
+                    padding: const EdgeInsets.all(globalPadding.px_sm),
+                    child: SizedBox(
                       height: 150,
                       child: InkWell(
                         onTap: () {
                           Get.toNamed(AppRoutes.placedetails, parameters: {
-                            'amount':
-                                "${categoryPlacesController.places[index].price.toString()}",
+                            'amount': categoryPlacesController
+                                .places[index].price
+                                .toString(),
                             'id': "${categoryPlacesController.places[index].id}"
                           });
                         },
@@ -50,7 +51,7 @@ class CategoryPlacesScreen extends StatelessWidget {
                       ),
                     ),
                   );
-                }).fadeIn(duration: Duration(seconds: 1))
+                }).fadeIn(duration: const Duration(seconds: 1))
             : Center(
                 child: dataNotFound(width: double.infinity, height: 300.00)));
   }

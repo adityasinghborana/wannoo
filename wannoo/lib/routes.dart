@@ -45,11 +45,11 @@ class AppRoutes {
   static List<GetPage> routes = [
     GetPage(
       name: splash,
-      page: () => SplashScreen(), // Reference to your SplashScreen widget
+      page: () => const SplashScreen(), // Reference to your SplashScreen widget
     ),
     GetPage(
       name: onboarding,
-      page: () => OnBoardingScreen(),
+      page: () => const OnBoardingScreen(),
     ),
     GetPage(
       name: login,
@@ -61,11 +61,11 @@ class AppRoutes {
     ),
     GetPage(
       name: congratulations,
-      page: () => CongratultionsPage(),
+      page: () => const CongratultionsPage(),
     ),
     GetPage(
       name: home,
-      page: () => HomepageScreen(),
+      page: () => const HomepageScreen(),
     ),
     GetPage(
       name: placedetails,
@@ -77,11 +77,11 @@ class AppRoutes {
     ),
     GetPage(
       name: search,
-      page: () => SearchScreen(),
+      page: () => const SearchScreen(),
     ),
     GetPage(
       name: searchresult,
-      page: () => SearchResultScreen(),
+      page: () => const SearchResultScreen(),
     ),
     GetPage(
       name: categoryplaces,
@@ -101,11 +101,11 @@ class AppRoutes {
     ),
     GetPage(
       name: paymentSuccess,
-      page: () => PaymentSuccess(),
+      page: () => const PaymentSuccess(),
     ),
     GetPage(
       name: paymentFailure,
-      page: () => PaymentFailure(),
+      page: () => const PaymentFailure(),
     ),
     GetPage(
       name: savedList,
@@ -113,15 +113,15 @@ class AppRoutes {
     ),
     GetPage(
       name: legalScreen,
-      page: () => LegalScreen(),
+      page: () => const LegalScreen(),
     ),
     GetPage(
       name: helpScreen,
-      page: () => HelpScreen(),
+      page: () => const HelpScreen(),
     ),
     GetPage(
       name: editProfile,
-      page: () => EditProfile(),
+      page: () => const EditProfile(),
     ),
   ];
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:wannoo/Constants.dart';
 import 'package:wannoo/styles.dart';
 
@@ -12,13 +11,13 @@ class ServicesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:
-          EdgeInsets.symmetric(horizontal: globalPadding.px_md, vertical: 5),
+      padding: const EdgeInsets.symmetric(
+          horizontal: globalPadding.px_md, vertical: 5),
       child: Material(
         color: themeColor.colorWhite,
         borderRadius: BorderRadius.circular(globalRadius.borderRadius_m),
         elevation: 8,
-        child: Container(
+        child: SizedBox(
           width: 110,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

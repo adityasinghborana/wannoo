@@ -19,7 +19,7 @@ class DeleteUserRepoImpl implements DeleteUserRepo {
       return await remote.deleteUser(uid);
     } catch (e) {
       print("Error deleting user: $e");
-      return DeleteUserResponse(message: "Failed to delete user");
+      return const DeleteUserResponse(message: "Failed to delete user");
     }
   }
 }

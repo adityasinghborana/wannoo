@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 import 'package:wannoo/Components/EmptyState.dart';
 import 'package:wannoo/Components/previousbooking_card.dart';
-import 'package:wannoo/Constants.dart';
 import 'package:wannoo/bookings/presentationlayer/previousbookings_controller.dart';
 
 class PreviousBookings extends StatelessWidget {
@@ -15,7 +14,7 @@ class PreviousBookings extends StatelessWidget {
         Get.put(PreviousBookingsController());
     return Scaffold(
       appBar: AppBar(
-        title: Text("Previous Bookings "),
+        title: const Text("Previous Bookings "),
       ),
       body: Obx(() {
         print("${previousBookingsController.previousBookings.length}");

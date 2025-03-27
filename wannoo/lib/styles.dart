@@ -4,7 +4,7 @@ import 'package:wannoo/Constants.dart';
 
 class TypographyStyle {
   static TextStyle xsFont = GoogleFonts.inter(
-    textStyle: TextStyle(
+    textStyle: const TextStyle(
       fontSize: globalFontsize.font_xs,
       fontWeight: FontWeight.w500,
       color: themeColor.colorTextPrimary,

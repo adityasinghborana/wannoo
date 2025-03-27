@@ -1,6 +1,3 @@
-import 'dart:io';
-
-import 'package:auraa_ui/aura_ui.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -63,19 +60,19 @@ class HomePageController extends GetxController {
       GetUserDetailUseCase(UserDetailsRepoImpl(UserDetailsRemote(Dio())));
   final TextEditingController itinararyController = TextEditingController();
   final List<Widget> navigationItems = [
-    Icon(
+    const Icon(
       FontAwesomeIcons.house,
       color: themeColor.colorBgSecondory,
     ),
-    Icon(
+    const Icon(
       FontAwesomeIcons.plane,
       color: themeColor.colorBgSecondory,
     ),
-    Icon(
+    const Icon(
       FontAwesomeIcons.blog,
       color: themeColor.colorBgSecondory,
     ),
-    Icon(
+    const Icon(
       FontAwesomeIcons.ticket,
       color: themeColor.colorBgSecondory,
     ),
@@ -116,7 +113,7 @@ class HomePageController extends GetxController {
             id: tour.tourId ?? 0,
             title: tour.tourName ?? "No name",
             // Replace `title` with the actual property from `tour`
-            imagepath: '${baseurl}/${tour.imagePath ?? ""}',
+            imagepath: '$baseurl/${tour.imagePath ?? ""}',
             // Adjust the path as per your model structure
             location: tour.cityName ?? "",
             Category: tour.cityTourType ?? "",
@@ -143,7 +140,7 @@ class HomePageController extends GetxController {
     await getitinararyUseCase
         .execute(UserItinararyRequest(uid: uid.toString()))
         .then((response) {
-      print("response:${response}");
+      print("response:$response");
       itinararyList.assignAll(response);
     });
   }
@@ -172,12 +169,9 @@ class HomePageController extends GetxController {
               tourId: data.tourId,
               userId: data.userId))
           .then((res) {
-        if (res != null) {
-          Navigator.of(context, rootNavigator: true).pop();
+        Navigator.of(context, rootNavigator: true).pop();
 
-          showToast(
-              state: StateType.Success, message: "Tour Added Successfully");
-        }
+        showToast(state: StateType.Success, message: "Tour Added Successfully");
       });
     } catch (e) {
       showToast(
@@ -189,24 +183,14 @@ class HomePageController extends GetxController {
     await deleteItinararyUseCase
         .execute(DeleteItinararyRequest(id: id))
         .then((e) {
-      if (e != null) {
-        openIconSnackBar(
-            Get.context,
-            "Itinarary Deleted",
-            Icon(
-              Icons.check_circle_outline,
-              color: themeColor.colorBgPrimary,
-            ));
-        getItinarary();
-      } else {
-        openIconSnackBar(
-            Get.context,
-            "Something Went Wrong",
-            Icon(
-              Icons.cancel_outlined,
-              color: themeColor.colorBgPrimary,
-            ));
-      }
+      openIconSnackBar(
+          Get.context,
+          "Itinarary Deleted",
+          const Icon(
+            Icons.check_circle_outline,
+            color: themeColor.colorBgPrimary,
+          ));
+      getItinarary();
     });
   }
 

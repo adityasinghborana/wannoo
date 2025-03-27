@@ -11,7 +11,7 @@ openIconSnackBar(
       child: Row(
         children: [
           icon,
-          SizedBox(
+          const SizedBox(
             width: 5,
           ),
           Text(text)

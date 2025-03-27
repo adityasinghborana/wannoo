@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:dio/dio.dart' as dio;
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
@@ -65,8 +64,8 @@ class ProfileScreenController extends GetxController {
                 children: [
                   Expanded(
                     child: InkWell(
-                      child: Column(
-                        children: const [
+                      child: const Column(
+                        children: [
                           Icon(Icons.image, size: 60.0),
                           SizedBox(height: 12.0),
                           Text("Gallery",
@@ -83,8 +82,8 @@ class ProfileScreenController extends GetxController {
                   ),
                   Expanded(
                     child: InkWell(
-                      child: Column(
-                        children: const [
+                      child: const Column(
+                        children: [
                           Icon(Icons.camera_alt, size: 60.0),
                           SizedBox(height: 12.0),
                           Text("Camera",
@@ -130,8 +129,9 @@ class ProfileScreenController extends GetxController {
   Future<void> _cropImage(File imgFile) async {
     final croppedFile = await ImageCropper().cropImage(
       sourcePath: imgFile.path,
-      aspectRatio:
-          Platform.isAndroid ? CropAspectRatio(ratioX: 1, ratioY: 1) : null,
+      aspectRatio: Platform.isAndroid
+          ? const CropAspectRatio(ratioX: 1, ratioY: 1)
+          : null,
       uiSettings: [
         AndroidUiSettings(
           hideBottomControls: false,
@@ -194,7 +194,8 @@ class ProfileScreenController extends GetxController {
         ),
       );
       if (response.statusCode == 200) {
-        openIconSnackBar(Get.context, "Image Uploaded", Icon(Icons.check));
+        openIconSnackBar(
+            Get.context, "Image Uploaded", const Icon(Icons.check));
         homePageController.currentImage.value = response.data["profileImage"];
       }
       print("Response: ${response.data}");

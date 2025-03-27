@@ -12,6 +12,8 @@ class SignUpPage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  SignUpPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     final SignUpController signupController = Get.put(SignUpController());
@@ -63,7 +65,7 @@ class SignUpPage extends StatelessWidget {
                 hintText: staticText.loginPassword,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: Height.heightl,
             ),
             Padding(
@@ -76,20 +78,20 @@ class SignUpPage extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: Height.heightl,
             ),
             RichText(
               text: TextSpan(
                 text: staticText.loginToSignup,
-                style: TextStyle(color: themeColor.colorTextPrimary),
+                style: const TextStyle(color: themeColor.colorTextPrimary),
                 children: [
                   WidgetSpan(
                     child: InkWell(
                       onTap: () {
                         Get.toNamed(AppRoutes.login);
                       },
-                      child: Text(
+                      child: const Text(
                         staticText.signInLinkText,
                         style: TextStyle(
                           color: themeColor.colorLink, // Change color if needed
@@ -101,11 +103,11 @@ class SignUpPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: Height.heightl,
             ),
-            Text("or"),
-            SizedBox(
+            const Text("or"),
+            const SizedBox(
               height: Height.heightl,
             ),
             SocialLoginButton(
@@ -115,13 +117,13 @@ class SignUpPage extends StatelessWidget {
               imagepath: image.googleIcon,
               label: staticText.signupGoogle,
             ),
-            SizedBox(
+            const SizedBox(
               height: Height.heightl,
             ),
             // SocialLoginButton(onpressed: (){null;},imagepath: image.facebookIcon,label: staticText.signupFacebook,),
             // SizedBox(height: Height.heightl,),
             //Text("or"),
-            SizedBox(
+            const SizedBox(
               height: Height.heightl,
             ),
             CustomTextButton(onpressed: () {}, label: 'forgot password')

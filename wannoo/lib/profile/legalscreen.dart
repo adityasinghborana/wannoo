@@ -16,7 +16,7 @@ class LegalScreen extends StatelessWidget {
         Get.put(LegalScreenController());
     return Scaffold(
       appBar: AppBar(
-        title: Text("Policies & Legal"),
+        title: const Text("Policies & Legal"),
         centerTitle: true,
       ),
       body: SafeArea(

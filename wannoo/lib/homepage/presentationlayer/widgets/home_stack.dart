@@ -1,14 +1,9 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:wannoo/Components/custom_icon.dart';
 import 'package:wannoo/homepage/presentationlayer/homepage_controller.dart';
 import 'package:wannoo/homepage/presentationlayer/widgets/serach.dart';
 import 'package:wannoo/routes.dart';
 
-import '../../../Components/Textfield.dart';
 import '../../../Constants.dart';
 
 class HomeStack extends StatelessWidget {
@@ -19,7 +14,7 @@ class HomeStack extends StatelessWidget {
     final HomePageController homePageController = Get.find();
 
     final TextEditingController searchController = TextEditingController();
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 220,
       child: Stack(
@@ -51,7 +46,8 @@ class HomeStack extends StatelessWidget {
                     //       color: themeColor.colorTextPrimary,
                     //     )),
                     Container(
-                      padding: EdgeInsets.all(2.0), // Adjust padding as needed
+                      padding:
+                          const EdgeInsets.all(2.0), // Adjust padding as needed
                       decoration: BoxDecoration(
                         color: themeColor.colorBgSecondory, // Border color
                         shape: BoxShape.circle,
@@ -71,8 +67,8 @@ class HomeStack extends StatelessWidget {
                                         .currentImage.value !=
                                     null
                                 ? NetworkImage(
-                                    "$baseurl/${homePageController.currentImage.value!}") // Show FileImage if available
-                                : AssetImage(image.person)
+                                    "$baseurl/${homePageController.currentImage.value}") // Show FileImage if available
+                                : const AssetImage(image.person)
                                     as ImageProvider, // Default asset image
                           );
                         }),
@@ -83,8 +79,10 @@ class HomeStack extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Container(
-                      height: 50, width: Get.width, child: SearchWidget()),
+                  SizedBox(
+                      height: 50,
+                      width: Get.width,
+                      child: const SearchWidget()),
                 ],
               ),
             ],

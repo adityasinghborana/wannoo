@@ -1,16 +1,12 @@
-import 'package:auraa_ui/aura_ui.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wannoo/AuthModule/datalayer/model/request/delete_user_request.dart';
 import 'package:wannoo/AuthModule/datalayer/repo/repo.dart';
 import 'package:wannoo/AuthModule/datalayer/usecase/deleteuserusecase.dart';
-import 'package:wannoo/Constants.dart';
 import 'package:wannoo/routes.dart';
 
 import '../../../utilities/Authclass.dart';
@@ -49,8 +45,9 @@ class LoginController extends GetxController {
     try {
       final GoogleSignInAccount? googleSignInAccount =
           await _googleSignIn.signIn();
-      if (googleSignInAccount == null)
+      if (googleSignInAccount == null) {
         throw 'Google sign-in process canceled by user.';
+      }
 
       final GoogleSignInAuthentication googleSignInAuthentication =
           await googleSignInAccount.authentication;

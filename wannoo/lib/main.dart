@@ -23,10 +23,12 @@ void main() async {
   );
   SharedPreferences prefs = await SharedPreferences.getInstance();
   Get.put(prefs);
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -47,7 +49,7 @@ class _MyAppState extends State<MyApp> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           // Show loading screen while fetching user data
-          return MaterialApp(
+          return const MaterialApp(
             home: Scaffold(
               body: Center(child: CircularProgressIndicator()),
             ),
@@ -61,7 +63,7 @@ class _MyAppState extends State<MyApp> {
           theme: ThemeData(
             fontFamily: GoogleFonts.inter().fontFamily,
             scaffoldBackgroundColor: themeColor.colorscafold,
-            appBarTheme: AppBarTheme(
+            appBarTheme: const AppBarTheme(
               color: themeColor.colorBgPrimary,
             ),
           ),

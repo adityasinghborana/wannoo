@@ -9,7 +9,6 @@ import 'package:wannoo/profile/editprofileController.dart';
 
 import '../Components/Textfield.dart';
 import '../Components/borderbutton.dart';
-import '../Components/large_button.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({super.key});
@@ -26,10 +25,10 @@ class _EditProfileState extends State<EditProfile> {
     final LoginController loginController = Get.put(LoginController());
     return Scaffold(
       appBar: AppBar(
-        title: Text("Edit Profile"),
+        title: const Text("Edit Profile"),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
             horizontal: globalPadding.px_md, vertical: globalPadding.py_md),
         child: Column(
           children: [
@@ -40,17 +39,17 @@ class _EditProfileState extends State<EditProfile> {
                   textController: editProfileController.nameController,
                   hintText: 'Full Name',
                 ),
-                Gap(20),
+                const Gap(20),
                 TextFieldCustom(
                   textController: editProfileController.addressController,
                   hintText: 'Address',
                 ),
-                Gap(20),
+                const Gap(20),
                 TextFieldCustom(
                   textController: editProfileController.phoneController,
                   hintText: 'Mobile Number',
                 ),
-                Gap(20),
+                const Gap(20),
                 LargeButton2(
                     label: "Save",
                     height: 50,

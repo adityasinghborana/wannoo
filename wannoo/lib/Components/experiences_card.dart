@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/Constants.dart';
-import 'package:wannoo/homepage/presentationlayer/homepage_controller.dart';
 
 import '../utilities/dialog.dart';
 
@@ -32,14 +31,14 @@ class ExperiencesCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: globalPadding.px_xs),
-      child: Container(
+      child: SizedBox(
         width: Get.width / 1.7,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(globalRadius.borderRadius_m),
           child: Stack(
             children: [
               Image.network(
-                "$imagePath",
+                imagePath,
                 errorBuilder: (context, error, stackTrace) {
                   return Image.asset(
                     image.experiencesimages,
@@ -73,7 +72,7 @@ class ExperiencesCard extends StatelessWidget {
                                   showMyModalBottomSheet(
                                       context, selectedTourId);
                                 },
-                                child: Icon(
+                                child: const Icon(
                                   Icons.add,
                                   color: themeColor.colorBgSecondory,
                                 ))),
@@ -100,7 +99,7 @@ class ExperiencesCard extends StatelessWidget {
                             children: [
                               Text(
                                 title,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -110,14 +109,14 @@ class ExperiencesCard extends StatelessWidget {
                                   Flexible(
                                       child: Row(
                                     children: [
-                                      Icon(
+                                      const Icon(
                                         FontAwesomeIcons.locationDot,
                                         color: themeColor.colorBgPrimary,
                                         size: 15,
                                       ),
                                       Text(
                                         location,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: themeColor.colorWhite,
                                         ),
                                       ),
@@ -129,7 +128,7 @@ class ExperiencesCard extends StatelessWidget {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
-                                                Icon(
+                                                const Icon(
                                                   FontAwesomeIcons.dollarSign,
                                                   color:
                                                       themeColor.colorBgPrimary,
@@ -137,7 +136,7 @@ class ExperiencesCard extends StatelessWidget {
                                                 ),
                                                 Text(
                                                   "$price",
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                     color:
                                                         themeColor.colorWhite,
                                                   ),

@@ -18,7 +18,7 @@ class BlogsScreen extends StatelessWidget {
       ),
       body: Obx(() {
         if (blogsController.allBlogsList.isEmpty) {
-          return Center(child: Text("No blogs available"));
+          return const Center(child: Text("No blogs available"));
         }
         return ListView.builder(
           itemCount: blogsController.allBlogsList.length,

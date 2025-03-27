@@ -68,15 +68,8 @@ class BookingsController extends GetxController {
             name: nameController.text.toString(),
             email: 'aditya@ogresto.com',
             amount: price * noOfGuest.value));
-        if (intent != null && intent.clientSecret != null) {
-          stripeclientkey.value = intent.clientSecret;
-          print("Client Secret: ${stripeclientkey.value}");
-        } else {
-          showToast(state: StateType.Error, message: "Something Went Wrong");
-
-          Get.toNamed('/paymentFailure');
-          return;
-        }
+        stripeclientkey.value = intent.clientSecret;
+        print("Client Secret: ${stripeclientkey.value}");
 
         // Step 2: Initialize the Payment Sheet
         await Stripe.instance.initPaymentSheet(
