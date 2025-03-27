@@ -1,7 +1,7 @@
 import 'package:wannoo/places_detail/data_layer/model/request/placesdetails.dart';
-import 'package:wannoo/places_detail/data_layer/model/response/Placesdetails.dart';
+import 'package:wannoo/places_detail/data_layer/model/response/places_details.dart';
 
-import '../repository/placeDetailsrepo.dart';
+import '../repository/place_details_repository.dart';
 
 class GetPlaceDetailsUseCase {
   final PlaceDetailsRepository repository;

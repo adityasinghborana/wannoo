@@ -63,7 +63,7 @@ class _MyAppState extends State<MyApp> {
           theme: ThemeData.from(
             colorScheme: ColorScheme.fromSeed(
               seedColor: ThemeColor.colorAccentPrimary,
-              dynamicSchemeVariant: DynamicSchemeVariant.vibrant,
+              dynamicSchemeVariant: DynamicSchemeVariant.fidelity,
               primary: ThemeColor.colorAccentPrimary,
             ),
             textTheme: GoogleFonts.latoTextTheme(),

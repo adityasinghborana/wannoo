@@ -4,14 +4,14 @@ import 'package:wannoo/styles.dart';
 
 class FaqExapansionTile extends StatelessWidget {
   final bool isExpanded;
-  final String Title;
-  final String Description;
+  final String title;
+  final String description;
 
   const FaqExapansionTile({
     super.key,
     required this.isExpanded,
-    required this.Title,
-    required this.Description,
+    required this.title,
+    required this.description,
   });
 
   @override
@@ -46,7 +46,7 @@ class FaqExapansionTile extends StatelessWidget {
                 .colorTextSecondry, // Change the color of the icon if needed
           ),
           title: Text(
-            Title,
+            title,
             textAlign: TextAlign.left,
             style: TypographyStyle.mdFont,
           ),
@@ -58,7 +58,7 @@ class FaqExapansionTile extends StatelessWidget {
                 spacing: 2.0,
                 runSpacing: 2.0,
                 children: [
-                  Text(Description),
+                  Text(description),
                 ],
               ),
             ),

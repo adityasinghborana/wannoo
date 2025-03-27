@@ -4,14 +4,14 @@ import 'package:wannoo/styles.dart';
 
 class DetailsExapansionTile extends StatelessWidget {
   final bool isExpanded;
-  final String Title;
-  final String Description;
+  final String title;
+  final String description;
 
   const DetailsExapansionTile({
     super.key,
     required this.isExpanded,
-    required this.Title,
-    required this.Description,
+    required this.title,
+    required this.description,
   });
 
   @override
@@ -42,7 +42,7 @@ class DetailsExapansionTile extends StatelessWidget {
           childrenPadding:
               const EdgeInsets.symmetric(horizontal: GlobalPadding.px_sm),
           title: Text(
-            Title,
+            title,
             textAlign: TextAlign.left,
             style: TypographyStyle.l2Font,
           ),
@@ -54,7 +54,7 @@ class DetailsExapansionTile extends StatelessWidget {
                 spacing: 2.0,
                 runSpacing: 2.0,
                 children: [
-                  Text(Description),
+                  Text(description),
                 ],
               ),
             ),

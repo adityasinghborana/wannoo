@@ -79,7 +79,7 @@ class HomePageController extends GetxController {
       category.assignAll(response.map(
           (e) => CategoryModel(title: e.cityTourType, imagepath: e.image)));
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
     }
   }
 
@@ -104,24 +104,21 @@ class HomePageController extends GetxController {
             price: tour.tourpricing?.amount?.toDouble(),
             internaTourid: tour.id ?? 0);
       }).toList();
-
-      // Print the list of tours
-      print(experiences);
     } catch (e) {
       // Handle any errors that occur during the API call
-      print("An error occurred: $e");
+      debugPrint("An error occurred: $e");
     }
   }
 
   void getItinarary() async {
     var uid = await getUserUID();
-    print("itinarary $uid");
+    debugPrint("itinarary $uid");
 
     ///TODO add req in this function
     await getitinararyUseCase
         .execute(UserItinararyRequest(uid: uid.toString()))
         .then((response) {
-      print("response:$response");
+      debugPrint("response:$response");
       itinararyList.assignAll(response);
     });
   }
@@ -130,14 +127,14 @@ class HomePageController extends GetxController {
     try {
       String req = itinararyController.text.toString();
       var userUid = await getUserUID();
-      print(req);
+      debugPrint(req);
       await createItinararyUseCase
           .execute(CreateItinararyRequest(name: req, uid: userUid.toString()))
           .then((response) {
         itinararyList.add(response);
       });
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
     }
   }
 
@@ -177,7 +174,7 @@ class HomePageController extends GetxController {
         name.value = res.username ?? "Not Set";
       });
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
     }
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/components/experiences_list_view.dart';
 import 'package:wannoo/components/category_list_view.dart';
@@ -69,9 +70,9 @@ class _HomeScreenState extends State<HomeScreen> {
             CircleAvatar(
               backgroundColor: Theme.of(context).colorScheme.primaryContainer,
               radius: 20,
-              child: Text('MG'),
+              child: const FaIcon(FontAwesomeIcons.person),
             ),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
           ],
         ),
         SliverToBoxAdapter(

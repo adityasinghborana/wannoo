@@ -3,7 +3,7 @@ import 'package:wannoo/places_detail/data_layer/model/placedetails.dart';
 
 import '../../../constants.dart';
 import '../../../styles.dart';
-import 'Faq.dart';
+import 'faq.dart';
 
 class FaqSection extends StatelessWidget {
   final List<Faq> list;
@@ -29,8 +29,8 @@ class FaqSection extends StatelessWidget {
             itemBuilder: (context, index) {
               return FaqExapansionTile(
                 isExpanded: true,
-                Title: list[index].question,
-                Description: list[index].answer,
+                title: list[index].question,
+                description: list[index].answer,
               );
             },
           ),

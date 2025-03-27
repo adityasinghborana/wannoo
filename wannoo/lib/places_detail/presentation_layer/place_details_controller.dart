@@ -14,13 +14,13 @@ class PlacedetailsController extends GetxController {
   @override
   void onInit() {
     final String? amount = Get.parameters['amount'];
-    PassedAmount.value = amount ?? "";
+    passedAmount.value = amount ?? "";
     final String? id = Get.parameters['id'];
     getPlaceData(id ?? "");
     super.onInit();
   }
 
-  var PassedAmount = "".obs;
+  var passedAmount = "".obs;
   final Rx<PlacedetailsModel> demoData = PlacedetailsModel().obs;
   RxList<ImageModel> imagePaths = <ImageModel>[].obs;
 
@@ -48,7 +48,7 @@ class PlacedetailsController extends GetxController {
                 .toList() ??
             [],
         rating: 4.9,
-        price: double.parse(PassedAmount.value),
+        price: double.parse(passedAmount.value),
         title: response.tourName ?? "",
         description: response.tourDescription ?? "",
         facilities: response.importantInformation ?? "",

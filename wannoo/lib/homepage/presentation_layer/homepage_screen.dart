@@ -34,7 +34,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final HomePageController homePageController = Get.put(
+    Get.put(
       HomePageController(
         postFavUseCase: PostFavUseCase(
           ItinararyRepoImpl(

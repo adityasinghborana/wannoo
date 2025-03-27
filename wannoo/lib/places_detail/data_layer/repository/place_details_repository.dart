@@ -1,10 +1,10 @@
 import 'package:wannoo/places_detail/data_layer/service/remote.dart';
 
 import '../model/request/placesdetails.dart';
-import '../model/response/Placesdetails.dart';
+import '../model/response/places_details.dart';
 
-abstract class  PlaceDetailsRepository {
-   Future<PlaceDetails> getPlaceDetails(PlacesDetailRequest data );
+abstract class PlaceDetailsRepository {
+  Future<PlaceDetails> getPlaceDetails(PlacesDetailRequest data);
 }
 
 @override
