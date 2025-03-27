@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/components/large_button.dart';
 
@@ -17,22 +17,14 @@ class Saved extends StatelessWidget {
     final HomePageController homePageController = Get.find();
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(child: Container()),
-            const Gap(20),
-            Text(
-              "Your Itinarary List",
-              style: CustomTextStyles.fontL2SemiBold,
-            ),
-            Expanded(child: Container()),
-            InkWell(
-                onTap: () => openDialog(), child: const Icon(Icons.add_circle)),
-            const Gap(20)
-          ],
-        ),
         centerTitle: true,
+        title: const Text("Your Itinarary List"),
+        actions: [
+          IconButton(
+            onPressed: () => openDialog(),
+            icon: const FaIcon(FontAwesomeIcons.plus),
+          ),
+        ],
       ),
       body: SafeArea(
         child: Padding(
@@ -40,59 +32,60 @@ class Saved extends StatelessWidget {
           child: Column(
             children: [
               Expanded(
-                  child: Obx(
-                () => ListView.builder(
+                child: Obx(
+                  () => ListView.builder(
                     itemCount: homePageController.itinararyList
                         .length, // Set the number of items you want
                     itemBuilder: (BuildContext context, int index) => Padding(
-                          padding: const EdgeInsets.all(2),
-                          child: InkWell(
-                            onTap: () {
-                              Get.toNamed(AppRoutes.savedList, parameters: {
-                                "title": homePageController
-                                        .itinararyList[index].name ??
+                      padding: const EdgeInsets.all(2),
+                      child: InkWell(
+                        onTap: () {
+                          Get.toNamed(AppRoutes.savedList, parameters: {
+                            "title":
+                                homePageController.itinararyList[index].name ??
                                     "",
-                                "id": homePageController.itinararyList[index].id
-                                    .toString(),
-                              });
-                            },
-                            child: Container(
-                              margin: const EdgeInsets.symmetric(vertical: 5),
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: GlobalPadding.px_sm),
-                              height: 50,
-                              decoration: BoxDecoration(
-                                  color: ThemeColor.colorWhite,
-                                  boxShadow: [globalShadow]),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
+                            "id": homePageController.itinararyList[index].id
+                                .toString(),
+                          });
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.symmetric(vertical: 5),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: GlobalPadding.px_sm),
+                          height: 50,
+                          decoration: BoxDecoration(
+                              color: ThemeColor.colorWhite,
+                              boxShadow: [globalShadow]),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                          "${homePageController.itinararyList[index].name}"),
-                                      IconButton(
-                                        color: Colors.red.shade700,
-                                        onPressed: () {
-                                          homePageController.deleteItinarary(
-                                              homePageController
-                                                      .itinararyList[index]
-                                                      .id ??
-                                                  0);
-                                        },
-                                        icon: const Icon(Icons.delete),
-                                      )
-                                    ],
+                                  Text(
+                                      "${homePageController.itinararyList[index].name}"),
+                                  IconButton(
+                                    color: Colors.red.shade700,
+                                    onPressed: () {
+                                      homePageController.deleteItinarary(
+                                          homePageController
+                                                  .itinararyList[index].id ??
+                                              0);
+                                    },
+                                    icon: const Icon(Icons.delete),
                                   )
                                 ],
-                              ),
-                            ),
+                              )
+                            ],
                           ),
-                        )),
-              )),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

@@ -62,15 +62,18 @@ class _MyAppState extends State<MyApp> {
         return GetMaterialApp(
           theme: ThemeData.from(
             colorScheme: ColorScheme.fromSeed(
-                seedColor: ThemeColor.colorAccentPrimary,
-                dynamicSchemeVariant: DynamicSchemeVariant.vibrant,
-                primary: ThemeColor.colorAccentPrimary),
+              seedColor: ThemeColor.colorAccentPrimary,
+              dynamicSchemeVariant: DynamicSchemeVariant.vibrant,
+              primary: ThemeColor.colorAccentPrimary,
+            ),
+            textTheme: GoogleFonts.latoTextTheme(),
           ),
           darkTheme: ThemeData.from(
             colorScheme: ColorScheme.fromSeed(
               seedColor: ThemeColor.colorAccentPrimary,
               brightness: Brightness.dark,
             ),
+            textTheme: GoogleFonts.latoTextTheme(),
           ),
           initialRoute: savedUser != null ? AppRoutes.home : AppRoutes.splash,
           getPages: AppRoutes.routes,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/blogs/presentation_layer/blogs_controller.dart';
-import 'package:wannoo/constants.dart';
 import 'package:wannoo/homepage/presentation_layer/widgets/saved_cards.dart';
 
 import 'single_blog_screen.dart';
@@ -14,7 +13,8 @@ class BlogsScreen extends StatelessWidget {
     final BlogsController blogsController = Get.put(BlogsController());
     return Scaffold(
       appBar: AppBar(
-        title: Text("Blogs", style: CustomTextStyles.fontL2SemiBold),
+        centerTitle: true,
+        title: const Text("Blogs"),
       ),
       body: Obx(() {
         if (blogsController.allBlogsList.isEmpty) {

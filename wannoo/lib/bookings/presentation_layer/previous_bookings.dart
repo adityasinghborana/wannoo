@@ -14,7 +14,8 @@ class PreviousBookings extends StatelessWidget {
         Get.put(PreviousBookingsController());
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Previous Bookings "),
+        centerTitle: true,
+        title: const Text("Previous Bookings"),
       ),
       body: Obx(() {
         return Center(
