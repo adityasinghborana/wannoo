@@ -35,18 +35,18 @@ class SearchScreen extends StatelessWidget {
             getAllContinentsUseCase: GetAllContinentsUseCase(
                 ContinentRepoImpl(ContinentRemote(Dio())))));
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Search Places"),
-          centerTitle: true,
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(children: [
-            const CustomRow(
-              name: "Continent",
-            ),
-            const SizedBox(height: Height.heightMd),
-            CustomDropDownRow(
+      appBar: AppBar(
+        title: const Text("Search Places"),
+        centerTitle: true,
+      ),
+      body: ListView(
+        children: [
+          ListTile(
+            title: const Text("Continent"),
+            titleTextStyle: Theme.of(context).textTheme.titleSmall,
+          ),
+          ListTile(
+            title: CustomDropDownRow(
               icon: const Icon(Icons.place),
               dropdownlist: searchPageController.continentList,
               onchanged: (value) {
@@ -56,12 +56,13 @@ class SearchScreen extends StatelessWidget {
                 // Call the API related to continent selection here
               },
             ),
-            const SizedBox(height: Height.heightMd),
-            const CustomRow(
-              name: "Country",
-            ),
-            const SizedBox(height: Height.heightMd),
-            CustomDropDownRow(
+          ),
+          ListTile(
+            title: const Text("Country"),
+            titleTextStyle: Theme.of(context).textTheme.titleSmall,
+          ),
+          ListTile(
+            title: CustomDropDownRow(
               icon: const Icon(Icons.place),
               dropdownlist: searchPageController.countryList,
               onchanged: (value) {
@@ -72,24 +73,26 @@ class SearchScreen extends StatelessWidget {
                 // Call the API related to continent selection here
               },
             ),
-            const SizedBox(height: Height.heightMd),
-            const CustomRow(
-              name: "City",
-            ),
-            const SizedBox(height: Height.heightMd),
-            CustomDropDownRow(
+          ),
+          ListTile(
+            title: const Text("City"),
+            titleTextStyle: Theme.of(context).textTheme.titleSmall,
+          ),
+          ListTile(
+            title: CustomDropDownRow(
               icon: const Icon(Icons.place),
               dropdownlist: searchPageController.cityList,
               onchanged: (value) {
                 searchPageController.SelectedCity.value = value;
               },
             ),
-            const SizedBox(height: Height.heightMd),
-            const CustomRow(
-              name: "Category",
-            ),
-            const SizedBox(height: Height.heightMd),
-            CustomDropDownRow(
+          ),
+          ListTile(
+            title: const Text("Category"),
+            titleTextStyle: Theme.of(context).textTheme.titleSmall,
+          ),
+          ListTile(
+            title: CustomDropDownRow(
               icon: const Icon(Icons.category),
               dropdownlist: searchPageController.categoryList,
               onchanged: (value) {
@@ -98,9 +101,10 @@ class SearchScreen extends StatelessWidget {
                 // Call the API related to continent selection here
               },
             ),
-            const SizedBox(height: Height.heightxl),
-            LargeButton(
-              label: 'Search ',
+          ),
+          const SizedBox(height: 16),
+          ListTile(
+            title: FilledButton(
               onPressed: () {
                 if (searchPageController.SelectedCountry.isEmpty ||
                     searchPageController.SelectedContinent.isEmpty ||
@@ -110,9 +114,12 @@ class SearchScreen extends StatelessWidget {
                 }
                 searchPageController.moveto();
               },
-            )
-          ]),
-        ));
+              child: const Text('Search'),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
