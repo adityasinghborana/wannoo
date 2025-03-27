@@ -42,6 +42,7 @@ class SearchScreen extends StatelessWidget {
       body: ListView(
         children: [
           ListTile(
+            dense: true,
             title: const Text("Continent"),
             titleTextStyle: Theme.of(context).textTheme.titleSmall,
           ),
@@ -58,6 +59,7 @@ class SearchScreen extends StatelessWidget {
             ),
           ),
           ListTile(
+            dense: true,
             title: const Text("Country"),
             titleTextStyle: Theme.of(context).textTheme.titleSmall,
           ),
@@ -75,6 +77,7 @@ class SearchScreen extends StatelessWidget {
             ),
           ),
           ListTile(
+            dense: true,
             title: const Text("City"),
             titleTextStyle: Theme.of(context).textTheme.titleSmall,
           ),
@@ -88,6 +91,7 @@ class SearchScreen extends StatelessWidget {
             ),
           ),
           ListTile(
+            dense: true,
             title: const Text("Category"),
             titleTextStyle: Theme.of(context).textTheme.titleSmall,
           ),

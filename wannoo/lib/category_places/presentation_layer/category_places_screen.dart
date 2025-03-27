@@ -37,7 +37,7 @@ class CategoryPlacesScreen extends StatelessWidget {
                   },
                 );
               },
-              separatorBuilder: (context, index) => const SizedBox(height: 16),
+              separatorBuilder: (context, index) => const SizedBox(height: 24),
             ).fadeIn(
               duration: const Duration(seconds: 1),
             )
