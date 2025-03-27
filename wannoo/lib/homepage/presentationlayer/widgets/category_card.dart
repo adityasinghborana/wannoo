@@ -25,13 +25,13 @@ class CategoryCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.network(
-              '${baseurl}/$imagePath' ,
+              '${baseurl}/$imagePath',
               errorBuilder: (context, error, stackTrace) {
                 return Container(
                   width: MediaQuery.of(context)
                       .size
                       .width, // Ensures it takes up available width
-                  height:30, // Ensures it takes up available height
+                  height: 30, // Ensures it takes up available height
                   child: Image.asset(
                     image.Cat1,
                     fit: BoxFit.contain,

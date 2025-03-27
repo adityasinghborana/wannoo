@@ -108,9 +108,10 @@ class SearchScreen extends StatelessWidget {
                     searchPageController.SelectedContinent.isEmpty ||
                     searchPageController.SelectedCity.isEmpty ||
                     searchPageController.SelectedCategory.isEmpty) {
-                  return showSnackBar(context, "Plaese Select all Option");
+                  return showToast(
+                      state: StateType.Error, message: "Select All Fields");
                 }
-                searchPageController.moveto();
+                searchPageController.moveTo();
               },
             )
           ]),

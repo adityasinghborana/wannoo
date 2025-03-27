@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Item{
+class Item {
   final String title;
   final Widget icon;
   final VoidCallback onpressed;

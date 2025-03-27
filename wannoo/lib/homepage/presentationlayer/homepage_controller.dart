@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:auraa_ui/aura_ui.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -162,14 +163,25 @@ class HomePageController extends GetxController {
     }
   }
 
-  void postFavTours({required PostFavTourRequest data}) async {
+  void postFavTours(
+      {required PostFavTourRequest data, required BuildContext context}) async {
     try {
-      postFavUseCase.execute(PostFavTourRequest(
-          itineraryId: data.itineraryId,
-          tourId: data.tourId,
-          userId: data.userId));
+      postFavUseCase
+          .execute(PostFavTourRequest(
+              itineraryId: data.itineraryId,
+              tourId: data.tourId,
+              userId: data.userId))
+          .then((res) {
+        if (res != null) {
+          Navigator.of(context, rootNavigator: true).pop();
+
+          showToast(
+              state: StateType.Success, message: "Tour Added Successfully");
+        }
+      });
     } catch (e) {
-      showSnackBar(Get.context!, e.toString());
+      showToast(
+          state: StateType.Error, message: "Something Went Wrong Try Again");
     }
   }
 

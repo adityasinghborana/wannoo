@@ -4,8 +4,6 @@ import 'package:get/get.dart';
 import 'package:wannoo/Constants.dart';
 
 class CTA extends StatelessWidget {
-
-
   const CTA({super.key});
 
   @override
@@ -13,16 +11,16 @@ class CTA extends StatelessWidget {
     final PageController _pageController = PageController();
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 0),
-       child:Container(
-         height: 250,
-         child: AuraUICarousel( images: [image.homeimage,image.experiencesimages,], pageController:_pageController ,
-
-
-
-         ),
-       ),
-
-
+      child: Container(
+        height: 250,
+        child: AuraUICarousel(
+          images: [
+            image.homeimage,
+            image.experiencesimages,
+          ],
+          pageController: _pageController,
+        ),
+      ),
 
       //
       // Container(

@@ -3,8 +3,8 @@ import 'package:wannoo/places_detail/datalayer/service/remote.dart';
 import '../model/request/placesdetails.dart';
 import '../model/response/Placesdetails.dart';
 
-abstract class  PlaceDetailsRepository {
-   Future<PlaceDetails> getPlaceDetails(PlacesDetailRequest data );
+abstract class PlaceDetailsRepository {
+  Future<PlaceDetails> getPlaceDetails(PlacesDetailRequest data);
 }
 
 @override

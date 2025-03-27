@@ -16,7 +16,6 @@ class CustomListCategory extends StatelessWidget {
         height: 100,
         width: Get.width,
         child: ListView.builder(
-
           scrollDirection: Axis.horizontal,
           itemCount: homePageController.category.length,
           itemBuilder: (context, index) {
@@ -29,7 +28,8 @@ class CustomListCategory extends StatelessWidget {
                 },
                 child: CategoryCard(
                   title: homePageController.category[index].title,
-                  imagePath: homePageController.category[index].imagepath,),
+                  imagePath: homePageController.category[index].imagepath,
+                ),
               );
             });
           },

@@ -20,6 +20,5 @@ class CategoryPlacesController extends GetxController {
       return item.Category == category;
     }).toList();
     places.assignAll(list);
-
   }
 }

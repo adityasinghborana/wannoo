@@ -148,7 +148,7 @@ class CircleProgressBarPainter extends CustomPainter {
     final Size constrainedSize =
         size - Offset(strokeWidth, strokeWidth) as Size;
     final shortestSide =
-    Math.min(constrainedSize.width, constrainedSize.height);
+        Math.min(constrainedSize.width, constrainedSize.height);
     final foregroundPaint = Paint()
       ..color = foregroundColor
       ..strokeWidth = strokeWidth

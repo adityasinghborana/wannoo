@@ -21,13 +21,16 @@ class CustomDropDown extends StatelessWidget {
       }
 
       return DropdownButton<String>(
-        borderRadius:BorderRadius.circular(globalRadius.borderRadius_m),
-
-        dropdownColor:themeColor.colorWhite,
+        borderRadius: BorderRadius.circular(globalRadius.borderRadius_m),
+        dropdownColor: themeColor.colorWhite,
         isExpanded: true,
-        menuMaxHeight: Get.height/4,
-        menuWidth:Get.width,
-        hint:  Text("Select Option", style:  CustomTextStyles.fontMdSemiBold.copyWith(color: themeColor.colorTextSecondry),),
+        menuMaxHeight: Get.height / 4,
+        menuWidth: Get.width,
+        hint: Text(
+          "Select Option",
+          style: CustomTextStyles.fontMdSemiBold
+              .copyWith(color: themeColor.colorTextSecondry),
+        ),
         value: dropdownValue.value.isEmpty ? null : dropdownValue.value,
         icon: const Icon(Icons.keyboard_arrow_down_rounded),
         elevation: 16,
@@ -45,7 +48,10 @@ class CustomDropDown extends StatelessWidget {
         items: list.map<DropdownMenuItem<String>>((String value) {
           return DropdownMenuItem<String>(
             value: value,
-            child: Text(value,style: CustomTextStyles.fontMdSemiBold,),
+            child: Text(
+              value,
+              style: CustomTextStyles.fontMdSemiBold,
+            ),
           );
         }).toList(),
       );

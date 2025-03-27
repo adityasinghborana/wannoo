@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 
 Container dataNotFound({required double width, required var height}) {
   return Container(
-    margin: EdgeInsets.only(left:10,right: 10,bottom: 0,top:0),
+    margin: EdgeInsets.only(left: 10, right: 10, bottom: 0, top: 0),
     width: width,
     height: height,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-
         Text(
           'Nothing Found',
           textAlign: TextAlign.center,
@@ -37,12 +36,10 @@ Container dataNotFound({required double width, required var height}) {
   );
 }
 
-
-
 Container emptyStateColumn({required var width, required var height}) {
   return Container(
     margin: EdgeInsets.all(10),
-    width: width*1.25,
+    width: width * 1.25,
     height: height,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -63,25 +60,19 @@ Container emptyStateColumn({required var width, required var height}) {
   );
 }
 
-
-
-
 Container loadingStateColumn({required var width, required var height}) {
   return Container(
     margin: EdgeInsets.all(10),
-    width: width*1.25,
+    width: width * 1.25,
     height: height,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-
         Container(
           width: 30,
           height: 30,
-          child: CircularProgressIndicator(
-              color: Color(0xff7A992D)
-          ),
+          child: CircularProgressIndicator(color: Color(0xff7A992D)),
         ),
       ],
     ),
@@ -91,7 +82,7 @@ Container loadingStateColumn({required var width, required var height}) {
 Container errorStateColumn({required var width, required var height}) {
   return Container(
     margin: EdgeInsets.all(10),
-    width: width*1.25,
+    width: width * 1.25,
     height: height,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,

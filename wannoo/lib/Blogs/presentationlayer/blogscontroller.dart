@@ -6,10 +6,7 @@ import 'package:wannoo/Blogs/datalayer/service/blogsremote.dart';
 import 'package:wannoo/Blogs/datalayer/usecase/getallblogsusecase.dart';
 import 'package:wannoo/utilities/dialog.dart';
 
-
 class BlogsController extends GetxController {
-
-
   @override
   void onInit() {
     getAllBlogs();
@@ -18,17 +15,17 @@ class BlogsController extends GetxController {
 
   final List<AllBlogsModel> allBlogsList = <AllBlogsModel>[].obs;
 
-  final GetAllBlogsUseCase getAllBlogsUseCase = GetAllBlogsUseCase(BlogsRepoImpl(Blogsremote(Dio())));
+  final GetAllBlogsUseCase getAllBlogsUseCase =
+      GetAllBlogsUseCase(BlogsRepoImpl(Blogsremote(Dio())));
 
-  void getAllBlogs()async{
-
-    try{
-
-      await getAllBlogsUseCase.execute().then((res)=>allBlogsList.assignAll(res));
+  void getAllBlogs() async {
+    try {
+      await getAllBlogsUseCase
+          .execute()
+          .then((res) => allBlogsList.assignAll(res));
       print(allBlogsList.toList());
-    }catch(e){
-      showSnackBar(Get.context!, "$e");
+    } catch (e) {
+      showToast(state: StateType.Error, message: "${e.toString()}");
     }
   }
-
 }

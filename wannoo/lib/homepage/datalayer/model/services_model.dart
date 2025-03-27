@@ -1,4 +1,4 @@
-class ServicesModel{
+class ServicesModel {
   final String title;
   final String imagepath;
 

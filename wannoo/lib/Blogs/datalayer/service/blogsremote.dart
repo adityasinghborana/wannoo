@@ -7,8 +7,7 @@ part 'blogsremote.g.dart';
 
 @RestApi(baseUrl: baseurl)
 abstract class Blogsremote {
-  factory Blogsremote(Dio dio, {String? baseUrl}) =
-      _Blogsremote;
+  factory Blogsremote(Dio dio, {String? baseUrl}) = _Blogsremote;
 
   @GET('/blogs')
   Future<List<AllBlogsModel>> getAllBlogs();

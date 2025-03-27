@@ -10,21 +10,17 @@ part 'continentremote.g.dart';
 
 @RestApi(baseUrl: baseurl)
 abstract class ContinentRemote {
-  factory ContinentRemote(Dio dio, {String? baseUrl}) =
-      _ContinentRemote;
+  factory ContinentRemote(Dio dio, {String? baseUrl}) = _ContinentRemote;
 
   @GET('/continents')
   Future<List<AllContinents>> getContinenets();
 
   @GET('/countries')
   Future<List<CountryResponse>> getCountries({
-    @Query('name',encoded: false) required String name,
-});
+    @Query('name', encoded: false) required String name,
+  });
   @GET('/cities')
   Future<List<CityResponse>> getCities({
-    @Query('countryName',encoded: false) required String countryName,
+    @Query('countryName', encoded: false) required String countryName,
   });
-
 }
-
-

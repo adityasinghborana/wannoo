@@ -11,30 +11,23 @@ class SearchWidget extends StatelessWidget {
     return InkWell(
       onTap: () {
         Get.toNamed(AppRoutes.search);
-
       },
       child: Container(
         padding: EdgeInsets.all(globalPadding.px_sm),
-        decoration: BoxDecoration(color: themeColor.colorBgPrimary,
+        decoration: BoxDecoration(
+            color: themeColor.colorBgPrimary,
             borderRadius: BorderRadius.circular(globalRadius.borderRadius_m)),
-
         width: double.infinity,
         child: Row(
           children: [
             Icon(Icons.search),
-            SizedBox(width: 5,),
+            SizedBox(
+              width: 5,
+            ),
             Text("Serach Places ")
           ],
         ),
       ),
     );
-
-
-
-
-
-
   }
-
-
 }

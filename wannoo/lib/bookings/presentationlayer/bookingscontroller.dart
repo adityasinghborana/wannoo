@@ -50,11 +50,15 @@ class BookingsController extends GetxController {
 
   Future<void> initiateCheckout() async {
     if (nameController.text.isEmpty) {
-      showSnackBar(Get.context!, "Enter the name of the Booking Person");
+      showToast(
+          state: StateType.Error,
+          message: "Enter the name of the Booking Person");
     } else if (noOfGuest.value == 0) {
-      showSnackBar(Get.context!, "Select no of Guest Going on the Tour ");
+      showToast(
+          state: StateType.Error,
+          message: "Select no of Guest Going on the Tour ");
     } else if (date.value == "") {
-      showSnackBar(Get.context!, "Select Date ");
+      showToast(state: StateType.Error, message: "Select Date ");
     } else {
       //bookingsController.initiateCheckout();
 
@@ -68,7 +72,8 @@ class BookingsController extends GetxController {
           stripeclientkey.value = intent.clientSecret;
           print("Client Secret: ${stripeclientkey.value}");
         } else {
-          print("Error getting client secret");
+          showToast(state: StateType.Error, message: "Something Went Wrong");
+
           Get.toNamed('/paymentFailure');
           return;
         }
@@ -102,13 +107,15 @@ class BookingsController extends GetxController {
 
           nameController.clear();
           bookingsUseCase.execute(r).then((response) {
-            print("Payment successful");
+            showToast(state: StateType.Success, message: "Payment Successfull");
             Get.toNamed(AppRoutes.paymentSuccess);
           });
         } else {
           nameController.clear();
 
-          print("Payment not successful: ${paymentIntent.status}");
+          showToast(
+              state: StateType.Success,
+              message: "Error ${paymentIntent.status}");
           Get.toNamed(AppRoutes.paymentFailure);
         }
       } catch (e) {

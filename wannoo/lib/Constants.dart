@@ -14,6 +14,7 @@ class themeColor {
   static const Color colorWhite = Color(0xffFFFFFF);
   static const Color colorBorder = Color(0xffD1D1D1);
   static const Color navbarColor = Color(0xff9D9D9D);
+  static const Color success = Color(0xff2ec900);
 }
 
 class globalPadding {

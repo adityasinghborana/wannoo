@@ -13,7 +13,7 @@ class ServicesCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding:
-          EdgeInsets.symmetric(horizontal: globalPadding.px_md,vertical: 5),
+          EdgeInsets.symmetric(horizontal: globalPadding.px_md, vertical: 5),
       child: Material(
         color: themeColor.colorWhite,
         borderRadius: BorderRadius.circular(globalRadius.borderRadius_m),
@@ -22,7 +22,17 @@ class ServicesCard extends StatelessWidget {
           width: 110,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [Image.asset(imagePath,height: 18,width: 18,), Text(title,style: TypographyStyle.mdFont,)],
+            children: [
+              Image.asset(
+                imagePath,
+                height: 18,
+                width: 18,
+              ),
+              Text(
+                title,
+                style: TypographyStyle.mdFont,
+              )
+            ],
           ),
         ),
       ),

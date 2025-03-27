@@ -11,6 +11,7 @@ import 'package:wannoo/AuthModule/SignupModule/usersdatalayer/usecase/create_use
 
 import '../../../routes.dart';
 import '../../../utilities/Authclass.dart';
+import '../../../utilities/dialog.dart';
 import '../usersdatalayer/service/create_user_remote.dart';
 
 class SignUpController extends GetxController {
@@ -45,7 +46,9 @@ class SignUpController extends GetxController {
       }
     } catch (e) {
       final errorMessage = e.toString().replaceFirst('firebase_auth/', '');
-      Get.snackbar("Error", errorMessage);
+      showToast(
+          state: StateType.Error,
+          message: errorMessage ?? "Something went wrong");
     }
   }
 
@@ -58,17 +61,6 @@ class SignUpController extends GetxController {
       }
     }
   }
-
-  // void createCart(String uid) async {
-  //   try {
-  //     final request = CreateCartRequest(userId: uid);
-  //     await createCartUseCase.execute(request);
-  //   } catch (e) {
-  //     if (kDebugMode) {
-  //       print(e);
-  //     }
-  //   }
-  // }
 
   Future<void> googleSignUp(BuildContext context) async {
     try {
@@ -97,12 +89,8 @@ class SignUpController extends GetxController {
       }
     } catch (e) {
       print("Google sign-up error: $e");
-      showSnackBar(context, e.toString());
+      showToast(state: StateType.Error, message: e.toString());
       Get.toNamed(AppRoutes.signup);
     }
-  }
-
-  void showSnackBar(BuildContext context, String text) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
   }
 }

@@ -58,7 +58,6 @@ class _IntroScreenOnboardingState extends State<IntroScreenOnboarding> {
                   ],
                 ),
                 Flexible(
-
                   child: PageView(
                     physics: ClampingScrollPhysics(),
                     controller: _pageController,
@@ -91,7 +90,7 @@ class _IntroScreenOnboardingState extends State<IntroScreenOnboarding> {
           child: CircleProgressBar(
             backgroundColor: Colors.white,
             foregroundColor:
-            widget.foregroundColor ?? Theme.of(context).primaryColor,
+                widget.foregroundColor ?? Theme.of(context).primaryColor,
             value: ((_currentPage + 1) * 1.0 / widget.introductionList!.length),
           ),
         ),
@@ -107,9 +106,9 @@ class _IntroScreenOnboardingState extends State<IntroScreenOnboarding> {
             onPressed: () {
               _currentPage != widget.introductionList!.length - 1
                   ? _pageController.nextPage(
-                duration: Duration(milliseconds: 500),
-                curve: Curves.ease,
-              )
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.ease,
+                    )
                   : widget.onTapSkipButton!();
             },
             icon: Icon(

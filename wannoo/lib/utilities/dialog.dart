@@ -1,3 +1,4 @@
+import 'package:auraa_ui/aura_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/Categoryplaces/presentationlayer/categoryplacesscreen.dart';
@@ -9,51 +10,31 @@ import 'package:wannoo/utilities/extension.dart';
 
 import '../homepage/presentationlayer/homepage_controller.dart';
 
-Future<void> showMyDialog(BuildContext context, List<String> items) async {
-  // A list to keep track of checkbox states
-  List<bool> checkedStates = List<bool>.filled(items.length, false);
+enum StateType { Error, Success, Info }
 
-  return showDialog<void>(
-    context: context,
-    barrierDismissible: false, // user must tap button!
-    builder: (BuildContext context) {
-      return StatefulBuilder(
-        builder: (BuildContext context, StateSetter setState) {
-          return AlertDialog(
-            title: const Text('Add To Itinerary'),
-            content: SingleChildScrollView(
-              child: ListBody(
-                children: List<Widget>.generate(items.length, (index) {
-                  return CheckboxListTile(
-                    title: Text(items[index]),
-                    value: checkedStates[index],
-                    onChanged: (bool? value) {
-                      setState(() {
-                        checkedStates[index] = value ?? false;
-                      });
-                    },
-                  );
-                }),
-              ),
-            ),
-            actions: <Widget>[
-              TextButton(
-                child: const Text('Approve'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                  // Process checkedStates if needed
-                },
-              ),
-            ],
-          );
-        },
-      );
-    },
-  );
-}
+void showToast({required StateType state, required String message}) {
+  Color bgColor;
 
-void showSnackBar(BuildContext context, String text) {
-  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
+  switch (state) {
+    case StateType.Error:
+      bgColor = themeColor.colorAccentSecondory;
+      break;
+    case StateType.Success:
+      bgColor = themeColor.success;
+      break;
+    case StateType.Info:
+      bgColor = themeColor.colorBgSecondory;
+      break;
+  }
+  // If message contains "firebase_auth/" or "firebase/", remove it, else keep the original message
+  final modifiedMessage = message.contains(RegExp(r'firebase(_auth)?/'))
+      ? message.replaceAll(RegExp(r'firebase(_auth)?/'), '')
+      : message;
+  return simpleToastMessage(
+      text: modifiedMessage,
+      textColour: themeColor.colorWhite,
+      color: bgColor,
+      context: Get.context!);
 }
 
 Future<void> showMyModalBottomSheet(
@@ -105,6 +86,7 @@ Future<void> showMyModalBottomSheet(
                                       var User = await getUserUID();
 
                                       homePageController.postFavTours(
+                                          context: context,
                                           data: PostFavTourRequest(
                                               itineraryId: items[index].id ?? 0,
                                               tourId: selectedTourId,

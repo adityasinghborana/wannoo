@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:wannoo/Constants.dart';
 import 'package:wannoo/styles.dart';
 
-
 class FaqExapansionTile extends StatelessWidget {
   final bool isExpanded;
   final String Title;
   final String Description;
 
-FaqExapansionTile({
+  FaqExapansionTile({
     required this.isExpanded,
     required this.Title,
     required this.Description,
@@ -22,7 +21,8 @@ FaqExapansionTile({
         decoration: BoxDecoration(
           border: Border(
             top: BorderSide(
-              color: themeColor.colorBorder, // Change the color to your desired color
+              color: themeColor
+                  .colorBorder, // Change the color to your desired color
               width: 1.0, // Adjust the width of the border as needed
             ),
             // bottom: BorderSide(
@@ -38,10 +38,11 @@ FaqExapansionTile({
           // Define the shape with borders for top and bottom only
           tilePadding: EdgeInsets.zero, // Remove default padding
           childrenPadding:
-          EdgeInsets.symmetric(horizontal: globalPadding.px_sm),
+              EdgeInsets.symmetric(horizontal: globalPadding.px_sm),
           trailing: Icon(
-            Icons.add ,// Change the icon to your desired icon
-            color: themeColor.colorTextSecondry, // Change the color of the icon if needed
+            Icons.add, // Change the icon to your desired icon
+            color: themeColor
+                .colorTextSecondry, // Change the color of the icon if needed
           ),
           title: Text(
             Title,
