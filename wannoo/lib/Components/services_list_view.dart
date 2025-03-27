@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../homepage/presentationlayer/homepage_controller.dart';
+import '../homepage/presentation_layer/homepage_controller.dart';
 
-import '../homepage/presentationlayer/widgets/services_card.dart';
+import '../homepage/presentation_layer/widgets/services_card.dart';
 
 
 class ServicesListview extends StatelessWidget {

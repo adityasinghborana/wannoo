@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:wannoo/Components/large_button.dart';
+import 'package:wannoo/components/large_button.dart';
 import 'package:wannoo/constants.dart';
-import 'package:wannoo/profile/presentationlayer/helpscreencontroller.dart';
+import 'package:wannoo/profile/presentationlayer/help_screen_controller.dart';
 
-import '../Components/text_field.dart';
+import '../components/text_field.dart';
 
 class HelpScreen extends StatelessWidget {
   const HelpScreen({super.key});

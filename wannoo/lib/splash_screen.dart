@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:wannoo/constants.dart';
-import 'Onboardingscreen/presentation/onboarding_screen.dart';
+import 'onboarding_screen/presentation/onboarding_screen.dart';
 // Import your constants
 
 class SplashScreen extends StatelessWidget {

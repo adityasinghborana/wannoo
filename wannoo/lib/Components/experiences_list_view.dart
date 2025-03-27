@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wannoo/Components/empty_state.dart';
-import 'package:wannoo/Components/experiences_card.dart';
+import 'package:wannoo/components/empty_state.dart';
+import 'package:wannoo/components/experiences_card.dart';
 import 'package:wannoo/routes.dart';
-import '../homepage/datalayer/model/experiences_model.dart';
-import '../homepage/presentationlayer/homepage_controller.dart';
+import '../homepage/data_layer/model/experiences_model.dart';
+import '../homepage/presentation_layer/homepage_controller.dart';
 
 class ExperiencesListview extends StatelessWidget {
   final HomePageController homePageController = Get.find();
@@ -17,8 +17,7 @@ class ExperiencesListview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: Get.height / 5,
-      width: Get.width,
+      height: 216,
       child: Obx(() {
         List<ExperiencesModel> filteredTours =
             homePageController.experiences.where((tour) {
@@ -47,27 +46,27 @@ class ExperiencesListview extends StatelessWidget {
           return dataNotFound(width: Get.width, height: 150.00);
         }
 
-        return ListView.builder(
+        return ListView.separated(
           scrollDirection: Axis.horizontal,
           itemCount: filteredTours.length,
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           itemBuilder: (context, index) {
-            return InkWell(
+            return ExperiencesCard(
+              price: filteredTours[index].price ?? 0.0,
+              selectedTourId: filteredTours[index].internaTourid,
+              isfav: true,
+              title: filteredTours[index].title,
+              imagePath: filteredTours[index].imagepath,
+              location: filteredTours[index].location,
               onTap: () {
                 Get.toNamed(AppRoutes.placedetails, parameters: {
                   'id': "${filteredTours[index].id}",
                   'amount': filteredTours[index].price.toString(),
                 });
               },
-              child: ExperiencesCard(
-                price: filteredTours[index].price ?? 0.0,
-                selectedTourId: filteredTours[index].internaTourid,
-                isfav: true,
-                title: filteredTours[index].title,
-                imagePath: filteredTours[index].imagepath,
-                location: filteredTours[index].location,
-              ),
             );
           },
+          separatorBuilder: (context, index) => const SizedBox(width: 8),
         );
       }),
     );

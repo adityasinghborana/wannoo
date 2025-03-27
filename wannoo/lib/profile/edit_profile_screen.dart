@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:wannoo/AuthModule/LoginModule/presentation/login_controller.dart';
-import 'package:wannoo/Components/confirmationdialog.dart';
-import 'package:wannoo/Components/large_button_2.dart';
+import 'package:wannoo/auth_module/login_module/presentation/login_controller.dart';
+import 'package:wannoo/components/confirmation_dialog.dart';
+import 'package:wannoo/components/large_button_2.dart';
 import 'package:wannoo/constants.dart';
 import 'package:wannoo/profile/edit_profile_controller.dart';
 
-import '../Components/text_field.dart';
-import '../Components/borderbutton.dart';
+import '../components/text_field.dart';
+import '../components/border_button.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({super.key});

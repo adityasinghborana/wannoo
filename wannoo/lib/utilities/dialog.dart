@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wannoo/Components/large_button_2.dart';
+import 'package:wannoo/components/large_button_2.dart';
 import 'package:wannoo/constants.dart';
-import 'package:wannoo/itinarary/datalayer/model/request/post_fav_tour.dart';
+import 'package:wannoo/itinarary/data_layer/model/request/post_fav_tour.dart';
 import 'package:wannoo/utilities/auth_class.dart';
 
-import '../homepage/presentationlayer/homepage_controller.dart';
+import '../homepage/presentation_layer/homepage_controller.dart';
 
 Future<void> showMyDialog(BuildContext context, List<String> items) async {
   // A list to keep track of checkbox states

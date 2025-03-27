@@ -5,134 +5,111 @@ import 'package:get/get.dart';
 
 import '../constants.dart';
 
-class PlacesCards extends StatelessWidget {
+class PlacesCard extends StatelessWidget {
   final String title;
   final String image;
   final String location;
   final double rating;
   final double price;
+  final VoidCallback? onTap;
 
-  const PlacesCards(
-      {super.key,
-      required this.title,
-      required this.image,
-      required this.location,
-      this.rating = 4.7,
-      this.price = 250});
+  const PlacesCard({
+    super.key,
+    required this.title,
+    required this.image,
+    required this.location,
+    this.rating = 4.7,
+    this.price = 250,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Get.height / 8,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(GlobalRadius.borderRadius_s),
-        boxShadow: [
-          BoxShadow(
-              color: Colors.black.withValues(alpha: 0.1),
-              spreadRadius: 6,
-              blurRadius: 10)
-        ],
-        color: ThemeColor
-            .colorBgPrimary, // Optional: background color for visibility
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Flexible(
-              flex: 1,
+      height: 140,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12),
+        onTap: onTap,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: 16,
+          children: [
+            AspectRatio(
+              aspectRatio: 1,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.network(
+                  image,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Expanded(
               child: Column(
-                children: [
-                  Expanded(
-                    child: SizedBox(
-                      height: 150,
-                      child: ClipRRect(
-                        borderRadius: const BorderRadius.only(
-                            topLeft:
-                                Radius.circular(GlobalRadius.borderRadius_s),
-                            bottomLeft:
-                                Radius.circular(GlobalRadius.borderRadius_s)),
-                        child: Image.network(
-                          image,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              )),
-          Flexible(
-            flex: 2,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 8.0, vertical: GlobalPadding.px_md),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: 8,
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        title,
-                        style: CustomTextStyles.fontMdMedium,
+                      Expanded(
+                        child: Text(
+                          title,
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
                       ),
-                      const Icon(
-                        FontAwesomeIcons.bookmark,
-                        color: ThemeColor.colorTextSecondry,
-                        size: 15,
+                      IconButton(
+                        icon: const FaIcon(
+                          FontAwesomeIcons.bookmark,
+                          size: 20,
+                        ),
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        onPressed: () {},
                       ),
                     ],
                   ),
+                  const Spacer(),
                   Row(
+                    spacing: 8,
                     children: [
-                      const Icon(
+                      Icon(
                         FontAwesomeIcons.locationDot,
-                        color: ThemeColor.colorBgSecondory,
-                        size: 15,
+                        color: Theme.of(context).colorScheme.primary,
+                        size: Theme.of(context).textTheme.titleSmall?.fontSize,
                       ),
-                      const Gap(10),
                       Text(
                         location,
-                        style: const TextStyle(
-                          color: ThemeColor.colorTextPrimary,
-                        ),
+                        style: Theme.of(context).textTheme.titleSmall,
                       ),
                     ],
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    spacing: 8,
                     children: [
-                      Row(
-                        children: [
-                          const Icon(
-                            FontAwesomeIcons.star,
-                            color: ThemeColor.colorBgSecondory,
-                            size: 15,
-                          ),
-                          const Gap(10),
-                          Text(
-                            "$rating",
-                            style: const TextStyle(
-                              color: ThemeColor.colorTextPrimary,
-                            ),
-                          ),
-                        ],
+                      Icon(
+                        FontAwesomeIcons.star,
+                        color: Theme.of(context).colorScheme.primary,
+                        size: Theme.of(context).textTheme.labelLarge?.fontSize,
                       ),
-                      Row(
-                        children: [
-                          const Text("Price"),
-                          const Gap(10),
-                          Text("\$ $price")
-                        ],
-                      )
+                      Text(
+                        "$rating",
+                        style: Theme.of(context).textTheme.labelLarge,
+                      ),
+                      const Spacer(),
+                      Text(
+                        "\$$price",
+                        style: Theme.of(context).textTheme.labelLarge,
+                      ),
+                      const SizedBox(width: 8),
                     ],
                   ),
+                  const SizedBox(height: 4),
                 ],
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

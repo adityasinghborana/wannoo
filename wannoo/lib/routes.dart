@@ -1,24 +1,24 @@
 import 'package:get/get.dart';
-import 'package:wannoo/AuthModule/LoginModule/presentation/login_screen.dart';
-import 'package:wannoo/AuthModule/signup_module/presentation/signup_screen.dart';
-import 'package:wannoo/Categoryplaces/presentationlayer/categoryplacesscreen.dart';
-import 'package:wannoo/bookings/presentationlayer/bookingsscreen.dart';
-import 'package:wannoo/bookings/presentationlayer/external_site.dart';
-import 'package:wannoo/bookings/presentationlayer/paymentfailure.dart';
-import 'package:wannoo/categories/presentationlayer/categoryscreen.dart';
-import 'package:wannoo/congratulations/presentationlayer/congratulation_screen.dart';
-import 'package:wannoo/homepage/presentationlayer/homepage_screen.dart';
-import 'package:wannoo/itinarary/presentationlayer/Itinarary_screen.dart';
-import 'package:wannoo/places_detail/presentationlayer/placedetails_screen.dart';
+import 'package:wannoo/auth_module/login_module/presentation/login_screen.dart';
+import 'package:wannoo/auth_module/signup_module/presentation/signup_screen.dart';
+import 'package:wannoo/category_places/presentation_layer/category_places_screen.dart';
+import 'package:wannoo/bookings/presentation_layer/bookings_screen.dart';
+import 'package:wannoo/bookings/presentation_layer/external_site.dart';
+import 'package:wannoo/bookings/presentation_layer/payment_failure.dart';
+import 'package:wannoo/categories/presentation_layer/category_screen.dart';
+import 'package:wannoo/congratulations/presentation_layer/congratulation_screen.dart';
+import 'package:wannoo/homepage/presentation_layer/homepage_screen.dart';
+import 'package:wannoo/itinarary/presentation_layer/Itinarary_screen.dart';
+import 'package:wannoo/places_detail/presentation_layer/placedetails_screen.dart';
 import 'package:wannoo/profile/edit_profile_screen.dart';
 import 'package:wannoo/profile/help_screen.dart';
 import 'package:wannoo/profile/legal_screen.dart';
-import 'package:wannoo/profile/presentationlayer/profilescreen.dart';
-import 'package:wannoo/search/presentationlayer/searchresultscreen.dart';
-import 'package:wannoo/search/presentationlayer/searchscreen.dart';
+import 'package:wannoo/profile/presentationlayer/profile_screen.dart';
+import 'package:wannoo/search/presentation_layer/search_result_screen.dart';
+import 'package:wannoo/search/presentation_layer/search_screen.dart';
 import 'package:wannoo/splash_screen.dart';
-import 'Onboardingscreen/presentation/onboarding_screen.dart';
-import 'bookings/presentationlayer/paymentsucess.dart'; // Splash screen widget
+import 'onboarding_screen/presentation/onboarding_screen.dart';
+import 'bookings/presentation_layer/payment_sucess.dart'; // Splash screen widget
 
 class AppRoutes {
   static const splash = '/';

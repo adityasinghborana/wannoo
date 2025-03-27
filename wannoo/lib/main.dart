@@ -60,14 +60,18 @@ class _MyAppState extends State<MyApp> {
         debugPrint("Hello, saved UID: ${savedUser ?? 'No UID found'}");
 
         return GetMaterialApp(
-          theme: ThemeData(
-            fontFamily: GoogleFonts.inter().fontFamily,
-            scaffoldBackgroundColor: ThemeColor.colorscafold,
-            appBarTheme: const AppBarTheme(
-              color: ThemeColor.colorBgPrimary,
+          theme: ThemeData.from(
+            colorScheme: ColorScheme.fromSeed(
+                seedColor: ThemeColor.colorAccentPrimary,
+                dynamicSchemeVariant: DynamicSchemeVariant.vibrant,
+                primary: ThemeColor.colorAccentPrimary),
+          ),
+          darkTheme: ThemeData.from(
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: ThemeColor.colorAccentPrimary,
+              brightness: Brightness.dark,
             ),
           ),
-          debugShowCheckedModeBanner: false,
           initialRoute: savedUser != null ? AppRoutes.home : AppRoutes.splash,
           getPages: AppRoutes.routes,
         );
