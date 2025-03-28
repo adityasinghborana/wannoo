@@ -22,7 +22,7 @@ class PlacesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 140,
+      height: MediaQuery.textScalerOf(context).scale(140),
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: InkWell(
         borderRadius: BorderRadius.circular(12),

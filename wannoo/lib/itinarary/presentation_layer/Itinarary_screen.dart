@@ -49,7 +49,6 @@ class ItinararyScreen extends StatelessWidget {
                 scrollDirection: Axis.vertical,
                 itemCount: itinararyController.savedTours.length,
                 itemBuilder: (context, index) {
-                  print(itinararyController.savedTours.length);
                   return InkWell(
                     onTap: () {
                       Get.toNamed(AppRoutes.placedetails, parameters: {

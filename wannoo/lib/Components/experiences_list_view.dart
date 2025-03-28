@@ -17,7 +17,7 @@ class ExperiencesListview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 216,
+      height: MediaQuery.textScalerOf(context).scale(220),
       child: Obx(() {
         List<ExperiencesModel> filteredTours =
             homePageController.experiences.where((tour) {

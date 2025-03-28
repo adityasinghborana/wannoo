@@ -15,31 +15,32 @@ class PreviousBookings extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("Previous Bookings"),
+        title: const Text("Bookings"),
       ),
-      body: Obx(() {
-        return Center(
-            child: previousBookingsController.previousBookings.isEmpty
-                ? dataNotFound(width: Get.width, height: 300.00)
-                : ListView.builder(
-                    itemCount:
-                        previousBookingsController.previousBookings.length,
-                    itemBuilder: (_, int index) {
-                      var data =
-                          previousBookingsController.previousBookings[index];
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: PreviousBookingCard(
-                          title: data.status ?? "",
-                          amount: data.serviceTotal ?? 0.0,
-                          subInfoText: '${data.tourDate}',
-                          passengers: data.passengers.toString(),
-                          bookedat: data.createdAt.toString().substring(0, 10),
-                          tourname: data.tour?.tourName ?? "",
-                        ),
-                      );
-                    }));
-      }),
+      body: Obx(
+        () {
+          return previousBookingsController.previousBookings.isEmpty
+              ? dataNotFound(width: Get.width, height: 300.00)
+              : ListView.builder(
+                  itemCount: previousBookingsController.previousBookings.length,
+                  itemBuilder: (_, int index) {
+                    var data =
+                        previousBookingsController.previousBookings[index];
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: PreviousBookingCard(
+                        title: data.status ?? "",
+                        amount: data.serviceTotal ?? 0.0,
+                        subInfoText: '${data.tourDate}',
+                        passengers: data.passengers.toString(),
+                        bookedat: data.createdAt.toString().substring(0, 10),
+                        tourname: data.tour?.tourName ?? "",
+                      ),
+                    );
+                  },
+                );
+        },
+      ),
     );
   }
 }

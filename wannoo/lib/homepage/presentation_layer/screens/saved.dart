@@ -16,7 +16,7 @@ class Saved extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("Your Itinarary List"),
+        title: const Text("Itineraries"),
       ),
       body: Obx(
         () => homePageController.itinararyList.isNotEmpty
