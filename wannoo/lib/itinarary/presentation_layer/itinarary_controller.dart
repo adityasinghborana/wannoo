@@ -44,7 +44,7 @@ class ItinararyController extends GetxController {
             price: tour.tourpricing?.amount ?? 0)));
       });
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
     }
   }
 
@@ -52,9 +52,6 @@ class ItinararyController extends GetxController {
     var uid = await getUserUID();
     var data = DeleteUserFavTourRequest(
         id: uid, itineraryId: itinararyId, tourId: tourId);
-
-    print(data.toJson());
-
     try {
       deleteFavTourUseCase.execute(data).then((e) {
         if (e.id != null) {

@@ -16,30 +16,24 @@ class SearchResultController extends GetxController {
 
   final RxList<ExperiencesModel> searchedPlaces = <ExperiencesModel>[].obs;
   void getFilteredExperiences(
-    String SelectedContinent,
-    String SelectedCountry,
-    String SelectedCity,
-    String SelectedCategory,
+    String selectedContinent,
+    String selectedCountry,
+    String selectedCity,
+    String selectedCategory,
   ) {
-    print(SelectedCity);
     final HomePageController homePageController = Get.find();
     // Apply filtering based on multiple fields
     List<ExperiencesModel> filteredList =
         homePageController.experiences.where((experience) {
-      print("City ${experience.location.toLowerCase().trim()}");
-      print("City ${SelectedCategory.trim().toLowerCase()}");
       return (experience.continent?.toLowerCase() ==
-              SelectedContinent.toLowerCase()) &&
+              selectedContinent.toLowerCase()) &&
           (experience.country!.toLowerCase() ==
-              SelectedCountry.toLowerCase()) &&
+              selectedCountry.toLowerCase()) &&
           (experience.location.toLowerCase().trim() ==
-              SelectedCity.toLowerCase().trim()) &&
+              selectedCity.toLowerCase().trim()) &&
           (experience.category.trim().toLowerCase() ==
-              SelectedCategory.trim().toLowerCase());
+              selectedCategory.trim().toLowerCase());
     }).toList();
-    print(homePageController.experiences);
-    print(searchedPlaces.toList());
     searchedPlaces.assignAll(filteredList);
-    print("Filtered list: $filteredList");
   }
 }

@@ -56,8 +56,6 @@ void showSnackBar(BuildContext context, String text) {
 
 Future<void> showMyModalBottomSheet(
     BuildContext context, int selectedTourId) async {
-  print(selectedTourId);
-
   await showModalBottomSheet(
     backgroundColor: ThemeColor.colorscafold,
     context: context,
@@ -97,16 +95,17 @@ Future<void> showMyModalBottomSheet(
                                 height: 30,
                                 width: 100,
                                 child: LargeButton2(
-                                    label: "Add ",
-                                    height: 90,
-                                    onPressed: () async {
-                                      var user = await getUserUID();
-                                      homePageController.postFavTours(
-                                          data: PostFavTourRequest(
-                                              itineraryId: items[index].id ?? 0,
-                                              tourId: selectedTourId,
-                                              userId: user ?? ""));
-                                    }),
+                                  label: "Add ",
+                                  height: 90,
+                                  onPressed: () async {
+                                    var user = await getUserUID();
+                                    homePageController.postFavTours(
+                                        data: PostFavTourRequest(
+                                            itineraryId: items[index].id ?? 0,
+                                            tourId: selectedTourId,
+                                            userId: user ?? ""));
+                                  },
+                                ),
                               )
                             ],
                           ),
