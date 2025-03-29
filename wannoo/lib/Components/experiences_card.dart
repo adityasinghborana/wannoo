@@ -35,7 +35,6 @@ class ExperiencesCard extends StatelessWidget {
       child: Card.outlined(
         clipBehavior: Clip.antiAlias,
         child: InkWell(
-          borderRadius: BorderRadius.circular(8),
           onTap: onTap,
           child: Column(
             children: [
@@ -50,8 +49,10 @@ class ExperiencesCard extends StatelessWidget {
                       ),
                       height: 160,
                       width: 160,
-                      child: Image.network(
-                        imagePath,
+                      child: Ink.image(
+                        image: NetworkImage(
+                          imagePath,
+                        ),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -99,10 +100,11 @@ class ExperiencesCard extends StatelessWidget {
                           style: Theme.of(context).textTheme.labelMedium,
                         ),
                         const Spacer(),
-                        Text(
-                          "$price",
-                          style: Theme.of(context).textTheme.labelMedium,
-                        ),
+                        if (isPriceVisible)
+                          Text(
+                            "$price",
+                            style: Theme.of(context).textTheme.labelMedium,
+                          ),
                       ],
                     ),
                   ],

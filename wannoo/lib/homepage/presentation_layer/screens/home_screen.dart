@@ -156,10 +156,13 @@ class _HomeScreenState extends State<HomeScreen> {
             titleTextStyle: Theme.of(context).textTheme.titleLarge,
           ),
         ),
-        SliverToBoxAdapter(
-          child: ExperiencesListview(
-            filterProperty: 'Hiking',
-            isFilteredList: false,
+        SliverPadding(
+          padding: const EdgeInsets.only(bottom: 16),
+          sliver: SliverToBoxAdapter(
+            child: ExperiencesListview(
+              filterProperty: 'Hiking',
+              isFilteredList: false,
+            ),
           ),
         ),
       ],

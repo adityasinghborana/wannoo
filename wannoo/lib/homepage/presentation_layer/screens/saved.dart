@@ -1,18 +1,24 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:wannoo/constants.dart';
 
 import 'package:wannoo/homepage/presentation_layer/homepage_controller.dart';
+import 'package:wannoo/itinarary/data_layer/model/request/favtourrequest.dart';
+import 'package:wannoo/itinarary/data_layer/repository/itinarary_repository.dart';
+import 'package:wannoo/itinarary/data_layer/service/itinarary_remote.dart';
 import 'package:wannoo/routes.dart';
-
-import '../../../components/text_field.dart';
 
 class Saved extends StatelessWidget {
   const Saved({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final HomePageController homePageController = Get.find();
+    final homePageController = Get.find<HomePageController>();
+    final itineraryRepo = ItinararyRepoImpl(
+      ItinararyRemote(Dio()),
+    );
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -28,22 +34,208 @@ class Saved extends StatelessWidget {
                   final name = (itinerary.name ?? '').isEmpty
                       ? 'Unnamed itinerary'
                       : itinerary.name!;
-                  return ListTile(
-                    title: Text(name),
-                    trailing: IconButton(
-                      onPressed: () {
-                        homePageController.deleteItinarary(itinerary.id ?? 0);
-                      },
-                      icon: const Icon(Icons.delete),
+
+                  return FutureBuilder(
+                    future: itineraryRepo.getFavTours(
+                      FavTourRequest(id: itinerary.id!),
                     ),
-                    onTap: () {
-                      Get.toNamed(AppRoutes.savedList, parameters: {
-                        "title":
-                            homePageController.itinararyList[index].name ?? "",
-                        "id": homePageController.itinararyList[index].id
-                            .toString(),
-                      });
-                    },
+                    builder: (context, tours) => ListTile(
+                      minTileHeight: 72,
+                      leading: Container(
+                        clipBehavior: Clip.hardEdge,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .surfaceContainerHighest,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        height: 56,
+                        width: 56,
+                        child: Builder(
+                          builder: (context) {
+                            if (!tours.hasData) {
+                              return const SizedBox.shrink();
+                            } else if (tours.data!.isEmpty) {
+                              return Center(
+                                child: Text(
+                                  itinerary.name!.toUpperCase().substring(0, 1),
+                                  style: Theme.of(context).textTheme.labelLarge,
+                                ),
+                              );
+                            } else if (tours.data!.length > 3) {
+                              return Column(
+                                children: [
+                                  Expanded(
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          child: Image.network(
+                                            '$baseurl/${tours.data![0].imagePath!}',
+                                            height: 28,
+                                            width: 28,
+                                            fit: BoxFit.cover,
+                                            errorBuilder:
+                                                (context, error, stackTrace) =>
+                                                    Center(
+                                              child: Text(
+                                                itinerary.name!
+                                                    .toUpperCase()
+                                                    .substring(0, 1),
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .labelLarge,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Image.network(
+                                            '$baseurl/${tours.data![1].imagePath!}',
+                                            height: 28,
+                                            width: 28,
+                                            fit: BoxFit.cover,
+                                            errorBuilder:
+                                                (context, error, stackTrace) =>
+                                                    Center(
+                                              child: Text(
+                                                itinerary.name!
+                                                    .toUpperCase()
+                                                    .substring(0, 1),
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .labelLarge,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          child: Image.network(
+                                            '$baseurl/${tours.data![2].imagePath!}',
+                                            height: 28,
+                                            width: 28,
+                                            fit: BoxFit.cover,
+                                            errorBuilder:
+                                                (context, error, stackTrace) =>
+                                                    Center(
+                                              child: Text(
+                                                itinerary.name!
+                                                    .toUpperCase()
+                                                    .substring(0, 1),
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .labelLarge,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Image.network(
+                                            '$baseurl/${tours.data![3].imagePath!}',
+                                            height: 28,
+                                            width: 28,
+                                            fit: BoxFit.cover,
+                                            errorBuilder:
+                                                (context, error, stackTrace) =>
+                                                    Center(
+                                              child: Text(
+                                                itinerary.name!
+                                                    .toUpperCase()
+                                                    .substring(0, 1),
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .labelLarge,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              );
+                            } else if (tours.data!.length > 1) {
+                              return Row(
+                                children: [
+                                  Expanded(
+                                    child: Image.network(
+                                      '$baseurl/${tours.data!.first.imagePath!}',
+                                      height: 56,
+                                      width: 28,
+                                      fit: BoxFit.cover,
+                                      errorBuilder:
+                                          (context, error, stackTrace) =>
+                                              Center(
+                                        child: Text(
+                                          itinerary.name!
+                                              .toUpperCase()
+                                              .substring(0, 1),
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .labelLarge,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Image.network(
+                                      '$baseurl/${tours.data!.last.imagePath!}',
+                                      height: 56,
+                                      width: 28,
+                                      fit: BoxFit.cover,
+                                      errorBuilder:
+                                          (context, error, stackTrace) =>
+                                              Center(
+                                        child: Text(
+                                          itinerary.name!
+                                              .toUpperCase()
+                                              .substring(0, 1),
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .labelLarge,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              );
+                            }
+
+                            return Image.network(
+                              '$baseurl/${tours.data!.first.imagePath!}',
+                              height: 56,
+                              width: 56,
+                              fit: BoxFit.cover,
+                              errorBuilder: (context, error, stackTrace) =>
+                                  Center(
+                                child: Text(
+                                  itinerary.name!.toUpperCase().substring(0, 1),
+                                  style: Theme.of(context).textTheme.labelLarge,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      title: Text(name),
+                      onTap: () {
+                        Get.toNamed(
+                          AppRoutes.savedList,
+                          parameters: {
+                            "title":
+                                homePageController.itinararyList[index].name ??
+                                    "",
+                            "id": homePageController.itinararyList[index].id
+                                .toString(),
+                          },
+                        );
+                      },
+                    ),
                   );
                 },
               )
@@ -54,12 +246,13 @@ class Saved extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   spacing: 16,
                   children: [
-                    const FaIcon(
+                    FaIcon(
                       FontAwesomeIcons.plane,
                       size: 56,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
                     ),
                     Text(
-                      'Create an itinerary and start planning your adventure',
+                      'Create an itinerary and start planning your adventures',
                       style: Theme.of(context).textTheme.bodyLarge,
                       textAlign: TextAlign.center,
                     ),

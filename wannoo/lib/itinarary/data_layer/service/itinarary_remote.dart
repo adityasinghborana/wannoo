@@ -9,9 +9,8 @@ import 'package:wannoo/itinarary/data_layer/model/request/post_fav_tour.dart';
 import 'package:wannoo/itinarary/data_layer/model/request/user_itinarary_request.dart';
 import 'package:wannoo/itinarary/data_layer/model/response/delete_itinarary_response.dart';
 import 'package:wannoo/itinarary/data_layer/model/response/delete_user_fav_tour_response.dart';
+import 'package:wannoo/itinarary/data_layer/model/response/itinarary_model.dart';
 import 'package:wannoo/itinarary/data_layer/model/response/post_fav_tour_response.dart';
-
-import '../model/response/itinarary_model.dart';
 
 part 'itinarary_remote.g.dart';
 

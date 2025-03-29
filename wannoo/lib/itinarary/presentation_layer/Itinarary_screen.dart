@@ -1,20 +1,18 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:wannoo/components/empty_state.dart';
-import 'package:wannoo/constants.dart';
 import 'package:wannoo/itinarary/data_layer/repository/itinarary_repository.dart';
 import 'package:wannoo/itinarary/data_layer/service/itinarary_remote.dart';
 import 'package:wannoo/itinarary/data_layer/usecase/getfavtour_usecase.dart';
 import 'package:wannoo/itinarary/presentation_layer/itinarary_controller.dart';
 import 'package:wannoo/routes.dart';
 
-import '../../components/experiences_card.dart';
 import '../data_layer/usecase/delete_fav_tour.dart';
 
 class ItinararyScreen extends StatelessWidget {
-  final String? title = Get.parameters["title"];
-  final String? itinararyId = Get.parameters["id"];
+  final title = Get.parameters["title"] ?? '';
+  final itinararyId = Get.parameters["id"] ?? '';
 
   ItinararyScreen({super.key});
 
@@ -35,75 +33,157 @@ class ItinararyScreen extends StatelessWidget {
       ),
     );
 
-    itinararyController.itinaryid.value = itinararyId ?? "";
+    itinararyController.itinaryid.value = itinararyId;
     var items = itinararyController.savedTours;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title ?? ""),
-        centerTitle: true,
-      ),
       body: Obx(
-        () => items.isEmpty
-            ? Center(child: dataNotFound(width: 300.00, height: 300.00))
-            : ListView.builder(
-                scrollDirection: Axis.vertical,
-                itemCount: itinararyController.savedTours.length,
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    onTap: () {
-                      Get.toNamed(AppRoutes.placedetails, parameters: {
-                        'id': "${items[index].id}",
-                        'amount': items[index].price.toString(),
-                      });
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: GlobalPadding.px_sm,
-                          vertical: GlobalPadding.py_xs),
-                      height: 220,
-                      width: Get.width,
-                      child: Stack(
+        () => CustomScrollView(
+          slivers: [
+            SliverAppBar.medium(
+              flexibleSpace: FlexibleSpaceBar(
+                background: items.isNotEmpty
+                    ? Stack(
                         children: [
-                          SizedBox(
-                            width: Get.width,
-                            child: ExperiencesCard(
-                              isPriceVisible: false,
-                              isAddIcon: false,
-                              selectedTourId: items[index].internaTourid,
-                              isfav: true,
-                              title: items[index].title,
-                              imagePath: items[index].imagepath,
-                              location: items[index].location,
+                          SizedBox.expand(
+                            child: Image.network(
+                              items.first.imagepath,
+                              fit: BoxFit.cover,
                             ),
                           ),
-                          Align(
-                            alignment: Alignment.topRight,
-                            child: Container(
-                                width: 40,
-                                height: 40,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: ThemeColor.colorAccentSecondory
-                                      .withOpacity(0.5),
-                                ),
-                                margin:
-                                    const EdgeInsets.only(right: 10, top: 10),
-                                child: IconButton(
-                                    color: ThemeColor.colorBgPrimary,
-                                    onPressed: () {
-                                      itinararyController.deleteFavTour(
-                                          itinararyId:
-                                              int.parse(itinararyId ?? ""),
-                                          tourId: items[index].id);
-                                    },
-                                    icon: const Icon(Icons.delete_outline))),
-                          )
+                          Container(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .surfaceContainerLowest
+                                .withValues(alpha: .7),
+                          ),
                         ],
-                      ),
-                    ),
-                  );
-                },
+                      )
+                    : const SizedBox.shrink(),
+                title: Text(title),
+                centerTitle: true,
               ),
+              actions: [
+                IconButton(
+                  icon: const FaIcon(FontAwesomeIcons.trashCan),
+                  onPressed: () {},
+                )
+              ],
+            ),
+            if (items.isEmpty)
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: Container(
+                  padding: const EdgeInsets.all(32),
+                  width: double.infinity,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    spacing: 16,
+                    children: [
+                      FaIcon(
+                        FontAwesomeIcons.plane,
+                        size: 56,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      ),
+                      Text(
+                        'Add some tours to your itinerary',
+                        style: Theme.of(context).textTheme.bodyLarge,
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            else
+              SliverPadding(
+                padding: const EdgeInsets.only(top: 16),
+                sliver: SliverList.separated(
+                  itemCount: items.length,
+                  itemBuilder: (context, index) {
+                    final item = items[index];
+
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(8),
+                        onTap: () => Get.toNamed(
+                          AppRoutes.placedetails,
+                          parameters: {
+                            'id': "${items[index].id}",
+                            'amount': items[index].price.toString(),
+                          },
+                        ),
+                        child: Row(
+                          spacing: 16,
+                          children: [
+                            Container(
+                              clipBehavior: Clip.antiAlias,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              height: 56,
+                              width: 56,
+                              child: Image.network(
+                                item.imagepath,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 8),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      item.title,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .labelLarge,
+                                    ),
+                                    Row(
+                                      spacing: 4,
+                                      children: [
+                                        Icon(
+                                          FontAwesomeIcons.locationDot,
+                                          size: Theme.of(context)
+                                              .textTheme
+                                              .labelMedium
+                                              ?.fontSize,
+                                        ),
+                                        Text(
+                                          item.location,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .labelMedium,
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            IconButton(
+                              icon: const FaIcon(
+                                FontAwesomeIcons.trashCan,
+                                size: 16,
+                              ),
+                              onPressed: () =>
+                                  itinararyController.deleteFavTour(
+                                tourId: item.id,
+                                itinararyId: int.parse(itinararyId ?? ''),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 16),
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }

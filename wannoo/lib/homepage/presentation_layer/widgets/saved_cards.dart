@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
-
-import '../../../constants.dart';
+import 'package:intl/intl.dart';
+import 'package:wannoo/constants.dart';
 
 class SavedCards extends StatelessWidget {
   final String title;
   final String imagePath;
   final String date;
   final String body;
+  final VoidCallback onTap;
 
   const SavedCards({
     super.key,
@@ -16,68 +16,63 @@ class SavedCards extends StatelessWidget {
     required this.imagePath,
     required this.date,
     required this.body,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Container(
-        padding: const EdgeInsets.all(GlobalPadding.px_sm),
-        height: Get.height / 7.9,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(GlobalRadius.borderRadius_s),
-          boxShadow: [
-            BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                spreadRadius: 6,
-                blurRadius: 10)
-          ],
-          color: ThemeColor
-              .colorBgPrimary, // Optional: background color for visibility
-        ),
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      height: MediaQuery.of(context).textScaler.scale(140),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12),
+        onTap: onTap,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: 16,
           children: [
-            Flexible(
-              flex: 2,
-              child: CircleAvatar(
-                radius: 30,
-                backgroundImage: NetworkImage("$baseurl/$imagePath"),
+            Container(
+              clipBehavior: Clip.antiAlias,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              height: 140,
+              width: 140,
+              child: Image.network(
+                '$baseurl/$imagePath',
+                fit: BoxFit.cover,
+                loadingBuilder: (context, child, loadingProgress) => Container(
+                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                ),
+                errorBuilder: (context, child, loadingProgress) => Container(
+                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                ),
               ),
             ),
-            Flexible(
-              flex: 5,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        title,
-                        style: CustomTextStyles.fontMdSemiBold,
-                      )
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Flexible(
-                        child: HtmlWidget(
-                          textStyle: CustomTextStyles.fontSMedium,
-                          body.substring(0, 50),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Text(date.substring(0, 10),
-                          style: CustomTextStyles.fontSMedium
-                              .copyWith(color: ThemeColor.colorTextSecondry)),
-                    ],
-                  ),
-                ],
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                    HtmlWidget(
+                      textStyle: Theme.of(context).textTheme.bodyMedium,
+                      body.substring(0, 50),
+                    ),
+                    const Spacer(),
+                    Text(
+                      DateFormat.yMMMd().format(DateTime.parse(date)),
+                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                            color:
+                                Theme.of(context).colorScheme.onSurfaceVariant,
+                          ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
