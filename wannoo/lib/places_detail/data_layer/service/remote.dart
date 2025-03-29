@@ -1,10 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
+import 'package:wannoo/constants.dart';
 import 'package:wannoo/places_detail/data_layer/model/response/places_details.dart';
 
-import '../../../constants.dart';
 part 'remote.g.dart';
-
 
 @RestApi(baseUrl: baseurl)
 abstract class GetPlacesDetails {
@@ -12,6 +11,7 @@ abstract class GetPlacesDetails {
 
   @GET('/tourdetails') // Change to include the path parameter
   Future<PlaceDetails> getPlaces({
-    @Query('id',encoded: false) required String id, // Use @Path for path parameter
+    @Query('id', encoded: false)
+    required String id, // Use @Path for path parameter
   });
 }

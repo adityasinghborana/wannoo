@@ -24,10 +24,10 @@ class EditProfileController extends GetxController {
         address: addressController.text,
       ))
           .then((res) {
-        print(res.toJson());
+        debugPrint(res.toJson().toString());
       });
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
     }
   }
 }

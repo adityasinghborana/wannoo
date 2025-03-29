@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'continentremote.dart';
+part of 'continent_remote.dart';
 
 // **************************************************************************
 // RetrofitGenerator

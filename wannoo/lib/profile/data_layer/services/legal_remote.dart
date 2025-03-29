@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:retrofit/retrofit.dart';
+import 'package:retrofit/error_logger.dart';
+import 'package:retrofit/http.dart';
+import 'package:wannoo/constants.dart';
 import 'package:wannoo/profile/data_layer/model/response/legal_screen_response_model.dart';
-import '../../../constants.dart';
 
 part 'legal_remote.g.dart';
 

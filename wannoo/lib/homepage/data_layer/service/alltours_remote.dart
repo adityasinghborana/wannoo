@@ -8,14 +8,11 @@ part 'alltours_remote.g.dart';
 
 @RestApi(baseUrl: baseurl)
 abstract class GetAllTours {
-  factory GetAllTours(Dio dio, {String? baseUrl }) = _GetAllTours;
+  factory GetAllTours(Dio dio, {String? baseUrl}) = _GetAllTours;
 
   @GET('/tours')
   Future<List<ALLTours>> getTours();
-
 }
 
 // Use the centralized Dio instance directly
 //GetAllTours getAllToursService = GetAllTours(dioInstance);
-
-

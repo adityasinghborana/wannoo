@@ -6,7 +6,6 @@ class GetCitiesUsecase {
 
   GetCitiesUsecase(this.repository);
 
-
   Future<List<CityResponse>> execute(String countryName) {
     return repository.getCities(countryName);
   }

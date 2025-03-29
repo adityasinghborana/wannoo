@@ -26,12 +26,11 @@ class LegalScreen extends StatelessWidget {
             child: Obx(
               () => HtmlWidget(
                 onTapUrl: (url) async {
-                  print("Clicked URL: $url");
                   if (await canLaunchUrl(Uri.parse(url))) {
                     await launchUrl(Uri.parse(url),
                         mode: LaunchMode.externalApplication);
                   } else {
-                    print("Could not launch $url");
+                    debugPrint("Could not launch $url");
                   }
                   return true;
                 },

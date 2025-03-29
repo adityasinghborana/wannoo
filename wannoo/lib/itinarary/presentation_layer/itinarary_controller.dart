@@ -66,7 +66,7 @@ class ItinararyController extends GetxController {
         }
       });
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
     }
   }
 }

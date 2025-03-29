@@ -1,7 +1,7 @@
 import 'package:wannoo/search/data_layer/model/response/city_response.dart';
 import 'package:wannoo/search/data_layer/model/response/continentsreponse.dart';
 import 'package:wannoo/search/data_layer/model/response/country_response.dart';
-import 'package:wannoo/search/data_layer/service/continentremote.dart';
+import 'package:wannoo/search/data_layer/service/continent_remote.dart';
 
 abstract class  ContinentRepo {
    Future<List<AllContinents>> getAllContinents ();

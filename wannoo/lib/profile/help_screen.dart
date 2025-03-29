@@ -78,7 +78,7 @@ class InfoCard extends StatelessWidget {
                   email: emailController,
                   message: message,
                   onPressed: onPressed)),
-          ContactInfo(email, mobile, address)
+          contactInfo(email, mobile, address)
         ],
       ),
     );
@@ -113,7 +113,7 @@ Widget _buildReplySection(
   );
 }
 
-Widget ContactInfo(email, mobilenumber, address) {
+Widget contactInfo(email, mobilenumber, address) {
   return Expanded(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,

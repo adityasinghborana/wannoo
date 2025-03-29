@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:wannoo/constants.dart';
 import 'package:wannoo/places_detail/data_layer/repository/place_details_repository.dart';
 import 'package:wannoo/places_detail/data_layer/service/remote.dart';
-import 'package:wannoo/places_detail/data_layer/usecase/getplacesdetailsusecase.dart';
+import 'package:wannoo/places_detail/data_layer/usecase/get_places_details_usecase.dart';
 import 'package:wannoo/places_detail/presentation_layer/place_details_controller.dart';
 import 'package:wannoo/places_detail/presentation_layer/widgets/main_details.dart';
 import 'package:wannoo/places_detail/presentation_layer/widgets/faq_section.dart';

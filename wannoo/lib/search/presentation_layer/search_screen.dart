@@ -4,10 +4,10 @@ import 'package:get/get.dart';
 import 'package:wannoo/constants.dart';
 import 'package:wannoo/search/data_layer/model/request/city_request.dart';
 import 'package:wannoo/search/data_layer/repository/repository.dart';
-import 'package:wannoo/search/data_layer/service/continentremote.dart';
-import 'package:wannoo/search/data_layer/usecase/Getcitiesusecase.dart';
-import 'package:wannoo/search/data_layer/usecase/continentusecase.dart';
-import 'package:wannoo/search/data_layer/usecase/getcountryusecase.dart';
+import 'package:wannoo/search/data_layer/service/continent_remote.dart';
+import 'package:wannoo/search/data_layer/usecase/get_cities_usecase.dart';
+import 'package:wannoo/search/data_layer/usecase/continent_usecase.dart';
+import 'package:wannoo/search/data_layer/usecase/get_country_usecase.dart';
 import 'package:wannoo/search/presentation_layer/serach_controller.dart';
 import 'package:wannoo/search/presentation_layer/widgets/drop_down.dart';
 import 'package:wannoo/utilities/dialog.dart';
@@ -49,7 +49,7 @@ class SearchScreen extends StatelessWidget {
               icon: const Icon(Icons.place),
               dropdownlist: searchPageController.continentList,
               onchanged: (value) {
-                searchPageController.SelectedContinent.value = value;
+                searchPageController.selectedContinent.value = value;
                 searchPageController
                     .getCountries(CountriesRequest(name: value));
                 // Call the API related to continent selection here
@@ -66,7 +66,7 @@ class SearchScreen extends StatelessWidget {
               icon: const Icon(Icons.place),
               dropdownlist: searchPageController.countryList,
               onchanged: (value) {
-                searchPageController.SelectedCountry.value = value;
+                searchPageController.selectedCountry.value = value;
                 print(searchPageController.countryList.toList());
 
                 searchPageController.getCities(CityRequest(countryName: value));
@@ -84,7 +84,7 @@ class SearchScreen extends StatelessWidget {
               icon: const Icon(Icons.place),
               dropdownlist: searchPageController.cityList,
               onchanged: (value) {
-                searchPageController.SelectedCity.value = value;
+                searchPageController.selectedCity.value = value;
               },
             ),
           ),
@@ -98,7 +98,7 @@ class SearchScreen extends StatelessWidget {
               icon: const Icon(Icons.category),
               dropdownlist: searchPageController.categoryList,
               onchanged: (value) {
-                searchPageController.SelectedCategory.value = value;
+                searchPageController.selectedCategory.value = value;
                 print("Continent selected: $value");
                 // Call the API related to continent selection here
               },
@@ -108,10 +108,10 @@ class SearchScreen extends StatelessWidget {
           ListTile(
             title: FilledButton(
               onPressed: () {
-                if (searchPageController.SelectedCountry.isEmpty ||
-                    searchPageController.SelectedContinent.isEmpty ||
-                    searchPageController.SelectedCity.isEmpty ||
-                    searchPageController.SelectedCategory.isEmpty) {
+                if (searchPageController.selectedCountry.isEmpty ||
+                    searchPageController.selectedContinent.isEmpty ||
+                    searchPageController.selectedCity.isEmpty ||
+                    searchPageController.selectedCategory.isEmpty) {
                   return showSnackBar(context, "Plaese Select all Option");
                 }
                 searchPageController.moveto();

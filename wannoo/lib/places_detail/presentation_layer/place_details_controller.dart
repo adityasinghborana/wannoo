@@ -1,7 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/places_detail/data_layer/model/request/placesdetails.dart';
-
-import 'package:wannoo/places_detail/data_layer/usecase/getplacesdetailsusecase.dart';
+import 'package:wannoo/places_detail/data_layer/usecase/get_places_details_usecase.dart';
 
 import '../../constants.dart';
 import '../data_layer/model/placedetails.dart';
@@ -69,8 +69,8 @@ class PlacedetailsController extends GetxController {
                 .toList() ??
             [],
       );
-        }).catchError((error) {
-      print("Error occurred: $error");
+    }).catchError((error) {
+      debugPrint("Error occurred: $error");
     });
   }
 }

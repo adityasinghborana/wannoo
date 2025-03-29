@@ -170,7 +170,7 @@ class ItinararyScreen extends StatelessWidget {
                               onPressed: () =>
                                   itinararyController.deleteFavTour(
                                 tourId: item.id,
-                                itinararyId: int.parse(itinararyId ?? ''),
+                                itinararyId: int.parse(itinararyId),
                               ),
                             ),
                           ],
