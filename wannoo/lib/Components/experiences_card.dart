@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:wannoo/constants.dart';
 
 import '../utilities/dialog.dart';
 
@@ -31,7 +30,7 @@ class ExperiencesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 160,
+      width: MediaQuery.of(context).textScaler.scale(160),
       child: Card.outlined(
         clipBehavior: Clip.antiAlias,
         child: InkWell(
@@ -47,13 +46,13 @@ class ExperiencesCard extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      height: 160,
-                      width: 160,
                       child: Ink.image(
                         image: NetworkImage(
                           imagePath,
                         ),
                         fit: BoxFit.cover,
+                        height: MediaQuery.of(context).textScaler.scale(160),
+                        width: MediaQuery.of(context).textScaler.scale(160),
                       ),
                     ),
                     if (isAddIcon)
@@ -64,10 +63,7 @@ class ExperiencesCard extends StatelessWidget {
                           height: 40,
                           width: 40,
                           child: IconButton(
-                            icon: const Icon(
-                              Icons.add,
-                              color: ThemeColor.colorBgSecondory,
-                            ),
+                            icon: const FaIcon(FontAwesomeIcons.heart),
                             padding: EdgeInsets.zero,
                             onPressed: () {
                               showMyModalBottomSheet(context, selectedTourId);

@@ -198,9 +198,8 @@ class ProfileScreenController extends GetxController {
             Get.context, "Image Uploaded", const Icon(Icons.check));
         homePageController.currentImage.value = response.data["profileImage"];
       }
-      print("Response: ${response.data}");
     } catch (e) {
-      print("Error updating profile image: $e");
+      debugPrint("Error updating profile image: $e");
     }
   }
 

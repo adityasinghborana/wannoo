@@ -56,7 +56,7 @@ class SearchPageController extends GetxController {
       if (Get.context != null) {
         showSnackBar(Get.context!, "Error fetching continents: $error");
       } else {
-        print("Error fetching continents: $error");
+        debugPrint("Error fetching continents: $error");
       }
     }
   }

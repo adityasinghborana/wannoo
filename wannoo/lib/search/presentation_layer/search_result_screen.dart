@@ -21,15 +21,12 @@ class SearchResultScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: Obx(() {
-        print(searchResultController.searchedPlaces.length);
-
         return searchResultController.searchedPlaces.isEmpty
             ? Center(child: dataNotFound(width: 300.00, height: 400.00))
             : ListView.builder(
                 itemCount: searchResultController.searchedPlaces.length,
                 itemBuilder: (context, index) {
                   final item = searchResultController.searchedPlaces[index];
-                  print(item.title);
                   return Padding(
                     padding: const EdgeInsets.all(GlobalPadding.px_sm),
                     child: SizedBox(

@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/components/large_button_2.dart';
 import 'package:wannoo/constants.dart';
@@ -57,7 +60,6 @@ void showSnackBar(BuildContext context, String text) {
 Future<void> showMyModalBottomSheet(
     BuildContext context, int selectedTourId) async {
   await showModalBottomSheet(
-    backgroundColor: ThemeColor.colorscafold,
     context: context,
     isScrollControlled: true, // Ensures the bottom sheet can expand
     builder: (BuildContext context) {
@@ -66,55 +68,42 @@ Future<void> showMyModalBottomSheet(
         builder: (BuildContext context, StateSetter setState) {
           return ConstrainedBox(
             constraints: BoxConstraints(
-              maxHeight: Get.height * 0.75,
+              maxHeight:
+                  min((homePageController.itinararyList.length * 56) + 88, 480),
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    'Add To Itinerary',
-                    style: CustomTextStyles.fontXlSemiBold,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              spacing: 16,
+              children: [
+                const SizedBox(height: 8),
+                Text(
+                  'Add To Itinerary',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                // Wrap ListView.builder inside an Expanded to allow scrolling
+                Expanded(
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: homePageController.itinararyList.length,
+                    itemBuilder: (context, index) {
+                      var items = homePageController.itinararyList;
+                      return ListTile(
+                        title: Text("${items[index].name}"),
+                        trailing: const FaIcon(FontAwesomeIcons.heart),
+                        onTap: () async {
+                          var user = await getUserUID();
+                          homePageController.postFavTours(
+                              data: PostFavTourRequest(
+                            itineraryId: items[index].id ?? 0,
+                            tourId: selectedTourId,
+                            userId: user!,
+                          ));
+                        },
+                      );
+                    },
                   ),
-                  const SizedBox(height: 16),
-                  // Wrap ListView.builder inside an Expanded to allow scrolling
-                  Expanded(
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: homePageController.itinararyList.length,
-                      itemBuilder: (context, index) {
-                        var items = homePageController.itinararyList;
-                        return SizedBox(
-                          height: 50,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("${items[index].name}"),
-                              SizedBox(
-                                height: 30,
-                                width: 100,
-                                child: LargeButton2(
-                                  label: "Add ",
-                                  height: 90,
-                                  onPressed: () async {
-                                    var user = await getUserUID();
-                                    homePageController.postFavTours(
-                                        data: PostFavTourRequest(
-                                            itineraryId: items[index].id ?? 0,
-                                            tourId: selectedTourId,
-                                            userId: user ?? ""));
-                                  },
-                                ),
-                              )
-                            ],
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           );
         },

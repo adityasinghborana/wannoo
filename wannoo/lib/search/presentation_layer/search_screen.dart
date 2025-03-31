@@ -67,8 +67,6 @@ class SearchScreen extends StatelessWidget {
               dropdownlist: searchPageController.countryList,
               onchanged: (value) {
                 searchPageController.selectedCountry.value = value;
-                print(searchPageController.countryList.toList());
-
                 searchPageController.getCities(CityRequest(countryName: value));
                 // Call the API related to continent selection here
               },
@@ -99,7 +97,7 @@ class SearchScreen extends StatelessWidget {
               dropdownlist: searchPageController.categoryList,
               onchanged: (value) {
                 searchPageController.selectedCategory.value = value;
-                print("Continent selected: $value");
+
                 // Call the API related to continent selection here
               },
             ),

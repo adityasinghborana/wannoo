@@ -169,32 +169,35 @@ class PlaceDetailsScreen extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(16),
                   child: Row(
+                    spacing: 16,
                     children: [
                       IconButton(
                         onPressed: () {},
-                        icon: const FaIcon(FontAwesomeIcons.bookmark),
+                        icon: const FaIcon(FontAwesomeIcons.heart),
                       ),
-                      const Spacer(),
-                      FilledButton(
-                        onPressed: () {
-                          debugPrint(
-                              "${placedetailsController.demoData.value.bookable}");
-                          if (placedetailsController.demoData.value.bookable ==
-                              true) {
-                            Get.toNamed(AppRoutes.externalSite, arguments: {
-                              "price":
-                                  placedetailsController.demoData.value.price,
-                            });
-                          } else {
-                            Get.toNamed(AppRoutes.booking, arguments: {
-                              "tourid":
-                                  placedetailsController.demoData.value.tourId,
-                              "price":
-                                  placedetailsController.demoData.value.price,
-                            });
-                          }
-                        },
-                        child: const Text('Book Now'),
+                      Expanded(
+                        child: FilledButton(
+                          onPressed: () {
+                            debugPrint(
+                                "${placedetailsController.demoData.value.bookable}");
+                            if (placedetailsController
+                                    .demoData.value.bookable ==
+                                true) {
+                              Get.toNamed(AppRoutes.externalSite, arguments: {
+                                "price":
+                                    placedetailsController.demoData.value.price,
+                              });
+                            } else {
+                              Get.toNamed(AppRoutes.booking, arguments: {
+                                "tourid": placedetailsController
+                                    .demoData.value.tourId,
+                                "price":
+                                    placedetailsController.demoData.value.price,
+                              });
+                            }
+                          },
+                          child: const Text('Book Now'),
+                        ),
                       ),
                     ],
                   ),

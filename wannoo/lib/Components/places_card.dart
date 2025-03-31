@@ -57,7 +57,7 @@ class PlacesCard extends StatelessWidget {
                       ),
                       IconButton(
                         icon: const FaIcon(
-                          FontAwesomeIcons.bookmark,
+                          FontAwesomeIcons.heart,
                           size: 20,
                         ),
                         color: Theme.of(context).colorScheme.onSurfaceVariant,
