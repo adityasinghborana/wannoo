@@ -151,29 +151,37 @@ class ItineraryListTileState extends State<ItineraryListTile> {
     final controller = Get.find<HomePageController>();
     return ListTile(
       title: widget.title,
-      trailing: _loading
+      trailing: AnimatedOpacity(
+        duration: Durations.short3,
+        opacity: _loading ? 0.2 : 1.0,
+        child: AnimatedCrossFade(
+          firstChild: const FaIcon(FontAwesomeIcons.solidHeart),
+          secondChild: const FaIcon(FontAwesomeIcons.heart),
+          crossFadeState:
+              _selected ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+          duration: Durations.short3,
+        ),
+      ),
+      onTap: _loading
           ? null
-          : _selected
-              ? const FaIcon(FontAwesomeIcons.solidHeart)
-              : const FaIcon(FontAwesomeIcons.heart),
-      onTap: () async {
-        setState(() => _selected = !_selected);
-        if (_selected) {
-          var user = await getUserUID();
-          controller.postFavTours(
-              data: PostFavTourRequest(
-            itineraryId: widget.itineraryId,
-            tourId: widget.tourId,
-            userId: user!,
-          ));
-        } else {
-          await controller.deleteFavTour(
-            itineraryId: widget.itineraryId,
-            tourId: _favTourId!,
-          );
-        }
-        widget.onTap?.call();
-      },
+          : () async {
+              setState(() => _selected = !_selected);
+              if (_selected) {
+                var user = await getUserUID();
+                controller.postFavTours(
+                    data: PostFavTourRequest(
+                  itineraryId: widget.itineraryId,
+                  tourId: widget.tourId,
+                  userId: user!,
+                ));
+              } else {
+                await controller.deleteFavTour(
+                  itineraryId: widget.itineraryId,
+                  tourId: _favTourId!,
+                );
+              }
+              widget.onTap?.call();
+            },
     );
   }
 }
