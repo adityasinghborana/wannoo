@@ -1,2 +1,0 @@
-D:/repos/wannoo/wannoo/android/app/.cxx/Debug/542i394g/x86/CMakeFiles/edit_cache.dir
-D:/repos/wannoo/wannoo/android/app/.cxx/Debug/542i394g/x86/CMakeFiles/rebuild_cache.dir
