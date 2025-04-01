@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:wannoo/utilities/dialog.dart';
 
 class PlacesCard extends StatelessWidget {
+  final int id;
   final String title;
   final String image;
   final String location;
@@ -11,6 +13,7 @@ class PlacesCard extends StatelessWidget {
 
   const PlacesCard({
     super.key,
+    required this.id,
     required this.title,
     required this.image,
     required this.location,
@@ -61,7 +64,7 @@ class PlacesCard extends StatelessWidget {
                           size: 20,
                         ),
                         color: Theme.of(context).colorScheme.onSurfaceVariant,
-                        onPressed: () {},
+                        onPressed: () => showMyModalBottomSheet(context, id),
                       ),
                     ],
                   ),
