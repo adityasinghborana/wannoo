@@ -1,6 +1,6 @@
 import 'package:wannoo/blogs/data_layer/service/blogsremote.dart';
 
-import '../model/response/all_blogs_model.dart';
+import '../../../blogs/data_layer/model/response/all_blogs_model.dart';
 
 abstract class BlogsRepo {
   Future<List<AllBlogsModel>> getAllBlogs();

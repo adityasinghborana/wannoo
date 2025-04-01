@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:wannoo/blogs/presentation_layer/blogs_controller.dart';
-import 'package:wannoo/constants.dart';
-import 'package:wannoo/homepage/presentation_layer/widgets/saved_cards.dart';
+import 'package:wannoo/Blogs/presentation_layer/blogs_controller.dart';
 
-import 'single_blog_screen.dart';
+import '../../Constants.dart';
+import '../../blogs/presentation_layer/single_blog_screen.dart';
+import '../../homepage/presentation_layer/widgets/saved_cards.dart';
 
 class BlogsScreen extends StatelessWidget {
   const BlogsScreen({super.key});

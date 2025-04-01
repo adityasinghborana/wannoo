@@ -5,85 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8962cf7c-78ec-447d-968c-2e4745d63059" name="Changes" comment="Toast added depending on the state Enum is defined to State Success , Error , Info">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/AuthModule/LoginModule/presentation/login_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/AuthModule/LoginModule/presentation/login_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/AuthModule/LoginModule/presentation/login_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/AuthModule/LoginModule/presentation/login_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/AuthModule/SignupModule/presentation/Signup_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/AuthModule/SignupModule/presentation/Signup_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/AuthModule/SignupModule/presentation/signup_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/AuthModule/SignupModule/presentation/signup_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/AuthModule/SignupModule/usersdatalayer/repository/user_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/AuthModule/SignupModule/usersdatalayer/repository/user_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/AuthModule/datalayer/repo/repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/AuthModule/datalayer/repo/repo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Blogs/presentationlayer/blogscontroller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Blogs/presentationlayer/blogscontroller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Blogs/presentationlayer/blogsscreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Blogs/presentationlayer/blogsscreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Categoryplaces/presentationlayer/categoryplacesscreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Categoryplaces/presentationlayer/categoryplacesscreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/EmptyState.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/EmptyState.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/Experiences_listview.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/Experiences_listview.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/RichText_Widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/RichText_Widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/Services _listview.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/Services _listview.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/Textfield.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/Textfield.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/borderbutton.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/borderbutton.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/category_listview.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/category_listview.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/custom_icon.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/custom_icon.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/drawer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/experiences_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/experiences_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/introscreen/circle_progress_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/introscreen/circle_progress_bar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/introscreen/introduction.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/introscreen/introduction.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/introscreen/introscreenonboarding.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/introscreen/introscreenonboarding.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/placescard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/placescard.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/previousbooking_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/previousbooking_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/snackbar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/snackbar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Onboardingscreen/presentation/Onboarding_Controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Onboardingscreen/presentation/Onboarding_Controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/Onboardingscreen/presentation/Onboarding_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Onboardingscreen/presentation/Onboarding_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/bookings/datalayer/repo/intent_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/bookings/datalayer/repo/intent_repo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/bookings/presentationlayer/Previousbookings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/bookings/presentationlayer/Previousbookings.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/bookings/presentationlayer/bookingscontroller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/bookings/presentationlayer/bookingscontroller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/bookings/presentationlayer/bookingsscreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/bookings/presentationlayer/bookingsscreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/bookings/presentationlayer/externalSite.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/bookings/presentationlayer/externalSite.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/bookings/presentationlayer/paymentfailure.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/bookings/presentationlayer/paymentfailure.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/bookings/presentationlayer/paymentsucess.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/bookings/presentationlayer/paymentsucess.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/categories/presentationlayer/categoryscreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/categories/presentationlayer/categoryscreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/congratulations/presentationlayer/congratulation_Screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/congratulations/presentationlayer/congratulation_Screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/homepage/datalayer/service/alltours_remote.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/homepage/datalayer/service/alltours_remote.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/Screens/Saved.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/Screens/Saved.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/Screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/Screens/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/homepage_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/homepage_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/homepage_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/homepage_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/widgets/Banner.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/widgets/Banner.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/widgets/Heading_with_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/widgets/Heading_with_button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/widgets/category_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/widgets/category_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/widgets/home_stack.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/widgets/home_stack.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/widgets/savedcards.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/widgets/savedcards.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/widgets/serach.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/widgets/serach.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/widgets/services_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/homepage/presentationlayer/widgets/services_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/itinarary/datalayer/repository/itinarary_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/itinarary/datalayer/repository/itinarary_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/itinarary/datalayer/service/itinarary_remote.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/itinarary/datalayer/service/itinarary_remote.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/itinarary/datalayer/usecase/delete_fav_tour.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/itinarary/datalayer/usecase/delete_fav_tour.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/itinarary/presentationlayer/ItinararyScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/itinarary/presentationlayer/ItinararyScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/itinarary/presentationlayer/itinararyController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/itinarary/presentationlayer/itinararyController.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/places_detail/presentationlayer/placedetails_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/places_detail/presentationlayer/placedetails_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/places_detail/presentationlayer/placedetails_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/places_detail/presentationlayer/placedetails_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/places_detail/presentationlayer/widgets/Expansion_listtile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/places_detail/presentationlayer/widgets/Expansion_listtile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/places_detail/presentationlayer/widgets/Faq.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/places_detail/presentationlayer/widgets/Faq.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/places_detail/presentationlayer/widgets/Floating Button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/places_detail/presentationlayer/widgets/Floating Button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/places_detail/presentationlayer/widgets/MainDetails.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/places_detail/presentationlayer/widgets/MainDetails.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/places_detail/presentationlayer/widgets/faq_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/places_detail/presentationlayer/widgets/faq_section.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/profile/datalayer/services/legal_remote.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/profile/datalayer/services/legal_remote.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/profile/datalayer/services/remote.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/profile/datalayer/services/remote.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/profile/editprofilescreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/profile/editprofilescreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/profile/helpscreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/profile/helpscreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/profile/legalscreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/profile/legalscreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/profile/presentationlayer/helpscreencontroller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/profile/presentationlayer/helpscreencontroller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/profile/presentationlayer/profilescreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/profile/presentationlayer/profilescreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/profile/presentationlayer/profilescreencontroller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/profile/presentationlayer/profilescreencontroller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/routes.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/search/datalayer/service/continentremote.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/search/datalayer/service/continentremote.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/search/presentationlayer/searchresultscreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/search/presentationlayer/searchresultscreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/search/presentationlayer/searchscreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/search/presentationlayer/searchscreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/search/presentationlayer/serachController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/search/presentationlayer/serachController.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/splash_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/splash_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/styles.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/styles.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/utilities/Authclass.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/utilities/Authclass.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/utilities/dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/utilities/dialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/blogs/data_layer/repository/blogs_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/blogs/data_layer/repository/blogs_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/blogs/presentation_layer/blogs_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/blogs/presentation_layer/blogs_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/homepage/presentation_layer/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/homepage/presentation_layer/screens/home_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/onboarding_screen/presentation/onboarding_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/onboarding_screen/presentation/onboarding_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/onboarding_screen/presentation/onboarding_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/onboarding_screen/presentation/onboarding_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="nilesh" />
+        <entry key="$PROJECT_DIR$" value="mat" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -137,7 +66,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "dev",
     "io.flutter.reload.alreadyRun": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/aditya/StudioProjects/wannoo/wannoo",
