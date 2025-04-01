@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:wannoo/Constants.dart';
 import 'package:wannoo/styles.dart';
 
-
 class FaqExapansionTile extends StatelessWidget {
   final bool isExpanded;
   final String Title;
   final String Description;
 
-FaqExapansionTile({
+  const FaqExapansionTile({
+    super.key,
     required this.isExpanded,
     required this.Title,
     required this.Description,
@@ -19,10 +19,11 @@ FaqExapansionTile({
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: globalPadding.px_md),
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           border: Border(
             top: BorderSide(
-              color: themeColor.colorBorder, // Change the color to your desired color
+              color: themeColor
+                  .colorBorder, // Change the color to your desired color
               width: 1.0, // Adjust the width of the border as needed
             ),
             // bottom: BorderSide(
@@ -38,10 +39,11 @@ FaqExapansionTile({
           // Define the shape with borders for top and bottom only
           tilePadding: EdgeInsets.zero, // Remove default padding
           childrenPadding:
-          EdgeInsets.symmetric(horizontal: globalPadding.px_sm),
-          trailing: Icon(
-            Icons.add ,// Change the icon to your desired icon
-            color: themeColor.colorTextSecondry, // Change the color of the icon if needed
+              const EdgeInsets.symmetric(horizontal: globalPadding.px_sm),
+          trailing: const Icon(
+            Icons.add, // Change the icon to your desired icon
+            color: themeColor
+                .colorTextSecondry, // Change the color of the icon if needed
           ),
           title: Text(
             Title,
@@ -51,7 +53,7 @@ FaqExapansionTile({
           children: [
             Container(
               alignment: Alignment.centerLeft, // Align children to the left
-              padding: EdgeInsets.all(8.0), // Optional: add some padding
+              padding: const EdgeInsets.all(8.0), // Optional: add some padding
               child: Wrap(
                 spacing: 2.0,
                 runSpacing: 2.0,

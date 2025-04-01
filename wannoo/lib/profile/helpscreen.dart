@@ -16,7 +16,7 @@ class HelpScreen extends StatelessWidget {
         Get.put(HelpScreenController());
     return Scaffold(
         appBar: AppBar(
-          title: Text("Help And Support"),
+          title: const Text("Help And Support"),
           centerTitle: true,
         ),
         body: Obx(
@@ -42,19 +42,20 @@ class InfoCard extends StatelessWidget {
   var address;
   final VoidCallback onPressed;
   InfoCard(this.email, this.mobile, this.address,
-      {required this.name,
+      {super.key,
+      required this.name,
       required this.emailController,
       required this.message,
       required this.onPressed});
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12.0),
+      padding: const EdgeInsets.all(12.0),
       child: Column(
         children: [
           Container(
               height: 400,
-              padding: EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(20.0),
               width: Get.width,
               decoration: BoxDecoration(
                 color: themeColor.colorBgPrimary,
@@ -62,7 +63,7 @@ class InfoCard extends StatelessWidget {
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(.05),
-                    offset: Offset(0, 10),
+                    offset: const Offset(0, 10),
                     blurRadius: 0,
                     spreadRadius: 0,
                   )
@@ -91,12 +92,12 @@ Widget _buildReplySection(
       const SizedBox(height: 10),
       TextFieldCustom(
           textController: name, hideText: false, hintText: "Enter Your Name"),
-      SizedBox(
+      const SizedBox(
         height: 30,
       ),
       TextFieldCustom(
           textController: email, hideText: false, hintText: "Email"),
-      SizedBox(
+      const SizedBox(
         height: 30,
       ),
       TextFieldCustom(
@@ -121,7 +122,7 @@ Widget ContactInfo(email, mobilenumber, address) {
               icon: Icons.mail,
               subtitle: email,
             ),
-            Gap(20),
+            const Gap(20),
             CardFb1(
               text: 'Call Us',
               icon: Icons.phone,
@@ -129,7 +130,7 @@ Widget ContactInfo(email, mobilenumber, address) {
             ),
           ],
         ),
-        Gap(20),
+        const Gap(20),
         CardFb1(
           text: 'Reach Us',
           icon: Icons.pin_drop,

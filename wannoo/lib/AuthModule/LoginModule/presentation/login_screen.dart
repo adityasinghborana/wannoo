@@ -26,7 +26,7 @@ class LoginPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
+            SizedBox(
               height: 200,
               width: 250,
               child: Image.asset(
@@ -66,7 +66,7 @@ class LoginPage extends StatelessWidget {
                   hideText: true,
                   hintText: staticText.loginPassword),
             ),
-            SizedBox(
+            const SizedBox(
               height: Height.heightl,
             ),
             Padding(
@@ -79,20 +79,20 @@ class LoginPage extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: Height.heightl,
             ),
             RichText(
               text: TextSpan(
                 text: staticText.signUpToLogin,
-                style: TextStyle(color: themeColor.colorTextPrimary),
+                style: const TextStyle(color: themeColor.colorTextPrimary),
                 children: [
                   WidgetSpan(
                     child: InkWell(
                       onTap: () {
                         Get.toNamed(AppRoutes.signup);
                       },
-                      child: Text(
+                      child: const Text(
                         staticText.signUpLinkText,
                         style: TextStyle(
                           color: themeColor.colorLink, // Change color if needed
@@ -104,11 +104,11 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: Height.heightl,
             ),
-            Text("or"),
-            SizedBox(
+            const Text("or"),
+            const SizedBox(
               height: Height.heightl,
             ),
             SocialLoginButton(
@@ -129,7 +129,7 @@ class LoginPage extends StatelessWidget {
             //   label: staticText.loginFacebook,
             // ),
             // Text("or"),
-            SizedBox(
+            const SizedBox(
               height: Height.heightl,
             ),
             CustomTextButton(onpressed: () {}, label: 'forgot password')

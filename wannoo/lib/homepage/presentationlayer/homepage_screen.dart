@@ -85,7 +85,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
       ),
       body: IndexedStack(
         index: visit,
-        children: [
+        children: const [
           HomeScreen(),
           Saved(),
           BlogsScreen(),
@@ -94,7 +94,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
 //PaymentSuccess()
           PreviousBookings()
         ],
-      ).fadeIn(duration: Duration(seconds: 1)),
+      ).fadeIn(duration: const Duration(seconds: 1)),
     );
   }
 }

@@ -54,18 +54,18 @@ class ItinararyScreen extends StatelessWidget {
                     onTap: () {
                       Get.toNamed(AppRoutes.placedetails, parameters: {
                         'id': "${items[index].id}",
-                        'amount': "${items[index].price.toString()}",
+                        'amount': items[index].price.toString(),
                       });
                     },
                     child: Container(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                           horizontal: globalPadding.px_sm,
                           vertical: globalPadding.py_xs),
                       height: 220,
                       width: Get.width,
                       child: Stack(
                         children: [
-                          Container(
+                          SizedBox(
                             width: Get.width,
                             child: ExperiencesCard(
                               isPriceVisible: false,
@@ -87,7 +87,8 @@ class ItinararyScreen extends StatelessWidget {
                                   color: themeColor.colorAccentSecondory
                                       .withOpacity(0.5),
                                 ),
-                                margin: EdgeInsets.only(right: 10, top: 10),
+                                margin:
+                                    const EdgeInsets.only(right: 10, top: 10),
                                 child: IconButton(
                                     color: themeColor.colorBgPrimary,
                                     onPressed: () {
@@ -96,7 +97,7 @@ class ItinararyScreen extends StatelessWidget {
                                               int.parse(itinararyId ?? ""),
                                           tourId: items[index].id);
                                     },
-                                    icon: Icon(Icons.delete_outline))),
+                                    icon: const Icon(Icons.delete_outline))),
                           )
                         ],
                       ),

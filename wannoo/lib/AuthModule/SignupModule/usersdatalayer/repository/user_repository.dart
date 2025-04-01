@@ -18,11 +18,7 @@ class UserRepositoryImpl implements UserRepository {
     try {
       UserModelResponse response = await remoteService.createuser(requestBody);
 
-      if (response != null) {
-        return response;
-      } else {
-        throw Exception("Failed to create user");
-      }
+      return response;
     } catch (error) {
       // Handle any errors that might occur during the process
       print("Error creating user: $error");
@@ -35,11 +31,7 @@ class UserRepositoryImpl implements UserRepository {
     try {
       List<UserDetail> response = await remoteService.getUserDetail(uid);
 
-      if (response != null) {
-        return response;
-      } else {
-        throw Exception("Failed to get user detail");
-      }
+      return response;
     } catch (error) {
       // Handle any errors that might occur during the process
       print("Error fetching userDetails: $error");

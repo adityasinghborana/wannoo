@@ -8,8 +8,8 @@ import '../../../styles.dart';
 import 'Faq.dart';
 
 class FaqSection extends StatelessWidget {
-final List<Faq> list;
-FaqSection(this.list);
+  final List<Faq> list;
+  const FaqSection(this.list, {super.key});
   @override
   Widget build(BuildContext context) {
     final PlacedetailsController placedetailsController = Get.find();
@@ -20,19 +20,22 @@ FaqSection(this.list);
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("FAQ", style: TypographyStyle.l2Font,),
+            Text(
+              "FAQ",
+              style: TypographyStyle.l2Font,
+            ),
             ListView.builder(
               shrinkWrap: true,
               // Ensure that the ListView takes only the space it needs
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               // Disable scrolling of the ListView
               itemCount: list.length,
               itemBuilder: (context, index) {
-                return  FaqExapansionTile(
-                    isExpanded: true,
-                    Title: list[index].question,
-                    Description: list[index].answer,
-                  );
+                return FaqExapansionTile(
+                  isExpanded: true,
+                  Title: list[index].question,
+                  Description: list[index].answer,
+                );
               },
             ),
           ],

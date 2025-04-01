@@ -47,10 +47,10 @@ class PlacesCards extends StatelessWidget {
               child: Column(
                 children: [
                   Expanded(
-                    child: Container(
+                    child: SizedBox(
                       height: 150,
                       child: ClipRRect(
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                             topLeft:
                                 Radius.circular(globalRadius.borderRadius_s),
                             bottomLeft:
@@ -81,7 +81,7 @@ class PlacesCards extends StatelessWidget {
                         title,
                         style: CustomTextStyles.fontMdMedium,
                       ),
-                      Icon(
+                      const Icon(
                         FontAwesomeIcons.bookmark,
                         color: themeColor.colorTextSecondry,
                         size: 15,
@@ -91,15 +91,15 @@ class PlacesCards extends StatelessWidget {
                   Container(
                     child: Row(
                       children: [
-                        Icon(
+                        const Icon(
                           FontAwesomeIcons.locationDot,
                           color: themeColor.colorBgSecondory,
                           size: 15,
                         ),
-                        Gap(10),
+                        const Gap(10),
                         Text(
                           Location,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: themeColor.colorTextPrimary,
                           ),
                         ),
@@ -111,22 +111,26 @@ class PlacesCards extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Icon(
+                          const Icon(
                             FontAwesomeIcons.star,
                             color: themeColor.colorBgSecondory,
                             size: 15,
                           ),
-                          Gap(10),
+                          const Gap(10),
                           Text(
                             "$rating",
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: themeColor.colorTextPrimary,
                             ),
                           ),
                         ],
                       ),
                       Row(
-                        children: [Text("Price"), Gap(10), Text("\$ $price")],
+                        children: [
+                          const Text("Price"),
+                          const Gap(10),
+                          Text("\$ $price")
+                        ],
                       )
                     ],
                   ),

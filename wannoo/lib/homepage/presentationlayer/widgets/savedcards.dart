@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 
@@ -12,6 +11,7 @@ class SavedCards extends StatelessWidget {
   final String Body;
 
   const SavedCards({
+    super.key,
     required this.title,
     required this.imagePath,
     required this.Date,
@@ -23,7 +23,7 @@ class SavedCards extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Container(
-        padding: EdgeInsets.all(globalPadding.px_sm),
+        padding: const EdgeInsets.all(globalPadding.px_sm),
         height: Get.height / 7.9,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(globalRadius.borderRadius_s),

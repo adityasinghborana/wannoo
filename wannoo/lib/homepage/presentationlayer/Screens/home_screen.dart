@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:get/get.dart';
 import 'package:wannoo/Components/Experiences_listview.dart';
-import 'package:wannoo/Components/Services%20_listview.dart';
 import 'package:wannoo/Components/category_listview.dart';
-import 'package:wannoo/Constants.dart';
-import 'package:wannoo/homepage/presentationlayer/homepage_controller.dart';
 import 'package:wannoo/homepage/presentationlayer/widgets/Banner.dart';
 import 'package:wannoo/homepage/presentationlayer/widgets/home_stack.dart';
 
-import '../../../Components/Textfield.dart';
 import '../widgets/Heading_with_button.dart'; // Ensure this import points to your constants file
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,15 +16,15 @@ class HomeScreen extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          HomeStack(),
+          const HomeStack(),
 
-          HeadingwithButton(
+          const HeadingwithButton(
             label: 'Categories',
             isVisible: true,
           ),
 
           CustomListCategory(),
-          HeadingwithButton(
+          const HeadingwithButton(
             label: 'Most Visited',
           ),
           ExperiencesListview(
@@ -37,15 +32,15 @@ class HomeScreen extends StatelessWidget {
             isFilteredList: false,
           ),
 
-          HeadingwithButton(
+          const HeadingwithButton(
             label: 'Recommended tours',
           ),
           ExperiencesListview(
             filterProperty: 'Trek',
             isFilteredList: false,
           ),
-          CTA(),
-          HeadingwithButton(
+          const CTA(),
+          const HeadingwithButton(
             label: 'Hiking ',
           ),
 
@@ -54,7 +49,7 @@ class HomeScreen extends StatelessWidget {
             isFilteredList: false,
           ),
 
-          HeadingwithButton(
+          const HeadingwithButton(
             label: 'Desert Safari',
           ),
 
@@ -62,14 +57,14 @@ class HomeScreen extends StatelessWidget {
             filterProperty: 'Hiking',
             isFilteredList: false,
           ),
-          HeadingwithButton(
+          const HeadingwithButton(
             label: 'Top Events',
           ),
           ExperiencesListview(
             filterProperty: 'Hiking',
             isFilteredList: false,
           ),
-          Gap(30)
+          const Gap(30)
 
           // Add more widgets below as needed
         ],

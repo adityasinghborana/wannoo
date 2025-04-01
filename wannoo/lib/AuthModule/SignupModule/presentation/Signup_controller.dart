@@ -11,6 +11,7 @@ import 'package:wannoo/AuthModule/SignupModule/usersdatalayer/usecase/create_use
 
 import '../../../routes.dart';
 import '../../../utilities/Authclass.dart';
+import '../../../utilities/dialog.dart';
 import '../usersdatalayer/service/create_user_remote.dart';
 
 class SignUpController extends GetxController {
@@ -20,12 +21,6 @@ class SignUpController extends GetxController {
   final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
   final CreateUserUseCase createUserUseCase =
       CreateUserUseCase(UserRepositoryImpl(createUserRemoteService(Dio())));
-
-  @override
-  void onInit() {
-    super.onInit();
-    // Initialization code here
-  }
 
   void signUp() async {
     try {
@@ -37,7 +32,7 @@ class SignUpController extends GetxController {
       final user = authResult.user;
       if (user != null) {
         final token = await user.getIdToken() ?? '';
-        final uid = await user.uid ?? '';
+        final uid = user.uid ?? '';
         await createUserUseCase
             .execute(UserModel(uid: uid, email: user.email ?? ""));
         await saveUserUID(uid);
@@ -45,7 +40,9 @@ class SignUpController extends GetxController {
       }
     } catch (e) {
       final errorMessage = e.toString().replaceFirst('firebase_auth/', '');
-      Get.snackbar("Error", errorMessage);
+      showToast(
+          state: StateType.Error,
+          message: errorMessage ?? "Something went wrong");
     }
   }
 
@@ -59,23 +56,13 @@ class SignUpController extends GetxController {
     }
   }
 
-  // void createCart(String uid) async {
-  //   try {
-  //     final request = CreateCartRequest(userId: uid);
-  //     await createCartUseCase.execute(request);
-  //   } catch (e) {
-  //     if (kDebugMode) {
-  //       print(e);
-  //     }
-  //   }
-  // }
-
   Future<void> googleSignUp(BuildContext context) async {
     try {
       final GoogleSignInAccount? googleSignInAccount =
           await _googleSignIn.signIn();
-      if (googleSignInAccount == null)
+      if (googleSignInAccount == null) {
         throw 'Google sign-in process canceled by user.';
+      }
 
       final GoogleSignInAuthentication googleSignInAuthentication =
           await googleSignInAccount.authentication;
@@ -90,19 +77,15 @@ class SignUpController extends GetxController {
       final user = userCredential.user;
       if (user != null) {
         final token = await user.getIdToken() ?? '';
-        final uid = await user.uid ?? '';
+        final uid = user.uid ?? '';
         await saveUserUID(uid);
         await saveUser(user.uid, user.email!);
         Get.toNamed(AppRoutes.congratulations);
       }
     } catch (e) {
       print("Google sign-up error: $e");
-      showSnackBar(context, e.toString());
+      showToast(state: StateType.Error, message: e.toString());
       Get.toNamed(AppRoutes.signup);
     }
-  }
-
-  void showSnackBar(BuildContext context, String text) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
   }
 }

@@ -15,27 +15,34 @@ class CongratultionsPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Image.asset(image.congo),
-          SizedBox(height: Height.heightButtonLarge,),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: globalPadding.buttonSmallpx,vertical: globalPadding.buttonSmallpy),
-            child: Text(staticText.congoScreenText,style: TypographyStyle.l2Font,),
+          const SizedBox(
+            height: Height.heightButtonLarge,
           ),
-          SizedBox(height: Height.heightButtonLarge,),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: globalPadding.buttonSmallpx,vertical: globalPadding.buttonSmallpy),
+            padding: const EdgeInsets.symmetric(
+                horizontal: globalPadding.buttonSmallpx,
+                vertical: globalPadding.buttonSmallpy),
+            child: Text(
+              staticText.congoScreenText,
+              style: TypographyStyle.l2Font,
+            ),
+          ),
+          const SizedBox(
+            height: Height.heightButtonLarge,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+                horizontal: globalPadding.buttonSmallpx,
+                vertical: globalPadding.buttonSmallpy),
             child: LargeButton(
               label: staticText.congoScreenButtonText,
               onPressed: () {
                 Get.toNamed(AppRoutes.home);
-              },),
+              },
+            ),
           )
-
-
         ],
       ),
     );
   }
 }
-
-
-

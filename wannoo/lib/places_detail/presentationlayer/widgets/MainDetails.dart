@@ -24,7 +24,7 @@ class MainDetails extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(
           horizontal: globalPadding.px_md, vertical: globalPadding.py_md),
-      child: Container(
+      child: SizedBox(
         height: 130,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -46,11 +46,11 @@ class MainDetails extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         FontAwesomeIcons.locationDot,
                         color: themeColor.colorTextSecondry,
                       ),
-                      Gap(10),
+                      const Gap(10),
                       Text(Country,
                           style: TypographyStyle.mdFont.copyWith(
                             color: themeColor.colorTextSecondry,
@@ -59,13 +59,13 @@ class MainDetails extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         FontAwesomeIcons.solidStar,
                         color: themeColor.colorBgSecondory,
                       ),
-                      Gap(10),
+                      const Gap(10),
                       Text("$rating"),
-                      Gap(10),
+                      const Gap(10),
                       Text("($reviews Reviews)")
                     ],
                   ),

@@ -1,11 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wannoo/AuthModule/datalayer/model/request/delete_user_request.dart';
 import 'package:wannoo/AuthModule/datalayer/repo/repo.dart';
 import 'package:wannoo/AuthModule/datalayer/usecase/deleteuserusecase.dart';
@@ -37,7 +35,9 @@ class LoginController extends GetxController {
         });
       }
     } catch (e) {
-      Get.snackbar("Error", e.toString());
+      showToast(
+          state: StateType.Error,
+          message: e.toString() ?? "Something went wrong");
     }
   }
 
@@ -45,8 +45,9 @@ class LoginController extends GetxController {
     try {
       final GoogleSignInAccount? googleSignInAccount =
           await _googleSignIn.signIn();
-      if (googleSignInAccount == null)
+      if (googleSignInAccount == null) {
         throw 'Google sign-in process canceled by user.';
+      }
 
       final GoogleSignInAuthentication googleSignInAuthentication =
           await googleSignInAccount.authentication;
@@ -62,7 +63,9 @@ class LoginController extends GetxController {
       await saveUserUID(uid);
       Get.toNamed(AppRoutes.home);
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showToast(
+          state: StateType.Error,
+          message: e.toString() ?? "Something went wrong");
       Get.toNamed(AppRoutes.login);
     }
   }
@@ -74,11 +77,11 @@ class LoginController extends GetxController {
       await clearUserUID();
 
       Get.offAllNamed(AppRoutes.login);
-
-      showSnackBar(context, 'Sign-out successful.');
+      showToast(state: StateType.Success, message: "Sign-out successful");
     } catch (e) {
-      print("Sign-out error: $e");
-      showSnackBar(context, e.toString());
+      showToast(
+          state: StateType.Error,
+          message: e.toString() ?? "Something went wrong");
     }
   }
 
@@ -90,7 +93,6 @@ class LoginController extends GetxController {
 
       if (user != null) {
         try {
-          print("hello Delete Uid ${user.uid}");
           await deleteUserUseCase
               .execute(DeleteUserRequest(uid: user.uid.toString()));
         } catch (e) {
@@ -104,8 +106,8 @@ class LoginController extends GetxController {
         // Clear locally stored user UID or data
         await clearUserUID();
         // Show success message
-        Get.snackbar("Success", "Account deleted successfully",
-            snackPosition: SnackPosition.BOTTOM);
+        showToast(
+            state: StateType.Success, message: "Account deleted successfully");
 
         // Navigate to the login or onboarding screen after deletion
         Get.offAllNamed('/login'); // Change to your login screen route
@@ -113,11 +115,14 @@ class LoginController extends GetxController {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'requires-recent-login') {
         // If user needs to re-authenticate
-        Get.snackbar("Error", "Please re-authenticate before deleting account.",
-            snackPosition: SnackPosition.BOTTOM);
+
+        showToast(
+            state: StateType.Info,
+            message: "Please re-authenticate before deleting account");
       } else {
-        Get.snackbar("Error", e.message ?? "Something went wrong",
-            snackPosition: SnackPosition.BOTTOM);
+        showToast(
+            state: StateType.Error,
+            message: e.message ?? "Something went wrong");
       }
     }
   }

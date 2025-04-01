@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 Widget drawer() {
   return Drawer(
@@ -11,7 +10,7 @@ Widget drawer() {
         ListTile(
           title: const Text('Home'),
           onTap: () {
-          null;
+            null;
           },
         ),
         ListTile(

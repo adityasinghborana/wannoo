@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:wannoo/Components/text_button.dart';
 import 'package:wannoo/Constants.dart';
 import 'package:wannoo/routes.dart';
-import 'package:wannoo/styles.dart';
 
 class HeadingwithButton extends StatelessWidget {
   final String label;

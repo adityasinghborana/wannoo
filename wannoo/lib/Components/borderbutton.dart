@@ -4,7 +4,8 @@ import 'package:wannoo/Constants.dart';
 class InvertedButton extends StatelessWidget {
   final String text;
   final Function() onPressed;
-  InvertedButton({required this.text, required this.onPressed});
+  const InvertedButton(
+      {super.key, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {

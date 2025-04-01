@@ -74,10 +74,10 @@ packages:
     dependency: "direct main"
     description:
       name: auraa_ui
-      sha256: "23be2075666b8b4b00f7b43f75129177c3064f668ad339d1b4da88921c3cf9fd"
+      sha256: "00edd81811206a48a32e5f0489a97469a1e5e3cd5e15e45ba93550adad04c296"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.6"
+    version: "1.0.9"
   boolean_selector:
     dependency: transitive
     description:

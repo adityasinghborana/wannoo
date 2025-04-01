@@ -1,4 +1,4 @@
-class CategoryModel{
+class CategoryModel {
   final String title;
   final String imagepath;
 

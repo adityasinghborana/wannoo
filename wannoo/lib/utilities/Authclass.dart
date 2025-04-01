@@ -11,13 +11,13 @@ Future<void> saveUserUID(String uid) async {
 
 Future<String?> getUserUID() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  String? savedUid = await prefs.getString('userUID');
+  String? savedUid = prefs.getString('userUID');
   return savedUid;
 }
 
 Future<String?> getUserID() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  String? getId = await prefs.getString('userID');
+  String? getId = prefs.getString('userID');
   return getId;
 }
 
@@ -28,6 +28,7 @@ Future<String?> saveUserID(String id) async {
   if (kDebugMode) {
     print("useridno saved");
   }
+  return null;
 }
 
 Future<void> clearUserUID() async {

@@ -15,7 +15,7 @@ class IntroScreenOnboarding extends StatefulWidget {
 
   /// Callback on Skip Button Pressed
   final Function()? onTapSkipButton;
-  IntroScreenOnboarding({
+  const IntroScreenOnboarding({
     Key? key,
     this.introductionList,
     this.onTapSkipButton,
@@ -58,9 +58,8 @@ class _IntroScreenOnboardingState extends State<IntroScreenOnboarding> {
                   ],
                 ),
                 Flexible(
-
                   child: PageView(
-                    physics: ClampingScrollPhysics(),
+                    physics: const ClampingScrollPhysics(),
                     controller: _pageController,
                     onPageChanged: (int page) {
                       setState(() {
@@ -85,13 +84,13 @@ class _IntroScreenOnboardingState extends State<IntroScreenOnboarding> {
     return Stack(
       alignment: Alignment.center,
       children: [
-        Container(
+        SizedBox(
           width: 70,
           height: 70,
           child: CircleProgressBar(
             backgroundColor: Colors.white,
             foregroundColor:
-            widget.foregroundColor ?? Theme.of(context).primaryColor,
+                widget.foregroundColor ?? Theme.of(context).primaryColor,
             value: ((_currentPage + 1) * 1.0 / widget.introductionList!.length),
           ),
         ),
@@ -107,12 +106,12 @@ class _IntroScreenOnboardingState extends State<IntroScreenOnboarding> {
             onPressed: () {
               _currentPage != widget.introductionList!.length - 1
                   ? _pageController.nextPage(
-                duration: Duration(milliseconds: 500),
-                curve: Curves.ease,
-              )
+                      duration: const Duration(milliseconds: 500),
+                      curve: Curves.ease,
+                    )
                   : widget.onTapSkipButton!();
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_forward_ios,
               color: Colors.white,
             ),

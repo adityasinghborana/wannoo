@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/Constants.dart';
@@ -55,7 +54,7 @@ class HelpScreenController extends GetxController {
           openIconSnackBar(
               Get.context,
               "Form Submitted Successfully",
-              Icon(
+              const Icon(
                 Icons.check_circle_outline,
                 color: themeColor.colorBgPrimary,
               ));

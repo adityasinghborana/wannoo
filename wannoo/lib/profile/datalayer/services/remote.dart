@@ -4,7 +4,6 @@ import 'package:wannoo/profile/datalayer/model/request/form_request.dart';
 import '../../../Constants.dart';
 import '../model/response/contact_us_response.dart';
 import '../model/response/form_response.dart';
-import '../model/response/upload_image_response.dart';
 
 part 'remote.g.dart';
 
