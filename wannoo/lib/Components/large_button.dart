@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wannoo/Constants.dart';
+import 'package:wannoo/constants.dart';
 
 class LargeButton extends StatelessWidget {
   final String label;
@@ -19,12 +19,12 @@ class LargeButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: themeColor.colorBgSecondory, // Background color
-          foregroundColor: themeColor.colorWhite, // Text color
+          backgroundColor: ThemeColor.colorBgSecondory, // Background color
+          foregroundColor: ThemeColor.colorWhite, // Text color
           elevation: 5, // Elevation/shadow
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
-                globalRadius.borderRadius_m), // Border radius
+                GlobalRadius.borderRadius_m), // Border radius
           ),
         ),
         child: Text(label),

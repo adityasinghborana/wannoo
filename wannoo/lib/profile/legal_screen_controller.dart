@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import 'package:wannoo/profile/datalayer/repo/legal_repo.dart';
-import 'package:wannoo/profile/datalayer/services/legal_remote.dart';
-import 'package:wannoo/profile/datalayer/usecase/legalscreen_usecase.dart';
+import 'package:wannoo/profile/data_layer/repo/legal_repo.dart';
+import 'package:wannoo/profile/data_layer/services/legal_remote.dart';
+import 'package:wannoo/profile/data_layer/usecase/legalscreen_usecase.dart';
 
 class LegalScreenController extends GetxController {
   @override

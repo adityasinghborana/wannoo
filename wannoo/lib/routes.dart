@@ -1,46 +1,46 @@
 import 'package:get/get.dart';
-import 'package:wannoo/AuthModule/LoginModule/presentation/login_screen.dart';
-import 'package:wannoo/AuthModule/SignupModule/presentation/signup_screen.dart';
-import 'package:wannoo/Categoryplaces/presentationlayer/categoryplacesscreen.dart';
-import 'package:wannoo/bookings/presentationlayer/bookingsscreen.dart';
-import 'package:wannoo/bookings/presentationlayer/externalSite.dart';
-import 'package:wannoo/bookings/presentationlayer/paymentfailure.dart';
-import 'package:wannoo/categories/presentationlayer/categoryscreen.dart';
-import 'package:wannoo/congratulations/presentationlayer/congratulation_Screen.dart';
-import 'package:wannoo/homepage/presentationlayer/homepage_screen.dart';
-import 'package:wannoo/itinarary/presentationlayer/ItinararyScreen.dart';
-import 'package:wannoo/places_detail/presentationlayer/placedetails_screen.dart';
-import 'package:wannoo/profile/editprofilescreen.dart';
-import 'package:wannoo/profile/helpscreen.dart';
-import 'package:wannoo/profile/legalscreen.dart';
-import 'package:wannoo/profile/presentationlayer/profilescreen.dart';
-import 'package:wannoo/search/presentationlayer/searchresultscreen.dart';
-import 'package:wannoo/search/presentationlayer/searchscreen.dart';
+import 'package:wannoo/auth_module/login_module/presentation/login_screen.dart';
+import 'package:wannoo/auth_module/signup_module/presentation/signup_screen.dart';
+import 'package:wannoo/category_places/presentation_layer/category_places_screen.dart';
+import 'package:wannoo/bookings/presentation_layer/bookings_screen.dart';
+import 'package:wannoo/bookings/presentation_layer/external_site.dart';
+import 'package:wannoo/bookings/presentation_layer/payment_failure.dart';
+import 'package:wannoo/categories/presentation_layer/category_screen.dart';
+import 'package:wannoo/congratulations/presentation_layer/congratulation_screen.dart';
+import 'package:wannoo/homepage/presentation_layer/homepage_screen.dart';
+import 'package:wannoo/itinarary/presentation_layer/itinarary_screen.dart';
+import 'package:wannoo/places_detail/presentation_layer/place_details_screen.dart';
+import 'package:wannoo/profile/edit_profile_screen.dart';
+import 'package:wannoo/profile/help_screen.dart';
+import 'package:wannoo/profile/legal_screen.dart';
+import 'package:wannoo/profile/presentationlayer/profile_screen.dart';
+import 'package:wannoo/search/presentation_layer/search_result_screen.dart';
+import 'package:wannoo/search/presentation_layer/search_screen.dart';
 import 'package:wannoo/splash_screen.dart';
-import 'Onboardingscreen/presentation/Onboarding_screen.dart';
-import 'bookings/presentationlayer/paymentsucess.dart'; // Splash screen widget
+import 'onboarding_screen/presentation/onboarding_screen.dart';
+import 'bookings/presentation_layer/payment_sucess.dart'; // Splash screen widget
 
 class AppRoutes {
-  static const String splash = '/';
-  static const String onboarding = '/onboarding';
-  static const String login = '/login';
-  static const String signup = '/signup';
-  static const String home = '/home';
-  static const String congratulations = '/congratulations';
-  static const String placedetails = '/placedetails';
-  static const String allcategories = '/allcategories';
-  static const String search = '/search';
-  static const String searchresult = '/searchresult';
-  static const String categoryplaces = '/categoryplaces';
-  static const String profile = '/profile';
-  static const String booking = '/booking';
-  static const String ExternalSite = '/externalsite';
-  static const String paymentSuccess = '/paymentsucess';
-  static const String paymentFailure = '/paymentfailure';
-  static const String savedList = '/savedlist';
-  static const String legalScreen = '/legal';
-  static const String helpScreen = '/help';
-  static const String editProfile = '/editprofile';
+  static const splash = '/';
+  static const onboarding = '/onboarding';
+  static const login = '/login';
+  static const signup = '/signup';
+  static const home = '/home';
+  static const congratulations = '/congratulations';
+  static const placedetails = '/placedetails';
+  static const allcategories = '/allcategories';
+  static const search = '/search';
+  static const searchresult = '/searchresult';
+  static const categoryplaces = '/categoryplaces';
+  static const profile = '/profile';
+  static const booking = '/booking';
+  static const externalSite = '/externalsite';
+  static const paymentSuccess = '/paymentsucess';
+  static const paymentFailure = '/paymentfailure';
+  static const savedList = '/savedlist';
+  static const legalScreen = '/legal';
+  static const helpScreen = '/help';
+  static const editProfile = '/editprofile';
 
   static List<GetPage> routes = [
     GetPage(
@@ -96,7 +96,7 @@ class AppRoutes {
       page: () => BookingsScreen(),
     ),
     GetPage(
-      name: ExternalSite,
+      name: externalSite,
       page: () => ExternalWebsite(),
     ),
     GetPage(

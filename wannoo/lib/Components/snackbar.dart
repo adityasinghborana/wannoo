@@ -7,16 +7,14 @@ openIconSnackBar(
 ) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
     backgroundColor: Colors.green,
-    content: Container(
-      child: Row(
-        children: [
-          icon,
-          const SizedBox(
-            width: 5,
-          ),
-          Text(text)
-        ],
-      ),
+    content: Row(
+      children: [
+        icon,
+        const SizedBox(
+          width: 5,
+        ),
+        Text(text)
+      ],
     ),
     duration: const Duration(milliseconds: 2500),
   ));

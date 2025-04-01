@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class themeColor {
+class ThemeColor {
   static const Color colorBgPrimary = Color(0xFFFDFDFD);
   static const Color colorBgSecondory = Color(0xFFf39505);
   static const Color colorscafold = Color(0xFFFBFDFF);
@@ -17,7 +17,7 @@ class themeColor {
   static const Color success = Color(0xff2ec900);
 }
 
-class globalPadding {
+class GlobalPadding {
   static const double py_xxs = 10;
   static const double py_xs = 14;
   static const double py_sm = 22;
@@ -39,7 +39,7 @@ class globalPadding {
   static const double buttonLargepx = 144;
 }
 
-class globalRadius {
+class GlobalRadius {
   static const double borderRadius_s = 10;
   static const double borderRadius_m = 15;
 }

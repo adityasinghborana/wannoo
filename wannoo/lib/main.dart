@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wannoo/Constants.dart';
 import 'package:wannoo/routes.dart';
-import 'package:wannoo/utilities/Authclass.dart';
+import 'package:wannoo/utilities/auth_class.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,7 +30,7 @@ class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  _MyAppState createState() => _MyAppState();
+  State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
@@ -57,17 +57,24 @@ class _MyAppState extends State<MyApp> {
         }
 
         String? savedUser = snapshot.data;
-        print("Hello, saved UID: ${savedUser ?? 'No UID found'}");
+        debugPrint("Hello, saved UID: ${savedUser ?? 'No UID found'}");
 
         return GetMaterialApp(
-          theme: ThemeData(
-            fontFamily: GoogleFonts.inter().fontFamily,
-            scaffoldBackgroundColor: themeColor.colorscafold,
-            appBarTheme: const AppBarTheme(
-              color: themeColor.colorBgPrimary,
+          theme: ThemeData.from(
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: ThemeColor.colorAccentPrimary,
+              dynamicSchemeVariant: DynamicSchemeVariant.fidelity,
+              primary: ThemeColor.colorAccentPrimary,
             ),
+            textTheme: GoogleFonts.latoTextTheme(),
           ),
-          debugShowCheckedModeBanner: false,
+          darkTheme: ThemeData.from(
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: ThemeColor.colorAccentPrimary,
+              brightness: Brightness.dark,
+            ),
+            textTheme: GoogleFonts.latoTextTheme(),
+          ),
           initialRoute: savedUser != null ? AppRoutes.home : AppRoutes.splash,
           getPages: AppRoutes.routes,
         );

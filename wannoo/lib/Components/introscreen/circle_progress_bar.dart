@@ -1,4 +1,4 @@
-import 'dart:math' as Math;
+import 'dart:math';
 
 import 'package:flutter/widgets.dart';
 
@@ -147,8 +147,7 @@ class CircleProgressBarPainter extends CustomPainter {
     final Offset center = size.center(Offset.zero);
     final Size constrainedSize =
         size - Offset(strokeWidth, strokeWidth) as Size;
-    final shortestSide =
-        Math.min(constrainedSize.width, constrainedSize.height);
+    final shortestSide = min(constrainedSize.width, constrainedSize.height);
     final foregroundPaint = Paint()
       ..color = foregroundColor
       ..strokeWidth = strokeWidth
@@ -157,8 +156,8 @@ class CircleProgressBarPainter extends CustomPainter {
     final radius = (shortestSide / 2);
 
     // Start at the top. 0 radians represents the right edge
-    const double startAngle = -(2 * Math.pi * 0.25);
-    final double sweepAngle = (2 * Math.pi * (percentage));
+    const double startAngle = -(2 * pi * 0.25);
+    final double sweepAngle = (2 * pi * (percentage));
 
     // Don't draw the background if we don't have a background color
     if (backgroundColor != null) {

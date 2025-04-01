@@ -9,8 +9,7 @@ class Introduction extends StatefulWidget {
   final TextStyle titleTextStyle;
   final TextStyle subTitleTextStyle;
 
-  const Introduction({
-    super.key,
+  const Introduction({super.key, 
     required this.imageUrl,
     required this.title,
     required this.subTitle,
@@ -29,8 +28,8 @@ class Introduction extends StatefulWidget {
 class IntroductionState extends State<Introduction> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
+    return 
+   Padding(
         padding: const EdgeInsets.all(40),
         child: Column(
           //crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,7 +67,7 @@ class IntroductionState extends State<Introduction> {
             ),
           ],
         ),
-      ),
+      
     );
   }
 }

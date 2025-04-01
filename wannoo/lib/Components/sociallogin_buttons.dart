@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wannoo/Constants.dart';
+import 'package:wannoo/constants.dart';
 
 class SocialLoginButton extends StatelessWidget {
   final VoidCallback onpressed;
@@ -14,7 +14,7 @@ class SocialLoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: globalPadding.px_l),
+      padding: const EdgeInsets.symmetric(horizontal: GlobalPadding.px_l),
       child: InkWell(
           onTap: onpressed,
           child: Container(
@@ -22,8 +22,8 @@ class SocialLoginButton extends StatelessWidget {
             width: double.infinity,
             decoration: BoxDecoration(
                 borderRadius:
-                    BorderRadius.circular(globalRadius.borderRadius_s),
-                border: Border.all(color: themeColor.colorBorder, width: 1)),
+                    BorderRadius.circular(GlobalRadius.borderRadius_s),
+                border: Border.all(color: ThemeColor.colorBorder, width: 1)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [

@@ -1,46 +1,65 @@
-import 'package:auraa_ui/aura_ui.dart';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:wannoo/Components/largeButton2.dart';
-import 'package:wannoo/Constants.dart';
-import 'package:wannoo/itinarary/datalayer/model/request/post_fav_tour.dart';
-import 'package:wannoo/utilities/Authclass.dart';
+import 'package:wannoo/components/large_button_2.dart';
+import 'package:wannoo/constants.dart';
+import 'package:wannoo/itinarary/data_layer/model/request/post_fav_tour.dart';
+import 'package:wannoo/utilities/auth_class.dart';
 
-import '../homepage/presentationlayer/homepage_controller.dart';
+import '../homepage/presentation_layer/homepage_controller.dart';
 
-enum StateType { Error, Success, Info }
+Future<void> showMyDialog(BuildContext context, List<String> items) async {
+  // A list to keep track of checkbox states
+  List<bool> checkedStates = List<bool>.filled(items.length, false);
 
-void showToast({required StateType state, required String message}) {
-  Color bgColor;
+  return showDialog<void>(
+    context: context,
+    barrierDismissible: false, // user must tap button!
+    builder: (BuildContext context) {
+      return StatefulBuilder(
+        builder: (BuildContext context, StateSetter setState) {
+          return AlertDialog(
+            title: const Text('Add To Itinerary'),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: List<Widget>.generate(items.length, (index) {
+                  return CheckboxListTile(
+                    title: Text(items[index]),
+                    value: checkedStates[index],
+                    onChanged: (bool? value) {
+                      setState(() {
+                        checkedStates[index] = value ?? false;
+                      });
+                    },
+                  );
+                }),
+              ),
+            ),
+            actions: <Widget>[
+              TextButton(
+                child: const Text('Approve'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  // Process checkedStates if needed
+                },
+              ),
+            ],
+          );
+        },
+      );
+    },
+  );
+}
 
-  switch (state) {
-    case StateType.Error:
-      bgColor = themeColor.colorAccentSecondory;
-      break;
-    case StateType.Success:
-      bgColor = themeColor.success;
-      break;
-    case StateType.Info:
-      bgColor = themeColor.colorBgSecondory;
-      break;
-  }
-  // If message contains "firebase_auth/" or "firebase/", remove it, else keep the original message
-  final modifiedMessage = message.contains(RegExp(r'firebase(_auth)?/'))
-      ? message.replaceAll(RegExp(r'firebase(_auth)?/'), '')
-      : message;
-  return simpleToastMessage(
-      text: modifiedMessage,
-      textColour: themeColor.colorWhite,
-      color: bgColor,
-      context: Get.context!);
+void showSnackBar(BuildContext context, String text) {
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
 }
 
 Future<void> showMyModalBottomSheet(
     BuildContext context, int selectedTourId) async {
-  print(selectedTourId);
-
   await showModalBottomSheet(
-    backgroundColor: themeColor.colorscafold,
     context: context,
     isScrollControlled: true, // Ensures the bottom sheet can expand
     builder: (BuildContext context) {
@@ -49,56 +68,42 @@ Future<void> showMyModalBottomSheet(
         builder: (BuildContext context, StateSetter setState) {
           return ConstrainedBox(
             constraints: BoxConstraints(
-              maxHeight: Get.height * 0.75,
+              maxHeight:
+                  min((homePageController.itinararyList.length * 56) + 88, 480),
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    'Add To Itinerary',
-                    style: CustomTextStyles.fontXlSemiBold,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              spacing: 16,
+              children: [
+                const SizedBox(height: 8),
+                Text(
+                  'Add To Itinerary',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                // Wrap ListView.builder inside an Expanded to allow scrolling
+                Expanded(
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: homePageController.itinararyList.length,
+                    itemBuilder: (context, index) {
+                      var items = homePageController.itinararyList;
+                      return ListTile(
+                        title: Text("${items[index].name}"),
+                        trailing: const FaIcon(FontAwesomeIcons.heart),
+                        onTap: () async {
+                          var user = await getUserUID();
+                          homePageController.postFavTours(
+                              data: PostFavTourRequest(
+                            itineraryId: items[index].id ?? 0,
+                            tourId: selectedTourId,
+                            userId: user!,
+                          ));
+                        },
+                      );
+                    },
                   ),
-                  const SizedBox(height: 16),
-                  // Wrap ListView.builder inside an Expanded to allow scrolling
-                  Expanded(
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: homePageController.itinararyList.length,
-                      itemBuilder: (context, index) {
-                        var items = homePageController.itinararyList;
-                        return SizedBox(
-                          height: 50,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("${items[index].name}"),
-                              SizedBox(
-                                height: 30,
-                                width: 100,
-                                child: LargeButton2(
-                                    label: "Add ",
-                                    height: 90,
-                                    onPressed: () async {
-                                      var User = await getUserUID();
-
-                                      homePageController.postFavTours(
-                                          context: context,
-                                          data: PostFavTourRequest(
-                                              itineraryId: items[index].id ?? 0,
-                                              tourId: selectedTourId,
-                                              userId: User ?? ""));
-                                    }),
-                              )
-                            ],
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           );
         },

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wannoo/Constants.dart';
+import 'package:wannoo/constants.dart';
 
 class CustomTextButton extends StatelessWidget {
   final VoidCallback onpressed;
@@ -14,8 +14,8 @@ class CustomTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
         style: TextButton.styleFrom(
-          backgroundColor: themeColor.colorBgPrimary,
-          foregroundColor: themeColor.colorLink,
+          backgroundColor: ThemeColor.colorBgPrimary,
+          foregroundColor: ThemeColor.colorLink,
           textStyle: const TextStyle(
             decoration: TextDecoration.underline,
           ),
