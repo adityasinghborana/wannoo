@@ -21,7 +21,7 @@ class CustomDropDown extends StatelessWidget {
       }
 
       return DropdownButton<String>(
-        borderRadius: BorderRadius.circular(GlobalRadius.borderRadius_m),
+        borderRadius: BorderRadius.circular(GlobalRadius.borderRadiusMedium),
         dropdownColor: ThemeColor.colorWhite,
         isExpanded: true,
         menuMaxHeight: Get.height / 4,

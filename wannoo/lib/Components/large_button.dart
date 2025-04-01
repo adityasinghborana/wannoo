@@ -24,7 +24,7 @@ class LargeButton extends StatelessWidget {
           elevation: 5, // Elevation/shadow
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
-                GlobalRadius.borderRadius_m), // Border radius
+                GlobalRadius.borderRadiusMedium), // Border radius
           ),
         ),
         child: Text(label),

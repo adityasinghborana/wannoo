@@ -63,10 +63,10 @@ class HomePageController extends GetxController {
 
   final RxList<ExperiencesModel> experiences = <ExperiencesModel>[].obs;
   final List<ServicesModel> services = [
-    ServicesModel(title: 'trek', imagepath: image.Cat1),
-    ServicesModel(title: 'trek', imagepath: image.Cat1),
-    ServicesModel(title: 'trek', imagepath: image.Cat1),
-    ServicesModel(title: 'trek', imagepath: image.Cat1),
+    ServicesModel(title: 'trek', imagepath: StaticImage.cat1),
+    ServicesModel(title: 'trek', imagepath: StaticImage.cat1),
+    ServicesModel(title: 'trek', imagepath: StaticImage.cat1),
+    ServicesModel(title: 'trek', imagepath: StaticImage.cat1),
   ];
 
   void getAllCategories() async {
@@ -145,7 +145,7 @@ class HomePageController extends GetxController {
           tourId: data.tourId,
           userId: data.userId));
     } catch (e) {
-      showSnackBar(Get.context!, e.toString());
+      showSnackBar(Get.context!, e.toString(), state: StateType.error);
     }
   }
 

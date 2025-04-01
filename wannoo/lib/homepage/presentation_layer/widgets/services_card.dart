@@ -11,17 +11,27 @@ class ServicesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:
-          const EdgeInsets.symmetric(horizontal: GlobalPadding.px_md,vertical: 5),
+      padding: const EdgeInsets.symmetric(
+          horizontal: GlobalPadding.px_md, vertical: 5),
       child: Material(
         color: ThemeColor.colorWhite,
-        borderRadius: BorderRadius.circular(GlobalRadius.borderRadius_m),
+        borderRadius: BorderRadius.circular(GlobalRadius.borderRadiusMedium),
         elevation: 8,
         child: SizedBox(
           width: 110,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [Image.asset(imagePath,height: 18,width: 18,), Text(title,style: TypographyStyle.mdFont,)],
+            children: [
+              Image.asset(
+                imagePath,
+                height: 18,
+                width: 18,
+              ),
+              Text(
+                title,
+                style: TypographyStyle.mdFont,
+              )
+            ],
           ),
         ),
       ),

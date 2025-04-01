@@ -9,7 +9,8 @@ class Introduction extends StatefulWidget {
   final TextStyle titleTextStyle;
   final TextStyle subTitleTextStyle;
 
-  const Introduction({super.key, 
+  const Introduction({
+    super.key,
     required this.imageUrl,
     required this.title,
     required this.subTitle,
@@ -28,46 +29,44 @@ class Introduction extends StatefulWidget {
 class IntroductionState extends State<Introduction> {
   @override
   Widget build(BuildContext context) {
-    return 
-   Padding(
-        padding: const EdgeInsets.all(40),
-        child: Column(
-          //crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-              child: Image(
-                image: AssetImage(widget.imageUrl),
-                height: widget.imageHeight,
-                width: widget.imageWidth,
+    return Padding(
+      padding: const EdgeInsets.all(40),
+      child: Column(
+        //crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: Image(
+              image: AssetImage(widget.imageUrl),
+              height: widget.imageHeight,
+              width: widget.imageWidth,
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                widget.title,
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.clip,
+                style: widget.titleTextStyle,
               ),
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  widget.title,
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.clip,
-                  style: widget.titleTextStyle,
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              widget.subTitle,
-              style: widget.subTitleTextStyle,
-              overflow: TextOverflow.clip,
-              textAlign: TextAlign.center,
-            ),
-          ],
-        ),
-      
+            ],
+          ),
+          const SizedBox(
+            height: 10.0,
+          ),
+          Text(
+            widget.subTitle,
+            style: widget.subTitleTextStyle,
+            overflow: TextOverflow.clip,
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
     );
   }
 }

@@ -61,7 +61,7 @@ class LoginController extends GetxController {
       Get.toNamed(AppRoutes.home);
     } catch (e) {
       if (!context.mounted) return;
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), state: StateType.error);
       Get.toNamed(AppRoutes.login);
     }
   }
@@ -74,10 +74,10 @@ class LoginController extends GetxController {
 
       Get.offAllNamed(AppRoutes.login);
       if (!context.mounted) return;
-      showSnackBar(context, 'Sign-out successful.');
+      showSnackBar(context, 'Sign-out successful.', state: StateType.error);
     } catch (e) {
       debugPrint("Sign-out error: $e");
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), state: StateType.error);
     }
   }
 

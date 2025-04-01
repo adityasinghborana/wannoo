@@ -38,7 +38,7 @@ class HelpScreenController extends GetxController {
         address.value = res.address ?? "";
       });
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
     }
   }
 
@@ -61,7 +61,7 @@ class HelpScreenController extends GetxController {
         }
       });
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
     }
   }
 }

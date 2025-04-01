@@ -30,13 +30,13 @@ class TextFieldCustom extends StatelessWidget {
         fillColor: fillColor,
         // Background color of the TextFormField
         enabledBorder: const OutlineInputBorder(
-          borderRadius:
-              BorderRadius.all(Radius.circular(GlobalRadius.borderRadius_m)),
+          borderRadius: BorderRadius.all(
+              Radius.circular(GlobalRadius.borderRadiusMedium)),
           borderSide: BorderSide(width: 1, color: ThemeColor.colorBorder),
         ),
         focusedBorder: const OutlineInputBorder(
-          borderRadius:
-              BorderRadius.all(Radius.circular(GlobalRadius.borderRadius_m)),
+          borderRadius: BorderRadius.all(
+              Radius.circular(GlobalRadius.borderRadiusMedium)),
           borderSide: BorderSide(width: 1, color: ThemeColor.colorBgSecondory),
         ),
         hintText: hintText,

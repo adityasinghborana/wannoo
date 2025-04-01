@@ -1,9 +1,9 @@
 import 'dart:math';
 
+import 'package:auraa_ui/aura_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:wannoo/components/large_button_2.dart';
 import 'package:wannoo/constants.dart';
 import 'package:wannoo/itinarary/data_layer/model/request/post_fav_tour.dart';
 import 'package:wannoo/utilities/auth_class.dart';
@@ -53,8 +53,32 @@ Future<void> showMyDialog(BuildContext context, List<String> items) async {
   );
 }
 
-void showSnackBar(BuildContext context, String text) {
-  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
+enum StateType { error, success, info }
+
+void showSnackBar(BuildContext context, String text,
+    {required StateType state}) {
+  Color bgColor;
+
+  switch (state) {
+    case StateType.error:
+      bgColor = ThemeColor.colorAccentSecondory;
+      break;
+    case StateType.success:
+      bgColor = ThemeColor.success;
+      break;
+    case StateType.info:
+      bgColor = ThemeColor.colorBgSecondory;
+      break;
+  }
+  // If message contains "firebase_auth/" or "firebase/", remove it, else keep the original message
+  final modifiedMessage = text.contains(RegExp(r'firebase(_auth)?/'))
+      ? text.replaceAll(RegExp(r'firebase(_auth)?/'), '')
+      : text;
+  return simpleToastMessage(
+      text: modifiedMessage,
+      textColour: ThemeColor.colorWhite,
+      color: bgColor,
+      context: context);
 }
 
 Future<void> showMyModalBottomSheet(

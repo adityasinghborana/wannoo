@@ -14,11 +14,11 @@ class CTA extends StatelessWidget {
         flexWeights: const [1, 10, 1],
         children: [
           Image.asset(
-            image.homeimage,
+            StaticImage.homeimage,
             fit: BoxFit.cover,
           ),
           Image.asset(
-            image.experiencesimages,
+            StaticImage.experiencesimages,
             fit: BoxFit.cover,
           ),
         ],

@@ -54,7 +54,8 @@ class SearchPageController extends GetxController {
     } catch (error) {
       // Handle the error by displaying a SnackBar only if the context is available
       if (Get.context != null) {
-        showSnackBar(Get.context!, "Error fetching continents: $error");
+        showSnackBar(Get.context!, "Error fetching continents: $error",
+            state: StateType.error);
       } else {
         debugPrint("Error fetching continents: $error");
       }
@@ -70,7 +71,8 @@ class SearchPageController extends GetxController {
       countryList.value = countries.map((e) => e.name ?? "No Name").toList();
     } catch (error) {
       if (Get.context != null) {
-        showSnackBar(Get.context!, "Error fetching countries: $error");
+        showSnackBar(Get.context!, "Error fetching countries: $error",
+            state: StateType.error);
       } else {
         debugPrint("Error fetching countries: $error");
       }
@@ -86,7 +88,8 @@ class SearchPageController extends GetxController {
       cityList.value = cities.map((e) => e.CityName ?? "No Name").toList();
     } catch (error) {
       if (Get.context != null) {
-        showSnackBar(Get.context!, "Error fetching cities: $error");
+        showSnackBar(Get.context!, "Error fetching cities: $error",
+            state: StateType.error);
       } else {
         debugPrint("Error fetching cities: $error");
       }

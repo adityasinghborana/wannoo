@@ -36,7 +36,7 @@ class CategoryCard extends StatelessWidget {
                   '$baseurl/$imagePath',
                   errorBuilder: (context, error, stackTrace) {
                     return Image.asset(
-                      image.Cat1,
+                      StaticImage.cat1,
                       fit: BoxFit.contain,
                     );
                   },

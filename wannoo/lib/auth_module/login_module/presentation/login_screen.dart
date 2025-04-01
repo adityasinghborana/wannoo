@@ -32,13 +32,13 @@ class LoginPage extends StatelessWidget {
               child: Image.asset(
                 width: 250,
                 height: 250,
-                image.logoOrange,
+                StaticImage.logoOrange,
               ),
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: GlobalPadding.px_l),
               child: Row(
-                children: [Text(staticText.loginEmail)],
+                children: [Text(StaticText.loginEmail)],
               ),
             ),
             Padding(
@@ -47,14 +47,14 @@ class LoginPage extends StatelessWidget {
                   vertical: GlobalPadding.buttonSmallpy),
               child: TextFieldCustom(
                   textController: loginController.emailController,
-                  hintText: staticText.loginEmail),
+                  hintText: StaticText.loginEmail),
             ),
             const Padding(
               padding: EdgeInsets.symmetric(
                   horizontal: GlobalPadding.px_l,
                   vertical: GlobalPadding.buttonSmallpy),
               child: Row(
-                children: [Text(staticText.loginPassword)],
+                children: [Text(StaticText.loginPassword)],
               ),
             ),
             Padding(
@@ -64,7 +64,7 @@ class LoginPage extends StatelessWidget {
               child: TextFieldCustom(
                   textController: loginController.passwordController,
                   hideText: true,
-                  hintText: staticText.loginPassword),
+                  hintText: StaticText.loginPassword),
             ),
             const SizedBox(
               height: Height.heightl,
@@ -84,7 +84,7 @@ class LoginPage extends StatelessWidget {
             ),
             RichText(
               text: TextSpan(
-                text: staticText.signUpToLogin,
+                text: StaticText.signUpToLogin,
                 style: const TextStyle(color: ThemeColor.colorTextPrimary),
                 children: [
                   WidgetSpan(
@@ -93,7 +93,7 @@ class LoginPage extends StatelessWidget {
                         Get.toNamed(AppRoutes.signup);
                       },
                       child: const Text(
-                        staticText.signUpLinkText,
+                        StaticText.signUpLinkText,
                         style: TextStyle(
                           color: ThemeColor.colorLink, // Change color if needed
                           decoration: TextDecoration.none,
@@ -115,8 +115,8 @@ class LoginPage extends StatelessWidget {
               onpressed: () {
                 loginController.googleSignIn(context);
               },
-              imagepath: image.googleIcon,
-              label: staticText.loginGoogle,
+              imagepath: StaticImage.googleIcon,
+              label: StaticText.loginGoogle,
             ),
             // SizedBox(
             //   height: Height.heightl,
@@ -126,7 +126,7 @@ class LoginPage extends StatelessWidget {
             //     null;
             //   },
             //   imagepath: image.facebookIcon,
-            //   label: staticText.loginFacebook,
+            //   label: StaticText.loginFacebook,
             // ),
             // Text("or"),
             const SizedBox(

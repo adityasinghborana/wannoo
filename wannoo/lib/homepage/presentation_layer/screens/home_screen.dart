@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/components/experiences_list_view.dart';
 import 'package:wannoo/components/category_list_view.dart';
@@ -41,7 +40,8 @@ class _HomeScreenState extends State<HomeScreen> {
           automaticallyImplyLeading: false,
           flexibleSpace: FlexibleSpaceBar(
             background: Image.asset(
-              image.homeimage, // Ensure this points to your asset correctly
+              StaticImage
+                  .homeimage, // Ensure this points to your asset correctly
               fit: BoxFit.cover,
             ),
             expandedTitleScale: 1.0,

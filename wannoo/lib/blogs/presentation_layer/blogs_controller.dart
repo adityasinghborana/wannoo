@@ -26,7 +26,7 @@ class BlogsController extends GetxController {
           .then((res) => allBlogsList.assignAll(res));
       debugPrint(allBlogsList.toList().toString());
     } catch (e) {
-      showSnackBar(Get.context!, "$e");
+      showSnackBar(Get.context!, "$e", state: StateType.error);
     }
   }
 }

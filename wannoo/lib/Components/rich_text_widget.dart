@@ -11,7 +11,7 @@ class RichTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-        text: staticText.signUpToLogin,
+        text: StaticText.signUpToLogin,
         style: const TextStyle(color: ThemeColor.colorTextPrimary),
         children: [
           WidgetSpan(
@@ -20,7 +20,7 @@ class RichTextWidget extends StatelessWidget {
                 Get.toNamed(AppRoutes.signup);
               },
               child: const Text(
-                staticText.signUpLinkText,
+                StaticText.signUpLinkText,
                 style: TextStyle(
                   color: ThemeColor.colorLink, // Change color if needed
                   decoration: TextDecoration.none,

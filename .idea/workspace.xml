@@ -4,15 +4,52 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8962cf7c-78ec-447d-968c-2e4745d63059" name="Changes" comment="Toast added depending on the state Enum is defined to State Success , Error , Info">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+    <list default="true" id="8962cf7c-78ec-447d-968c-2e4745d63059" name="Changes" comment="merged with mat branch and resolved conflicting error">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/blogs/data_layer/repository/blogs_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/blogs/data_layer/repository/blogs_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/blogs/presentation_layer/blogs_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/blogs/presentation_layer/blogs_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/custom_icon.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/custom_icon.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/introscreen/intro_screen_onboarding.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/introscreen/intro_screen_onboarding.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/introscreen/introduction.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/introscreen/introduction.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/large_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/large_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/large_button_2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/large_button_2.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/rich_text_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/rich_text_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/sociallogin_buttons.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/sociallogin_buttons.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/Components/text_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/Components/text_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/Constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/constants.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/auth_module/login_module/presentation/login_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/auth_module/login_module/presentation/login_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/auth_module/login_module/presentation/login_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/auth_module/login_module/presentation/login_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/auth_module/signup_module/presentation/signup_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/auth_module/signup_module/presentation/signup_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/auth_module/signup_module/presentation/signup_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/auth_module/signup_module/presentation/signup_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/blogs/presentation_layer/blogs_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/blogs/presentation_layer/blogs_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/bookings/presentation_layer/bookings_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/bookings/presentation_layer/bookings_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/bookings/presentation_layer/bookings_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/bookings/presentation_layer/bookings_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/bookings/presentation_layer/payment_failure.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/bookings/presentation_layer/payment_failure.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/bookings/presentation_layer/payment_sucess.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/bookings/presentation_layer/payment_sucess.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/categories/presentation_layer/category_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/categories/presentation_layer/category_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/congratulations/presentation_layer/congratulation_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/congratulations/presentation_layer/congratulation_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/homepage/presentation_layer/homepage_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/homepage/presentation_layer/homepage_controller.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wannoo/lib/homepage/presentation_layer/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/homepage/presentation_layer/screens/home_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/homepage/presentation_layer/widgets/banner.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/homepage/presentation_layer/widgets/banner.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/homepage/presentation_layer/widgets/category_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/homepage/presentation_layer/widgets/category_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/homepage/presentation_layer/widgets/home_stack.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/homepage/presentation_layer/widgets/home_stack.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/homepage/presentation_layer/widgets/search.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/homepage/presentation_layer/widgets/search.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/homepage/presentation_layer/widgets/services_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/homepage/presentation_layer/widgets/services_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/itinarary/presentation_layer/Itinarary_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/itinarary/presentation_layer/itinarary_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wannoo/lib/onboarding_screen/presentation/onboarding_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/onboarding_screen/presentation/onboarding_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/lib/onboarding_screen/presentation/onboarding_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/onboarding_screen/presentation/onboarding_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wannoo/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/places_detail/data_layer/model/response/places_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/places_detail/data_layer/model/response/places_details.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/places_detail/presentation_layer/place_details_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/places_detail/presentation_layer/place_details_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/places_detail/presentation_layer/widgets/Faq.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/places_detail/presentation_layer/widgets/faq.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/profile/help_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/profile/help_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/profile/presentationlayer/help_screen_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/profile/presentationlayer/help_screen_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/profile/presentationlayer/profile_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/profile/presentationlayer/profile_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/profile/presentationlayer/profile_screen_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/profile/presentationlayer/profile_screen_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/search/data_layer/model/response/city_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/search/data_layer/model/response/city_response.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/search/data_layer/model/response/country_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/search/data_layer/model/response/country_response.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/search/presentation_layer/search_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/search/presentation_layer/search_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/search/presentation_layer/serach_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/search/presentation_layer/serach_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/search/presentation_layer/widgets/drop_down.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/search/presentation_layer/widgets/drop_down.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/styles.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/styles.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/utilities/auth_class.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/utilities/auth_class.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wannoo/lib/utilities/dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/wannoo/lib/utilities/dialog.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +75,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;assignee&quot;: &quot;adityasinghborana&quot;
+    }
+  ],
   &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
     &quot;assignee&quot;: &quot;adityasinghborana&quot;
   }
 }</component>
@@ -65,8 +106,7 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "main",
     "io.flutter.reload.alreadyRun": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/aditya/StudioProjects/wannoo/wannoo",
@@ -134,42 +174,26 @@
       <option name="project" value="LOCAL" />
       <updated>1741341351220</updated>
     </task>
-    <task id="LOCAL-00006" summary="All Changes for first build">
-      <option name="closed" value="true" />
-      <created>1742915889785</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1742915889785</updated>
-    </task>
-    <task id="LOCAL-00007" summary="asset also added">
-      <option name="closed" value="true" />
-      <created>1742915935651</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1742915935651</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Toast added depending on the state Enum is defined to State Success , Error , Info">
-      <option name="closed" value="true" />
-      <created>1743069176471</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1743069176471</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="courepted images fixed" />
     <MESSAGE value="update user api added" />
     <MESSAGE value="Help &amp; Support page added" />
     <MESSAGE value="blogs api implimented blogs screen is made dynamic" />
-    <MESSAGE value="All Changes for first build" />
-    <MESSAGE value="asset also added" />
-    <MESSAGE value="Toast added depending on the state Enum is defined to State Success , Error , Info" />
-    <option name="LAST_COMMIT_MESSAGE" value="Toast added depending on the state Enum is defined to State Success , Error , Info" />
+    <option name="LAST_COMMIT_MESSAGE" value="blogs api implimented blogs screen is made dynamic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

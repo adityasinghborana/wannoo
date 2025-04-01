@@ -54,8 +54,7 @@ class PlaceDetailsScreen extends StatelessWidget {
                   background: Obx(
                     () {
                       return AuraUICarousel(
-                        images:
-                            placedetailsController.imagePaths.value.map((img) {
+                        images: placedetailsController.imagePaths.map((img) {
                           return '$baseurl/${img.imagepath}'; // Concatenating baseurl and imagepath
                         }).toList(),
                         pageController: pageController,

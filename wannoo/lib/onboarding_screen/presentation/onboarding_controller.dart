@@ -1,29 +1,28 @@
 import 'package:get/get.dart';
-
 import '../../Components/introscreen/introduction.dart';
-import '../../Constants.dart';
+import '../../constants.dart';
 import '../../styles.dart';
 
 class OnBoardingController extends GetxController {
   List<Introduction> list = [
     Introduction(
-      title: staticText.story1Heading,
-      subTitle: staticText.story1Body,
+      title: StaticText.story1Heading,
+      subTitle: StaticText.story1Body,
       imageUrl: "asset/images/Story1.png",
       titleTextStyle: TypographyStyle.xxlFont,
       subTitleTextStyle: TypographyStyle.mdFont,
     ),
     Introduction(
-      title: staticText.story2Heading,
-      subTitle: staticText.story2Body,
-      imageUrl: image.storyBoard2,
+      title: StaticText.story2Heading,
+      subTitle: StaticText.story2Body,
+      imageUrl: StaticImage.storyBoard2,
       titleTextStyle: TypographyStyle.xxlFont,
       subTitleTextStyle: TypographyStyle.mdFont,
     ),
     Introduction(
-      title: staticText.story3Heading,
-      subTitle: staticText.story3Body,
-      imageUrl: image.storyBoard3,
+      title: StaticText.story3Heading,
+      subTitle: StaticText.story3Body,
+      imageUrl: StaticImage.storyBoard3,
       titleTextStyle: TypographyStyle.xxlFont,
       subTitleTextStyle: TypographyStyle.mdFont,
     ),

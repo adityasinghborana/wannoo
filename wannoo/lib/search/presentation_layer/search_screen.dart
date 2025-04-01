@@ -110,7 +110,8 @@ class SearchScreen extends StatelessWidget {
                     searchPageController.selectedContinent.isEmpty ||
                     searchPageController.selectedCity.isEmpty ||
                     searchPageController.selectedCategory.isEmpty) {
-                  return showSnackBar(context, "Plaese Select all Option");
+                  return showSnackBar(context, "Plaese Select all Option",
+                      state: StateType.error);
                 }
                 searchPageController.moveto();
               },
@@ -171,7 +172,7 @@ class CustomDropDownRow extends StatelessWidget {
       decoration: BoxDecoration(
           boxShadow: [globalShadow],
           color: ThemeColor.colorWhite,
-          borderRadius: BorderRadius.circular(GlobalRadius.borderRadius_m)),
+          borderRadius: BorderRadius.circular(GlobalRadius.borderRadiusMedium)),
       child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           // Aligns items to the start of the row

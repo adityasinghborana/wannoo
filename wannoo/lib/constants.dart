@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -40,11 +42,11 @@ class GlobalPadding {
 }
 
 class GlobalRadius {
-  static const double borderRadius_s = 10;
-  static const double borderRadius_m = 15;
+  static const double borderRadiusSmall = 10;
+  static const double borderRadiusMedium = 15;
 }
 
-class globalFontsize {
+class GlobalFontsize {
   static const double font_xs = 8; //infigma
   static const double font_xs2 = 10; // in figma
   static const double font_s = 12; // in figma
@@ -55,7 +57,7 @@ class globalFontsize {
   static const double font_xxl = 24;
 }
 
-class image {
+class StaticImage {
   static const String experiencesimages = 'asset/images/experiencesimg.png';
   static const String logo = 'asset/images/logo.png';
   static const String storyBoard1 = 'asset/images/Story1.png';
@@ -72,13 +74,10 @@ class image {
   static const String facebookIcon = 'asset/images/facebook.png';
   static const String homeimage = 'asset/images/homeimage.png';
   static const String person = 'asset/images/person.jpeg';
-  static const String Cat1 = 'asset/images/cat1.png';
-  static const String Cat2 = 'asset/images/cat2.png';
-  static const String Cat3 = 'asset/images/cat3.png';
-  static const String Cat4 = 'asset/images/cat4.png';
+  static const String cat1 = 'asset/images/cat1.png';
 }
 
-class staticText {
+class StaticText {
   static const String story1Heading = 'Explore The World ';
   static const String story1Body =
       'Lorem ipsum dolor sit amet consectetur. Mi ultricies ultrices fermentum a. Duis neque lectus pharetra ac sed lorem.';
@@ -125,7 +124,7 @@ class Height {
 const String baseurl = "http://68.66.251.170/api";
 
 final BoxShadow globalShadow =
-    BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 15);
+    BoxShadow(color: Colors.black.withValues(alpha: 0.1), blurRadius: 15);
 
 class CustomTextStyles {
   // Font weight options
@@ -134,83 +133,83 @@ class CustomTextStyles {
 
   // Text styles for each font size with medium (w500) weight
   static final TextStyle fontXsMedium = GoogleFonts.inter(
-    fontSize: globalFontsize.font_xs,
+    fontSize: GlobalFontsize.font_xs,
     fontWeight: fontWeightMedium,
   );
 
   static final TextStyle fontXs2Medium = GoogleFonts.inter(
-    fontSize: globalFontsize.font_xs2,
+    fontSize: GlobalFontsize.font_xs2,
     fontWeight: fontWeightMedium,
   );
 
   static final TextStyle fontSMedium = GoogleFonts.inter(
-    fontSize: globalFontsize.font_s,
+    fontSize: GlobalFontsize.font_s,
     fontWeight: fontWeightMedium,
   );
 
   static final TextStyle fontMdMedium = GoogleFonts.inter(
-    fontSize: globalFontsize.font_md,
+    fontSize: GlobalFontsize.font_md,
     fontWeight: fontWeightMedium,
   );
 
   static final TextStyle fontL1Medium = GoogleFonts.inter(
-    fontSize: globalFontsize.font_l1,
+    fontSize: GlobalFontsize.font_l1,
     fontWeight: fontWeightMedium,
   );
 
   static final TextStyle fontL2Medium = GoogleFonts.inter(
-    fontSize: globalFontsize.font_l2,
+    fontSize: GlobalFontsize.font_l2,
     fontWeight: fontWeightMedium,
   );
 
   static final TextStyle fontXlMedium = GoogleFonts.inter(
-    fontSize: globalFontsize.font_xl,
+    fontSize: GlobalFontsize.font_xl,
     fontWeight: fontWeightMedium,
   );
 
   static final TextStyle fontXxlMedium = GoogleFonts.inter(
-    fontSize: globalFontsize.font_xxl,
+    fontSize: GlobalFontsize.font_xxl,
     fontWeight: fontWeightMedium,
   );
 
   // Text styles for each font size with semi-bold (w600) weight
   static final TextStyle fontXsSemiBold = GoogleFonts.inter(
-    fontSize: globalFontsize.font_xs,
+    fontSize: GlobalFontsize.font_xs,
     fontWeight: fontWeightSemiBold,
   );
 
   static final TextStyle fontXs2SemiBold = GoogleFonts.inter(
-    fontSize: globalFontsize.font_xs2,
+    fontSize: GlobalFontsize.font_xs2,
     fontWeight: fontWeightSemiBold,
   );
 
   static final TextStyle fontSSemiBold = GoogleFonts.inter(
-    fontSize: globalFontsize.font_s,
+    fontSize: GlobalFontsize.font_s,
     fontWeight: fontWeightSemiBold,
   );
 
   static final TextStyle fontMdSemiBold = GoogleFonts.inter(
-    fontSize: globalFontsize.font_md,
+    fontSize: GlobalFontsize.font_md,
     fontWeight: fontWeightSemiBold,
   );
 
   static final TextStyle fontL1SemiBold = GoogleFonts.inter(
-    fontSize: globalFontsize.font_l1,
+    fontSize: GlobalFontsize.font_l1,
     fontWeight: fontWeightSemiBold,
   );
 
   static final TextStyle fontL2SemiBold = GoogleFonts.inter(
-    fontSize: globalFontsize.font_l2,
+    fontSize: GlobalFontsize.font_l2,
     fontWeight: fontWeightSemiBold,
   );
 
   static final TextStyle fontXlSemiBold = GoogleFonts.inter(
-    fontSize: globalFontsize.font_xl,
+    fontSize: GlobalFontsize.font_xl,
     fontWeight: fontWeightSemiBold,
   );
 
   static final TextStyle fontXxlSemiBold = GoogleFonts.inter(
-    fontSize: globalFontsize.font_xxl,
+    fontSize: GlobalFontsize.font_xxl,
     fontWeight: fontWeightSemiBold,
   );
 }

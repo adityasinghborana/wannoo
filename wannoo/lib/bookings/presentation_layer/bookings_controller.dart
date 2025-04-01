@@ -50,11 +50,13 @@ class BookingsController extends GetxController {
 
   Future<void> initiateCheckout() async {
     if (nameController.text.isEmpty) {
-      showSnackBar(Get.context!, "Enter the name of the Booking Person");
+      showSnackBar(Get.context!, "Enter the name of the Booking Person",
+          state: StateType.error);
     } else if (noOfGuest.value == 0) {
-      showSnackBar(Get.context!, "Select no of Guest Going on the Tour ");
+      showSnackBar(Get.context!, "Select no of Guest Going on the Tour ",
+          state: StateType.error);
     } else if (date.value == "") {
-      showSnackBar(Get.context!, "Select Date ");
+      showSnackBar(Get.context!, "Select Date ", state: StateType.error);
     } else {
       //bookingsController.initiateCheckout();
 

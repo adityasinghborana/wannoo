@@ -66,7 +66,7 @@ class InfoCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(25.0),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(.05),
+                    color: Colors.black.withValues(alpha: .05),
                     offset: const Offset(0, 10),
                     blurRadius: 0,
                     spreadRadius: 0,
@@ -171,7 +171,7 @@ class CardFb1 extends StatelessWidget {
               offset: const Offset(10, 20),
               blurRadius: 10,
               spreadRadius: 0,
-              color: Colors.grey.withOpacity(.05)),
+              color: Colors.grey.withValues(alpha: .05)),
         ],
       ),
       child: Column(

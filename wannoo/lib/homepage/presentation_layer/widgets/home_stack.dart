@@ -3,8 +3,7 @@ import 'package:get/get.dart';
 import 'package:wannoo/homepage/presentation_layer/homepage_controller.dart';
 import 'package:wannoo/homepage/presentation_layer/widgets/search.dart';
 import 'package:wannoo/routes.dart';
-
-import '../../../Constants.dart';
+import '../../../constants.dart';
 
 class HomeStack extends StatelessWidget {
   const HomeStack({super.key});
@@ -19,7 +18,8 @@ class HomeStack extends StatelessWidget {
         children: [
           Positioned.fill(
             child: Image.asset(
-              image.homeimage, // Ensure this points to your asset correctly
+              StaticImage
+                  .homeimage, // Ensure this points to your asset correctly
               fit: BoxFit.cover,
             ),
           ),

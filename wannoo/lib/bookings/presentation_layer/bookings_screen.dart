@@ -51,7 +51,7 @@ class BookingsScreen extends StatelessWidget {
                   color: ThemeColor.colorWhite,
                   boxShadow: [globalShadow],
                   borderRadius:
-                      BorderRadius.circular(GlobalRadius.borderRadius_m),
+                      BorderRadius.circular(GlobalRadius.borderRadiusMedium),
                 ),
                 child: CalendarDatePicker(
                   initialDate: DateTime.now(),
@@ -76,7 +76,7 @@ class BookingsScreen extends StatelessWidget {
                 color: ThemeColor.colorWhite,
                 boxShadow: [globalShadow],
                 borderRadius:
-                    BorderRadius.circular(GlobalRadius.borderRadius_m),
+                    BorderRadius.circular(GlobalRadius.borderRadiusMedium),
               ),
               child: TextFieldCustom(
                 textController: bookingsController.nameController,
@@ -98,7 +98,7 @@ class BookingsScreen extends StatelessWidget {
                 color: ThemeColor.colorWhite,
                 boxShadow: [globalShadow],
                 borderRadius:
-                    BorderRadius.circular(GlobalRadius.borderRadius_m),
+                    BorderRadius.circular(GlobalRadius.borderRadiusMedium),
               ),
               child: CustomDropDown(
                 list: list,

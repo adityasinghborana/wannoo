@@ -56,9 +56,11 @@ class ProfileScreen extends StatelessWidget {
                             ].request();
                             if (statuses[Permission.storage]!.isGranted &&
                                 statuses[Permission.camera]!.isGranted) {
-                              profileScreenController.showImagePicker(context);
+                              profileScreenController
+                                  .showImagePicker(Get.context!);
                             } else {
-                              profileScreenController.showImagePicker(context);
+                              profileScreenController
+                                  .showImagePicker(Get.context!);
                             }
                           },
                           child: SvgPicture.asset(CustomIcons.editpic)),

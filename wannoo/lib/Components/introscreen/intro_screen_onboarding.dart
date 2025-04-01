@@ -100,7 +100,7 @@ class _IntroScreenOnboardingState extends State<IntroScreenOnboarding> {
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: (widget.foregroundColor ?? Theme.of(context).primaryColor)
-                .withValues(alpha:0.5),
+                .withValues(alpha: 0.5),
           ),
           child: IconButton(
             onPressed: () {

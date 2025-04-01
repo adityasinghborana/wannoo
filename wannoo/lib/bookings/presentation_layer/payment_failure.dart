@@ -18,7 +18,7 @@ class PaymentFailure extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(image.paymentfailure),
+            Image.asset(StaticImage.paymentfailure),
             const Gap(Height.heightxl),
             Text(
               'Payment Failure',

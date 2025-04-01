@@ -22,7 +22,7 @@ class SocialLoginButton extends StatelessWidget {
             width: double.infinity,
             decoration: BoxDecoration(
                 borderRadius:
-                    BorderRadius.circular(GlobalRadius.borderRadius_s),
+                    BorderRadius.circular(GlobalRadius.borderRadiusSmall),
                 border: Border.all(color: ThemeColor.colorBorder, width: 1)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -47,7 +47,7 @@ class SignUpController extends GetxController {
       await createUserUseCase.execute(UserModel(uid: uid, email: email));
     } catch (e) {
       if (kDebugMode) {
-        print(e);
+        debugPrint(e.toString());
       }
     }
   }
@@ -58,7 +58,7 @@ class SignUpController extends GetxController {
   //     await createCartUseCase.execute(request);
   //   } catch (e) {
   //     if (kDebugMode) {
-  //       print(e);
+  //       debugPrint(e);
   //     }
   //   }
   // }

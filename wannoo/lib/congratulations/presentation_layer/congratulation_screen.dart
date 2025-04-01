@@ -14,7 +14,7 @@ class CongratultionsPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Image.asset(image.congo),
+          Image.asset(StaticImage.congo),
           const SizedBox(
             height: Height.heightButtonLarge,
           ),
@@ -23,7 +23,7 @@ class CongratultionsPage extends StatelessWidget {
                 horizontal: GlobalPadding.buttonSmallpx,
                 vertical: GlobalPadding.buttonSmallpy),
             child: Text(
-              staticText.congoScreenText,
+              StaticText.congoScreenText,
               style: TypographyStyle.l2Font,
             ),
           ),
@@ -35,7 +35,7 @@ class CongratultionsPage extends StatelessWidget {
                 horizontal: GlobalPadding.buttonSmallpx,
                 vertical: GlobalPadding.buttonSmallpy),
             child: LargeButton(
-              label: staticText.congoScreenButtonText,
+              label: StaticText.congoScreenButtonText,
               onPressed: () {
                 Get.toNamed(AppRoutes.home);
               },

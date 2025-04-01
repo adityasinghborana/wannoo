@@ -172,11 +172,11 @@ class ProfileScreenController extends GetxController {
         ),
       );
 
-      print(response.data);
+      debugPrint(response.data);
       var uid = await getUserUID();
       updateProfileImage(uid, response.data["path"]);
     } catch (e) {
-      print("Error uploading image: $e");
+      debugPrint("Error uploading image: $e");
     }
   }
 
