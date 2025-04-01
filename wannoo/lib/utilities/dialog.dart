@@ -1,11 +1,14 @@
+import 'dart:async';
 import 'dart:math';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:wannoo/components/large_button_2.dart';
-import 'package:wannoo/constants.dart';
+import 'package:wannoo/itinarary/data_layer/model/request/favtourrequest.dart';
 import 'package:wannoo/itinarary/data_layer/model/request/post_fav_tour.dart';
+import 'package:wannoo/itinarary/data_layer/repository/itinarary_repository.dart';
+import 'package:wannoo/itinarary/data_layer/service/itinarary_remote.dart';
 import 'package:wannoo/utilities/auth_class.dart';
 
 import '../homepage/presentation_layer/homepage_controller.dart';
@@ -58,56 +61,127 @@ void showSnackBar(BuildContext context, String text) {
 }
 
 Future<void> showMyModalBottomSheet(
-    BuildContext context, int selectedTourId) async {
+  BuildContext context,
+  int selectedTourId,
+) async {
   await showModalBottomSheet(
     context: context,
     isScrollControlled: true, // Ensures the bottom sheet can expand
     builder: (BuildContext context) {
-      final HomePageController homePageController = Get.find();
-      return StatefulBuilder(
-        builder: (BuildContext context, StateSetter setState) {
-          return ConstrainedBox(
-            constraints: BoxConstraints(
-              maxHeight:
-                  min((homePageController.itinararyList.length * 56) + 88, 480),
+      final homePageController = Get.find<HomePageController>();
+      return ConstrainedBox(
+        constraints: BoxConstraints(
+          maxHeight:
+              min((homePageController.itinararyList.length * 56) + 88, 480),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          spacing: 16,
+          children: [
+            const SizedBox(height: 8),
+            Text(
+              'Add To Itinerary',
+              style: Theme.of(context).textTheme.titleMedium,
             ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              spacing: 16,
-              children: [
-                const SizedBox(height: 8),
-                Text(
-                  'Add To Itinerary',
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
-                // Wrap ListView.builder inside an Expanded to allow scrolling
-                Expanded(
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: homePageController.itinararyList.length,
-                    itemBuilder: (context, index) {
-                      var items = homePageController.itinararyList;
-                      return ListTile(
-                        title: Text("${items[index].name}"),
-                        trailing: const FaIcon(FontAwesomeIcons.heart),
-                        onTap: () async {
-                          var user = await getUserUID();
-                          homePageController.postFavTours(
-                              data: PostFavTourRequest(
-                            itineraryId: items[index].id ?? 0,
-                            tourId: selectedTourId,
-                            userId: user!,
-                          ));
-                        },
-                      );
-                    },
-                  ),
-                ),
-              ],
+            // Wrap ListView.builder inside an Expanded to allow scrolling
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: homePageController.itinararyList.length,
+                itemBuilder: (context, index) {
+                  var item = homePageController.itinararyList[index];
+                  return ItineraryListTile(
+                    itineraryId: item.id ?? 0,
+                    tourId: selectedTourId,
+                    title: Text("${item.name}"),
+                    onTap: () => Navigator.of(context).pop(),
+                  );
+                },
+              ),
             ),
-          );
-        },
+          ],
+        ),
       );
     },
   );
+}
+
+class ItineraryListTile extends StatefulWidget {
+  final VoidCallback? onTap;
+  final int itineraryId;
+  final int tourId;
+  final Widget? title;
+
+  const ItineraryListTile({
+    super.key,
+    required this.itineraryId,
+    required this.tourId,
+    this.title,
+    this.onTap,
+  });
+
+  @override
+  State<ItineraryListTile> createState() => ItineraryListTileState();
+}
+
+class ItineraryListTileState extends State<ItineraryListTile> {
+  final _repo = ItinararyRepoImpl(ItinararyRemote(Dio()));
+  int? _favTourId;
+  var _selected = false;
+  var _loading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _repo.getFavTours(FavTourRequest(id: widget.itineraryId)).then((value) {
+      setState(() {
+        final selected = value.firstWhereOrNull((t) => t.id == widget.tourId);
+        if (selected != null) {
+          _favTourId = selected.tourId;
+          _selected = true;
+        }
+
+        _loading = false;
+      });
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final controller = Get.find<HomePageController>();
+    return ListTile(
+      title: widget.title,
+      trailing: AnimatedOpacity(
+        duration: Durations.short3,
+        opacity: _loading ? 0.2 : 1.0,
+        child: AnimatedCrossFade(
+          firstChild: const FaIcon(FontAwesomeIcons.solidHeart),
+          secondChild: const FaIcon(FontAwesomeIcons.heart),
+          crossFadeState:
+              _selected ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+          duration: Durations.short3,
+        ),
+      ),
+      onTap: _loading
+          ? null
+          : () async {
+              setState(() => _selected = !_selected);
+              if (_selected) {
+                var user = await getUserUID();
+                controller.postFavTours(
+                    data: PostFavTourRequest(
+                  itineraryId: widget.itineraryId,
+                  tourId: widget.tourId,
+                  userId: user!,
+                ));
+              } else {
+                await controller.deleteFavTour(
+                  itineraryId: widget.itineraryId,
+                  tourId: _favTourId!,
+                );
+              }
+              widget.onTap?.call();
+            },
+    );
+  }
 }

@@ -10,6 +10,8 @@ import 'package:wannoo/places_detail/data_layer/usecase/get_places_details_useca
 import 'package:wannoo/places_detail/presentation_layer/place_details_controller.dart';
 import 'package:wannoo/places_detail/presentation_layer/widgets/main_details.dart';
 import 'package:wannoo/places_detail/presentation_layer/widgets/faq_section.dart';
+import 'package:wannoo/utilities/dialog.dart';
+import 'package:wannoo/utilities/extension.dart';
 
 import '../../components/experiences_list_view.dart';
 import '../../homepage/presentation_layer/widgets/heading_with_button.dart';
@@ -54,8 +56,7 @@ class PlaceDetailsScreen extends StatelessWidget {
                   background: Obx(
                     () {
                       return AuraUICarousel(
-                        images:
-                            placedetailsController.imagePaths.value.map((img) {
+                        images: placedetailsController.imagePaths.map((img) {
                           return '$baseurl/${img.imagepath}'; // Concatenating baseurl and imagepath
                         }).toList(),
                         pageController: pageController,
@@ -63,7 +64,7 @@ class PlaceDetailsScreen extends StatelessWidget {
                         maxWidth: Get.width,
                         height: 240,
                         padding: EdgeInsets.zero,
-                      );
+                      ).fadeIn(duration: Durations.medium1);
                     },
                   ),
                 ),
@@ -172,7 +173,10 @@ class PlaceDetailsScreen extends StatelessWidget {
                     spacing: 16,
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () => showMyModalBottomSheet(
+                          context,
+                          placedetailsController.demoData.value.id,
+                        ),
                         icon: const FaIcon(FontAwesomeIcons.heart),
                       ),
                       Expanded(

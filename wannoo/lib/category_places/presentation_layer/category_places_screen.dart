@@ -25,6 +25,7 @@ class CategoryPlacesScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 final item = categoryPlacesController.places[index];
                 return PlacesCard(
+                  id: item.internaTourid,
                   title: item.title,
                   image: item.imagepath,
                   location: item.location,
