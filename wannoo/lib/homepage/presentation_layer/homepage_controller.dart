@@ -12,10 +12,12 @@ import 'package:wannoo/homepage/data_layer/model/services_model.dart';
 import 'package:wannoo/homepage/data_layer/usecase/get_all_tours_usecase.dart';
 import 'package:wannoo/itinarary/data_layer/model/request/create_itinarary_request.dart';
 import 'package:wannoo/itinarary/data_layer/model/request/delete_itinarary_request.dart';
+import 'package:wannoo/itinarary/data_layer/model/request/delete_user_fav_tour_request.dart';
 import 'package:wannoo/itinarary/data_layer/model/request/post_fav_tour.dart';
 import 'package:wannoo/itinarary/data_layer/model/request/user_itinarary_request.dart';
 import 'package:wannoo/itinarary/data_layer/model/response/itinarary_model.dart';
 import 'package:wannoo/itinarary/data_layer/usecase/create_itinarary_usecase.dart';
+import 'package:wannoo/itinarary/data_layer/usecase/delete_fav_tour.dart';
 import 'package:wannoo/itinarary/data_layer/usecase/post_fav_tour.dart';
 import 'package:wannoo/utilities/auth_class.dart';
 import 'package:wannoo/utilities/dialog.dart';
@@ -31,20 +33,23 @@ class HomePageController extends GetxController {
   final GetitinararyUseCase getitinararyUseCase;
   final CreateItinararyUseCase createItinararyUseCase;
   final CategoryController categoryController = Get.put(CategoryController());
-  final PostFavUseCase postFavUseCase;
+  final PostFavUseCase addFavUseCase;
+  final DeleteFavTourUseCase deleteFavTourUseCase;
   final DeleteItinararyUseCase deleteItinararyUseCase;
 
   var currentImage = "".obs;
   var email = "".obs;
   var name = "".obs;
 
-  HomePageController(
-      {required this.getAllToursUseCase,
-      required this.postFavUseCase,
-      required this.getitinararyUseCase,
-      required this.getAllCategoriesUseCase,
-      required this.createItinararyUseCase,
-      required this.deleteItinararyUseCase});
+  HomePageController({
+    required this.getAllToursUseCase,
+    required this.addFavUseCase,
+    required this.deleteFavTourUseCase,
+    required this.getitinararyUseCase,
+    required this.getAllCategoriesUseCase,
+    required this.createItinararyUseCase,
+    required this.deleteItinararyUseCase,
+  });
 
   @override
   void onInit() {
@@ -140,12 +145,29 @@ class HomePageController extends GetxController {
 
   void postFavTours({required PostFavTourRequest data}) async {
     try {
-      postFavUseCase.execute(PostFavTourRequest(
+      addFavUseCase.execute(PostFavTourRequest(
           itineraryId: data.itineraryId,
           tourId: data.tourId,
           userId: data.userId));
     } catch (e) {
       showSnackBar(Get.context!, e.toString(), state: StateType.error);
+    }
+  }
+
+  Future<void> deleteFavTour({
+    required int itineraryId,
+    required int tourId,
+  }) async {
+    var uid = await getUserUID();
+    var data = DeleteUserFavTourRequest(
+      id: uid,
+      itineraryId: itineraryId,
+      tourId: tourId,
+    );
+    try {
+      deleteFavTourUseCase.execute(data);
+    } catch (e) {
+      debugPrint(e.toString());
     }
   }
 
