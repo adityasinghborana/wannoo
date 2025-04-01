@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import 'package:wannoo/constants.dart';
-import 'package:wannoo/styles.dart';
 
-import '../../components/introscreen/introduction.dart';
+import '../../Components/introscreen/introduction.dart';
+import '../../Constants.dart';
+import '../../styles.dart';
 
 class OnBoardingController extends GetxController {
   List<Introduction> list = [

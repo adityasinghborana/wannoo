@@ -6,7 +6,7 @@ class GetAllCategoriesUseCase {
 
   GetAllCategoriesUseCase(this.repository);
 
-  Future<List<Category>>  execute() {
+  Future<List<Category>> execute() {
     return repository.getAllCategories();
   }
 }

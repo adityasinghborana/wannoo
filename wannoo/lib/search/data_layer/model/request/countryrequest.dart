@@ -3,12 +3,8 @@ part 'countryrequest.g.dart';
 
 @JsonSerializable()
 class CountriesRequest {
-final String name;
-  CountriesRequest(
-{
-  required this.name
-}
-      );
+  final String name;
+  CountriesRequest({required this.name});
 
   factory CountriesRequest.fromJson(Map<String, dynamic> json) =>
       _$CountriesRequestFromJson(json);

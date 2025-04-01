@@ -47,7 +47,7 @@ dependencies:
   shared_preferences: ^2.2.3
   flutter_svg: ^2.0.14
   font_awesome_flutter: ^10.7.0
-  auraa_ui: ^1.0.3
+  auraa_ui: ^1.0.9
   gap: ^3.0.1
   dio: ^5.7.0
   image_picker: ^1.1.2

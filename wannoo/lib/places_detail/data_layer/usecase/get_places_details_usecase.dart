@@ -8,7 +8,7 @@ class GetPlaceDetailsUseCase {
 
   GetPlaceDetailsUseCase(this.repository);
 
-  Future<PlaceDetails> execute( PlacesDetailRequest data) {
+  Future<PlaceDetails> execute(PlacesDetailRequest data) {
     return repository.getPlaceDetails(data);
   }
 }

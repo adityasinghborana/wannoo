@@ -7,6 +7,8 @@ import 'package:wannoo/constants.dart';
 import 'package:wannoo/homepage/presentation_layer/widgets/banner.dart';
 import 'package:wannoo/routes.dart';
 
+import '../homepage_controller.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -17,7 +19,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final _scrollController = ScrollController();
   var _collapsed = false;
-
+  final HomePageController homePageController = Get.find();
   @override
   void initState() {
     _scrollController.addListener(() {
@@ -67,10 +69,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 : const EdgeInsets.all(16),
           ),
           actions: [
-            CircleAvatar(
-              backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-              radius: 20,
-              child: const FaIcon(FontAwesomeIcons.person),
+            InkWell(
+              onTap: () => Get.toNamed(AppRoutes.profile),
+              child: Obx(
+                () => CircleAvatar(
+                  backgroundColor: Colors.grey, // Customize as needed
+                  foregroundImage: NetworkImage(
+                      "$baseurl/${homePageController.currentImage.value}"), // Default asset image
+                ),
+              ),
             ),
             const SizedBox(width: 8),
           ],

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:wannoo/constants.dart';
 import 'package:wannoo/routes.dart';
 
-import '../../components/introscreen/intro_screen_onboarding.dart';
+import '../../Components/introscreen/intro_screen_onboarding.dart';
 import 'onboarding_controller.dart';
 
 class OnBoardingScreen extends StatelessWidget {

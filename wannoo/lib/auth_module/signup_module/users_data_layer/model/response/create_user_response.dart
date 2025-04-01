@@ -23,6 +23,7 @@ class UserModelResponse {
     this.dob,
   });
 
-  factory UserModelResponse.fromJson(Map<String, dynamic> json) => _$UserModelResponseFromJson(json);
+  factory UserModelResponse.fromJson(Map<String, dynamic> json) =>
+      _$UserModelResponseFromJson(json);
   Map<String, dynamic> toJson() => _$UserModelResponseToJson(this);
 }
