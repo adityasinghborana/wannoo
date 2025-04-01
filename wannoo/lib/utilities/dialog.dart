@@ -11,8 +11,6 @@ import 'package:wannoo/itinarary/data_layer/repository/itinarary_repository.dart
 import 'package:wannoo/itinarary/data_layer/service/itinarary_remote.dart';
 import 'package:wannoo/utilities/auth_class.dart';
 import '../homepage/presentation_layer/homepage_controller.dart';
-import '../itinarary/data_layer/repository/itinarary_repository.dart';
-import '../itinarary/data_layer/service/itinarary_remote.dart';
 
 Future<void> showMyDialog(BuildContext context, List<String> items) async {
   // A list to keep track of checkbox states
