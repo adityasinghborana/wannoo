@@ -1,5 +1,6 @@
 class ExperiencesModel {
   final int id;
+
   final int internaTourid;
   final String title;
   final String imagepath;
