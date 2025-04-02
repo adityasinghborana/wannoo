@@ -41,7 +41,8 @@ class ItinararyController extends GetxController {
             country: tour.countryName,
             continent: tour.continent,
             internaTourid: tour.id ?? 0,
-            price: tour.tourpricing?.amount ?? 0)));
+            price: tour.tourpricing?.amount ?? 0,
+            staticDataId: tour.id ?? 0)));
       });
     } catch (e) {
       debugPrint(e.toString());

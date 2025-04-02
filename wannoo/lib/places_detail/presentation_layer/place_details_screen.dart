@@ -36,6 +36,9 @@ class PlaceDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String? id = Get.parameters['id'];
+    final String? tourStaticDataId = Get.parameters['tourStaticDataId'];
+
+    print(id);
     final String? amount = Get.parameters['amount'];
 
     placedetailsController.getPlaceData(id ?? "");
@@ -175,7 +178,7 @@ class PlaceDetailsScreen extends StatelessWidget {
                       IconButton(
                         onPressed: () => showMyModalBottomSheet(
                           context,
-                          placedetailsController.demoData.value.id,
+                          int.parse(tourStaticDataId!),
                         ),
                         icon: const FaIcon(FontAwesomeIcons.heart),
                       ),

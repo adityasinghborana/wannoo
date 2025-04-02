@@ -62,6 +62,8 @@ class ExperiencesListview extends StatelessWidget {
                 Get.toNamed(AppRoutes.placedetails, parameters: {
                   'id': "${filteredTours[index].id}",
                   'amount': filteredTours[index].price.toString(),
+                  'tourStaticDataId':
+                      filteredTours[index].staticDataId.toString(),
                 });
               },
             );

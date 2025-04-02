@@ -1,5 +1,6 @@
 class ExperiencesModel {
   final int id;
+  final int staticDataId;
   final int internaTourid;
   final String title;
   final String imagepath;
@@ -10,7 +11,8 @@ class ExperiencesModel {
   final double? price;
 
   ExperiencesModel(
-      {required this.title,
+      {required this.staticDataId,
+      required this.title,
       required this.internaTourid,
       required this.imagepath,
       required this.location,
