@@ -96,7 +96,6 @@ class HomePageController extends GetxController {
       // Map the response to a list of ExperiencesModel objects
       experiences.value = response.map((tour) {
         return ExperiencesModel(
-            staticDataId: tour.id ?? 0,
             id: tour.tourId ?? 0,
             title: tour.tourName ?? "No name",
             // Replace `title` with the actual property from `tour`

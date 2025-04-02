@@ -33,16 +33,16 @@ class ItinararyController extends GetxController {
     try {
       await getFavToursUseCase.execute(FavTourRequest(id: id)).then((response) {
         savedTours.assignAll(response.map((tour) => ExperiencesModel(
-            id: tour.tourId ?? 0,
-            title: tour.tourName ?? "No name",
-            imagepath: '$baseurl/${tour.imagePath ?? ""}',
-            location: tour.cityName ?? "",
-            category: tour.cityTourType ?? "",
-            country: tour.countryName,
-            continent: tour.continent,
-            internaTourid: tour.id ?? 0,
-            price: tour.tourpricing?.amount ?? 0,
-            staticDataId: tour.id ?? 0)));
+              id: tour.tourId ?? 0,
+              title: tour.tourName ?? "No name",
+              imagepath: '$baseurl/${tour.imagePath ?? ""}',
+              location: tour.cityName ?? "",
+              category: tour.cityTourType ?? "",
+              country: tour.countryName,
+              continent: tour.continent,
+              internaTourid: tour.id ?? 0,
+              price: tour.tourpricing?.amount ?? 0,
+            )));
       });
     } catch (e) {
       debugPrint(e.toString());

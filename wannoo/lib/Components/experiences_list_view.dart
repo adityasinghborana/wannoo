@@ -63,7 +63,7 @@ class ExperiencesListview extends StatelessWidget {
                   'id': "${filteredTours[index].id}",
                   'amount': filteredTours[index].price.toString(),
                   'tourStaticDataId':
-                      filteredTours[index].staticDataId.toString(),
+                      filteredTours[index].internaTourid.toString(),
                 });
               },
             );
