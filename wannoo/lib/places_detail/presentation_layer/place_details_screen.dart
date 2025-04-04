@@ -35,11 +35,9 @@ class PlaceDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String? id = Get.parameters['id'];
-    final String? tourStaticDataId = Get.parameters['tourStaticDataId'];
-
-    print(id);
-    final String? amount = Get.parameters['amount'];
+    final id = Get.parameters['id'];
+    final tourStaticDataId = Get.parameters['tourStaticDataId'];
+    final amount = Get.parameters['amount'];
 
     placedetailsController.getPlaceData(id ?? "");
 
