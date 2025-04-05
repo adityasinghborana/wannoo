@@ -17,8 +17,13 @@ class AllCategoryScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: GridView.builder(
-        gridDelegate:
-            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: (MediaQuery.of(context).size.width - 32) ~/
+              MediaQuery.of(context).textScaler.scale(96),
+          crossAxisSpacing: 8,
+          mainAxisSpacing: 8,
+        ),
+        padding: const EdgeInsets.all(16),
         itemCount: categoryController.category.length,
         itemBuilder: (BuildContext context, int index) {
           return Obx(

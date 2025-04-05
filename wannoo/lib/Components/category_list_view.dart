@@ -15,7 +15,7 @@ class CustomListCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return SizedBox(
-        height: 88 + 16,
+        height: MediaQuery.of(context).textScaler.scale(96) + 16,
         child: ListView.separated(
           padding: const EdgeInsets.only(
             top: 4,

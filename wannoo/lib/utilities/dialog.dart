@@ -178,7 +178,10 @@ class ItineraryListTileState extends State<ItineraryListTile> {
         duration: Durations.short3,
         opacity: _loading ? 0.2 : 1.0,
         child: AnimatedCrossFade(
-          firstChild: const FaIcon(FontAwesomeIcons.solidHeart),
+          firstChild: FaIcon(
+            FontAwesomeIcons.solidHeart,
+            color: Theme.of(context).colorScheme.primary,
+          ),
           secondChild: const FaIcon(FontAwesomeIcons.heart),
           crossFadeState:
               _selected ? CrossFadeState.showFirst : CrossFadeState.showSecond,

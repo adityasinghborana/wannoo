@@ -82,95 +82,71 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(width: 8),
           ],
         ),
-        SliverToBoxAdapter(
-          child: ListTile(
-            contentPadding: const EdgeInsets.all(16),
-            title: const Text('Categories'),
-            titleTextStyle: Theme.of(context).textTheme.titleLarge,
-            trailing: TextButton(
-              onPressed: () {},
-              child: const Text('See All'),
+        SliverList.list(
+          children: [
+            ListTile(
+              contentPadding: const EdgeInsets.all(16),
+              title: const Text('Categories'),
+              titleTextStyle: Theme.of(context).textTheme.titleLarge,
+              trailing: TextButton(
+                onPressed: () => Get.toNamed(AppRoutes.allcategories),
+                child: const Text('See All'),
+              ),
             ),
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: CustomListCategory(),
-        ),
-        SliverToBoxAdapter(
-          child: ListTile(
-            contentPadding: const EdgeInsets.all(16),
-            title: const Text('Most Visited'),
-            titleTextStyle: Theme.of(context).textTheme.titleLarge,
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: ExperiencesListview(
-            filterProperty: 'Festivals',
-            isFilteredList: false,
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: ListTile(
-            contentPadding: const EdgeInsets.all(16),
-            title: const Text('Recommended tours'),
-            titleTextStyle: Theme.of(context).textTheme.titleLarge,
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: ExperiencesListview(
-            filterProperty: 'Trek',
-            isFilteredList: false,
-          ),
-        ),
-        SliverPadding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 24,
-          ),
-          sliver: SliverToBoxAdapter(
-            child: CTA(),
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: ListTile(
-            contentPadding: const EdgeInsets.all(16),
-            title: const Text('Hiking'),
-            titleTextStyle: Theme.of(context).textTheme.titleLarge,
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: ExperiencesListview(
-            filterProperty: 'Hiking',
-            isFilteredList: false,
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: ListTile(
-            contentPadding: const EdgeInsets.all(16),
-            title: const Text('Desert Safari'),
-            titleTextStyle: Theme.of(context).textTheme.titleLarge,
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: ExperiencesListview(
-            filterProperty: 'Hiking',
-            isFilteredList: false,
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: ListTile(
-            title: const Text('Top Events'),
-            titleTextStyle: Theme.of(context).textTheme.titleLarge,
-          ),
-        ),
-        SliverPadding(
-          padding: const EdgeInsets.only(bottom: 16),
-          sliver: SliverToBoxAdapter(
-            child: ExperiencesListview(
+            CustomListCategory(),
+            ListTile(
+              contentPadding: const EdgeInsets.all(16),
+              title: const Text('Most Visited'),
+              titleTextStyle: Theme.of(context).textTheme.titleLarge,
+            ),
+            ExperiencesListview(
+              filterProperty: 'Festivals',
+              isFilteredList: false,
+            ),
+            ListTile(
+              contentPadding: const EdgeInsets.all(16),
+              title: const Text('Recommended tours'),
+              titleTextStyle: Theme.of(context).textTheme.titleLarge,
+            ),
+            ExperiencesListview(
+              filterProperty: 'Trek',
+              isFilteredList: false,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 24,
+              ),
+              child: CTA(),
+            ),
+            ListTile(
+              contentPadding: const EdgeInsets.all(16),
+              title: const Text('Hiking'),
+              titleTextStyle: Theme.of(context).textTheme.titleLarge,
+            ),
+            ExperiencesListview(
               filterProperty: 'Hiking',
               isFilteredList: false,
             ),
-          ),
+            ListTile(
+              contentPadding: const EdgeInsets.all(16),
+              title: const Text('Desert Safari'),
+              titleTextStyle: Theme.of(context).textTheme.titleLarge,
+            ),
+            ExperiencesListview(
+              filterProperty: 'Hiking',
+              isFilteredList: false,
+            ),
+            ListTile(
+              title: const Text('Top Events'),
+              titleTextStyle: Theme.of(context).textTheme.titleLarge,
+            ),
+            ExperiencesListview(
+              filterProperty: 'Hiking',
+              isFilteredList: false,
+            ),
+            const SizedBox(height: 16),
+          ],
         ),
       ],
     );
