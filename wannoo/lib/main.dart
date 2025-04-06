@@ -73,7 +73,53 @@ class _MyAppState extends State<MyApp> {
               seedColor: ThemeColor.colorAccentPrimary,
               brightness: Brightness.dark,
             ),
-            textTheme: GoogleFonts.latoTextTheme(),
+            textTheme: GoogleFonts.latoTextTheme().copyWith(
+              displayLarge: GoogleFonts.latoTextTheme()
+                  .displayLarge
+                  ?.copyWith(color: Colors.white),
+              displayMedium: GoogleFonts.latoTextTheme()
+                  .displayMedium
+                  ?.copyWith(color: Colors.white),
+              displaySmall: GoogleFonts.latoTextTheme()
+                  .displaySmall
+                  ?.copyWith(color: Colors.white),
+              headlineLarge: GoogleFonts.latoTextTheme()
+                  .headlineLarge
+                  ?.copyWith(color: Colors.white),
+              headlineMedium: GoogleFonts.latoTextTheme()
+                  .headlineMedium
+                  ?.copyWith(color: Colors.white),
+              headlineSmall: GoogleFonts.latoTextTheme()
+                  .headlineSmall
+                  ?.copyWith(color: Colors.white),
+              titleLarge: GoogleFonts.latoTextTheme()
+                  .titleLarge
+                  ?.copyWith(color: Colors.white),
+              titleMedium: GoogleFonts.latoTextTheme()
+                  .titleMedium
+                  ?.copyWith(color: Colors.white),
+              titleSmall: GoogleFonts.latoTextTheme()
+                  .titleSmall
+                  ?.copyWith(color: Colors.white),
+              bodyLarge: GoogleFonts.latoTextTheme()
+                  .bodyLarge
+                  ?.copyWith(color: Colors.white),
+              bodyMedium: GoogleFonts.latoTextTheme()
+                  .bodyMedium
+                  ?.copyWith(color: Colors.white),
+              bodySmall: GoogleFonts.latoTextTheme()
+                  .bodySmall
+                  ?.copyWith(color: Colors.white),
+              labelLarge: GoogleFonts.latoTextTheme()
+                  .labelLarge
+                  ?.copyWith(color: Colors.white),
+              labelMedium: GoogleFonts.latoTextTheme()
+                  .labelMedium
+                  ?.copyWith(color: Colors.white),
+              labelSmall: GoogleFonts.latoTextTheme()
+                  .labelSmall
+                  ?.copyWith(color: Colors.white),
+            ),
           ),
           initialRoute: savedUser != null ? AppRoutes.home : AppRoutes.splash,
           getPages: AppRoutes.routes,
