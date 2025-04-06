@@ -16,7 +16,7 @@ class CategoryPlacesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final categoryPlacesController = Get.put(CategoryPlacesController());
     return Scaffold(
-      endDrawer: Drawer(
+      endDrawer: const Drawer(
         child: FiltersWidget(),
       ),
       appBar: AppBar(
@@ -24,7 +24,8 @@ class CategoryPlacesScreen extends StatelessWidget {
         actions: [
           Builder(
             builder: (context) => IconButton(
-              icon: Icon(Icons.tune), // 👈 change this to any icon you want
+              icon:
+                  const Icon(Icons.tune), // 👈 change this to any icon you want
               onPressed: () {
                 Scaffold.of(context).openEndDrawer();
               },
