@@ -14,6 +14,7 @@ class CategoryPlacesController extends GetxController {
   @override
   void onInit() {
     getlist();
+    calculateMaxBudget();
     super.onInit();
   }
 
@@ -33,6 +34,9 @@ class CategoryPlacesController extends GetxController {
   final HomePageController homePageController = Get.find();
   final String? category = Get.parameters["category"];
 
+  RxDouble maxBudget = 0.0.obs;
+  RxDouble minBudget = 0.0.obs;
+
   final RxList<ExperiencesModel> places = <ExperiencesModel>[].obs;
 
   void getlist() {
@@ -47,27 +51,49 @@ class CategoryPlacesController extends GetxController {
     final city = filtersController.selectedCity.trim().toLowerCase();
     final country = filtersController.selectedCountry.trim().toLowerCase();
     final continent = filtersController.selectedContinent.trim().toLowerCase();
-    final category = filtersController.selectedCategory.trim().toLowerCase();
+    final budget = filtersController.budget.value;
 
     final List<ExperiencesModel> list =
         homePageController.experiences.where((item) {
       final itemCity = item.location.toLowerCase();
       final itemCountry = item.country?.toLowerCase();
       final itemContinent = item.continent?.toLowerCase();
-      final itemCategory = item.category.toLowerCase();
+      final itemPrice = item.price ?? 0; // fallback in case price is null
 
       // Only apply a filter if the selected value is not empty
       final matchesCity = city.isEmpty || itemCity == city;
       final matchesCountry = country.isEmpty || itemCountry == country;
       final matchesContinent = continent.isEmpty || itemContinent == continent;
-      final matchesCategory = category.isEmpty || itemCategory == category;
+      final matchesBudget = budget.isNaN || itemPrice <= budget;
 
-      return matchesCity &&
-          matchesCountry &&
-          matchesContinent &&
-          matchesCategory;
+      return matchesCity && matchesCountry && matchesContinent && matchesBudget;
     }).toList();
-
     places.assignAll(list);
+  }
+
+  void calculateMaxBudget() {
+    if (homePageController.experiences.isNotEmpty) {
+      final nonNullPrices = homePageController.experiences
+          .map((tour) => tour.price)
+          .where((price) => price != null)
+          .cast<double>(); // or cast<int> if ints
+
+      if (nonNullPrices.isNotEmpty) {
+        maxBudget.value = nonNullPrices.reduce((a, b) => a > b ? a : b);
+      }
+    }
+  }
+
+  void calculateMinBudget() {
+    if (homePageController.experiences.isNotEmpty) {
+      final nonNullPrices = homePageController.experiences
+          .map((tour) => tour.price)
+          .where((price) => price != null)
+          .cast<double>(); // or cast<int> if int
+
+      if (nonNullPrices.isNotEmpty) {
+        minBudget.value = nonNullPrices.reduce((a, b) => a < b ? a : b);
+      }
+    }
   }
 }

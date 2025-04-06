@@ -24,6 +24,7 @@ class PlacesCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var amount = price == 0.00 ? "Free" : "£$price";
     return Container(
       height: MediaQuery.textScalerOf(context).scale(140),
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -97,7 +98,7 @@ class PlacesCard extends StatelessWidget {
                       ),
                       const Spacer(),
                       Text(
-                        "\$$price",
+                        amount,
                         style: Theme.of(context).textTheme.labelLarge,
                       ),
                       const SizedBox(width: 8),

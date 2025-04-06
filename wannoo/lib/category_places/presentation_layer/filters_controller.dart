@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../categories/presentation_layer/category_controller.dart';
 import '../../search/data_layer/model/request/city_request.dart';
 import '../../search/data_layer/model/request/countryrequest.dart';
 import '../../search/data_layer/model/response/city_response.dart';
@@ -16,7 +14,6 @@ class FiltersController extends GetxController {
   final GetAllContinentsUseCase getAllContinentsUseCase;
   final GetCountriesUseCase getCountriesUseCase;
   final GetCitiesUsecase getCitiesUsecase;
-  final CategoryController categoryController = Get.find();
 
   FiltersController(
       {required this.getAllContinentsUseCase,
@@ -27,23 +24,16 @@ class FiltersController extends GetxController {
     super.onInit();
 
     getContinents();
-    category();
   }
 
   RxList<String> continentList = <String>["1", "2", "3"].obs;
   RxList<String> countryList = <String>["Loading"].obs;
   RxList<String> cityList = <String>["Loading"].obs;
-  RxList<String> categoryList = <String>["2", "1", "23"].obs;
+  RxDouble budget = 0.0.obs;
 
   RxString selectedContinent = "".obs;
   RxString selectedCountry = "".obs;
   RxString selectedCity = "".obs;
-  RxString selectedCategory = "".obs;
-
-  void category() {
-    categoryList.value =
-        categoryController.category.map((e) => e.title).toList();
-  }
 
   Future<void> getContinents() async {
     try {

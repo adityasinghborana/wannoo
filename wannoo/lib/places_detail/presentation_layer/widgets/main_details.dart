@@ -21,6 +21,7 @@ class MainDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var amount = price == 0.00 ? "Free" : "£$price";
     return Padding(
       padding: const EdgeInsets.symmetric(
           horizontal: GlobalPadding.px_md, vertical: GlobalPadding.py_md),
@@ -76,7 +77,7 @@ class MainDetails extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Text(
-                    "\$ $price",
+                    amount,
                     style: TypographyStyle.xxlFont
                         .copyWith(fontWeight: FontWeight.w700),
                   ),
