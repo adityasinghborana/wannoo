@@ -29,6 +29,7 @@ class ExperiencesCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var amount = price == 0.00 ? "Free" : "£$price";
     return SizedBox(
       width: MediaQuery.of(context).textScaler.scale(160),
       child: Card.outlined(
@@ -98,7 +99,7 @@ class ExperiencesCard extends StatelessWidget {
                         const Spacer(),
                         if (isPriceVisible)
                           Text(
-                            "$price",
+                            amount,
                             style: Theme.of(context).textTheme.labelMedium,
                           ),
                       ],
