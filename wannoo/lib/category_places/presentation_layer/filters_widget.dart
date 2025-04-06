@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wannoo/category_places/presentation_layer/filters_controller.dart';
+import '../../Components/filter_slider.dart';
 import '../../Constants.dart';
 import '../../search/data_layer/model/request/city_request.dart';
 import '../../search/data_layer/model/request/countryrequest.dart';
@@ -64,20 +65,15 @@ class FiltersWidget extends StatelessWidget {
         ),
         ListTile(
           dense: true,
-          title: const Text("Category"),
+          title: const Text("Budget"),
           titleTextStyle: Theme.of(context).textTheme.titleSmall,
         ),
-        ListTile(
-          title: CustomDropDownRow(
-            icon: const Icon(Icons.category),
-            dropdownlist: filtersController.categoryList,
-            onchanged: (value) {
-              filtersController.selectedCategory.value = value;
-
-              // Call the API related to continent selection here
-            },
-          ),
-        ),
+        ListTile(title: Obx(() {
+          return FilterSlider(
+            min: categoryPlacesController.minBudget.value.floor(),
+            max: categoryPlacesController.maxBudget.value.floor(),
+          );
+        })),
         const SizedBox(height: 16),
         ListTile(
           title: FilledButton(
