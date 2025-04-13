@@ -89,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
               title: const Text('Categories'),
               titleTextStyle: Theme.of(context).textTheme.titleLarge,
               trailing: TextButton(
-                onPressed: () => Get.toNamed(AppRoutes.allcategories),
+                onPressed: () => Scaffold.of(context).openEndDrawer(),
                 child: const Text('See All'),
               ),
             ),

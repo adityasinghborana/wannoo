@@ -7,6 +7,7 @@ import 'package:wannoo/bookings/presentation_layer/previous_bookings.dart';
 import 'package:wannoo/categories/datalayer/repository/allcategoriesrepo.dart';
 import 'package:wannoo/categories/datalayer/service/remote.dart';
 import 'package:wannoo/categories/datalayer/usecase/allcategoriesusecase.dart';
+import 'package:wannoo/categories/presentation_layer/category_screen.dart';
 import 'package:wannoo/homepage/data_layer/repository/alltours.dart';
 import 'package:wannoo/homepage/data_layer/service/alltours_remote.dart';
 import 'package:wannoo/homepage/data_layer/usecase/get_all_tours_usecase.dart';
@@ -111,6 +112,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
         ],
         onTap: (index) => setState(() => visit = index),
       ),
+      endDrawer: const AllCategoryScreen(),
     );
   }
 }
